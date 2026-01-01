@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources – Predicai™</title>
+  <meta name="description" content="Free tools and protocols for the AI age. Verify scams, get Shield checklists, and explore the Academy framework." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://predicai.ai/resources.html" />
+  <meta property="og:title" content="Resources – Predicai™" />
+  <meta property="og:description" content="Free tools and protocols for the AI age. Verify scams, get Shield checklists, and explore the Academy framework." />
+  <meta property="og:image" content="https://predicai.ai/social-share.png" />
+
+  <meta name="theme-color" content="#FFFFFF" />
+  <link rel="canonical" href="https://predicai.ai/resources.html" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/logo.png" type="image/png" />
+
+  <style>
+    :root {
+      /* Page */
+      --bg-page: #F8FAFC;
+      --bg-white: #FFFFFF;
+      --bg-subtle: #F3F4F6;
+
+      /* Text */
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+
+      /* Predicai core */
+      --blue: #1D4ED8;
+      --teal: #0F766E;
+
+      /* Shield: BRIGHT GOLD (no bronze/brown) */
+      --gold: #FFD24A;
+      --gold-strong: #F4B400;
+      --gold-bg: #FFFBEB;
+      --gold-ink: #111827;
+      --gold-border: rgba(244,180,0,0.35);
+
+      /* Borders / Effects */
+      --border: #E2E8F0;
+      --shadow: 0 10px 25px -5px rgba(0,0,0,0.10);
+      --shadow-strong: 0 16px 40px -12px rgba(0,0,0,0.18);
+      --radius: 18px;
+
+      --focus: #2563EB;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .skip-link{
+      position:absolute; left:-9999px; top:12px;
+      background:#fff; color: var(--text-main);
+      padding:10px 14px; border-radius:10px; z-index:9999;
+      text-decoration:none; font-weight:900;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .skip-link:focus{ left:12px; outline: 3px solid rgba(37,99,235,0.35); outline-offset: 2px; }
+
+    a { color: inherit; }
+    a:focus, .btn:focus, .jump-btn:focus {
+      outline: 3px solid rgba(37,99,235,0.35);
+      outline-offset: 2px;
+      border-radius: 12px;
+    }
+
+    header{
+      position: sticky; top:0; z-index:50;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    .header-inner{
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      text-decoration:none;
+      font-weight: 950;
+      font-size: 1.15rem;
+      color: var(--text-main);
+      white-space: nowrap;
+    }
+    .brand span{ color: var(--teal); }
+    .brand img{ width:26px; height:26px; border-radius: 6px; object-fit: contain; }
+
+    nav{
+      display:flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    nav a{
+      color: var(--text-muted);
+      text-decoration:none;
+      font-size: 0.95rem;
+      font-weight: 800;
+      padding: 6px 8px;
+      border-radius: 10px;
+    }
+    nav a:hover{ color: var(--text-main); background: rgba(15,118,110,0.06); }
+    nav a.active{
+      color: var(--text-main);
+      font-weight: 950;
+      background: rgba(29,78,216,0.06);
+    }
+
+    main{ padding-bottom: 80px; }
+
+    .hero{
+      text-align:center;
+      padding: 72px 0 40px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    h1{
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 950;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      line-height: 1.08;
+    }
+    .subtitle{
+      font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto 12px;
+    }
+    .micro-note{
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      max-width: 860px;
+      margin: 0 auto 18px;
+    }
+
+    .jump-links{
+      display:flex;
+      justify-content:center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .jump-btn{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text-muted);
+      text-decoration:none;
+      font-weight: 900;
+      transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+      white-space: nowrap;
+    }
+    .jump-btn:hover{
+      transform: translateY(-2px);
+      border-color: #CBD5E1;
+    }
+    .jump-btn.active{
+      background: var(--text-main);
+      color: #fff;
+      border-color: var(--text-main);
+    }
+    .btn-icon{
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .btn-icon.round{ border-radius: 50%; }
+
+    .zone-header{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      margin-top: 44px;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .zone-title{
+      font-size: 0.95rem;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .zone-badge{
+      font-size: 0.75rem;
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-weight: 950;
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+    }
+    .badge-safety{ background: var(--gold-bg); color: var(--gold-ink); border: 1px solid var(--gold-border); }
+    .badge-work{ background: rgba(13,148,136,0.10); color: var(--teal); border: 1px solid rgba(13,148,136,0.18); }
+
+    .resource-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .resource-card{
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      display:flex;
+      flex-direction:column;
+      position:relative;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      min-width: 0;
+      box-shadow: none;
+    }
+    .resource-card:hover{
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-strong);
+    }
+
+    .card-icon{ font-size: 2rem; margin-bottom: 12px; display:block; }
+    .card-title{ font-size: 1.2rem; font-weight: 950; margin-bottom: 10px; }
+    .card-desc{
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 950;
+      text-decoration:none;
+      font-size: 0.96rem;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease, opacity 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:hover{ transform: translateY(-2px); opacity: 0.96; }
+    .btn:active{ transform: translateY(1px); }
+
+    .btn-primary{ background: var(--text-main); color:#fff; }
+    .btn-outline{ background:#fff; border-color: var(--border); color: var(--text-main); }
+    .btn-teal{ background: var(--teal); color:#fff; }
+    .btn-shield{ background: var(--gold); color: var(--gold-ink); }
+    .btn-shield:hover{ background: var(--gold-strong); }
+
+    .btn-full{ width:100%; display:flex; }
+
+    .card-shield-highlight{
+      background: var(--gold-bg);
+      border-color: var(--gold-border);
+    }
+    .card-shield-highlight .card-title{ color: var(--gold-ink); }
+    .card-shield-highlight .card-desc{ color: rgba(17,24,39,0.88); }
+
+    .card-work-highlight{
+      background: rgba(13,148,136,0.08);
+      border-color: rgba(13,148,136,0.18);
+    }
+    .card-work-highlight .card-title{ color: var(--teal); }
+
+    .price-row{ margin: 0 0 14px; }
+    .price-big{
+      font-size: 2.2rem;
+      font-weight: 1000;
+      line-height: 1;
+      color: var(--gold-ink);
+    }
+    .price-sub{ font-size: 1rem; font-weight: 900; opacity: 0.85; }
+    .price-badge{
+      display:inline-block;
+      margin-top: 8px;
+      font-size: 0.86rem;
+      font-weight: 950;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(244,180,0,0.16);
+      color: var(--gold-ink);
+      border: 1px solid rgba(244,180,0,0.18);
+    }
+
+    .resource-card.disabled{
+      opacity: 0.70;
+      background: var(--bg-subtle);
+    }
+    .locked-badge{
+      position:absolute;
+      top: 16px;
+      right: 16px;
+      font-size: 1.2rem;
+    }
+    .blur-text{
+      filter: blur(4px);
+      opacity: 0.45;
+      user-select:none;
+    }
+
+    footer{
+      border-top: 1px solid var(--border);
+      padding: 38px 0;
+      text-align:center;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+    footer a{
+      color: var(--text-muted);
+      text-decoration:none;
+      font-weight: 900;
+      margin: 0 10px;
+      display:inline-block;
+      padding: 6px 8px;
+      border-radius: 10px;
+    }
+    footer a:hover{ color: var(--text-main); background: rgba(15,118,110,0.06); }
+
+    @media (max-width: 1040px){
+      .resource-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 760px){
+      header{ padding: 12px 0; }
+      .header-inner{ flex-direction: column; align-items: flex-start; }
+      nav{ width: 100%; justify-content: flex-start; gap: 10px; }
+
+      .hero{ padding: 54px 0 34px; }
+      .jump-links{ width:100%; }
+      .jump-btn{ width:100%; justify-content:center; }
+
+      .resource-grid{ grid-template-columns: 1fr; }
+      .resource-card:hover{ transform:none; box-shadow: var(--shadow); }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header>
+    <div class="container header-inner">
+      <a href="/" class="brand" aria-label="Predicai home">
+        <img src="/logo.png" alt="Predicai logo" />
+        <!-- ✅ FIX: --accent-teal doesn't exist; use --teal -->
+        <span>Predic<span style="color: var(--teal)">ai</span>™</span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/academy.html">Academy</a>
+        <a href="/shield.html">Shield</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/resources.html" class="active" aria-current="page">Resources</a>
+        <a href="/faq.html">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="main" tabindex="-1">
+    <section class="hero">
+      <h1>Resources</h1>
+      <p class="subtitle">Free tools, protocols, and reference guides for the AI age.</p>
+      <p class="micro-note">Privacy first. Share only what’s needed for verification. Don’t paste passwords, SSNs, or financial account numbers.</p>
+
+      <div class="jump-links" aria-label="Quick navigation">
+        <a href="#safety-zone" class="jump-btn" id="jump-safety">
+          <img src="/predicai-shield-gold.JPG" alt="" class="btn-icon round" aria-hidden="true">
+          I’m here for Safety
+        </a>
+        <a href="#work-zone" class="jump-btn" id="jump-work">
+          <img src="/logo-academy.png" alt="" class="btn-icon" aria-hidden="true">
+          I’m here for Work
+        </a>
+      </div>
+    </section>
+
+    <!-- SAFETY -->
+    <div id="safety-zone" class="zone-header">
+      <span class="zone-title">Shield Tools & Protocols</span>
+      <span class="zone-badge badge-safety">Personal Safety</span>
+    </div>
+
+    <div class="resource-grid">
+      <div class="resource-card card-shield-highlight">
+        <div style="margin-bottom:14px;">
+          <img src="/predicai-shield-gold.JPG" alt="Shield logo" style="width:46px; height:46px; object-fit:contain; border-radius:50%;">
+        </div>
+
+        <div class="card-title">Shield</div>
+
+        <div class="price-row">
+          <div class="price-big">$99 <span class="price-sub">/yr</span></div>
+          <div class="price-badge">or $9/mo</div>
+        </div>
+
+        <div class="card-desc">
+          Shareable family protocols that reduce risk fast: safe word setup, callback scripts, and checklists built for real life.
+        </div>
+
+        <a href="/shield.html" class="btn btn-shield">View Shield →</a>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-icon" aria-hidden="true">🛑</div>
+        <div class="card-title">Shield Check™ (Free)</div>
+        <div class="card-desc">
+          Paste a suspicious message, email, or screenshot text. Get a quick risk read and clear next steps.
+        </div>
+        <a href="/shield-check.html" class="btn btn-teal">Run Shield Check →</a>
+      </div>
+
+      <!-- ✅ ADD: Checklist discoverability -->
+      <div class="resource-card">
+        <div class="card-icon" aria-hidden="true">🧾</div>
+        <div class="card-title">“Is It Real?” Checklist</div>
+        <div class="card-desc">
+          A printable, step-by-step guide for urgent calls, texts, and emails. Built to stop panic and verify the source.
+        </div>
+        <a href="/shield-checklist.html" class="btn btn-primary">Open Checklist →</a>
+      </div>
+
+      <!-- ✅ UPGRADE: Community report first + official channels -->
+      <div class="resource-card">
+        <div class="card-icon" aria-hidden="true">📣</div>
+        <div class="card-title">Report a Scam</div>
+        <div class="card-desc">
+          Contribute patterns to strengthen the community dataset. If money, identity, or impersonation is involved, also report to official channels.
+        </div>
+        <a href="/report-scam.html" class="btn btn-teal btn-full" style="margin-bottom:10px;">Report to Predicai →</a>
+        <a href="https://reportfraud.ftc.gov/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full" style="margin-bottom:10px;">FTC ReportFraud →</a>
+        <a href="https://www.ic3.gov/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-full">FBI IC3 →</a>
+      </div>
+    </div>
+
+    <!-- WORK -->
+    <div id="work-zone" class="zone-header">
+      <span class="zone-title">Academy Tools & Frameworks</span>
+      <span class="zone-badge badge-work">Professional</span>
+    </div>
+
+    <div class="resource-grid">
+      <div class="resource-card card-work-highlight">
+        <div style="margin-bottom:14px;">
+          <img src="/logo-academy.png" alt="Academy logo" style="width:46px; height:46px; object-fit:contain; border-radius:10px;">
+        </div>
+
+        <div class="card-title">Capability Score™</div>
+        <div class="card-desc" style="color: var(--teal);">
+          A fast diagnostic to see whether you’re operating, building, or leading with AI.
+        </div>
+
+        <a href="/capability.html" class="btn btn-teal">Take the Score →</a>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-icon" aria-hidden="true">🔭</div>
+        <div class="card-title">Vision</div>
+        <div class="card-desc">
+          The north star of Predicai: why capability matters, how trust stays intact, and what “good” looks like in the AI age.
+        </div>
+        <!-- ✅ likely fix: use your .html route -->
+        <a href="/vision.html" class="btn btn-outline">Read the Vision →</a>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-icon" aria-hidden="true">🏗️</div>
+        <div class="card-title">The Standard</div>
+        <div class="card-desc">
+          The 5-level framework and quality gates that define what “done right” looks like when you build with AI.
+        </div>
+        <a href="/standard.html" class="btn btn-primary">View the Standard →</a>
+      </div>
+
+      <div class="resource-card disabled">
+        <div class="locked-badge" aria-hidden="true">🔒</div>
+        <div class="card-icon" aria-hidden="true">🗂️</div>
+        <div class="card-title">Research Library</div>
+        <div class="card-desc">
+          Curated papers and workflow templates. Available to Academy members.
+          <div class="blur-text">Hidden content hidden content hidden content.</div>
+        </div>
+        <a href="/pricing.html" class="btn btn-outline">See Academy Access →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div style="margin-bottom: 12px;">
+      <a href="https://www.linkedin.com/company/predicai-ai/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+
+    <div>© 2026 Predicai™ — All rights reserved.</div>
+
+    <div style="margin-top: 12px; font-size: 0.88rem; opacity: 0.9;">
+      <a href="/academy.html">Academy</a>
+      <a href="/shield.html">Shield</a>
+      <a href="/about.html">About</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
+    </div>
+  </footer>
+
+  <script>
+    const safetyBtn = document.getElementById('jump-safety');
+    const workBtn = document.getElementById('jump-work');
+    const safetyZone = document.getElementById('safety-zone');
+    const workZone = document.getElementById('work-zone');
+
+    function setActive(which) {
+      safetyBtn.classList.toggle('active', which === 'safety');
+      workBtn.classList.toggle('active', which === 'work');
+    }
+
+    if (window.location.hash === '#work-zone') setActive('work');
+    else setActive('safety');
+
+    if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (!visible) return;
+        if (visible.target.id === 'work-zone') setActive('work');
+        if (visible.target.id === 'safety-zone') setActive('safety');
+      }, { rootMargin: "-30% 0px -60% 0px", threshold: [0.02, 0.08, 0.15, 0.25] });
+
+      if (safetyZone) obs.observe(safetyZone);
+      if (workZone) obs.observe(workZone);
+    }
+  </script>
+</body>
+</html>
