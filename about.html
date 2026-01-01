@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Predicai™ – The High-Judgment Human</title>
+  <meta name="description" content="Predicai builds judgment in an age of automated noise. Leverage for professionals. Trust for families." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://predicai.ai/about.html" />
+  <meta property="og:title" content="About Predicai™ – The High-Judgment Human" />
+  <meta property="og:description" content="Predicai builds judgment in an age of automated noise. Leverage for professionals. Trust for families." />
+  <meta property="og:image" content="https://predicai.ai/social-share.png" />
+
+  <meta name="theme-color" content="#FFFFFF" />
+  <link rel="canonical" href="https://predicai.ai/about.html" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/logo.png" type="image/png" />
+
+  <style>
+    :root {
+      --bg-page: #FFFFFF;
+      --bg-subtle: #F9FAFB;
+      --text-main: #111827;
+      --text-muted: #4B5563;
+
+      /* PREMIUM PALETTE */
+      --accent-teal: #0F766E;
+      --accent-gold: #CA8A04;
+      --accent-gold-dark: #854D0E;
+
+      --border: #E5E7EB;
+      --shadow-soft: 0 6px 18px rgba(17,24,39,0.06);
+
+      /* shared focus (brand forward) */
+      --focus: rgba(15,118,110,0.35);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.65;
+    }
+
+    /* ACCESSIBILITY */
+    .skip-link {
+      position: absolute; left: -9999px; top: 12px; z-index: 9999;
+      padding: 10px 14px;
+      background: #111827;
+      color: #fff;
+      font-weight: 900;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: var(--shadow-soft);
+    }
+    .skip-link:focus { left: 12px; }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    /* HEADER (unified pattern) */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      padding: 14px 24px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 950;
+      font-size: 1.1rem;
+      white-space: nowrap;
+    }
+    .brand-logo { width: 28px; height: 28px; border-radius: 6px; object-fit: contain; }
+
+    nav {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 850;
+      padding: 6px 8px;
+      border-radius: 10px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    nav a:hover {
+      color: var(--text-main);
+      background: rgba(17,24,39,0.04);
+    }
+    nav a.active {
+      color: var(--text-main);
+      font-weight: 950;
+      background: rgba(15,118,110,0.10);
+    }
+
+    /* LAYOUT */
+    .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+
+    /* HERO */
+    .hero { padding: 100px 0 44px; text-align: center; }
+    .kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 950;
+      font-size: 0.85rem;
+      color: var(--accent-gold);
+      margin-bottom: 18px;
+      display: block;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 1000;
+      line-height: 1.1;
+      margin-bottom: 18px;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+    }
+    .lead { font-size: 1.25rem; color: var(--text-muted); max-width: 760px; margin: 0 auto 22px; }
+    .principle { color: var(--text-muted); font-size: 0.98rem; max-width: 720px; margin: 0 auto 28px; opacity: 0.85; }
+
+    /* PLEDGE PILL */
+    .pledge-pill {
+      margin-top: 18px;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      background: var(--bg-subtle);
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+    }
+
+    /* CTA Row */
+    .cta-row { display: flex; justify-content: center; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 950;
+      text-decoration: none;
+      transition: transform 0.15s ease, opacity 0.15s ease, border-color 0.15s ease;
+      border: 1px solid transparent;
+    }
+    .btn-primary { background: var(--text-main); color: white; border-color: var(--text-main); }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-2px); }
+    .btn-secondary { background: white; border: 1px solid var(--border); color: var(--text-main); }
+    .btn-secondary:hover { border-color: rgba(15,118,110,0.35); transform: translateY(-2px); }
+
+    /* SPLIT SECTION */
+    .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 56px 0; }
+    .split-card {
+      background: var(--bg-page);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+    .split-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-soft);
+      border-color: rgba(17,24,39,0.10);
+    }
+
+    .card-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
+    .card-title { font-size: 1.25rem; font-weight: 1000; margin-bottom: 10px; color: var(--text-main); }
+    .card-text { color: var(--text-muted); font-size: 1rem; margin-bottom: 16px; }
+
+    .link-teal { color: var(--accent-teal); font-weight: 950; text-decoration: none; }
+    .link-teal:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    .link-gold { color: var(--accent-gold); font-weight: 950; text-decoration: none; }
+    .link-gold:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    /* ETHICS BOX */
+    .ethics-box {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 60px 0;
+      margin: 72px 0;
+      text-align: center;
+    }
+    .ethics-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 34px;
+      display: block;
+      font-weight: 950;
+    }
+    .ethics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 34px; text-align: left; }
+    .ethics-item h3 { color: var(--text-main); font-size: 1.1rem; margin-bottom: 8px; font-weight: 1000; }
+    .ethics-item p { color: var(--text-muted); font-size: 0.95rem; }
+
+    /* FOUNDER */
+    .founder { max-width: 740px; margin: 0 auto 100px; border-left: 4px solid var(--accent-gold); padding-left: 32px; }
+    .founder h2 { font-size: 1.8rem; margin-bottom: 14px; color: var(--text-main); font-weight: 1000; }
+    .founder p { color: var(--text-muted); margin-bottom: 18px; font-size: 1.05rem; }
+    .sig { font-weight: 1000; color: var(--text-main); }
+    .role { display: block; font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    footer a { color: inherit; margin: 0 10px; font-weight: 850; text-decoration: none; padding: 6px 8px; border-radius: 10px; }
+    footer a:hover { color: var(--text-main); background: rgba(17,24,39,0.04); }
+
+    .social-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 24px; flex-wrap: wrap; }
+
+    .inline-link { color: var(--accent-teal); text-decoration: underline; text-underline-offset: 3px; font-weight: 950; }
+
+    /* Mobile */
+    @media (max-width: 900px) {
+      .header-inner { flex-direction: column; gap: 14px; align-items: flex-start; }
+      nav { justify-content: flex-start; gap: 10px; }
+      .split-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="Predicai home">
+        <img src="/logo.png" alt="Predicai logo" class="brand-logo" />
+        <span>Predic<span style="color: var(--accent-teal)">ai</span>™</span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/about.html" class="active" aria-current="page">About</a>
+        <a href="/academy.html">Academy</a>
+        <a href="/shield.html">Shield</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/resources.html">Resources</a>
+        <a href="/faq.html">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap" tabindex="-1">
+    <section class="hero">
+      <h1>Judgment is the Last Defense</h1>
+      <p class="lead">
+        AI creates infinite output. The scarce resource is now discernment.
+        Predicai builds practical judgment — for work and for life.
+      </p>
+
+      <p class="principle">
+        No hype. No dependency. No surveillance. Just systems that help you verify reality and create leverage.
+      </p>
+
+      <div class="pledge-pill">
+        🔒 <strong>Privacy Pledge™</strong> We don’t sell data. We don’t train public models on your submissions.
+        <a href="/privacy.html#pledge" class="inline-link" style="margin-left:6px;">Read policy</a>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/">Choose Your Path →</a>
+        <a class="btn btn-secondary" href="/capability.html">Take the Capability Score →</a>
+      </div>
+    </section>
+
+    <section class="split-grid">
+      <div class="split-card">
+        <span class="card-icon">🏗️</span>
+        <h3 class="card-title">Work is Speeding Up</h3>
+        <p class="card-text">
+          People who treat AI as “search” will be outpaced.
+          We teach you how to direct AI, audit the output, and turn workflows into systems.
+        </p>
+        <a href="/academy.html" class="link-teal">View Academy →</a>
+      </div>
+
+      <div class="split-card">
+        <span class="card-icon">🛡️</span>
+        <h3 class="card-title">Trust is Getting Harder</h3>
+        <p class="card-text">
+          Scams, deepfakes, and synthetic voice are becoming normal.
+          Shield gives families a protocol to verify humans before money moves.
+        </p>
+        <a href="/shield.html" class="link-gold">View Shield →</a>
+      </div>
+    </section>
+
+    <section class="ethics-box">
+      <span class="ethics-title">What We Refuse To Do</span>
+      <div class="ethics-grid">
+        <div class="ethics-item">
+          <h3>No Hype</h3>
+          <p>We don’t sell “magic prompts.” We teach logic, systems, and repeatable execution.</p>
+        </div>
+
+        <div class="ethics-item">
+          <h3>No Surveillance</h3>
+          <p>We don’t sell your data. We don’t train public models on your submissions. We use what you share only to deliver the service you request.</p>
+        </div>
+
+        <div class="ethics-item">
+          <h3>No Dependency</h3>
+          <p>AI doesn’t replace the human. It elevates the human who can direct it.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="founder">
+      <h2>Why I built this</h2>
+      <p>
+        I saw two problems rising at the same time:
+        professionals using AI without standards (and getting unreliable outputs),
+        and families being tricked by it (and getting hurt).
+      </p>
+      <p>
+        We can’t stop the technology. But we can upgrade the human.
+        Predicai exists so you stay in control — not by trusting AI more,
+        but by trusting your judgment again.
+      </p>
+      <div class="sig">
+        — DeQuan<br>
+        <span class="role">Founder & Lead Architect</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/company/predicai-ai/" target="_blank" rel="noopener noreferrer" aria-label="Predicai on LinkedIn">LinkedIn</a>
+    </div>
+
+    <div>
+      © 2026 Predicai™ — All rights reserved. • "Foresight is Clarity."
+    </div>
+
+    <div style="margin-top:16px; font-size: 0.85rem; opacity: 0.85;">
+      <a href="/academy.html">Academy</a>
+      <a href="/shield.html">Shield</a>
+      <a href="/terms.html">Terms</a>
+      <a href="https://predicai.notion.site/Trust-Ethics-Protocol-2cd73ab1bdd6800cac99c280cb264c52" target="_blank" rel="noopener noreferrer">Trust & Ethics</a>
+    </div>
+  </footer>
+</body>
+</html>
