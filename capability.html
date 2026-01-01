@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capability Score™ – Predicai</title>
+  <meta name="description" content="Measure your AI maturity. Are you falling behind or building leverage?" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://predicai.ai/capability.html" />
+  <meta property="og:title" content="Capability Score™ – Predicai" />
+  <meta property="og:description" content="Measure your AI maturity. Are you falling behind or building leverage?" />
+  <meta property="og:image" content="https://predicai.ai/social-share.png" />
+
+  <meta name="theme-color" content="#0B1220" />
+
+  <link rel="canonical" href="https://predicai.ai/capability.html" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/logo.png" type="image/png" />
+
+  <style>
+    :root {
+      --bg-dark: #0B1220;
+      --bg-card: #151E2E;
+      --text-light: #F9FAFB;
+      --text-muted: #9CA3AF;
+      --accent-teal: #2A9195;
+      --accent-teal-glow: rgba(42,145,149,.3);
+      --radius: 12px;
+      --border: rgba(255,255,255,0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto !important; }
+      * { transition: none !important; animation: none !important; }
+    }
+
+    /* ACCESSIBILITY */
+    .skip-link {
+      position: absolute; left: -9999px; top: 16px; z-index: 9999;
+      padding: 10px 14px; background: var(--text-light); color: var(--bg-dark);
+      font-weight: 900; border-radius: 10px; text-decoration: none;
+    }
+    .skip-link:focus { left: 16px; }
+
+    :focus-visible { outline: 3px solid rgba(42,145,149,.55); outline-offset: 3px; border-radius: 6px; }
+
+    /* GLOBAL NAVIGATION (Dark Mode) */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(11, 18, 32, 0.85); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border); padding: 14px 18px;
+    }
+
+    .header-inner {
+      max-width: 1000px; margin: 0 auto; display: flex;
+      justify-content: space-between; align-items: center; gap: 16px;
+    }
+
+    .brand {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: var(--text-light); text-decoration: none; font-weight: 900;
+      letter-spacing: .2px; white-space: nowrap;
+    }
+    .brand-logo { width: 26px; height: 26px; border-radius: 8px; object-fit: contain; }
+
+    nav { display: flex; gap: 18px; flex-wrap: wrap; justify-content: flex-end; }
+    nav a {
+      font-size: 0.9rem; font-weight: 650; color: var(--text-muted);
+      text-decoration: none; transition: color 0.2s; padding: 6px 8px; border-radius: 10px;
+    }
+    nav a:hover { color: var(--text-light); }
+    nav a.active { color: var(--text-light); font-weight: 900; }
+    nav a.active[aria-current="page"] { background: rgba(255,255,255,0.05); }
+
+    /* TOOL LAYOUT */
+    .container { max-width: 720px; margin: 0 auto; padding: 40px 20px; }
+
+    .tool-header { text-align: center; margin-bottom: 32px; }
+
+    .logo-hero { width: 60px; height: 60px; border-radius: 12px; margin-bottom: 16px; object-fit: contain; }
+
+    h1 { font-size: 2.2rem; font-weight: 950; letter-spacing: -0.02em; margin-bottom: 10px; }
+
+    .subtitle { color: var(--text-muted); font-size: 1.1rem; max-width: 520px; margin: 0 auto; }
+
+    .prelude {
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 18px; margin: 28px 0;
+      font-size: 1rem; color: var(--text-muted); text-align: center;
+    }
+
+    .question-group {
+      background: var(--bg-card); padding: 24px; border-radius: var(--radius);
+      margin-bottom: 20px; border: 1px solid var(--border);
+    }
+
+    .group-title {
+      font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--accent-teal); font-weight: 900; margin-bottom: 16px; display: block;
+    }
+
+    .checklist-item {
+      display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px;
+      cursor: pointer; padding: 10px; border-radius: 10px; transition: background 0.2s;
+    }
+    .checklist-item:hover { background: rgba(255,255,255,0.04); }
+
+    input[type="checkbox"] {
+      appearance: none; width: 22px; height: 22px; border: 2px solid #4B5563;
+      border-radius: 6px; margin-top: 2px; cursor: pointer; position: relative;
+      flex-shrink: 0; background: transparent;
+    }
+    input[type="checkbox"]:checked { background-color: var(--accent-teal); border-color: var(--accent-teal); }
+    input[type="checkbox"]:checked::after {
+      content: '✓'; position: absolute; color: white; font-weight: 950;
+      left: 4px; top: -2px; font-size: 14px;
+    }
+
+    .label-text { font-size: 1.05rem; color: rgba(255,255,255,0.9); }
+
+    .progress { text-align: right; font-size: 0.9rem; color: var(--text-muted); margin: 10px 0 0; }
+
+    .calculate-btn {
+      width: 100%; background: white; color: var(--bg-dark); padding: 18px;
+      border: none; border-radius: 12px; font-size: 1.1rem; font-weight: 900;
+      cursor: pointer; margin-top: 24px; transition: transform 0.2s;
+    }
+    .calculate-btn:hover { transform: translateY(-2px); }
+
+    #resultPanel {
+      display: none; background: linear-gradient(145deg, #1e293b, #0f172a);
+      padding: 40px; border-radius: 20px; text-align: center;
+      border: 1px solid var(--accent-teal); box-shadow: 0 0 40px var(--accent-teal-glow);
+      animation: fadeIn 0.5s ease;
+    }
+
+    .score-badge { font-size: 3rem; font-weight: 950; color: var(--accent-teal); margin-bottom: 8px; display: block; }
+    .archetype { font-size: 1.5rem; font-weight: 900; margin-bottom: 14px; }
+    .analysis { color: var(--text-muted); margin-bottom: 28px; font-size: 1.1rem; }
+
+    /* Result Actions */
+    .action-container {
+        display: flex; flex-direction: column; gap: 12px;
+        align-items: center; justify-content: center;
+        margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-block; background: var(--accent-teal); color: white;
+      padding: 16px 32px; border-radius: 50px; font-weight: 900; text-decoration: none;
+      transition: transform 0.2s; border: none; cursor: pointer; width: 100%; max-width: 340px;
+    }
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-link {
+        background: transparent; color: var(--text-muted);
+        text-decoration: underline; font-weight: 600; font-size: 0.95rem;
+        border: none; cursor: pointer; margin-top: 8px;
+    }
+    .btn-link:hover { color: white; }
+
+    .btn.secondary { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: var(--text-muted); }
+    .btn.secondary:hover { border-color: white; color: white; }
+    
+    /* Print Utility */
+    @media print {
+        body { background: white; color: black; }
+        .header, .calculate-btn, .prelude { display: none !important; }
+        #resultPanel { display: block !important; border: 2px solid black; color: black; box-shadow: none; background: white; }
+        .score-badge { color: black; }
+        .analysis { color: black; }
+        .btn, .btn-link { display: none; }
+    }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 600px) {
+      .header-inner { flex-direction: column; gap: 12px; }
+      nav { justify-content: center; }
+      .calculate-btn { font-size: 1.05rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="Predicai Home">
+        <img src="/logo.png" alt="" aria-hidden="true" class="brand-logo" />
+        Predicai™
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/academy.html">Academy</a>
+        <a href="/shield.html">Shield</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/resources.html">Resources</a>
+        <a href="/faq.html">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="main" tabindex="-1" role="main">
+
+    <div class="tool-header">
+      <img src="/logo-academy.png" alt="" aria-hidden="true" class="logo-hero">
+      <h1>Capability Score™</h1>
+      <div class="subtitle">
+        A fast diagnostic to understand how you’re actually using AI — and what leverage you’re leaving on the table.
+      </div>
+    </div>
+
+    <div class="prelude">
+      Check what already applies to you. Don’t guess.
+      This is not a test — it’s a mirror.
+    </div>
+
+    <form id="auditForm" novalidate>
+      <div class="question-group">
+        <span class="group-title">Level 1: The Translator</span>
+        <label class="checklist-item">
+          <input type="checkbox" value="1" name="q1">
+          <span class="label-text">I understand the difference between "Search" (Google) and "Reasoning" (LLMs).</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" value="1" name="q2">
+          <span class="label-text">I can verify if an AI output is a hallucination without guessing.</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" value="1" name="q3">
+          <span class="label-text">I use a structured prompt framework (Role, Context, Constraints) every time.</span>
+        </label>
+      </div>
+
+      <div class="question-group">
+        <span class="group-title">Level 2: The Co-Creator</span>
+        <label class="checklist-item">
+          <input type="checkbox" value="1" name="q4">
+          <span class="label-text">I use AI daily to reduce administrative drudgery (emails, summaries).</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" value="1" name="q5">
+          <span class="label-text">I have a saved "Context Anchor" (My Voice/Bio) that I paste into chats.</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" value="1" name="q6">
+          <span class="label-text">I save my successful prompts in a library to reuse later.</span>
+        </label>
+      </div>
+
+      <div class="question-group">
+        <span class="group-title">Level 3: The Builder</span>
+        <label class="checklist-item">
+          <input type="checkbox" value="1" name="q7">
+          <span class="label-text">I have redesigned at least one core weekly workflow to be "AI-First."</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" value="1" name="q8">
+          <span class="label-text">I use "Agents" (Custom GPTs/Projects) rather than starting from scratch.</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" value="1" name="q9">
+          <span class="label-text">I can quantify exactly how many hours AI saves me per week.</span>
+        </label>
+      </div>
+
+      <div class="question-group">
+        <span class="group-title">Level 4: The Strategist</span>
+        <label class="checklist-item">
+          <input type="checkbox" value="1" name="q10">
+          <span class="label-text">I use AI to analyze patterns and run "Pre-Mortems" on decisions.</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" value="1" name="q11">
+          <span class="label-text">I have an established "AI Usage Policy" or ethical framework for my work.</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" value="1" name="q12">
+          <span class="label-text">I actively teach or mentor others on Predictive Intelligence.</span>
+        </label>
+      </div>
+
+      <div class="progress" id="progressText" aria-live="polite">0 of 12 selected</div>
+
+      <button type="submit" class="calculate-btn">
+        Calculate Score
+      </button>
+    </form>
+
+    <div id="resultPanel" aria-live="polite">
+      <span class="score-badge" id="scoreDisplay">0 / 12</span>
+      <div class="archetype" id="archetypeDisplay"></div>
+      <p class="analysis" id="analysisText"></p>
+
+      <div class="action-container" id="actionContainer">
+          </div>
+      
+      <div style="margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px; display:flex; justify-content:center; gap:16px;">
+        <button type="button" class="btn secondary" style="padding: 8px 16px; font-size: 0.85rem;" onclick="window.print()">🖨️ Save Results</button>
+        <button type="button" class="btn secondary" style="padding: 8px 16px; font-size: 0.85rem;" id="recalcBtn">Recalculate</button>
+      </div>
+    </div>
+
+    <noscript style="color:#9CA3AF; margin-top:20px; display:block; text-align:center;">
+      JavaScript is required to calculate your score.
+    </noscript>
+
+  </main>
+
+<script>
+  const totalQuestions = 12;
+
+  const form = document.getElementById('auditForm');
+  const resultPanel = document.getElementById('resultPanel');
+  const progressText = document.getElementById('progressText');
+  const actionContainer = document.getElementById('actionContainer');
+
+  const scoreDisplay = document.getElementById('scoreDisplay');
+  const archetype = document.getElementById('archetypeDisplay');
+  const analysis = document.getElementById('analysisText');
+  const recalcBtn = document.getElementById('recalcBtn');
+
+  const checkboxes = Array.from(document.querySelectorAll('#auditForm input[type="checkbox"]'));
+
+  function prefersReducedMotion() {
+    return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  function updateProgress() {
+    const checked = checkboxes.filter(cb => cb.checked).length;
+    progressText.textContent = `${checked} of ${totalQuestions} selected`;
+  }
+
+  function calculateScore() {
+    const score = checkboxes.filter(cb => cb.checked).length;
+
+    form.style.display = 'none';
+    resultPanel.style.display = 'block';
+    
+    scoreDisplay.textContent = `${score} / ${totalQuestions}`;
+    
+    // Logic for Content & Buttons
+    let btnPrimary = '';
+    let btnSecondary = '';
+
+    if (score <= 8) {
+        // Low/Mid Score -> Push Academy
+        if (score <= 4) {
+             archetype.textContent = "The Operator";
+             analysis.textContent = "You’re using AI reactively. Without structure, the risk is falling behind faster than you realize.";
+        } else {
+             archetype.textContent = "The Builder Gap";
+             analysis.textContent = "You have momentum, but not leverage. Systems — not effort — are the missing layer.";
+        }
+        
+        btnPrimary = `<a href="https://buy.stripe.com/6oU9AVdC8eWUaHX9mk5ZC01" target="_blank" class="btn">Start the Builder Course</a>`;
+        btnSecondary = `<a href="https://calendly.com/predicai-strategy" target="_blank" class="btn-link">Need team training? Book Strategy Call →</a>`;
+
+    } else {
+        // High Score -> Push Strategy
+        archetype.textContent = "The Strategist";
+        analysis.textContent = "Your capability is strong. Your next constraint is scale, governance, and leadership.";
+        
+        btnPrimary = `<a href="https://calendly.com/predicai-strategy" target="_blank" class="btn">Book Executive Strategy Call</a>`;
+        btnSecondary = `<a href="/academy.html" class="btn-link">View Builder Curriculum →</a>`;
+    }
+
+    actionContainer.innerHTML = btnPrimary + btnSecondary;
+
+    trackCapabilityScore(score);
+    
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+  }
+
+  function resetScore() {
+    form.reset();
+    form.style.display = 'block';
+    resultPanel.style.display = 'none';
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+  }
+
+  function trackCapabilityScore(score) {
+    console.log("Capability Score:", score);
+  }
+
+  // Events
+  checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    calculateScore();
+  });
+
+  recalcBtn.addEventListener('click', resetScore);
+
+  // Init
+  updateProgress();
+</script>
+
+</body>
+</html>
