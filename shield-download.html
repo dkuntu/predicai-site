@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Predicai Shield™ – Starter Protocols</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <style>
+    /* =========================
+       CORE VARIABLES
+       ========================= */
+    :root{
+      --text-dark:#111827;
+      --text-sub:#4B5563;
+
+      /* TRUE METALLIC GOLD PALETTE */
+      --accent-gold:#CA8A04;
+      --gold-light:#FCD34D;
+      --gold-dark:#92400E;
+      --gold-bg:#FFFBEB;
+
+      --border:#E5E7EB;
+      --paper-bg:#ffffff;
+      --muted:#6B7280;
+      --bg-page: #F3F4F6;
+    }
+
+    @page{ size: Letter; margin: 0.5in; }
+
+    html,body{
+      background: var(--bg-page);
+      margin:0; padding:0;
+      color:var(--text-dark);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      -webkit-print-color-adjust:exact;
+      print-color-adjust:exact;
+    }
+
+    .action-bar {
+      background: #111827;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .print-btn {
+      background: var(--accent-gold);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 800;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s;
+    }
+
+    .print-btn:focus-visible, .action-bar a:focus-visible {
+        outline: 3px solid var(--accent-gold);
+        outline-offset: 3px;
+        border-radius: 8px;
+    }
+
+    @media (hover: hover) {
+        .print-btn:hover { transform: translateY(-2px); opacity: 0.95; }
+    }
+
+    .mobile-tip {
+        margin-top: 12px;
+        font-size: 0.85rem;
+        color: #9CA3AF;
+        line-height: 1.4;
+    }
+
+    /* ACCESSIBILITY: SKIP LINK */
+    .skip-link {
+        position: absolute; left: -9999px; z-index: 999;
+        padding: 1em; background: #fff; color: #000;
+        font-weight: 800; border: 2px solid var(--accent-gold);
+    }
+    .skip-link:focus { left: 16px; top: 16px; }
+
+    /* PAGE CONTAINER */
+    .page-wrap{ padding: 40px 16px; }
+
+    .sheet{
+      background:var(--paper-bg);
+      max-width: 820px;
+      margin: 0 auto;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .sheet-inner{ padding: 40px; }
+
+    h1,h2,h3{ line-height:1.1; margin:0; }
+    p{ margin:0; color:var(--text-sub); line-height:1.5; }
+
+    /* HEADER */
+    .header{
+      border-bottom: 2px solid var(--text-dark);
+      padding-bottom: 16px;
+      margin-bottom: 26px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap: 16px;
+    }
+    .brand-block { display: flex; align-items: center; gap: 12px; }
+    .brand{ font-size: 1.55rem; font-weight: 900; letter-spacing: -0.02em; }
+    .meta{ text-align:right; font-size: 0.82rem; color: var(--muted); }
+
+    /* IMAGE STYLES */
+    .logo-img {
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+        border-radius: 50%;
+    }
+    .card-logo-img {
+        width: 36px;
+        height: 36px;
+        object-fit: contain;
+        border-radius: 50%;
+        border: 2px solid rgba(255,255,255,0.2);
+    }
+
+    /* PROTOCOL BOX */
+    .protocol-box{
+        margin-bottom: 28px;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    .protocol-title{
+      display:inline-block;
+      font-size: 0.95rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-gold);
+      border-bottom: 1px solid var(--accent-gold);
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+    }
+    .protocol-lead{ margin-bottom: 18px; font-size: 0.95rem; color: #6b7280; font-style: italic; }
+
+    .checklist{ display:grid; grid-template-columns: 1fr 1fr; gap: 22px 26px; }
+
+    .check-item{
+        font-size: 0.95rem;
+        line-height: 1.35;
+        color: var(--text-sub);
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    .check-item strong{ display:block; color: var(--text-dark); font-weight: 900; margin-bottom: 4px; }
+
+    /* SHIELD BOX */
+    .shield-box {
+        margin-top: 24px;
+        background: var(--gold-bg);
+        border: 1px solid var(--gold-light);
+        border-radius: 8px;
+        padding: 16px;
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        break-inside: avoid;
+    }
+    .shield-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+
+    .shield-title {
+        color: var(--gold-dark);
+        display: block;
+        font-weight: 900;
+        font-size: 0.95rem;
+        margin-bottom: 4px;
+    }
+    .shield-desc {
+        color: var(--gold-dark);
+        font-size: 0.9rem;
+        display: block;
+        line-height: 1.4;
+    }
+    .shield-desc strong { color: var(--gold-dark); font-weight: 900; }
+
+    /* UPDATED: Evidence note + footnote marker */
+    .evidence-micro {
+        margin-top: 8px;
+        font-size: 0.8rem;
+        line-height: 1.35;
+        color: rgba(146,64,14,0.85);
+        border-top: 1px solid rgba(146,64,14,0.1);
+        padding-top: 8px;
+    }
+    .evidence-micro sup{ font-weight: 900; }
+
+    /* WALLET CARDS */
+    .divider{ margin: 24px 0 14px; border-top: 1px solid var(--border); }
+    .cut-line-text{ text-align:center; font-size: 0.72rem; color:#9ca3af; text-transform: uppercase; letter-spacing: 0.08em; margin: 14px 0 10px; }
+
+    .cards-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    /* Avoid breaks inside cards */
+    .cut-zone, .cards-grid, .wallet-card { break-inside: avoid; page-break-inside: avoid; }
+
+    .wallet-card{
+      border: 1.5px solid #111827;
+      border-radius: 10px;
+      padding: 14px;
+      height: 190px;
+      position: relative;
+      overflow: hidden;
+      background:#fff;
+    }
+
+    .card-front{ background: #111827; color: #fff; border-color: #111827; }
+
+    .front-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+    .card-label{ font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; opacity: 0.75; display:block; }
+    .card-title{ font-size: 1.08rem; font-weight: 900; margin-bottom: 10px; line-height: 1.15; }
+
+    .safe-word-box{
+      border: 1px dashed rgba(255,255,255,0.45);
+      padding: 10px;
+      border-radius: 8px;
+      text-align:center;
+      font-family: monospace;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      margin-top: 8px;
+    }
+
+    .steps{ margin: 0; padding-left: 18px; color: var(--text-sub); font-size: 0.9rem; line-height: 1.35; }
+    .steps li{ margin-bottom: 6px; }
+    .steps strong{ color: var(--text-dark); }
+
+    .cut-zone{ border: 2px dashed #9ca3af; border-radius: 10px; padding: 12px; background: #fdfdfd; }
+
+    .sheet-footer{
+        margin-top: 18px;
+        text-align:center;
+        font-size: 0.72rem;
+        color:#9ca3af;
+        line-height: 1.4;
+    }
+
+    /* UPDATED: footnote styling */
+    .sheet-footer .footnote{
+      display:inline-block;
+      margin-top:6px;
+      max-width: 78ch;
+      opacity: 0.9;
+    }
+    .sheet-footer a{
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 700;
+    }
+
+    /* PRINT QUERY */
+    @media print{
+      .action-bar { display:none !important; }
+      html,body{ background:#fff; }
+      .page-wrap{ padding:0; }
+      .sheet{ box-shadow:none; border:none; border-radius:0; max-width: 100%; }
+      .sheet-inner{ padding:0; }
+      .cut-zone{ break-inside: avoid; page-break-inside: avoid; }
+
+      /* Print Legibility Bump */
+      .check-item { font-size: 1.02rem; }
+      .protocol-lead { font-size: 1rem; }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 720px){
+      .mobile-tip { display: block; }
+      .checklist, .cards-grid { grid-template-columns: 1fr; }
+      .sheet-inner { padding: 24px; }
+      .wallet-card { height: auto; min-height: 180px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <div class="action-bar">
+    <button type="button" class="print-btn" onclick="window.print()" aria-label="Print or save as PDF">
+      🖨️ Print / Save as PDF
+    </button>
+    <div class="mobile-tip">
+      Mobile users: Tap <strong>Share</strong> → <strong>Print</strong> to save as PDF.<br>
+      <em>If the gold/black doesn't show, enable <strong>Background Graphics</strong> in print options.</em>
+    </div>
+    <div style="margin-top:16px;">
+        <a href="/" style="color:white; font-size:0.9rem; text-decoration:underline;">← Return to Website</a>
+    </div>
+  </div>
+
+  <div class="page-wrap">
+    <main id="main" class="sheet">
+      <div class="sheet-inner">
+
+        <div class="header">
+          <div class="brand-block">
+            <img src="/predicai-shield-gold.JPG" alt="Predicai Shield Logo" class="logo-img">
+            <div class="brand">Predicai Shield<span style="color:var(--accent-gold)">™</span></div>
+          </div>
+          <div class="meta">
+            Family Safety Protocol<br>
+            v2.2 • Updated: 2026
+          </div>
+        </div>
+
+        <section class="protocol-box">
+          <div class="protocol-title">The “Is It Real?” Checklist</div>
+          <p class="protocol-lead">
+            Post this near your computer or phone. If something feels off, pause and check this list.
+          </p>
+
+          <div class="checklist">
+            <div>
+              <div class="check-item">
+                <strong>1. The Urgency Check</strong>
+                Does the message demand <em>immediate</em> action? (“Account Suspended,” “Grandson in Jail”).<br>
+                <strong>Real emergencies are not solved with gift cards or wire transfers.</strong>
+              </div>
+
+              <div class="check-item">
+                <strong>2. The 90-Second Rule</strong>
+                AI relies on speed and fear. Humans rely on logic.<br>
+                <strong>Hang up. Wait 90 seconds. Breathe. Then call the known number.</strong>
+              </div>
+
+              <div class="check-item">
+                <strong>3. The Link Rule</strong>
+                Does the link look odd? (e.g., bit.ly, w-mt.co).<br>
+                <strong>Legitimate banks and services rarely use generic link shorteners.</strong>
+              </div>
+            </div>
+
+            <div>
+              <div class="check-item">
+                <strong>4. The Voice Verification Rule</strong>
+                Does it sound like a loved one? Modern tools can create convincing voice clones from very short clips.<br>
+                <strong>You can no longer trust your ears alone. You must verify.</strong>
+              </div>
+
+              <div class="check-item">
+                <strong>5. The Safe Word Check</strong>
+                If a family member calls in distress, ask for the <strong>Family Safe Word</strong> immediately.<br>
+                <strong>If they can’t give it: hang up and verify independently.</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="shield-box">
+            <div class="shield-icon">🛡️</div>
+            <div class="shield-text">
+                <span class="shield-title">Report. Verify. Protect.</span>
+                <span class="shield-desc">
+                  Still not sure? Go to <strong>Predicai.ai</strong> and use <strong>Shield Check™</strong> to scan the text for risk signals and get a plain-English explanation.
+                </span>
+
+                <!-- ✅ UPDATED (your requested wording + footnote marker) -->
+                <div class="evidence-micro">
+                  Evidence note: In a controlled study of explainable SMS phishing detection, people improved from <strong>71.2%</strong>
+                  accuracy to <strong>92.8%</strong> after reading LLM-generated explanations; older adults reached <strong>94.2%</strong>.<sup>1</sup>
+                </div>
+            </div>
+          </div>
+
+        </section>
+
+        <div class="divider"></div>
+
+        <div class="cut-line-text">✂️ Cut along the dotted border for Wallet Cards ✂️</div>
+
+        <div class="cut-zone">
+          <div class="cards-grid">
+
+            <div class="wallet-card card-front">
+              <div class="front-header">
+                <span class="card-label">Predicai Shield™</span>
+                <img src="/predicai-shield-gold.JPG" alt="Shield Logo" class="card-logo-img">
+              </div>
+
+              <div class="card-title">Counter-AI Card</div>
+              <p style="font-size:0.8rem; opacity:0.9; margin:0;">
+                If a caller claims I am hurt, arrested, or taken:
+              </p>
+              <div class="safe-word-box">SAFE WORD: _________________</div>
+              <p style="font-size:0.72rem; margin-top:10px; opacity:0.75;">
+                Pick something not on social media and not a pet name.
+              </p>
+            </div>
+
+            <div class="wallet-card">
+              <span class="card-label">Verification Steps</span>
+              <div class="card-title">Before You Panic</div>
+              <ol class="steps">
+                <li><strong>Hang up.</strong> Break the connection.</li>
+                <li><strong>Wait 90 Seconds.</strong> Break the urgency.</li>
+                <li><strong>If Text:</strong> Do not click. Go to app.</li>
+                <li><strong>If Call:</strong> Ask for Safe Word.</li>
+                <li><strong>Verify.</strong> Call their known number.</li>
+              </ol>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="sheet-footer">
+          © 2026 Predicai™ — Verified Counter-Intelligence Protocols.<br>
+
+          <!-- ✅ UPDATED: full footnote (matches your snippet) -->
+          <span class="footnote">
+            <sup>1</sup> Yizhu Wang et al., “Can You Walk Me Through It? Explainable SMS Phishing Detection using LLM-based Agents,”
+            <em>Proceedings of the Twenty-First Symposium on Usable Privacy and Security (SOUPS)</em>, USENIX, Aug 10–12, 2025.
+            • <a href="https://gangw.cs.illinois.edu/soups2025.pdf" target="_blank" rel="noopener noreferrer">Paper (PDF)</a>
+          </span>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>
