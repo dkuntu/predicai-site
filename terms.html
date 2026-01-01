@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Predicai™ – Terms of Service</title>
+  <meta name="description" content="Terms of Service for the Predicai Academy 2026 Program and Predicai Shield membership." />
+  <meta name="theme-color" content="#FFFFFF" />
+  
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://predicai.ai/terms.html" />
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://predicai.ai/terms.html" />
+  <meta property="og:title" content="Predicai™ – Terms of Service" />
+  <meta property="og:description" content="Terms of Service for Predicai Academy and Shield." />
+  <meta property="og:image" content="https://predicai.ai/social-share.png" />
+
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/logo.png" />
+
+  <style>
+    /* CORE VARIABLES */
+    :root {
+      --bg-page: #F9FAFB; --bg-card: #FFFFFF; --bg-subtle: #F3F4F6; --bg-dark: #111827;
+      --text-primary: #111827; --text-secondary: #4B5563; --text-tertiary: #9CA3AF;
+      --accent-teal-strong: #2A9195; --accent-shield: #D4AF37;
+      --border-light: #E5E7EB;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+      
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      background-color: var(--bg-page); 
+      color: var(--text-primary); 
+      line-height: 1.6; 
+      -webkit-font-smoothing: antialiased; 
+    }
+
+    /* ACCESSIBILITY & FOCUS */
+    a { color: inherit; text-decoration: none; }
+    
+    a.inline-link {
+      color: var(--accent-teal-strong);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 2px;
+      transition: opacity 0.2s;
+    }
+    a.inline-link:hover { opacity: 0.85; }
+    footer a.inline-link { color: inherit; }
+
+    .skip-link { 
+      position: absolute; left: -9999px; top: 10px; z-index: 999; 
+      padding: 1em; background: #fff; color: #000; font-weight: bold; 
+      border-radius: 8px; border: 2px solid var(--accent-teal-strong); 
+    }
+    .skip-link:focus { left: 10px; }
+    
+    :focus-visible { outline: 3px solid var(--accent-teal-strong); outline-offset: 2px; }
+    nav a:focus-visible, button:focus-visible { border-radius: 6px; }
+
+    /* REDUCED MOTION */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto !important; }
+      * { transition: none !important; }
+    }
+
+    /* HEADER (Sticky + Blur) */
+    header { 
+      position: sticky; top: 0; z-index: 50; 
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-light); 
+    }
+    .header-inner {
+      max-width: 1100px; margin: 0 auto; padding: 14px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.2rem; color: var(--text-primary); }
+    .brand-logo { width: 28px; height: 28px; border-radius: 6px; object-fit: contain; }
+      
+    nav { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: flex-end; }
+    nav a { font-size: 0.9rem; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
+    nav a:hover { color: var(--text-primary); }
+    nav a.active { color: var(--text-primary); font-weight: 700; }
+
+    /* LAYOUT */
+    .container { max-width: 800px; margin: 0 auto; padding: 60px 24px 0; position: relative; }
+
+    h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.03em; }
+    
+    .legal-meta { 
+        margin-bottom: 40px; 
+        display: block; 
+        border-bottom: 1px solid var(--border-light); 
+        padding-bottom: 40px; 
+    }
+    .legal-meta span { display: block; font-size: 0.9rem; color: var(--text-tertiary); margin-bottom: 8px; }
+    .legal-meta p { font-size: 0.95rem; color: var(--text-secondary); margin: 0; }
+
+    /* TOC Box */
+    .toc-box {
+        background: var(--bg-subtle);
+        border: 1px solid var(--border-light);
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 50px;
+    }
+    .toc-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 800; margin-bottom: 10px; display: block; color: var(--text-tertiary); }
+    .toc-links { font-size: 0.95rem; line-height: 1.8; display: flex; flex-wrap: wrap; gap: 12px; }
+    .toc-links a { white-space: normal; }
+      
+    h2 { margin-top: 60px; margin-bottom: 16px; font-size: 1.4rem; font-weight: 700; color: var(--text-primary); scroll-margin-top: 100px; }
+    p { color: var(--text-secondary); margin-bottom: 16px; font-size: 1rem; }
+    li { color: var(--text-secondary); margin-bottom: 8px; }
+      
+    footer { text-align: center; padding: 40px 0; border-top: 1px solid var(--border-light); color: var(--text-tertiary); font-size: 0.85rem; margin-top: 80px; }
+    .social-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 24px; }
+
+    /* BACK TO TOP BUTTON */
+    #backToTop { 
+        position: fixed; 
+        bottom: 20px; 
+        right: 20px; 
+        z-index: 99; 
+        border: none; 
+        outline: none; 
+        background-color: var(--text-primary); 
+        color: white; 
+        cursor: pointer; 
+        padding: 12px; 
+        border-radius: 50%; 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+        font-size: 1.2rem; 
+        transition: opacity 0.3s, transform 0.3s; 
+    }
+    #backToTop[hidden] { display: none; }
+    
+    @media (hover: hover) {
+        #backToTop:hover { background-color: var(--accent-teal-strong); transform: translateY(-3px); }
+    }
+
+    /* Print Styles */
+    @media print {
+      header, footer, #backToTop, .toc-box { display: none !important; }
+      body { background: white; color: black; }
+      .container { max-width: 100%; padding: 0; }
+      a { text-decoration: underline; color: black; }
+    }
+
+    @media (max-width: 900px) { 
+      .header-inner { flex-direction: column; gap: 16px; } 
+      nav { justify-content: center; } 
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header>
+    <div class="header-inner">
+      <a href="/" class="brand" aria-label="Predicai home">
+        <img src="/logo.png" alt="" aria-hidden="true" class="brand-logo" loading="eager" />
+        <span>Predic<span style="color: var(--accent-teal-strong)">ai</span>&trade;</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/academy.html">Academy</a> 
+        <a href="/shield.html">Shield</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/resources.html">Resources</a>
+        <a href="/faq.html">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container" tabindex="-1">
+    <h1>Terms of Service</h1>
+    
+    <div class="legal-meta">
+      <span>Last Updated: December 23, 2025</span>
+      <p>These Terms are between you and <strong>Predicai LLC</strong> (District of Columbia) ("Predicai," "we," "us").</p>
+      <p style="margin-top:10px; font-size:0.95rem;">
+        For details on how we handle information, please also review our
+        <a href="/privacy.html" class="inline-link">Privacy Policy</a>.
+      </p>
+    </div>
+
+    <div class="toc-box">
+      <span class="toc-title">Jump to key sections:</span>
+      <div class="toc-links">
+          <a class="inline-link" href="#academy">Academy & Certificate</a>
+          <a class="inline-link" href="#ip">Intellectual Property</a>
+          <a class="inline-link" href="#refunds">Refunds</a>
+          <a class="inline-link" href="#billing">Billing & Taxes</a>
+          <a class="inline-link" href="#gifts">Gift Memberships</a>
+          <a class="inline-link" href="#security">Security</a>
+          <a class="inline-link" href="#termination">Termination</a>
+          <a class="inline-link" href="#privacy">Privacy</a>
+          <a class="inline-link" href="#submissions">User Submissions</a>
+          <a class="inline-link" href="#email-policy">Email Policy</a>
+          <a class="inline-link" href="#disclaimers">Disclaimers</a>
+          <a class="inline-link" href="#liability">Liability</a>
+          <a class="inline-link" href="#indemnification">Indemnification</a>
+          <a class="inline-link" href="#changes">Changes</a>
+          <a class="inline-link" href="#law">Governing Law</a>
+          <a class="inline-link" href="#contact">Contact</a>
+          <a class="inline-link" href="#eligibility">Eligibility</a>
+          <a class="inline-link" href="#conduct">Acceptable Use</a>
+      </div>
+    </div>
+
+    <h2 id="academy">1. The Academy & Certificate</h2>
+    <p>Predicai™ is an educational platform designed for professional capability building.</p>
+    <p><strong>Structured Release:</strong> The 2026 Program curriculum is released on a "Drip" schedule over 6 weeks. Enrollment does not grant immediate access to future unreleased modules.</p>
+    <p><strong>Access:</strong> Once a module is released, you keep access to it. Future unreleased modules unlock according to the schedule.</p>
+    <p><strong>Certificate:</strong> Purchase grants access to educational materials. The Predicai <strong>Certificate</strong> is a private skills credential issued by Predicai. It confirms completion of our curriculum and is not a government-issued license, academic degree, or third-party accredited certification.</p>
+
+    <h2 id="ip">2. Intellectual Property & License</h2>
+    <p>All core artifacts—including but not limited to The Time Ledger™, The Intent Protocol™, and The Agentic Blueprint™—are the intellectual property of Predicai.</p>
+    <p><strong>License Grant:</strong> You are granted a <strong>revocable, non-exclusive license</strong> to use these artifacts for your personal work and internal business purposes, subject to these Terms.</p>
+    <p>You may share artifacts internally with your team for implementation, but you may not publish them publicly or sell them as templates.</p>
+    <p><strong>Termination of License:</strong> If your access is terminated for a material breach of these Terms, this license terminates immediately.</p>
+    <p><strong>Restriction:</strong> You may not repackage, resell, or distribute these frameworks as a competing course, consultancy offering, or public template library without explicit written permission.</p>
+
+    <h2 id="refunds">3. Refunds & Cancellations</h2>
+    <p><strong>The Academy (Tuition):</strong> We offer a 30-Day "No Questions Asked" refund policy. If you find the program does not meet your needs, email us within 30 days of purchase for a full refund.</p>
+    <p><strong>Shield (Subscription):</strong> Shield memberships can be cancelled at any time via the billing portal link provided in your receipt or by emailing support. Your access will continue until the end of the current billing cycle.</p>
+
+    <h2 id="billing">4. Billing & Taxes</h2>
+    <p><strong>One-Time Tuition:</strong> The Academy 2026 Program is a single, non-recurring payment.</p>
+    <p><strong>Recurring Subscription:</strong> The Shield service is billed on a recurring basis (monthly or annually).</p>
+    <p><strong>Auto-Renewal:</strong> Subscriptions renew automatically until canceled. You authorize us (and our payment processor) to charge your payment method on each renewal date.</p>
+    <p><strong>Price Changes:</strong> If we change subscription pricing, we will provide notice in advance and the change will apply on your next renewal unless you cancel before then.</p>
+    <p><strong>Taxes:</strong> Prices listed may exclude sales tax or VAT. You are responsible for any applicable taxes based on your location.</p>
+    <p><strong>Chargebacks:</strong> Please contact support before initiating a chargeback. Fraudulent chargebacks may result in the immediate termination of your account and a ban from future services.</p>
+    
+    <h2 id="gifts">5. Gift Memberships</h2>
+    <p>Gift Memberships are purchased by one person (“Purchaser”) for another person (“Recipient”).</p>
+    <p><strong>(a) Delivery:</strong> Gift access may be delivered via email, a downloadable resource link, or another redemption method we provide at checkout.</p>
+    <p><strong>(b) Redemption:</strong> If a redemption link or code is provided, it is intended for one Recipient and may not be resold or transferred.</p>
+    <p><strong>(c) Refunds:</strong> Gift purchases are refundable by the original Purchaser within 30 days, provided the Recipient has not redeemed or accessed the paid materials.</p>
+    <p><strong>(d) Expiration:</strong> If an expiration window is specified at checkout, it will apply. If none is specified, gift access does not expire.</p>
+
+    <h2 id="security">6. Account Security & Access</h2>
+    <p>If you access Academy materials through Notion or other portals, you are responsible for maintaining the confidentiality of your access links and credentials.</p>
+    <p><strong>Shield Access:</strong> Shield resources may be delivered via direct downloads and email links rather than a dedicated login dashboard. You are responsible for securing access to your email account.</p>
+    <p><strong>Household Use:</strong> Shield is intended for household sharing of the printable scripts and protocols. However, redistribution of paid materials publicly, or sharing access links beyond your household, is prohibited.</p>
+
+    <h2 id="termination">7. Termination</h2>
+    <p>Predicai fosters a community of builders. We may suspend or terminate access if you violate these Terms, misuse the materials, or engage in behavior that harms the community. In cases of serious violation (including unauthorized sharing or resale), termination may be immediate and without refund.</p>
+
+    <h2 id="privacy">8. Privacy & Data Governance (Summary)</h2>
+    <p><strong>(a) No Data Mining:</strong> Predicai does not sell your personal data. We do not use your submitted coursework, form entries, or proprietary inputs to train public machine-learning models.</p>
+    <p><strong>(b) Data Collection:</strong> We collect necessary data to process payments (via Stripe), deliver emails, and manage course access. We minimize data collection to what is strictly necessary.</p>
+    <p><strong>(c) Shield Check / Scam Reports:</strong> If you submit messages, screenshots, or scam reports, you are responsible for avoiding sensitive secrets (e.g., full account numbers, passwords). We process submissions to provide the service, improve internal operations, and enforce these Terms. If we use examples publicly, we will de-identify them and remove personal data where reasonably possible.</p>
+    <p><strong>(d) Third-Party Tools:</strong> When using third-party AI tools recommended in our curriculum (e.g., ChatGPT, Claude), you are subject to their respective privacy policies.</p>
+    <p>For more detail, please review our <a href="/privacy.html" class="inline-link">Privacy Policy</a> and our <a href="https://predicai.notion.site/Trust-Ethics-Protocol-2cd73ab1bdd6800cac99c280cb264c52?source=copy_link" target="_blank" rel="noopener noreferrer" class="inline-link">Trust & Ethics Protocol</a>.</p>
+
+    <h2 id="submissions">9. User Submissions</h2>
+    <p>You may submit content (e.g., scam reports, messages for analysis, or coursework). You retain ownership of your submissions.</p>
+    <p>You grant Predicai a limited license to process your submissions solely to provide the services, improve internal operations, and enforce these Terms.</p>
+    <p>We may remove submissions that are unlawful, harmful, or violate these Terms.</p>
+    <p>If we wish to use a submission as a public example, we will de-identify it and remove personal data where reasonably possible.</p>
+
+    <h2 id="email-policy">10. Email & Anti-Spam Policy</h2>
+    <p>By subscribing to our services or newsletters, you verify that you own the email address provided and have explicit permission to receive communications from us.</p>
+    <p><strong>(a) No Spam / Zero Tolerance:</strong> Predicai has a zero-tolerance policy for spam. We do not send unsolicited emails, and we do not buy, rent, or trade email lists with third parties. All contacts are obtained through opt-in forms where permission is explicitly granted.</p>
+    <p><strong>(b) Unsubscribe:</strong> Every marketing email sent by Predicai includes an automated "Unsubscribe" link in the footer. You may opt out of marketing communications at any time. We process unsubscribe requests immediately.</p>
+    <p><strong>(c) Transactional Emails:</strong> Even if you unsubscribe from marketing, we may still send necessary transactional emails regarding your account, billing, or security updates.</p>
+
+    <h2 id="disclaimers">11. Disclaimers & AI Safety</h2>
+    <p>Predicai provides educational information and general guidance. Predicai is not a law firm, financial advisor, or cybersecurity incident-response provider. Content is provided “as is” without warranties of any kind.</p>
+    <p><strong>AI Output Disclaimer:</strong> AI-generated analysis and recommendations (via Shield Check or Cai) may be incorrect or incomplete. You are responsible for verifying outputs and making your own decisions before acting.</p>
+    <p><strong>Emergency Warning:</strong> Do not rely on AI outputs for emergency situations. If you believe you are being actively scammed, threatened, or are in physical danger, contact local authorities or your financial institution immediately.</p>
+
+    <h2 id="liability">12. Limitation of Liability</h2>
+    <p>To the maximum extent permitted by law, Predicai will not be liable for indirect, incidental, special, consequential, or punitive damages, or for any loss of profits, revenue, data, or goodwill.</p>
+    <p>In all cases, Predicai’s total liability will not exceed the amount you paid to Predicai in the twelve (12) months preceding the event giving rise to the claim.</p>
+
+    <h2 id="indemnification">13. Indemnification</h2>
+    <p>You agree to indemnify and hold harmless Predicai from claims, damages, liabilities, and expenses arising from your misuse of the services, violation of these Terms, or infringement of any intellectual property or other rights.</p>
+
+    <h2 id="changes">14. Changes to These Terms</h2>
+    <p>We may update these Terms from time to time. Material changes will be posted on this page with an updated “Last Updated” date. Continued use after changes means you accept the updated Terms.</p>
+
+    <h2 id="law">15. Governing Law</h2>
+    <p>These Terms are governed by the laws of the District of Columbia, without regard to conflict-of-law rules.</p>
+    <p>Any disputes will be brought in the courts located in the District of Columbia, unless applicable law requires otherwise.</p>
+
+    <h2 id="contact">16. Contact</h2>
+    <p>Questions about these Terms can be sent to <a href="mailto:hello@predicai.ai" class="inline-link">hello@predicai.ai</a>.</p>
+
+    <h2 id="eligibility">17. Eligibility</h2>
+    <p>You must be at least 18 years old to use Predicai services, or have the permission of a parent or legal guardian. By using the services, you represent that you have the legal capacity to enter into these Terms.</p>
+
+    <h2 id="conduct">18. Acceptable Use</h2>
+    <p>You agree not to misuse the services. This includes: attempting to disrupt or overload our forms or site, reverse engineering our materials, sharing paid materials with non-members, using Shield Check to facilitate scams or harassment, or submitting unlawful or harmful content.</p>
+
+    <h2 id="force-majeure">19. Force Majeure</h2>
+    <p>We are not responsible for delays or failures caused by events beyond our reasonable control, including outages, platform interruptions, internet failures, natural disasters, or third-party service disruptions.</p>
+
+    <h2 id="severability">20. Severability & Waiver</h2>
+    <p>If any provision of these Terms is held invalid or unenforceable, the remaining provisions will remain in full force. Our failure to enforce any provision is not a waiver of our right to enforce it later.</p>
+
+    <h2 id="assignment">21. Assignment</h2>
+    <p>You may not transfer your rights under these Terms without our written permission. Predicai may assign these Terms as part of a merger, acquisition, or restructuring.</p>
+
+    <h2 id="entire-agreement">22. Entire Agreement</h2>
+    <p>These Terms, along with any policies we link to (including Trust & Ethics / Privacy notices), form the entire agreement between you and Predicai regarding the services.</p>
+    
+  </main>
+
+  <footer>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/company/predicai-ai/" target="_blank" rel="noopener noreferrer" aria-label="Predicai on LinkedIn">LinkedIn</a>
+    </div>
+    <div class="copyright">
+      © <span id="year">2026</span> Predicai™ — All rights reserved. • "Foresight is Clarity."
+    </div>
+    <div style="margin-top:16px; font-size: 0.85rem; opacity: 0.7;">
+      <a href="/academy.html" class="inline-link" style="margin:0 10px;">Academy</a>
+      <a href="/shield.html" class="inline-link" style="margin:0 10px;">Shield</a>
+      <a href="/terms.html" class="inline-link" style="margin:0 10px;">Terms</a>
+      <a href="/privacy.html" class="inline-link" style="margin:0 10px;">Privacy</a>
+      <a href="https://predicai.notion.site/Trust-Ethics-Protocol-2cd73ab1bdd6800cac99c280cb264c52" target="_blank" rel="noopener noreferrer" class="inline-link" style="margin:0 10px;">Trust & Ethics</a>
+    </div>
+  </footer>
+    
+  <button type="button" id="backToTop" title="Go to top" aria-label="Back to top" hidden>↑</button>
+
+  <script>
+    const mybutton = document.getElementById("backToTop");
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function scrollFunction() {
+      const show = (window.scrollY || document.documentElement.scrollTop) > 300;
+      mybutton.hidden = !show;
+      mybutton.setAttribute("tabindex", show ? "0" : "-1");
+      mybutton.setAttribute("aria-hidden", show ? "false" : "true");
+      mybutton.style.pointerEvents = show ? "auto" : "none";
+    }
+
+    window.addEventListener("scroll", scrollFunction, { passive: true });
+    scrollFunction();
+
+    mybutton.addEventListener("click", function() {
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" });
+    });
+  </script>
+</body>
+</html>
