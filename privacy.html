@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Predicai™ – Privacy & Data Governance</title>
+  <meta name="description" content="How Predicai handles your data across Academy and Shield, including Shield Check submissions, retention, deletion, and security." />
+
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://predicai.ai/privacy.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://predicai.ai/privacy.html" />
+  <meta property="og:title" content="Predicai™ – Privacy & Data Governance" />
+  <meta property="og:description" content="How Predicai handles your data across Academy and Shield, including Shield Check submissions, retention, deletion, and security." />
+  <meta property="og:image" content="https://predicai.ai/social-share.png" />
+
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="apple-touch-icon" href="/logo.png" />
+
+  <style>
+    :root {
+      --bg-page:#F9FAFB; --bg-card:#FFFFFF; --bg-subtle:#F3F4F6; --bg-dark:#111827;
+      --text-primary:#111827; --text-secondary:#4B5563; --text-tertiary:#9CA3AF;
+      --accent-teal-strong:#2A9195; --border-light:#E5E7EB;
+      --focus: rgba(42,145,149,0.65);
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; }
+
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg-page);
+      color:var(--text-primary);
+      line-height:1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* LINKS */
+    a{ text-decoration:none; color:inherit; }
+    a.inline-link{
+      color:var(--accent-teal-strong);
+      text-decoration:underline;
+      text-underline-offset:3px;
+      text-decoration-thickness:2px;
+      transition:opacity 0.2s;
+    }
+    a.inline-link:hover{ opacity:0.85; }
+    footer a.inline-link{ color:inherit; }
+
+    /* ACCESSIBILITY */
+    .skip-link{
+      position:absolute; left:-9999px; top:10px; z-index:9999;
+      padding:10px 14px;
+      background:#fff; color:#000;
+      font-weight:800;
+      border:2px solid var(--accent-teal-strong);
+      border-radius:10px;
+    }
+    .skip-link:focus{ left:12px; }
+
+    :focus-visible{
+      outline:3px solid var(--focus);
+      outline-offset:3px;
+      border-radius:10px;
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto !important; }
+      *{ transition:none !important; animation:none !important; }
+    }
+
+    /* HEADER (Sticky + Blur) */
+    header{
+      position:sticky; top:0; z-index:50;
+      background: rgba(249,250,251,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--border-light);
+    }
+
+    .header-inner{
+      max-width:1100px;
+      margin:0 auto;
+      padding:14px 24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      font-size:1.15rem;
+      color:var(--text-primary);
+      white-space:nowrap;
+    }
+    .brand-logo{
+      width:28px;
+      height:28px;
+      border-radius:6px;
+      object-fit:contain;
+      background:#fff;
+      border:1px solid rgba(0,0,0,0.06);
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    nav a{
+      font-size:0.92rem;
+      font-weight:650;
+      color:var(--text-secondary);
+      transition: color 0.2s, background 0.2s;
+      padding:6px 8px;
+      border-radius:10px;
+    }
+    nav a:hover{ color:var(--text-primary); background:rgba(0,0,0,0.04); }
+
+    /* LAYOUT */
+    .container{
+      max-width:800px;
+      margin:0 auto;
+      padding: 54px 24px 0;
+    }
+
+    h1{
+      font-size:2.5rem;
+      font-weight:900;
+      margin-bottom:14px;
+      letter-spacing:-0.03em;
+      line-height:1.1;
+    }
+
+    .last-updated{
+      font-size:0.92rem;
+      color:var(--text-tertiary);
+      margin-bottom:38px;
+      display:block;
+      border-bottom:1px solid var(--border-light);
+      padding-bottom:22px;
+    }
+
+    h2{
+      margin-top:44px;
+      margin-bottom:14px;
+      font-size:1.35rem;
+      font-weight:850;
+      color:var(--text-primary);
+      scroll-margin-top: 110px;
+    }
+
+    p, li{
+      color:var(--text-secondary);
+      margin-bottom:14px;
+      font-size:1rem;
+    }
+
+    ul{
+      padding-left:20px;
+      list-style:disc;
+      margin-bottom:14px;
+    }
+
+    /* PLEDGE BOX */
+    .governance-box{
+      background:var(--bg-subtle);
+      border:1px solid var(--border-light);
+      border-radius:16px;
+      padding:28px;
+      margin: 28px 0 34px;
+    }
+    .governance-title{
+      font-weight:900;
+      color:var(--accent-teal-strong);
+      text-transform:uppercase;
+      letter-spacing:0.06em;
+      font-size:0.82rem;
+      margin-bottom:10px;
+    }
+
+    /* CALLOUT */
+    .callout{
+      background:#fff;
+      border:1px solid var(--border-light);
+      border-radius:14px;
+      padding:18px;
+      margin: 18px 0;
+    }
+    .callout strong{ color:var(--text-primary); }
+
+    /* FOOTER */
+    footer{
+      text-align:center;
+      padding:40px 0;
+      border-top:1px solid var(--border-light);
+      color:var(--text-tertiary);
+      font-size:0.85rem;
+      margin-top:80px;
+    }
+    .social-links{
+      display:flex;
+      justify-content:center;
+      gap:24px;
+      margin-bottom:24px;
+    }
+
+    /* BACK TO TOP */
+    #backToTop{
+      position:fixed; bottom:20px; right:20px; z-index:99;
+      border:none;
+      background-color:var(--text-primary);
+      color:white;
+      cursor:pointer;
+      padding:12px;
+      border-radius:50%;
+      box-shadow:0 4px 10px rgba(0,0,0,0.2);
+      font-size:1.2rem;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    #backToTop[hidden]{ display:none; }
+    @media (hover:hover){
+      #backToTop:hover{ background-color:var(--accent-teal-strong); transform:translateY(-3px); }
+    }
+
+    @media (max-width: 900px){
+      .container{ padding-top: 36px; }
+      h1{ font-size:2.1rem; }
+      .header-inner{ justify-content:flex-start; }
+      nav{ justify-content:flex-start; }
+    }
+
+    @media print{
+      header, footer, #backToTop { display:none !important; }
+      body{ background:#fff; color:#000; }
+      .container{ max-width:100%; padding:0; }
+      a{ text-decoration:underline; color:#000; }
+      .governance-box, .callout{ border:1px solid #000; }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header>
+    <div class="header-inner">
+      <a href="/" class="brand" aria-label="Predicai home">
+        <img src="/logo.png" alt="Predicai" class="brand-logo" loading="eager" />
+        <span>Predic<span style="color: var(--accent-teal-strong)">ai</span>&trade;</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/academy.html">Academy</a>
+        <a href="/shield.html">Shield</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/resources.html">Resources</a>
+        <a href="/faq.html">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container" tabindex="-1">
+    <h1>Privacy & Data Governance</h1>
+    <span class="last-updated">Effective Date: December 31, 2025</span>
+
+    <p>
+      At Predicai™, we treat data governance as a capability, not just compliance. This policy explains how we handle
+      information across Predicai services, including the Academy and Shield (including Shield Check and optional scam reporting).
+    </p>
+
+    <section id="pledge" class="governance-box" aria-labelledby="pledge-title">
+      <div class="governance-title" id="pledge-title">🔒 Privacy Pledge™</div>
+
+      <p style="color:var(--text-primary); font-weight:700; margin-bottom:12px;">
+        Your submissions are used only to deliver the service you requested and to keep Predicai operating safely.
+      </p>
+
+      <ul>
+        <li><strong>No selling of personal data.</strong></li>
+        <li><strong>No public-model training</strong> on your submitted artifacts or messages.</li>
+        <li><strong>No advertising use</strong> of your submissions.</li>
+        <li><strong>No public examples</strong> without your explicit written consent.</li>
+      </ul>
+
+      <p style="margin-bottom:0;">
+        For operational details (vendors, retention, deletion), see the sections below.
+      </p>
+    </section>
+
+    <h2>1. Information We Collect</h2>
+    <p>We collect information needed to run Predicai and deliver what you request:</p>
+    <ul>
+      <li><strong>Account & Contact Data:</strong> name, email address, and (optional) LinkedIn URL (e.g., via forms).</li>
+      <li><strong>Payment Data:</strong> billing status and transaction history (processed by Stripe; we do not store full card numbers).</li>
+      <li><strong>Academy Artifact Data:</strong> content you submit for coursework or certification (e.g., documents, links).</li>
+      <li><strong>Shield Check Inputs:</strong> text you paste and/or screenshots you upload for analysis.</li>
+      <li><strong>Support Data:</strong> messages you send to support (for troubleshooting, refunds, or questions).</li>
+      <li><strong>Basic Technical Data:</strong> limited device/browser data and security logs (e.g., to prevent abuse and attacks).</li>
+    </ul>
+
+    <h2>2. Shield Check™ and Scam Reports</h2>
+    <p>
+      Shield Check is designed to provide a calm second opinion on suspicious messages and screenshots. You control what you submit.
+    </p>
+
+    <div class="callout" role="note" aria-label="Do not submit sensitive information">
+      <strong>Important:</strong> Do not submit secrets or highly sensitive information. Avoid full account numbers, passwords, one-time codes,
+      SSNs, medical record numbers, or anything you would not want stored in a support ticket.
+    </div>
+
+    <p>
+      <strong>Optional scam reporting:</strong> If you choose to report a scam, you may provide additional context. This is optional and is used to
+      improve internal operations, trend monitoring, and safety enforcement. If we ever want to use a real submission publicly, we will request
+      explicit written permission first.
+    </p>
+
+    <h2>3. The “No PII” Rule</h2>
+    <p>Before submitting any artifact or screenshot, you should redact personal or regulated identifiers:</p>
+    <ul>
+      <li>Client, patient, or customer identifiers</li>
+      <li>Account numbers, addresses, DOBs, SSNs, medical record numbers, passwords, or one-time codes</li>
+      <li>Unredacted financial statements or legal documents</li>
+      <li>Trade secrets you are not authorized to share</li>
+    </ul>
+
+    <h2>4. How We Use Information</h2>
+    <p>We use information for the following purposes:</p>
+    <ul>
+      <li>Deliver the services you request (Academy, Shield Check, downloads, email delivery)</li>
+      <li>Process payments and manage subscriptions</li>
+      <li>Provide customer support and handle refunds/cancellations</li>
+      <li>Prevent abuse, spam, and attacks against our forms and site</li>
+      <li>Improve internal operations (e.g., usability fixes, reducing false positives, content clarity)</li>
+      <li>Comply with legal obligations (tax, accounting, fraud prevention, dispute resolution)</li>
+    </ul>
+
+    <h2>5. Service Providers (Processors)</h2>
+    <p>
+      We do not sell your data. We share limited data only with vendors needed to deliver Predicai and operate securely.
+      Depending on what you use, these may include:
+    </p>
+    <ul>
+      <li><strong>Stripe</strong> (payments and billing)</li>
+      <li><strong>Notion</strong> (Academy content delivery / portal workflows)</li>
+      <li><strong>Tally</strong> (forms and file uploads used in Shield Check / intake)</li>
+      <li><strong>MailerLite (or equivalent email provider)</strong> (sending downloads, receipts, briefings, and membership emails)</li>
+      <li><strong>Cloudflare</strong> (site performance, security, and abuse prevention)</li>
+      <li><strong>AI processing provider(s)</strong> used to analyze submitted text/images for Shield Check outputs</li>
+    </ul>
+    <p>
+      These providers process data under their own policies and security controls. We choose reputable vendors and minimize sharing to what is necessary.
+    </p>
+
+    <h2>6. Data Retention & Deletion</h2>
+    <p>
+      We keep data only as long as needed for the purposes described above. Typical retention includes:
+    </p>
+    <ul>
+      <li><strong>Account and billing records:</strong> retained as required for tax, accounting, and dispute resolution</li>
+      <li><strong>Shield Check inputs:</strong> retained only as needed for service delivery, abuse prevention, and support troubleshooting</li>
+      <li><strong>Academy artifacts:</strong> retained for access and certification support unless you request deletion</li>
+    </ul>
+    <p>
+      You can request deletion of your submitted artifacts and associated profile by emailing
+      <a class="inline-link" href="mailto:hello@predicai.ai">hello@predicai.ai</a>.
+      We will delete or de-identify content where feasible.
+    </p>
+    <p>
+      Note: We may retain limited records required for legal, tax, payment, fraud prevention, or dispute resolution purposes
+      (for example, transaction records maintained by Stripe).
+    </p>
+
+    <h2>7. Cookies & Analytics</h2>
+    <p>
+      Predicai may use essential cookies or similar technologies required for basic site operation and security. We do not use
+      third-party advertising cookies for targeted ads.
+    </p>
+    <p>
+      If we add analytics tools in the future, we will update this policy to describe what is collected and how to opt out where applicable.
+    </p>
+
+    <h2>8. Security</h2>
+    <p>
+      We use standard administrative, technical, and physical safeguards designed to protect data in transit and at rest through our vendors.
+      No system is 100% secure, so please follow the “No PII” rule and avoid submitting secrets.
+    </p>
+
+    <h2>9. Your Choices & Rights</h2>
+    <p>
+      You may request access, correction, export, or deletion of your personal information by emailing
+      <a class="inline-link" href="mailto:hello@predicai.ai">hello@predicai.ai</a>.
+      We may need to verify your identity before fulfilling certain requests.
+    </p>
+
+    <h2>10. Children’s Privacy</h2>
+    <p>
+      Predicai is not directed to children under 13, and we do not knowingly collect personal information from children.
+      If you believe a child has provided us personal information, contact us and we will delete it.
+    </p>
+
+    <h2>11. International Visitors</h2>
+    <p>
+      Our service providers may process data in jurisdictions outside your home country. By using Predicai, you understand
+      that your information may be processed where our vendors operate.
+    </p>
+
+    <h2>12. Policy Updates</h2>
+    <p>
+      We may update this policy as Predicai evolves. If changes are material, we will update the Effective Date above
+      and may provide additional notice through the site or email.
+    </p>
+
+    <div class="callout" role="note" aria-label="Related policy links">
+      <strong>Related:</strong> Please also review our <a class="inline-link" href="/terms.html">Terms of Service</a>.
+    </div>
+
+    <footer>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/company/predicai-ai/" target="_blank" rel="noopener noreferrer" aria-label="Predicai on LinkedIn">LinkedIn</a>
+      </div>
+      <div class="copyright">
+        © <span id="year">2026</span> Predicai™ — All rights reserved. • "Foresight is Clarity."
+      </div>
+      <div style="margin-top:16px; font-size:0.85rem; opacity:0.7;">
+        <a href="/academy.html" class="inline-link" style="margin:0 10px;">Academy</a>
+        <a href="/shield.html" class="inline-link" style="margin:0 10px;">Shield</a>
+        <a href="/terms.html" class="inline-link" style="margin:0 10px;">Terms</a>
+        <a href="/privacy.html" class="inline-link" style="margin:0 10px;">Privacy</a>
+        <a href="https://predicai.notion.site/Trust-Ethics-Protocol-2cd73ab1bdd6800cac99c280cb264c52" target="_blank" rel="noopener noreferrer" class="inline-link" style="margin:0 10px;">Trust & Ethics</a>
+      </div>
+    </footer>
+  </main>
+
+  <button type="button" id="backToTop" aria-controls="main" title="Go to top" aria-label="Back to top" hidden>↑</button>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const mybutton = document.getElementById("backToTop");
+
+    function scrollFunction() {
+      const show = (window.scrollY || document.documentElement.scrollTop) > 300;
+      mybutton.hidden = !show;
+      mybutton.setAttribute("tabindex", show ? "0" : "-1");
+      mybutton.setAttribute("aria-hidden", show ? "false" : "true");
+      mybutton.style.pointerEvents = show ? "auto" : "none";
+    }
+
+    window.addEventListener("scroll", scrollFunction, { passive: true });
+    scrollFunction();
+
+    mybutton.addEventListener("click", () => {
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" });
+    });
+  </script>
+</body>
+</html>
