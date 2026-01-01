@@ -18,6 +18,9 @@
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/logo.png" type="image/png" />
 
+  <!-- ✅ External JS to avoid CSP blocking inline onclick -->
+  <script src="/assets/site.js" defer></script>
+
   <style>
     :root {
       --bg: #FFFBEB;
@@ -46,13 +49,11 @@
       padding-bottom: 60px;
     }
 
-    /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto !important; }
       * { transition: none !important; animation: none !important; }
     }
 
-    /* Accessibility */
     .skip-link {
       position: absolute; left: -9999px; top: 10px; z-index: 9999;
       background: #111827; color: #fff; padding: 10px 14px;
@@ -72,7 +73,6 @@
       padding: 0 20px;
     }
 
-    /* Unified header */
     header {
       position: sticky; top: 0; z-index: 50;
       background: rgba(255,251,235,0.92);
@@ -114,7 +114,7 @@
     nav {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
@@ -127,9 +127,70 @@
       padding: 6px 8px;
       border-radius: 10px;
       transition: background 0.15s ease, color 0.15s ease;
+      white-space: nowrap;
     }
     .nav-link:hover { color: var(--text); background: rgba(0,0,0,0.04); }
     .nav-link.active { color: var(--text); font-weight: 900; background: rgba(202,138,4,0.12); }
+
+    /* ✅ Dropdown (optional foundation) */
+    .nav-dropdown {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+    .nav-dropdown > button {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      font: inherit;
+      color: var(--muted);
+      padding: 6px 10px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-weight: 850;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    .nav-dropdown > button:hover { color: var(--text); background: rgba(0,0,0,0.04); }
+    .nav-dropdown > button[aria-expanded="true"] {
+      color: var(--text);
+      background: rgba(202,138,4,0.12);
+    }
+    .dropdown-menu {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 8px);
+      min-width: 220px;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.10);
+      border-radius: 12px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+      padding: 8px;
+      display: none;
+      z-index: 999;
+    }
+    .nav-dropdown .dropdown-menu a {
+      display: block;
+      padding: 10px 10px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 850;
+      font-size: 0.92rem;
+    }
+    .nav-dropdown .dropdown-menu a:hover {
+      background: rgba(0,0,0,0.04);
+    }
+    .nav-dropdown .dropdown-menu .muted {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 700;
+      padding: 6px 10px 4px;
+    }
+    .nav-dropdown.open .dropdown-menu { display: block; }
 
     .print-btn {
       background: white;
@@ -149,19 +210,16 @@
     }
     .print-btn:hover { background: #f9fafb; }
 
-    /* Page spacing */
     .page {
       max-width: 800px;
       margin: 0 auto;
       padding: 26px 0 0;
     }
 
-    /* Title */
     .title-block { text-align: center; margin: 18px 0 34px; }
     h1 { font-size: 2.5rem; font-weight: 950; line-height: 1.1; margin-bottom: 12px; }
     .subtitle { font-size: 1.15rem; color: var(--muted); max-width: 560px; margin: 0 auto; }
 
-    /* Checklist card */
     .checklist-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -191,7 +249,6 @@
     }
     .step-title { font-weight: 900; font-size: 1.2rem; }
 
-    /* Checkbox rows */
     .check-item {
       display: flex;
       gap: 12px;
@@ -230,7 +287,6 @@
     .check-text { font-size: 1.05rem; color: #374151; line-height: 1.5; }
     .check-item input:checked + .check-text { text-decoration: line-through; color: #9CA3AF; }
 
-    /* Shield box */
     .shield-box {
       margin-top: 24px;
       background: #FFFBEB;
@@ -262,7 +318,6 @@
       text-underline-offset: 3px;
     }
 
-    /* Evidence note */
     .evidence-note{
       margin-top: 10px;
       font-size: 0.82rem;
@@ -281,7 +336,6 @@
       opacity: 0.92;
     }
 
-    /* Safe word */
     .safe-word-box {
       background: #FEFCE8;
       border: 1px solid var(--accent-light);
@@ -314,7 +368,6 @@
     }
     .safe-input::placeholder { color: rgba(146,64,14,0.3); }
 
-    /* Footer CTA */
     .footer-cta {
       text-align: center;
       margin-top: 40px;
@@ -369,7 +422,6 @@
       line-height: 1.4;
     }
 
-    /* Print */
     @media print {
       body { background: white; padding: 0; color: black; }
       header, .footer-cta { display: none !important; }
@@ -386,14 +438,14 @@
       .shield-title, .shield-desc, .evidence-note, .shield-desc a, .evidence-note a { color: black !important; }
     }
 
-    /* Mobile */
     @media (max-width: 700px) {
       .header-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
-      nav { justify-content: flex-start; gap: 10px; }
+      nav { justify-content: flex-start; gap: 10px; width: 100%; }
       h1 { font-size: 2.1rem; }
       .checklist-card { padding: 22px; }
       .cta-row{ justify-content: flex-start; }
       .btn{ width:100%; }
+      .nav-dropdown .dropdown-menu { right: auto; left: 0; }
     }
   </style>
 </head>
@@ -410,14 +462,28 @@
 
       <nav aria-label="Primary navigation">
         <a href="/" class="nav-link">Home</a>
-        <a href="/about.html" class="nav-link">About</a>
-        <a href="/academy.html" class="nav-link">Academy</a>
-        <a href="/shield.html" class="nav-link active" aria-current="page">Shield</a>
-        <a href="/pricing.html" class="nav-link">Pricing</a>
         <a href="/resources.html" class="nav-link">Resources</a>
 
-        <!-- FIXED: no inline onclick -->
-        <button type="button" id="printBtn" class="print-btn" aria-label="Print this checklist">🖨️ Print</button>
+        <!-- Optional dropdown pattern (easy to reuse across pages) -->
+        <div class="nav-dropdown" data-dropdown>
+          <button type="button" aria-expanded="false" aria-haspopup="true">
+            Shield ▾
+          </button>
+          <div class="dropdown-menu" role="menu" aria-label="Shield menu">
+            <div class="muted">Shield Tools</div>
+            <a role="menuitem" href="/shield.html">Overview</a>
+            <a role="menuitem" href="/shield-check.html">Shield Check (Free)</a>
+            <a role="menuitem" href="/shield-checklist.html">Is It Real? Checklist</a>
+            <a role="menuitem" href="/shield-download.html">Download Protocols</a>
+          </div>
+        </div>
+
+        <a href="/academy.html" class="nav-link">Academy</a>
+        <a href="/pricing.html" class="nav-link">Pricing</a>
+        <a href="/about.html" class="nav-link">About</a>
+
+        <!-- ✅ No inline JS -->
+        <button type="button" class="print-btn" data-print aria-label="Print this checklist">🖨️ Print</button>
       </nav>
     </div>
   </header>
@@ -514,7 +580,7 @@
               <span class="evidence-cite">
                 <sup>1</sup> Yizhu Wang et al.,
                 <em>“Can You Walk Me Through It? Explainable SMS Phishing Detection using LLM-based Agents,”</em>
-                Proceedings of the Twenty-First Symposium on Usable Privacy and Security (SOUPS), USENIX, August 11–12, 2025 (Seattle, WA).
+                SOUPS (USENIX), August 11–12, 2025.
                 <a href="https://www.usenix.org/conference/soups2025/presentation/wang" target="_blank" rel="noopener noreferrer">Talk page</a>
                 ·
                 <a href="https://www.usenix.org/system/files/soups2025-wang.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
@@ -545,22 +611,5 @@
 
     </div>
   </main>
-
-  <script>
-    // Print button fix: avoids inline handlers (works under stricter CSP)
-    (function () {
-      const printBtn = document.getElementById("printBtn");
-      if (!printBtn) return;
-
-      printBtn.addEventListener("click", () => {
-        try {
-          if (typeof window.print === "function") window.print();
-          else alert("Printing is not available in this browser.");
-        } catch (e) {
-          alert("Print was blocked. Try Ctrl+P (Windows) or Cmd+P (Mac).");
-        }
-      });
-    })();
-  </script>
 </body>
 </html>
