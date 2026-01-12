@@ -14,16 +14,19 @@
       --text-dark:#111827;
       --text-sub:#4B5563;
 
-      /* TRUE METALLIC GOLD PALETTE */
-      --accent-gold:#CA8A04;
-      --gold-light:#FCD34D;
-      --gold-dark:#92400E;
+      /* SHIELD BRIGHT GOLD (match site) */
+      --gold: #FFD24A;        /* bright gold */
+      --gold-strong:#F4B400;  /* richer gold */
+      --gold-ink:#111827;
       --gold-bg:#FFFBEB;
+      --gold-border: rgba(244,180,0,0.35);
 
       --border:#E5E7EB;
       --paper-bg:#ffffff;
       --muted:#6B7280;
       --bg-page: #F3F4F6;
+
+      --shadow-soft: 0 6px 18px rgba(0,0,0,0.05);
     }
 
     @page{ size: Letter; margin: 0.5in; }
@@ -42,46 +45,48 @@
       color: white;
       padding: 20px;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.10);
     }
 
     .print-btn {
-      background: var(--accent-gold);
-      color: white;
+      background: var(--gold-strong);
+      color: #111827;
       border: none;
       padding: 12px 24px;
       font-size: 1rem;
-      font-weight: 800;
-      border-radius: 8px;
+      font-weight: 900;
+      border-radius: 10px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      transition: transform 0.2s;
+      transition: transform 0.2s, opacity 0.2s;
     }
 
     .print-btn:focus-visible, .action-bar a:focus-visible {
-        outline: 3px solid var(--accent-gold);
-        outline-offset: 3px;
-        border-radius: 8px;
+      outline: 3px solid rgba(255,210,74,0.60);
+      outline-offset: 3px;
+      border-radius: 10px;
     }
 
     @media (hover: hover) {
-        .print-btn:hover { transform: translateY(-2px); opacity: 0.95; }
+      .print-btn:hover { transform: translateY(-2px); opacity: 0.95; }
     }
 
     .mobile-tip {
-        margin-top: 12px;
-        font-size: 0.85rem;
-        color: #9CA3AF;
-        line-height: 1.4;
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: #9CA3AF;
+      line-height: 1.4;
     }
 
     /* ACCESSIBILITY: SKIP LINK */
     .skip-link {
-        position: absolute; left: -9999px; z-index: 999;
-        padding: 1em; background: #fff; color: #000;
-        font-weight: 800; border: 2px solid var(--accent-gold);
+      position: absolute; left: -9999px; z-index: 999;
+      padding: 1em; background: #fff; color: #000;
+      font-weight: 900; border: 2px solid var(--gold-strong);
+      border-radius: 10px;
+      box-shadow: var(--shadow-soft);
     }
     .skip-link:focus { left: 16px; top: 16px; }
 
@@ -92,9 +97,9 @@
       background:var(--paper-bg);
       max-width: 820px;
       margin: 0 auto;
-      border: 1px solid #e5e7eb;
+      border: 1px solid var(--border);
       border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      box-shadow: var(--shadow-soft);
       overflow: hidden;
       position: relative;
     }
@@ -115,93 +120,94 @@
       gap: 16px;
     }
     .brand-block { display: flex; align-items: center; gap: 12px; }
-    .brand{ font-size: 1.55rem; font-weight: 900; letter-spacing: -0.02em; }
+    .brand{ font-size: 1.55rem; font-weight: 950; letter-spacing: -0.02em; }
     .meta{ text-align:right; font-size: 0.82rem; color: var(--muted); }
 
     /* IMAGE STYLES */
     .logo-img {
-        width: 48px;
-        height: 48px;
-        object-fit: contain;
-        border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 50%;
     }
     .card-logo-img {
-        width: 36px;
-        height: 36px;
-        object-fit: contain;
-        border-radius: 50%;
-        border: 2px solid rgba(255,255,255,0.2);
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.20);
     }
 
     /* PROTOCOL BOX */
     .protocol-box{
-        margin-bottom: 28px;
-        break-inside: avoid;
-        page-break-inside: avoid;
+      margin-bottom: 28px;
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
     .protocol-title{
       display:inline-block;
       font-size: 0.95rem;
-      font-weight: 900;
+      font-weight: 950;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--accent-gold);
-      border-bottom: 1px solid var(--accent-gold);
+      color: var(--gold-strong);
+      border-bottom: 1px solid rgba(244,180,0,0.55);
       padding-bottom: 4px;
       margin-bottom: 12px;
     }
-    .protocol-lead{ margin-bottom: 18px; font-size: 0.95rem; color: #6b7280; font-style: italic; }
+    .protocol-lead{ margin-bottom: 18px; font-size: 0.95rem; color: #6B7280; font-style: italic; }
 
     .checklist{ display:grid; grid-template-columns: 1fr 1fr; gap: 22px 26px; }
 
     .check-item{
-        font-size: 0.95rem;
-        line-height: 1.35;
-        color: var(--text-sub);
-        break-inside: avoid;
-        page-break-inside: avoid;
+      font-size: 0.95rem;
+      line-height: 1.35;
+      color: var(--text-sub);
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
-    .check-item strong{ display:block; color: var(--text-dark); font-weight: 900; margin-bottom: 4px; }
+    .check-item strong{ display:block; color: var(--text-dark); font-weight: 950; margin-bottom: 4px; }
 
     /* SHIELD BOX */
     .shield-box {
-        margin-top: 24px;
-        background: var(--gold-bg);
-        border: 1px solid var(--gold-light);
-        border-radius: 8px;
-        padding: 16px;
-        display: flex;
-        gap: 16px;
-        align-items: flex-start;
-        break-inside: avoid;
+      margin-top: 24px;
+      background: var(--gold-bg);
+      border: 1px solid var(--gold-border);
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
     .shield-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
 
     .shield-title {
-        color: var(--gold-dark);
-        display: block;
-        font-weight: 900;
-        font-size: 0.95rem;
-        margin-bottom: 4px;
+      color: #111827;
+      display: block;
+      font-weight: 950;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
     }
     .shield-desc {
-        color: var(--gold-dark);
-        font-size: 0.9rem;
-        display: block;
-        line-height: 1.4;
+      color: rgba(17,24,39,0.90);
+      font-size: 0.9rem;
+      display: block;
+      line-height: 1.4;
     }
-    .shield-desc strong { color: var(--gold-dark); font-weight: 900; }
+    .shield-desc strong { color: #111827; font-weight: 950; }
 
-    /* UPDATED: Evidence note + footnote marker */
+    /* Evidence note + footnote marker */
     .evidence-micro {
-        margin-top: 8px;
-        font-size: 0.8rem;
-        line-height: 1.35;
-        color: rgba(146,64,14,0.85);
-        border-top: 1px solid rgba(146,64,14,0.1);
-        padding-top: 8px;
+      margin-top: 8px;
+      font-size: 0.8rem;
+      line-height: 1.35;
+      color: rgba(17,24,39,0.80);
+      border-top: 1px solid rgba(17,24,39,0.10);
+      padding-top: 8px;
     }
-    .evidence-micro sup{ font-weight: 900; }
+    .evidence-micro sup{ font-weight: 950; }
 
     /* WALLET CARDS */
     .divider{ margin: 24px 0 14px; border-top: 1px solid var(--border); }
@@ -226,16 +232,16 @@
 
     .front-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
     .card-label{ font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; opacity: 0.75; display:block; }
-    .card-title{ font-size: 1.08rem; font-weight: 900; margin-bottom: 10px; line-height: 1.15; }
+    .card-title{ font-size: 1.08rem; font-weight: 950; margin-bottom: 10px; line-height: 1.15; }
 
     .safe-word-box{
       border: 1px dashed rgba(255,255,255,0.45);
       padding: 10px;
       border-radius: 8px;
       text-align:center;
-      font-family: monospace;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
       font-size: 0.95rem;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: 0.05em;
       margin-top: 8px;
     }
@@ -247,25 +253,24 @@
     .cut-zone{ border: 2px dashed #9ca3af; border-radius: 10px; padding: 12px; background: #fdfdfd; }
 
     .sheet-footer{
-        margin-top: 18px;
-        text-align:center;
-        font-size: 0.72rem;
-        color:#9ca3af;
-        line-height: 1.4;
+      margin-top: 18px;
+      text-align:center;
+      font-size: 0.72rem;
+      color:#9ca3af;
+      line-height: 1.4;
     }
 
-    /* UPDATED: footnote styling */
     .sheet-footer .footnote{
       display:inline-block;
       margin-top:6px;
       max-width: 78ch;
-      opacity: 0.9;
+      opacity: 0.95;
     }
     .sheet-footer a{
       color: inherit;
       text-decoration: underline;
       text-underline-offset: 3px;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     /* PRINT QUERY */
@@ -275,16 +280,22 @@
       .page-wrap{ padding:0; }
       .sheet{ box-shadow:none; border:none; border-radius:0; max-width: 100%; }
       .sheet-inner{ padding:0; }
-      .cut-zone{ break-inside: avoid; page-break-inside: avoid; }
 
       /* Print Legibility Bump */
       .check-item { font-size: 1.02rem; }
       .protocol-lead { font-size: 1rem; }
+
+      /* Print-friendly links */
+      .sheet-footer a::after{
+        content: " (" attr(href) ")";
+        font-weight: 600;
+        color: #6B7280;
+        word-break: break-all;
+      }
     }
 
     /* Mobile Responsive */
     @media (max-width: 720px){
-      .mobile-tip { display: block; }
       .checklist, .cards-grid { grid-template-columns: 1fr; }
       .sheet-inner { padding: 24px; }
       .wallet-card { height: auto; min-height: 180px; }
@@ -305,7 +316,9 @@
       <em>If the gold/black doesn't show, enable <strong>Background Graphics</strong> in print options.</em>
     </div>
     <div style="margin-top:16px;">
-        <a href="/" style="color:white; font-size:0.9rem; text-decoration:underline;">← Return to Website</a>
+      <a href="/" style="color:white; font-size:0.9rem; text-decoration:underline;" aria-label="Return to Predicai home">
+        ← Return to Website
+      </a>
     </div>
   </div>
 
@@ -315,8 +328,8 @@
 
         <div class="header">
           <div class="brand-block">
-            <img src="/assets/img/predicai-shield-gold.JPG" alt="Predicai Shield Logo" class="logo-img">
-            <div class="brand">Predicai Shield<span style="color:var(--accent-gold)">™</span></div>
+            <img src="/predicai-shield-gold.JPG" alt="Predicai Shield Logo" class="logo-img">
+            <div class="brand">Predicai Shield<span style="color:var(--gold-strong)">™</span></div>
           </div>
           <div class="meta">
             Family Safety Protocol<br>
@@ -369,16 +382,15 @@
           <div class="shield-box">
             <div class="shield-icon">🛡️</div>
             <div class="shield-text">
-                <span class="shield-title">Report. Verify. Protect.</span>
-                <span class="shield-desc">
-                  Still not sure? Go to <strong>Predicai.ai</strong> and use <strong>Shield Check™</strong> to scan the text for risk signals and get a plain-English explanation.
-                </span>
+              <span class="shield-title">Report. Verify. Protect.</span>
+              <span class="shield-desc">
+                Still not sure? Go to <strong>Predicai.ai</strong> and use <strong>Shield Check™</strong> to scan the text for risk signals and get a plain-English explanation.
+              </span>
 
-                <!-- ✅ UPDATED (your requested wording + footnote marker) -->
-                <div class="evidence-micro">
-                  Evidence note: In a controlled study of explainable SMS phishing detection, people improved from <strong>71.2%</strong>
-                  accuracy to <strong>92.8%</strong> after reading LLM-generated explanations; older adults reached <strong>94.2%</strong>.<sup>1</sup>
-                </div>
+              <div class="evidence-micro">
+                Evidence note: In a controlled study of explainable SMS phishing detection, people improved from <strong>71.2%</strong>
+                accuracy to <strong>92.8%</strong> after reading LLM-generated explanations; older adults reached <strong>94.2%</strong>.<sup>1</sup>
+              </div>
             </div>
           </div>
 
@@ -394,7 +406,7 @@
             <div class="wallet-card card-front">
               <div class="front-header">
                 <span class="card-label">Predicai Shield™</span>
-                <img src="/assets/img/predicai-shield-gold.JPG" alt="Shield Logo" class="card-logo-img">
+                <img src="/predicai-shield-gold.JPG" alt="Shield Logo" class="card-logo-img">
               </div>
 
               <div class="card-title">Counter-AI Card</div>
@@ -424,8 +436,6 @@
 
         <div class="sheet-footer">
           © 2026 Predicai™ — Verified Counter-Intelligence Protocols.<br>
-
-          <!-- ✅ UPDATED: full footnote (matches your snippet) -->
           <span class="footnote">
             <sup>1</sup> Yizhu Wang et al., “Can You Walk Me Through It? Explainable SMS Phishing Detection using LLM-based Agents,”
             <em>Proceedings of the Twenty-First Symposium on Usable Privacy and Security (SOUPS)</em>, USENIX, Aug 10–12, 2025.
