@@ -3,449 +3,496 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The "Is It Real?" Checklist – Predicai Shield</title>
-  <meta name="description" content="A calm, step-by-step guide to verifying suspicious calls, texts, or emails. Stop the panic and verify the source." />
+  <title>Is It Real? – Predicai™ Shield Checklist</title>
 
-  <!-- Social -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://predicai.ai/shield-checklist.html" />
-  <meta property="og:title" content='The "Is It Real?" Checklist – Predicai Shield' />
-  <meta property="og:description" content="A calm, step-by-step guide to verifying suspicious calls, texts, or emails. Stop the panic and verify the source." />
-  <meta property="og:image" content="https://predicai.ai/assets/img/social-share.png" />
-
-  <meta name="theme-color" content="#FFFBEB" />
+  <meta name="description" content="A calm, step-by-step guide to verifying suspicious calls, texts, or emails. Pause, verify, then act." />
   <link rel="canonical" href="https://predicai.ai/shield-checklist.html" />
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" href="/assets/img/logo.png" type="image/png" />
 
-  <!-- ✅ External JS to avoid CSP blocking inline onclick -->
-  <script src="/assets/site.js" defer></script>
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Predicai" />
+  <meta property="og:url" content="https://predicai.ai/shield-checklist.html" />
+  <meta property="og:title" content="Is It Real? – Predicai™ Shield Checklist" />
+  <meta property="og:description" content="A calm, step-by-step guide to verifying suspicious calls, texts, or emails. Pause, verify, then act." />
+  <meta property="og:image" content="https://predicai.ai/social-share.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Is It Real? – Predicai™ Shield Checklist" />
+  <meta name="twitter:description" content="A calm, step-by-step guide to verifying suspicious calls, texts, or emails. Pause, verify, then act." />
+  <meta name="twitter:image" content="https://predicai.ai/social-share.png" />
+
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #FFFBEB;
-      --card: #FFFFFF;
-      --text: #111827;
+      /* Light base (match site) */
+      --bg: #F8FAFC;
+      --surface: #FFFFFF;
+      --text: #0F172A;
+      --muted: #475569;
+      --border: #E2E8F0;
 
-      /* TRUE METALLIC GOLD PALETTE */
-      --accent: #CA8A04;
-      --accent-dark: #92400E;
-      --accent-light: #FCD34D;
+      /* Predicai */
+      --teal: #0F766E;
+      --blue: #1D4ED8;
 
-      --border: rgba(0,0,0,0.10);
-      --radius: 16px;
-      --muted: #4B5563;
-      --focus: rgba(202, 138, 4, 0.6);
+      /* Shield gold */
+      --gold: #CA8A04;
+      --gold-dark: #92400E;
+      --gold-light: #FFFBEB;
+      --gold-border: #FEF08A;
+
+      --shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+      --shadow-soft: 0 6px 18px rgba(15, 23, 42, 0.06);
+
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+
+      --focus: rgba(29,78,216,0.45);
+
+      --containerMax: 900px;
+      --headerMax: 1200px;
+      --headerPadY: 14px;
+      --headerPadX: 24px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 84px;
+    }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.5;
-      padding-bottom: 60px;
+      line-height: 1.55;
+
+      padding:
+        env(safe-area-inset-top)
+        env(safe-area-inset-right)
+        env(safe-area-inset-bottom)
+        env(safe-area-inset-left);
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto !important; }
-      * { transition: none !important; animation: none !important; }
+    /* Skip link */
+    .skip-link{
+      position:absolute; left:-9999px; top:12px; z-index:9999;
+      padding:10px 14px; background: var(--surface); color: var(--text);
+      border-radius: 10px; border: 1px solid var(--border);
+      font-weight: 900; text-decoration: none;
+      box-shadow: var(--shadow-soft);
     }
+    .skip-link:focus{ left:12px; outline: 3px solid var(--focus); outline-offset: 2px; }
 
-    .skip-link {
-      position: absolute; left: -9999px; top: 10px; z-index: 9999;
-      background: #111827; color: #fff; padding: 10px 14px;
-      border-radius: 10px; text-decoration: none; font-weight: 900;
-    }
-    .skip-link:focus { left: 12px; }
-
-    :focus-visible {
+    :focus-visible{
       outline: 3px solid var(--focus);
       outline-offset: 3px;
-      border-radius: 8px;
+      border-radius: 10px;
     }
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    header {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(255,251,235,0.92);
+    /* Header */
+    header{
+      background: rgba(255,255,255,0.92);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 50;
     }
-
-    .header-inner {
-      max-width: 1100px;
+    .header-inner{
+      max-width: var(--headerMax);
       margin: 0 auto;
-      padding: 0 20px;
+      padding: var(--headerPadY) var(--headerPadX);
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 16px;
-      flex-wrap: wrap;
     }
-
-    .brand {
-      font-weight: 950;
+    .brand{
+      font-weight: 900;
       font-size: 1.05rem;
+      text-decoration: none;
+      color: var(--text);
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      text-decoration: none;
-      color: var(--text);
       white-space: nowrap;
     }
-    .brand img {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid rgba(0,0,0,0.08);
-      background: #fff;
-    }
+    .brand img{ width: 26px; height: 26px; border-radius: 6px; object-fit: contain; display:block; }
 
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav-link {
-      font-size: 0.92rem;
-      font-weight: 750;
-      color: var(--muted);
-      text-decoration: none;
-      padding: 6px 8px;
-      border-radius: 10px;
-      transition: background 0.15s ease, color 0.15s ease;
-      white-space: nowrap;
-    }
-    .nav-link:hover { color: var(--text); background: rgba(0,0,0,0.04); }
-    .nav-link.active { color: var(--text); font-weight: 900; background: rgba(202,138,4,0.12); }
-
-    /* ✅ Dropdown (optional foundation) */
-    .nav-dropdown {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-    }
-    .nav-dropdown > button {
-      appearance: none;
-      border: 0;
-      background: transparent;
-      cursor: pointer;
-      font: inherit;
-      color: var(--muted);
-      padding: 6px 10px;
-      border-radius: 10px;
-      font-size: 0.92rem;
-      font-weight: 850;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
-    }
-    .nav-dropdown > button:hover { color: var(--text); background: rgba(0,0,0,0.04); }
-    .nav-dropdown > button[aria-expanded="true"] {
-      color: var(--text);
-      background: rgba(202,138,4,0.12);
-    }
-    .dropdown-menu {
-      position: absolute;
-      right: 0;
-      top: calc(100% + 8px);
-      min-width: 220px;
-      background: #fff;
-      border: 1px solid rgba(0,0,0,0.10);
-      border-radius: 12px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.12);
-      padding: 8px;
-      display: none;
-      z-index: 999;
-    }
-    .nav-dropdown .dropdown-menu a {
-      display: block;
-      padding: 10px 10px;
-      border-radius: 10px;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 850;
-      font-size: 0.92rem;
-    }
-    .nav-dropdown .dropdown-menu a:hover {
-      background: rgba(0,0,0,0.04);
-    }
-    .nav-dropdown .dropdown-menu .muted {
-      font-size: 0.8rem;
-      color: var(--muted);
-      font-weight: 700;
-      padding: 6px 10px 4px;
-    }
-    .nav-dropdown.open .dropdown-menu { display: block; }
-
-    .print-btn {
-      background: white;
-      border: 1px solid var(--border);
-      padding: 8px 14px;
-      border-radius: 10px;
-      font-weight: 850;
-      cursor: pointer;
-      font-size: 0.9rem;
-      display: inline-flex;
-      gap: 6px;
-      align-items: center;
-      color: var(--text);
-      text-decoration: none;
-      transition: background 0.2s;
-      white-space: nowrap;
-    }
-    .print-btn:hover { background: #f9fafb; }
-
-    .page {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 26px 0 0;
-    }
-
-    .title-block { text-align: center; margin: 18px 0 34px; }
-    h1 { font-size: 2.5rem; font-weight: 950; line-height: 1.1; margin-bottom: 12px; }
-    .subtitle { font-size: 1.15rem; color: var(--muted); max-width: 560px; margin: 0 auto; }
-
-    .checklist-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
-
-    .step-group { margin-bottom: 32px; border-bottom: 1px dashed var(--border); padding-bottom: 24px; }
-    .step-group:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-
-    .step-header {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-    .step-num {
-      background: var(--bg);
-      color: var(--accent-dark);
-      font-weight: 950;
-      width: 32px; height: 32px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      border: 1px solid rgba(202, 138, 4, 0.3);
-      flex-shrink: 0;
-    }
-    .step-title { font-weight: 900; font-size: 1.2rem; }
-
-    .check-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      margin-bottom: 12px;
-      cursor: pointer;
-      padding: 8px;
-      border-radius: 10px;
-      transition: background 0.12s;
-    }
-    .check-item:hover { background: #F3F4F6; }
-
-    input[type="checkbox"] {
-      appearance: none;
-      width: 24px; height: 24px;
-      border: 2px solid #D1D5DB;
-      border-radius: 6px;
-      flex-shrink: 0;
-      margin-top: 2px;
-      cursor: pointer;
-      display: grid;
-      place-content: center;
-      background: white;
-    }
-    input[type="checkbox"]::before {
-      content: "";
-      width: 14px; height: 14px;
-      transform: scale(0);
-      background-color: var(--accent);
-      border-radius: 3px;
-      transition: 120ms transform ease-in-out;
-    }
-    input[type="checkbox"]:checked { border-color: var(--accent); }
-    input[type="checkbox"]:checked::before { transform: scale(1); }
-
-    .check-text { font-size: 1.05rem; color: #374151; line-height: 1.5; }
-    .check-item input:checked + .check-text { text-decoration: line-through; color: #9CA3AF; }
-
-    .shield-box {
-      margin-top: 24px;
-      background: #FFFBEB;
-      border: 1px solid var(--accent-light);
-      border-radius: 12px;
-      padding: 16px;
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-    .shield-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
-    .shield-title {
-      color: var(--accent-dark);
-      display: block;
-      font-weight: 950;
-      font-size: 0.95rem;
-      margin-bottom: 6px;
-    }
-    .shield-desc {
-      color: var(--accent-dark);
-      font-size: 0.92rem;
-      display: block;
-      line-height: 1.45;
-    }
-    .shield-desc a {
-      color: var(--accent-dark);
-      font-weight: 950;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .evidence-note{
-      margin-top: 10px;
-      font-size: 0.82rem;
-      color: rgba(146, 64, 14, 0.95);
-      line-height: 1.35;
-    }
-    .evidence-note a{
-      color: rgba(146, 64, 14, 0.95);
-      font-weight: 900;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-    .evidence-cite{
-      display: inline-block;
-      margin-top: 6px;
-      opacity: 0.92;
-    }
-
-    .safe-word-box {
-      background: #FEFCE8;
-      border: 1px solid var(--accent-light);
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      margin-top: 40px;
-    }
-    .safe-label {
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      font-weight: 900;
-      letter-spacing: 0.1em;
-      color: var(--accent-dark);
-      margin-bottom: 8px;
-    }
-    .safe-input {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size: 1.5rem;
-      text-align: center;
-      background: transparent;
-      border: none;
-      border-bottom: 2px solid var(--accent-dark);
-      width: 100%;
-      max-width: 260px;
-      color: #78350F;
-      outline: none;
-      border-radius: 0;
-      padding: 6px 0;
-    }
-    .safe-input::placeholder { color: rgba(146,64,14,0.3); }
-
-    .footer-cta {
-      text-align: center;
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(0,0,0,0.06);
-    }
-
-    .cta-row{
+    nav{
       display:flex;
       gap: 12px;
-      justify-content: center;
       flex-wrap: wrap;
-      margin-top: 12px;
+      justify-content: flex-end;
+      align-items:center;
+    }
+    nav a{
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 8px 10px;
+      border-radius: 12px;
+      transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+    nav a:hover{ color: var(--text); background: rgba(15,23,42,0.04); transform: translateY(-1px); }
+    nav a.active{
+      color: var(--text);
+      font-weight: 900;
+      background: rgba(29,78,216,0.10);
+      border-color: rgba(29,78,216,0.16);
     }
 
-    .btn {
+    /* Layout */
+    .container{
+      max-width: var(--containerMax);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Top controls */
+    .topbar{
+      margin: 22px 0 10px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .crumb a{
+      color: var(--teal);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 900;
+    }
+
+    /* Buttons */
+    .btn{
+      appearance: none;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-weight: 900;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: transform 0.15s ease, opacity 0.15s ease, border-color 0.15s ease;
+      user-select: none;
+      box-shadow: var(--shadow-soft);
+      background: var(--text);
+      color: #fff;
+      white-space: nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); opacity: 0.96; }
+    .btn-outline{
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border);
+      box-shadow: var(--shadow-soft);
+    }
+    .btn-outline:hover{ border-color: rgba(15,118,110,0.35); }
+
+    /* Hero */
+    .hero{
+      margin: 8px 0 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 26px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(circle at top, rgba(202,138,4,0.10), transparent 55%);
+      pointer-events:none;
+    }
+    .hero > *{ position: relative; }
+
+    .tag{
+      display:inline-block;
+      background: var(--gold-light);
+      border: 1px solid var(--gold-border);
+      color: var(--gold);
+      font-weight: 900;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    h1{
+      font-size: clamp(2.0rem, 4.4vw, 2.6rem);
+      font-weight: 950;
+      margin: 12px 0 8px;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+    }
+    .subtitle{
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 720px;
+      margin-bottom: 14px;
+    }
+
+    .protocol{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+      align-items: center;
+      color: var(--gold-dark);
+      font-weight: 950;
+    }
+    .pill{
       display:inline-flex;
       align-items:center;
-      justify-content:center;
-      text-decoration:none;
-      font-weight: 900;
-      padding: 12px 20px;
+      gap: 8px;
+      padding: 8px 12px;
       border-radius: 999px;
-      transition: opacity 0.2s, transform 0.2s, background 0.2s, border-color 0.2s;
-      user-select:none;
-      -webkit-tap-highlight-color: transparent;
-      border: 1px solid transparent;
+      border: 1px solid rgba(202,138,4,0.22);
+      background: rgba(202,138,4,0.08);
+      font-size: 0.92rem;
     }
-    .btn:active{ transform: translateY(1px); }
-
-    .btn-primary{
-      background:#111827;
-      color:#fff;
-    }
-    .btn-primary:hover{ opacity:0.92; transform: translateY(-1px); }
-
-    .btn-outline{
-      background: transparent;
-      color: #111827;
-      border-color: rgba(0,0,0,0.14);
-    }
-    .btn-outline:hover{
-      background: rgba(0,0,0,0.03);
-      transform: translateY(-1px);
+    .pill span{
+      color: var(--muted);
+      font-weight: 850;
     }
 
-    .sheet-footer {
-      margin-top: 24px;
+    /* Sections */
+    .section{
+      margin: 16px 0;
+      page-break-inside: avoid;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 22px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .section-title{
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 950;
+      color: var(--gold);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+      margin-bottom: 16px;
+    }
+
+    .check-item{
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .box{
+      width: 28px;
+      height: 28px;
+      border: 3px solid #9CA3AF;
+      border-radius: 6px;
+      flex: 0 0 auto;
+      margin-top: 2px;
+      background: #fff;
+    }
+
+    .text{
+      font-size: 1.18rem;
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+    .note{
+      display: block;
+      font-size: 0.98rem;
+      color: var(--muted);
+      margin-top: 6px;
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    .url-chip{
+      display: inline-block;
+      margin-top: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-weight: 900;
+      font-size: 0.98rem;
+      background: #fff;
+    }
+
+    .recovery{
+      background: #F9FAFB;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      margin-top: 8px;
+    }
+    .recovery-title{
+      font-weight: 950;
+      font-size: 1.02rem;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .recovery p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.5;
+    }
+
+    /* Golden rule */
+    .golden-rule{
+      background: var(--gold-light);
+      border: 2px solid rgba(202,138,4,0.35);
+      padding: 22px;
+      border-radius: var(--radius-xl);
       text-align: center;
-      font-size: 0.72rem;
-      color: #9ca3af;
-      line-height: 1.4;
+      margin-top: 18px;
+      box-shadow: var(--shadow-soft);
+    }
+    .golden-rule h2{
+      font-size: 1.35rem;
+      font-weight: 950;
+      color: var(--gold-dark);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+    .golden-rule p{
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: var(--gold-dark);
+      margin: 0;
+    }
+    .golden-rule .sub{
+      font-size: 0.98rem;
+      font-weight: 650;
+      margin-top: 10px;
+      color: rgba(146,64,14,0.90);
     }
 
-    @media print {
-      body { background: white; padding: 0; color: black; }
-      header, .footer-cta { display: none !important; }
-      .container, .page { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
-      .checklist-card { box-shadow: none; border: 2px solid #000; padding: 18px; background: white; border-radius: 0; }
-      h1 { font-size: 2rem; margin-top: 0; color: black; }
-      .subtitle { color: #000; }
-      .safe-word-box { border: 2px dashed #000; background: none; }
-      .check-item:hover { background: none; }
-      input[type="checkbox"] { border-color: #000; }
-      .check-text { color: black; }
-      .step-num { border-color: #000; color: #000; }
-      .shield-box { border: 1px solid #000; background: none; color: black; }
-      .shield-title, .shield-desc, .evidence-note, .shield-desc a, .evidence-note a { color: black !important; }
+    /* Bottom actions */
+    .actions{
+      margin: 18px 0 0;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn-gold{
+      background: var(--gold);
+      color: #fff;
+      border-color: rgba(202,138,4,0.30);
+      box-shadow: 0 14px 30px rgba(202,138,4,0.18);
     }
 
-    @media (max-width: 700px) {
+    /* Footer pledge + footer */
+    .pledge-footer{
+      margin-top: 22px;
+      font-size: 0.92rem;
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      line-height: 1.6;
+      padding: 0 20px;
+      color: var(--muted);
+    }
+    .pledge-footer a{
+      color: var(--teal);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 900;
+    }
+
+    footer{
+      text-align: center;
+      padding: 54px 0;
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      background: rgba(255,255,255,0.6);
+    }
+    footer a{
+      color: inherit;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 900;
+      padding: 6px 8px;
+      border-radius: 10px;
+    }
+    footer a:hover{
+      color: var(--text);
+      background: rgba(15,23,42,0.04);
+    }
+
+    a{
+      color: var(--teal);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 900;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
       .header-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
-      nav { justify-content: flex-start; gap: 10px; width: 100%; }
-      h1 { font-size: 2.1rem; }
-      .checklist-card { padding: 22px; }
-      .cta-row{ justify-content: flex-start; }
-      .btn{ width:100%; }
-      .nav-dropdown .dropdown-menu { right: auto; left: 0; }
+      nav { width: 100%; justify-content: flex-start; }
+    }
+
+    @media (max-width: 600px){
+      .topbar{ justify-content: center; }
+      .btn{ width: 100%; }
+      .actions{ padding-bottom: 6px; }
+      .text{ font-size: 1.12rem; }
+      .section{ padding: 18px; }
+      .hero{ padding: 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior: auto; }
+      *{ transition: none !important; animation: none !important; }
+      .btn:hover, nav a:hover{ transform: none !important; opacity: 1 !important; }
+    }
+
+    /* Print */
+    @media print {
+      header, nav, .topbar, .actions, .pledge-footer, footer { display: none !important; }
+      body { background: #fff; }
+      .container{ max-width: 7.5in; }
+      .hero, .section, .golden-rule { box-shadow: none !important; }
+      .hero, .section, .golden-rule { border: 2px solid #000 !important; background:#fff !important; }
+      .tag, .pill { border: 2px solid #000 !important; background:#fff !important; color:#000 !important; }
+      .section-title { color:#000 !important; border-bottom: 2px solid #000 !important; }
+      .note { color:#111 !important; }
+      a { color:#000 !important; text-decoration: none !important; }
+      .url-chip { border: 2px solid #000 !important; }
+      .recovery { border: 2px solid #000 !important; background:#fff !important; }
     }
   </style>
 </head>
@@ -455,161 +502,174 @@
 
   <header>
     <div class="header-inner">
-      <a href="/shield.html" class="brand" aria-label="Predicai Shield home">
-        <img src="/predicai-shield-gold.JPG" alt="Predicai Shield logo">
-        Predicai Shield™
+      <a href="/" class="brand" aria-label="Predicai home">
+        <img src="/logo.png" alt="Predicai logo">
+        <span>Predic<span style="color: var(--teal)">ai</span>™</span>
       </a>
 
       <nav aria-label="Primary navigation">
-        <a href="/" class="nav-link">Home</a>
-        <a href="/resources.html" class="nav-link">Resources</a>
-
-        <!-- Optional dropdown pattern (easy to reuse across pages) -->
-        <div class="nav-dropdown" data-dropdown>
-          <button type="button" aria-expanded="false" aria-haspopup="true">
-            Shield ▾
-          </button>
-          <div class="dropdown-menu" role="menu" aria-label="Shield menu">
-            <div class="muted">Shield Tools</div>
-            <a role="menuitem" href="/shield.html">Overview</a>
-            <a role="menuitem" href="/shield-check.html">Shield Check (Free)</a>
-            <a role="menuitem" href="/shield-checklist.html">Is It Real? Checklist</a>
-            <a role="menuitem" href="/shield-download.html">Download Protocols</a>
-          </div>
-        </div>
-
-        <a href="/academy.html" class="nav-link">Academy</a>
-        <a href="/pricing.html" class="nav-link">Pricing</a>
-        <a href="/about.html" class="nav-link">About</a>
-
-        <!-- ✅ No inline JS -->
-        <button type="button" class="print-btn" data-print aria-label="Print this checklist">🖨️ Print</button>
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/academy.html">Academy</a>
+        <a href="/shield.html" class="active" aria-current="page">Shield</a>
+        <a href="/shield-check.html">Shield Check</a>
+        <a href="/signal.html">Signal</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/resources.html">Resources</a>
+        <a href="/faq.html">FAQ</a>
       </nav>
     </div>
   </header>
 
-  <main id="main" class="container" role="main" tabindex="-1">
-    <div class="page">
-      <div class="title-block">
-        <h1>Is it real?</h1>
-        <p class="subtitle">Use this checklist when you receive an urgent call, text, or email demanding money or action.</p>
+  <main id="main" class="container">
+    <div class="topbar" aria-label="Page actions">
+      <div class="crumb">
+        <a href="/shield.html">&larr; Back to Shield</a>
       </div>
-
-      <div class="checklist-card">
-
-        <div class="step-group">
-          <div class="step-header">
-            <div class="step-num">1</div>
-            <div class="step-title">The Pause</div>
-          </div>
-          <label class="check-item">
-            <input type="checkbox">
-            <span class="check-text">I have hung up the phone / stopped texting.</span>
-          </label>
-          <label class="check-item">
-            <input type="checkbox">
-            <span class="check-text">I have <strong>not</strong> clicked any links.</span>
-          </label>
-          <label class="check-item">
-            <input type="checkbox">
-            <span class="check-text">I have taken a deep breath (scammers rely on panic).</span>
-          </label>
-        </div>
-
-        <div class="step-group">
-          <div class="step-header">
-            <div class="step-num">2</div>
-            <div class="step-title">The Red Flags</div>
-          </div>
-          <label class="check-item">
-            <input type="checkbox">
-            <span class="check-text"><strong>Urgency:</strong> Are they saying "Do it NOW"?</span>
-          </label>
-          <label class="check-item">
-            <input type="checkbox">
-            <span class="check-text"><strong>Secrecy:</strong> Did they say "Don't tell anyone"?</span>
-          </label>
-          <label class="check-item">
-            <input type="checkbox">
-            <span class="check-text"><strong>Payment:</strong> Are they asking for Wire, Crypto, or Gift Cards?</span>
-          </label>
-          <label class="check-item">
-            <input type="checkbox">
-            <span class="check-text"><strong>Change:</strong> Did they claim a "New Number" or "Lost Phone"?</span>
-          </label>
-        </div>
-
-        <div class="step-group">
-          <div class="step-header">
-            <div class="step-num">3</div>
-            <div class="step-title">The Verification</div>
-          </div>
-          <label class="check-item">
-            <input type="checkbox">
-            <span class="check-text">I called the person/company back on a <strong>known saved number</strong> (not the one that called me).</span>
-          </label>
-          <label class="check-item">
-            <input type="checkbox">
-            <span class="check-text">I asked for the <strong>Family Safe Word</strong>.</span>
-          </label>
-          <label class="check-item">
-            <input type="checkbox">
-            <span class="check-text">I checked the official app/website directly (no links).</span>
-          </label>
-        </div>
-
-        <div class="shield-box">
-          <div class="shield-icon">🛡️</div>
-          <div>
-            <span class="shield-title">Report. Verify. Protect.</span>
-
-            <span class="shield-desc">
-              Still not sure?
-              Use <a href="/shield-check.html">Shield Check™</a>
-              for a calm second opinion on suspicious texts, emails, and screenshots.
-              <br>
-              Optional: <a href="/report-scam.html">Report a scam</a>
-              to strengthen the community dataset.
-            </span>
-
-            <div class="evidence-note">
-              <strong>Evidence note:</strong> In two user studies (<strong>N = 175</strong>) on explainable SMS phishing detection,
-              participants improved from <strong>71.2%</strong> accuracy to <strong>92.8%</strong> after reading LLM-generated explanations;
-              older adults reached <strong>94.2%</strong>. Usability was rated “excellent” (<strong>SUS 82.6</strong>).<sup>1</sup>
-
-              <span class="evidence-cite">
-                <sup>1</sup> Yizhu Wang et al.,
-                <em>“Can You Walk Me Through It? Explainable SMS Phishing Detection using LLM-based Agents,”</em>
-                SOUPS (USENIX), August 11–12, 2025.
-                <a href="https://www.usenix.org/conference/soups2025/presentation/wang" target="_blank" rel="noopener noreferrer">Talk page</a>
-                ·
-                <a href="https://www.usenix.org/system/files/soups2025-wang.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="safe-word-box">
-          <div class="safe-label">Our Family Safe Word Is:</div>
-          <input type="text" class="safe-input" placeholder="WRITE HERE" aria-label="Family safe word">
-          <p style="font-size:0.85rem; margin-top:10px; opacity:0.8;">(Print this page and write it down. Put it on the fridge.)</p>
-        </div>
-
-        <div class="sheet-footer">
-          © 2026 Predicai™ — Verified Counter-Intelligence Protocols.
-        </div>
-
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <button type="button" id="printBtn" class="btn btn-outline" aria-label="Print this guide">🖨️ Print</button>
+        <a class="btn btn-gold" href="/shield-check.html" aria-label="Run a Shield Check">Run a Shield Check</a>
       </div>
+    </div>
 
-      <div class="footer-cta">
-        <p style="margin-bottom:10px; color:#4B5563;">Want proactive protection and guided protocols?</p>
-        <div class="cta-row">
-          <a href="/pricing.html" class="btn btn-primary">Join Shield Guardian →</a>
-          <a href="/shield.html" class="btn btn-outline">Back to Shield →</a>
+    <section class="hero" aria-label="Checklist header">
+      <span class="tag">Pause checklist</span>
+      <h1>Is it real</h1>
+      <p class="subtitle">Read this before you act. If you feel rushed, stop and verify the source.</p>
+
+      <div class="protocol" aria-label="Protocol">
+        <div class="pill">1. PAUSE <span>slow down</span></div>
+        <div class="pill">2. VERIFY <span>second channel</span></div>
+        <div class="pill">3. CALL BACK <span>known number</span></div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="If you get a call">
+      <div class="section-title">📞 If you get a call</div>
+
+      <div class="check-item">
+        <div class="box" aria-hidden="true"></div>
+        <div class="text">
+          Caller ID can be fake
+          <span class="note">Even if it says “Bank” or “Police,” do not trust the screen.</span>
         </div>
       </div>
 
+      <div class="check-item">
+        <div class="box" aria-hidden="true"></div>
+        <div class="text">
+          Hang up immediately
+          <span class="note">It is not rude to be safe.</span>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="box" aria-hidden="true"></div>
+        <div class="text">
+          Call back using a number you know
+          <span class="note">Use the number on the back of your card, or call from the official bank app.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="If you get a text or email">
+      <div class="section-title">📱 If you get a text or email</div>
+
+      <div class="check-item">
+        <div class="box" aria-hidden="true"></div>
+        <div class="text">
+          Urgency is a trap
+          <span class="note">“Act now” usually means “Don’t think.”</span>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="box" aria-hidden="true"></div>
+        <div class="text">
+          Do not click the link
+          <span class="note">Open the official app, or type the website address yourself (no links).</span>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="box" aria-hidden="true"></div>
+        <div class="text">
+          When unsure, run a Shield Check
+          <span class="note">Submit the message or screenshot for a calm second opinion.</span>
+          <span class="url-chip">predicai.ai/shield-check</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="If someone asks for money">
+      <div class="section-title">🆘 If someone asks for money</div>
+
+      <div class="check-item">
+        <div class="box" aria-hidden="true"></div>
+        <div class="text">
+          Ask for the family safe word
+          <span class="note">Real family will know it. Impersonators will not.</span>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="box" aria-hidden="true"></div>
+        <div class="text">
+          Never share a 6-digit code
+          <span class="note">Not with anyone. Ever.</span>
+        </div>
+      </div>
+
+      <div class="recovery" role="note" aria-label="Recovery steps">
+        <div class="recovery-title">If you already clicked (or already sent money or info)</div>
+        <p>
+          Stop. Close the page. Do not enter more information.
+          If you shared bank or card details, call your bank using the number on the back of your card.
+          If you shared a password or code, change your password immediately.
+        </p>
+      </div>
+    </section>
+
+    <section class="golden-rule" aria-label="Golden rule">
+      <h2>The golden rule</h2>
+      <p>Pause. Verify. Then act.</p>
+      <div class="sub">Scammers need speed. Safety needs time.</div>
+    </section>
+
+    <div class="actions" aria-label="Bottom actions">
+      <button type="button" class="btn btn-outline" id="printBtn2">🖨️ Print this guide</button>
+      <a class="btn btn-gold" href="/shield-check.html">Run a Shield Check</a>
+      <a class="btn btn-outline" href="/shield.html">Back to Shield</a>
+    </div>
+
+    <div class="pledge-footer">
+      🔒 <strong>Predicai Privacy Pledge™</strong><br>
+      We don’t sell your data. We don’t train public models on your submissions. We use what you share only to deliver the service you request.
+      <a href="/privacy.html#pledge">Read policy</a>
     </div>
   </main>
+
+  <footer>
+    <div style="margin-bottom:12px;">© 2026 Predicai™</div>
+    <a href="/shield.html">Shield</a>
+    <a href="/shield-check.html">Shield Check</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </footer>
+
+  <script>
+    (function () {
+      function safePrint() {
+        try { window.print(); }
+        catch (e) { alert("Printing is blocked. Use Ctrl+P (Windows) or Cmd+P (Mac)."); }
+      }
+
+      const btn1 = document.getElementById("printBtn");
+      const btn2 = document.getElementById("printBtn2");
+
+      if (btn1) btn1.addEventListener("click", safePrint);
+      if (btn2) btn2.addEventListener("click", safePrint);
+    })();
+  </script>
 </body>
 </html>
