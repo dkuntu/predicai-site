@@ -3,24 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Predicai™ Shield – Family Safety Protocols</title>
-  <meta name="description" content="No apps to install. Simple verification protocols to stop AI scams and deepfakes." />
+  <title>Predicai™ Shield – Family Safety Rules</title>
+  <meta name="description" content="No apps to install. Simple steps to spot scam messages and fake screenshots before money moves." />
 
   <link rel="canonical" href="https://predicai.ai/shield.html" />
   <meta name="theme-color" content="#FFFFFF" />
+  <meta name="robots" content="index, follow" />
 
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Predicai" />
   <meta property="og:url" content="https://predicai.ai/shield.html" />
-  <meta property="og:title" content="Predicai™ Shield – Family Safety Protocols" />
-  <meta property="og:description" content="No apps to install. Simple verification protocols to stop AI scams and deepfakes." />
-  <meta property="og:image" content="https://predicai.ai/assets/img/social-share.png" />
+  <meta property="og:title" content="Predicai™ Shield – Family Safety Rules" />
+  <meta property="og:description" content="No apps to install. Simple steps to spot scam messages and fake screenshots before money moves." />
+  <meta property="og:image" content="https://predicai.ai/social-share.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Predicai™ Shield – Family Safety Rules" />
+  <meta name="twitter:description" content="No apps to install. Simple steps to spot scam messages and fake screenshots before money moves." />
+  <meta name="twitter:image" content="https://predicai.ai/social-share.png" />
 
   <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" href="/assets/img/logo.png" type="image/png" />
+  <link rel="icon" href="/logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* Light base (consistent with Pricing/Resources) */
+      /* Light base */
       --bg: #F8FAFC;
       --surface: #FFFFFF;
       --text: #0F172A;
@@ -44,18 +58,34 @@
       --radius-lg: 18px;
       --radius-md: 12px;
 
-      /* Accessibility */
       --focus: rgba(29,78,216,0.45);
+
+      --containerMax: 1000px;
+      --headerPadY: 14px;
+      --headerPadX: 24px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 84px; /* keeps anchors from hiding under sticky header */
+    }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+
+      padding:
+        env(safe-area-inset-top)
+        env(safe-area-inset-right)
+        env(safe-area-inset-bottom)
+        env(safe-area-inset-left);
     }
 
     /* Skip link */
@@ -68,14 +98,13 @@
     }
     .skip-link:focus{ left:12px; outline: 3px solid var(--focus); outline-offset: 2px; }
 
-    /* Focus rings */
     :focus-visible {
       outline: 3px solid var(--focus);
       outline-offset: 3px;
       border-radius: 10px;
     }
 
-    /* Header (match Academy/Resources pattern) */
+    /* Header */
     header{
       background: rgba(255,255,255,0.92);
       backdrop-filter: blur(10px);
@@ -85,7 +114,7 @@
     .header-inner{
       max-width: 1200px;
       margin: 0 auto;
-      padding: 14px 24px;
+      padding: var(--headerPadY) var(--headerPadX);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -93,8 +122,8 @@
     }
 
     .brand{
-      font-weight: 950;
-      font-size: 1.15rem;
+      font-weight: 900;
+      font-size: 1.05rem;
       text-decoration: none;
       color: var(--text);
       display: inline-flex;
@@ -102,33 +131,37 @@
       gap: 10px;
       white-space: nowrap;
     }
-    .brand img{ width: 26px; height: 26px; border-radius: 6px; object-fit: contain; }
+    .brand img{ width: 26px; height: 26px; border-radius: 6px; object-fit: contain; display:block; }
 
     nav{
       display:flex;
       gap: 12px;
       flex-wrap: wrap;
       justify-content: flex-end;
+      align-items:center;
     }
     nav a{
       color: var(--muted);
       text-decoration: none;
-      font-weight: 850;
+      font-weight: 800;
       font-size: 0.95rem;
-      padding: 6px 8px;
-      border-radius: 10px;
-      transition: background 0.15s ease, color 0.15s ease;
+      padding: 8px 10px;
+      border-radius: 12px;
+      transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+      border: 1px solid transparent;
+      white-space: nowrap;
     }
-    nav a:hover{ color: var(--text); background: rgba(15,23,42,0.04); }
+    nav a:hover{ color: var(--text); background: rgba(15,23,42,0.04); transform: translateY(-1px); }
     nav a.active{
       color: var(--text);
-      font-weight: 950;
+      font-weight: 900;
       background: rgba(29,78,216,0.10);
+      border-color: rgba(29,78,216,0.16);
     }
 
-    /* Layout helpers */
+    /* Layout */
     .container{
-      max-width: 1000px;
+      max-width: var(--containerMax);
       margin: 0 auto;
       padding: 0 20px;
     }
@@ -136,29 +169,32 @@
     /* Hero */
     .hero{
       text-align: center;
-      padding: 78px 0 40px;
+      padding: 78px 0 34px;
     }
+
     .tag{
       background: var(--gold-bg);
       padding: 6px 12px;
       border-radius: 999px;
       font-size: 0.8rem;
-      font-weight: 950;
+      font-weight: 900;
       border: 1px solid var(--gold-border);
       text-transform: uppercase;
       letter-spacing: 0.06em;
       color: var(--gold);
       display: inline-block;
     }
+
     h1{
-      font-size: 3rem;
-      font-weight: 1000;
+      font-size: clamp(2.25rem, 5vw, 3rem);
+      font-weight: 950;
       margin: 18px 0 14px;
-      line-height: 1.08;
+      line-height: 1.06;
       letter-spacing: -0.02em;
     }
+
     .lead{
-      font-size: 1.18rem;
+      font-size: 1.12rem;
       max-width: 760px;
       margin: 0 auto 18px;
       color: var(--muted);
@@ -178,7 +214,7 @@
       padding: 14px 22px;
       border-radius: 12px;
       text-decoration: none;
-      font-weight: 950;
+      font-weight: 900;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -228,7 +264,7 @@
       border: 1px solid rgba(202,138,4,0.18);
     }
 
-    /* Evidence block */
+    /* Evidence */
     .evidence-wrap{
       margin-top: 22px;
       max-width: 860px;
@@ -245,7 +281,7 @@
     }
     .evidence-kicker{
       display: inline-block;
-      font-weight: 1000;
+      font-weight: 900;
       font-size: 0.75rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -258,7 +294,7 @@
     }
     .evidence-title{
       font-size: 1.1rem;
-      font-weight: 1000;
+      font-weight: 950;
       margin-bottom: 8px;
     }
     .evidence-desc{
@@ -284,13 +320,13 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: var(--muted);
-      font-weight: 900;
+      font-weight: 850;
       margin-bottom: 4px;
       display: block;
     }
     .evidence-chip .v{
       font-size: 1.1rem;
-      font-weight: 1000;
+      font-weight: 950;
       color: var(--text);
       line-height: 1.2;
     }
@@ -318,7 +354,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 16px;
-      margin: 22px auto 60px;
+      margin: 22px auto 30px;
       max-width: 1000px;
       padding: 0 20px;
     }
@@ -331,8 +367,9 @@
     }
     .benefit h4{
       margin-bottom: 8px;
-      font-weight: 1000;
+      font-weight: 950;
       color: var(--gold);
+      font-size: 1.05rem;
     }
     .benefit p{
       margin: 0;
@@ -340,11 +377,94 @@
       color: var(--muted);
     }
 
+    /* Rules section */
+    .rules{
+      max-width: 1000px;
+      margin: 0 auto 52px;
+      padding: 0 20px;
+    }
+    .rules-card{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: var(--shadow-soft);
+    }
+    .rules-head{
+      display:flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .rules-title{
+      font-size: 1.25rem;
+      font-weight: 950;
+      letter-spacing: -0.01em;
+    }
+    .rules-pill{
+      display:inline-flex;
+      gap: 8px;
+      align-items:center;
+      font-weight: 900;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: var(--gold-bg);
+      border: 1px solid var(--gold-border);
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .rules-desc{
+      color: var(--muted);
+      margin-bottom: 14px;
+      max-width: 820px;
+    }
+    .rules-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .rule{
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 14px 12px;
+      background: #FBFDFF;
+    }
+    .rule b{ display:block; margin-bottom: 6px; color: var(--text); font-weight: 950; }
+    .rule span{ color: var(--muted); font-size: 0.93rem; }
+
+    .rules-actions{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+      align-items: center;
+    }
+    .btn-small{
+      min-width: unset;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 900;
+      box-shadow: none;
+    }
+    .btn-ghost{
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      box-shadow: none;
+    }
+    .btn-ghost:hover{ border-color: rgba(15,118,110,0.35); }
+
     /* How it works */
     .protocol-strip{
       text-align: center;
-      margin-bottom: 28px;
-      font-weight: 1000;
+      margin: 8px 0 18px;
+      font-weight: 950;
       color: var(--gold);
       font-size: 1.05rem;
       padding: 0 20px;
@@ -366,7 +486,12 @@
       border: 1px solid var(--border);
       box-shadow: var(--shadow-soft);
     }
-    .card h3{ margin-bottom: 10px; font-size: 1.2rem; font-weight: 1000; }
+    .card h3{
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      font-weight: 950;
+    }
+    .card p{ color: var(--muted); }
 
     .mini-callout{
       max-width: 1000px;
@@ -400,26 +525,27 @@
 
     .price-main{
       font-size: 3rem;
-      font-weight: 1100;
+      font-weight: 950;
       line-height: 1;
       margin: 16px 0;
     }
     .price-main span{
       font-size: 1rem;
-      font-weight: 900;
+      font-weight: 850;
       color: var(--muted);
     }
+
     .btn-secondary{
       display: block;
       margin-top: 16px;
       color: var(--text);
-      font-weight: 950;
+      font-weight: 900;
       text-decoration: underline;
       text-underline-offset: 3px;
       background: transparent;
     }
 
-    /* Privacy footer pledge */
+    /* Footer pledge */
     .pledge-footer{
       margin-top: 40px;
       font-size: 0.92rem;
@@ -435,7 +561,7 @@
       color: var(--teal);
       text-decoration: underline;
       text-underline-offset: 3px;
-      font-weight: 1000;
+      font-weight: 900;
     }
 
     footer{
@@ -466,14 +592,29 @@
     }
 
     @media (max-width: 600px) {
-      h1 { font-size: 2.25rem; }
-      .hero { padding: 56px 0 34px; }
+      .hero { padding: 56px 0 30px; }
       .btn, .btn-outline { width: 100%; min-width: unset; }
       .protocol-strip { font-size: 0.95rem; display: flex; flex-direction: column; gap: 8px; }
       .arrow { display: none; }
       .evidence-grid { grid-template-columns: 1fr; }
       .disclaimer { text-align: left; }
       .pricing-box { padding: 30px 20px; }
+      .rules-actions{ width:100%; }
+      .btn-small{ width: 100%; justify-content:center; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html { scroll-behavior: auto; }
+      * { transition: none !important; animation: none !important; }
+      .btn:hover, nav a:hover { transform: none !important; opacity: 1 !important; }
+    }
+
+    @media print{
+      header, nav, .cta-row, .subnote, .pricing-box, .pledge-footer, footer { display:none !important; }
+      body{ background:#fff; }
+      .rules-card, .evidence-note, .benefit, .card{ box-shadow:none !important; }
+      .container{ max-width: 900px; }
+      .hero{ padding: 12px 0 10px; }
     }
   </style>
 </head>
@@ -485,14 +626,16 @@
     <div class="header-inner">
       <a href="/" class="brand" aria-label="Predicai home">
         <img src="/logo.png" alt="Predicai logo">
-        <span>Predic<span style="color: var(--accent-teal)">ai</span>™</span>
+        <span>Predic<span style="color: var(--teal)">ai</span>™</span>
       </a>
+
       <nav aria-label="Primary navigation">
         <a href="/">Home</a>
         <a href="/about.html">About</a>
         <a href="/academy.html">Academy</a>
         <a href="/shield.html" class="active" aria-current="page">Shield</a>
         <a href="/shield-check.html">Shield Check</a>
+        <a href="/signal.html">Signal</a>
         <a href="/pricing.html">Pricing</a>
         <a href="/resources.html">Resources</a>
         <a href="/faq.html">FAQ</a>
@@ -501,23 +644,19 @@
   </header>
 
   <main id="main" class="container">
-    <section class="hero">
-      <span class="tag">Family Defense</span>
-      <h1>Stop scams before<br>they spread.</h1>
+    <section class="hero" aria-label="Shield intro">
+      <span class="tag">Family safety</span>
+
+      <h1>Stop scams before<br>they spread</h1>
 
       <p class="lead">
-        No apps to install. Simple verification protocols that slow the moment down and force identity checks.
-        Built for seniors and non-techies.
+        No apps to install. Simple steps that slow the moment down and make the person prove who they are.
+        Built for parents, grandparents, and anyone who doesn’t live online.
       </p>
 
-      <div class="cta-row">
-        <!-- Native Predicai experience -->
-        <a href="/shield-check.html" class="btn">
-          Run Free Shield Check
-        </a>
-        <a href="#pricing" class="btn btn-outline">
-          See Membership
-        </a>
+      <div class="cta-row" aria-label="Primary actions">
+        <a href="/shield-check.html" class="btn">Run a free Shield Check</a>
+        <a href="#pricing" class="btn btn-outline">See membership</a>
       </div>
 
       <p class="subnote">
@@ -530,40 +669,41 @@
         </span>
       </p>
 
-      <div class="evidence-wrap" role="region" aria-label="Research Evidence">
+      <div class="evidence-wrap" role="region" aria-label="Research evidence">
         <div class="evidence-note">
-          <span class="evidence-kicker">Evidence-backed</span>
-          <div class="evidence-title">Why Shield Check works</div>
+          <span class="evidence-kicker">Research-informed</span>
+          <div class="evidence-title">Why a “second opinion” works</div>
           <p class="evidence-desc">
-            Panic is the attack vector. Clarity is the defense. Research shows that simple AI explanations help people spot the signals they usually miss.
+            Scams work when people feel rushed. A short explanation helps people notice details they usually miss.
+            The numbers below are reported from one peer-reviewed study on explainable SMS phishing detection.
           </p>
 
           <div class="evidence-grid">
             <div class="evidence-chip">
-              <span class="k">Detection Accuracy</span>
-              <div class="v">~71% → ~93%</div>
-              <div class="s">Improvement after reading AI explanation.</div>
+              <span class="k">Detection accuracy</span>
+              <div class="v">71.2% → 92.8%</div>
+              <div class="s">Improvement after reading an explanation.</div>
             </div>
             <div class="evidence-chip">
-              <span class="k">Older Adults (65+)</span>
-              <div class="v">94% Accuracy</div>
-              <div class="s">Saw the largest lift in detection ability.</div>
+              <span class="k">Older adults (65+)</span>
+              <div class="v">94.2%</div>
+              <div class="s">Accuracy after reading an explanation.</div>
             </div>
             <div class="evidence-chip">
-              <span class="k">Usability Score</span>
+              <span class="k">Usability score (SUS)</span>
               <div class="v">82.6 / 100</div>
-              <div class="s">Rated "Excellent" usability (SUS).</div>
+              <div class="s">Rated “excellent” usability (85.3 for older adults).</div>
             </div>
             <div class="evidence-chip">
-              <span class="k">Reality Check</span>
-              <div class="v">7.2% Disagreement</div>
-              <div class="s">Users occasionally disagree with AI, usually on legitimate messages.</div>
+              <span class="k">Disagreement</span>
+              <div class="v">7.2%</div>
+              <div class="s">Higher on legit texts (11.5%) than phishing (2.9%).</div>
             </div>
           </div>
 
           <div class="citation">
             Source: Wang et al., “Can You Walk Me Through It? Explainable SMS Phishing Detection using LLM-based Agents,”
-            <a href="https://www.usenix.org/conference/soups2025/presentation/wang" target="_blank" rel="noopener noreferrer">SOUPS (USENIX) 2025</a>.
+            <a href="https://www.usenix.org/system/files/soups2025-wang.pdf" target="_blank" rel="noopener noreferrer">SOUPS (USENIX) 2025 (PDF)</a>.
           </div>
         </div>
       </div>
@@ -578,32 +718,78 @@
 
     <section class="benefits" aria-label="Shield benefits">
       <div class="benefit">
-        <h4>Unlimited Checks (Members)</h4>
-        <p>Run checks anytime you feel unsure. Fast, plain-English risk signals and “why it’s risky” explanations.</p>
+        <h4>Unlimited checks (members)</h4>
+        <p>Run a check anytime you feel unsure. Plain-English signals and what to do next.</p>
       </div>
       <div class="benefit">
-        <h4>Family Safe Word</h4>
-        <p>Scripts and rules that stop panic and force identity verification in calls and texts.</p>
+        <h4>Family safe word</h4>
+        <p>Simple rules and scripts that break urgency and confirm identity.</p>
       </div>
       <div class="benefit">
-        <h4>Explanations beat “yes/no”</h4>
-        <p>People spot scams better when they see the reasoning. Shield Check is built around that insight.</p>
+        <h4>Explanation beats “yes/no”</h4>
+        <p>People spot scams more reliably when they understand the “why.”</p>
+      </div>
+    </section>
+
+    <section class="rules" id="rules" aria-label="Family rules">
+      <div class="rules-card">
+        <div class="rules-head">
+          <div>
+            <div class="rules-title">The Shield rules (print these)</div>
+            <div class="rules-desc">
+              These rules are designed to break urgency. If a message is real, it will survive a 2-minute verification.
+            </div>
+          </div>
+          <div class="rules-pill">3-step protocol</div>
+        </div>
+
+        <div class="protocol-strip" style="margin:0; text-align:left; padding:0;">
+          1. PAUSE <span class="arrow">→</span> 2. VERIFY <span class="arrow">→</span> 3. CALL BACK
+        </div>
+
+        <div class="rules-grid" role="list" aria-label="Shield rules list">
+          <div class="rule" role="listitem">
+            <b>Rule 1: Never act from the text</b>
+            <span>Do not click links. Do not call the number in the message. Use a known, saved contact or official website.</span>
+          </div>
+          <div class="rule" role="listitem">
+            <b>Rule 2: Safe word beats “I’m in trouble”</b>
+            <span>If the message claims an emergency, request the safe word before anything else. No safe word, no action.</span>
+          </div>
+          <div class="rule" role="listitem">
+            <b>Rule 3: Verify with a second channel</b>
+            <span>Text claims can be faked. Verify using a different channel: call back, video call, or ask a private question.</span>
+          </div>
+          <div class="rule" role="listitem">
+            <b>Rule 4: Payments = hard stop</b>
+            <span>Gift cards, crypto, wire transfers, and “urgent” Zelle requests are the classic pattern. Pause and verify.</span>
+          </div>
+          <div class="rule" role="listitem">
+            <b>Rule 5: Screenshots are not proof</b>
+            <span>Bank screenshots and “order confirmations” can be fake. Only trust what you see in your official account.</span>
+          </div>
+          <div class="rule" role="listitem">
+            <b>Rule 6: If they pressure you, you’re done</b>
+            <span>Real institutions can wait. Pressure is the tell. End the interaction and call back using official contact info.</span>
+          </div>
+        </div>
+
+        <div class="rules-actions" aria-label="Rule actions">
+          <button type="button" class="btn btn-small btn-ghost" onclick="window.print()">Print rules</button>
+          <a href="/shield-check.html" class="btn btn-small">Run a Shield Check</a>
+        </div>
       </div>
     </section>
 
     <section id="how-it-works" aria-label="How Shield works">
-      <div class="protocol-strip">
-        1. PAUSE <span class="arrow">→</span> 2. VERIFY <span class="arrow">→</span> 3. CALL-BACK
-      </div>
-
       <div class="grid">
         <div class="card">
-          <h3>📞 The “Bank” Call</h3>
-          <p>Voice cloning is real. Shield gives you a short script that breaks urgency and forces verification.</p>
+          <h3>📞 The “bank” call</h3>
+          <p>Scammers can mimic voices. Shield gives you a short script that slows the moment down and forces proof.</p>
         </div>
         <div class="card">
-          <h3>📱 The FaceTime Deepfake</h3>
-          <p>Looped video and impersonation tactics work because people react fast. Your protocol makes the scam fail.</p>
+          <h3>📱 The fake video call</h3>
+          <p>Looped video and impersonation work because people react fast. Your rules make the scam fail.</p>
         </div>
       </div>
 
@@ -613,15 +799,15 @@
     </section>
 
     <section id="pricing" class="pricing-box" aria-label="Shield pricing">
-      <h3 style="font-weight: 1000;">Get Protected</h3>
+      <h3 style="font-weight: 950;">Get protected</h3>
       <div class="price-main">$99<span>/yr</span></div>
-      <p style="color:var(--gold); font-weight:1000; margin-bottom:24px;">Best for families (Member Access)</p>
+      <p style="color:var(--gold); font-weight:900; margin-bottom:24px;">Best for families (member access)</p>
 
       <a href="https://buy.stripe.com/eVq3cx7dKdSQeYd7ec5ZC02" target="_blank" rel="noopener noreferrer" class="btn" style="width:100%">
         Join Shield
       </a>
       <a href="https://buy.stripe.com/dRm00l9lScOM8zP4205ZC03" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-        Or $9/month (Cancel anytime)
+        Or $9/month (cancel anytime)
       </a>
     </section>
 
