@@ -1,63 +1,229 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="auto">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Predicai™ – The High-Judgment Human</title>
-  <meta name="description" content="Predicai builds judgment in an age of automated noise. Leverage for professionals. Trust for families." />
 
+  <title>About Predicai – Better Judgment in the AI Age</title>
+
+  <meta name="description" content="Predicai helps people think clearly in the AI age. Better judgment for work. Better protection for families." />
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://predicai.ai/about.html" />
-  <meta property="og:title" content="About Predicai™ – The High-Judgment Human" />
-  <meta property="og:description" content="Predicai builds judgment in an age of automated noise. Leverage for professionals. Trust for families." />
-  <meta property="og:image" content="https://predicai.ai/assets/img/social-share.png" />
+  <meta property="og:title" content="About Predicai – Better Judgment in the AI Age" />
+  <meta property="og:description" content="Predicai helps people think clearly in the AI age. Better judgment for work. Better protection for families." />
+  <meta property="og:image" content="https://predicai.ai/social-share.png" />
 
-  <meta name="theme-color" content="#FFFFFF" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About Predicai – Better Judgment in the AI Age" />
+  <meta name="twitter:description" content="Predicai helps people think clearly in the AI age. Better judgment for work. Better protection for families." />
+  <meta name="twitter:image" content="https://predicai.ai/social-share.png" />
+
+  <!-- Theme color: JS will keep this in sync with selected theme -->
+  <meta name="theme-color" content="#FFFFFF" id="themeColorMeta" />
+
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://predicai.ai/about.html" />
+
   <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" href="/assets/img/logo.png" type="image/png" />
+  <link rel="icon" href="/logo.png" type="image/png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Variable Inter to avoid synthesized weights -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
 
   <style>
     :root {
+      /* Layout */
+      --container: 1200px;
+      --wrap: 920px;
+      --padX: 24px;
+      --headerH: 72px;
+
+      /* Light */
+      --bg-page: #FFFFFF;
+      --bg-subtle: #F9FAFB;
+
+      --text-main: #111827;
+      --text-muted: #4B5563;
+
+      /* Brand */
+      --teal: #2A9195;
+      --teal-deep: #0F766E;
+      --teal-soft: rgba(42,145,149,0.14);
+
+      /* Gold */
+      --gold: #CA8A04;
+      --gold-soft: rgba(202,138,4,0.16);
+
+      --border: #E5E7EB;
+      --border-strong: rgba(17,24,39,0.14);
+
+      --shadow-soft: 0 6px 18px rgba(17,24,39,0.06);
+      --shadow-strong: 0 16px 40px -12px rgba(0,0,0,0.18);
+
+      --focus: rgba(42,145,149,0.35);
+
+      /* Shared nav surfaces (light) */
+      --header-bg: rgba(255,255,255,0.72);
+      --nav-hover: rgba(17,24,39,0.05);
+      --surface-1: rgba(255,255,255,0.92);
+      --surface-2: rgba(249,250,251,0.80);
+      --surface-3: rgba(249,250,251,0.70);
+      --panel-bg-strong: rgba(249,250,251,0.86);
+    }
+
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg-page: #070B14;
+        --bg-subtle: rgba(255,255,255,0.04);
+
+        --text-main: #F8FAFC;
+        --text-muted: rgba(248,250,252,0.72);
+
+        --border: rgba(255,255,255,0.12);
+        --border-strong: rgba(255,255,255,0.18);
+
+        --shadow-soft: 0 22px 70px rgba(0,0,0,0.42);
+        --shadow-strong: 0 28px 90px rgba(0,0,0,0.55);
+
+        --gold-soft: rgba(202,138,4,0.12);
+
+        /* Shared nav surfaces (dark) */
+        --header-bg: rgba(7, 11, 20, 0.70);
+        --nav-hover: rgba(255,255,255,0.08);
+        --surface-1: rgba(10, 14, 24, 0.92);
+        --surface-2: rgba(255,255,255,0.06);
+        --surface-3: rgba(255,255,255,0.08);
+        --panel-bg-strong: rgba(255,255,255,0.10);
+      }
+    }
+
+    html[data-theme="light"]{
       --bg-page: #FFFFFF;
       --bg-subtle: #F9FAFB;
       --text-main: #111827;
       --text-muted: #4B5563;
-
-      /* PREMIUM PALETTE */
-      --accent-teal: #0F766E;
-      --accent-gold: #CA8A04;
-      --accent-gold-dark: #854D0E;
-
       --border: #E5E7EB;
+      --border-strong: rgba(17,24,39,0.14);
       --shadow-soft: 0 6px 18px rgba(17,24,39,0.06);
+      --shadow-strong: 0 16px 40px -12px rgba(0,0,0,0.18);
+      --gold-soft: rgba(202,138,4,0.16);
 
-      /* shared focus (brand forward) */
-      --focus: rgba(15,118,110,0.35);
+      --header-bg: rgba(255,255,255,0.72);
+      --nav-hover: rgba(17,24,39,0.05);
+      --surface-1: rgba(255,255,255,0.92);
+      --surface-2: rgba(249,250,251,0.80);
+      --surface-3: rgba(249,250,251,0.70);
+      --panel-bg-strong: rgba(249,250,251,0.86);
+    }
+
+    html[data-theme="dark"]{
+      --bg-page: #070B14;
+      --bg-subtle: rgba(255,255,255,0.04);
+      --text-main: #F8FAFC;
+      --text-muted: rgba(248,250,252,0.72);
+      --border: rgba(255,255,255,0.12);
+      --border-strong: rgba(255,255,255,0.18);
+      --shadow-soft: 0 22px 70px rgba(0,0,0,0.42);
+      --shadow-strong: 0 28px 90px rgba(0,0,0,0.55);
+      --gold-soft: rgba(202,138,4,0.12);
+
+      --header-bg: rgba(7, 11, 20, 0.70);
+      --nav-hover: rgba(255,255,255,0.08);
+      --surface-1: rgba(10, 14, 24, 0.92);
+      --surface-2: rgba(255,255,255,0.06);
+      --surface-3: rgba(255,255,255,0.08);
+      --panel-bg-strong: rgba(255,255,255,0.10);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--headerH); }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg-page);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+
+      background:
+        radial-gradient(900px 520px at 18% 6%, rgba(42,145,149,0.12), transparent 62%),
+        radial-gradient(900px 520px at 84% 10%, rgba(202,138,4,0.08), transparent 62%),
+        var(--bg-page);
+
       color: var(--text-main);
       line-height: 1.65;
+
+      min-height: 100vh;
+      min-height: 100svh;
+
+      /* Safe areas */
+      padding:
+        env(safe-area-inset-top)
+        env(safe-area-inset-right)
+        env(safe-area-inset-bottom)
+        env(safe-area-inset-left);
     }
 
-    /* ACCESSIBILITY */
-    .skip-link {
-      position: absolute; left: -9999px; top: 12px; z-index: 9999;
-      padding: 10px 14px;
-      background: #111827;
+    a { color: inherit; }
+
+    /* ===== Shared Nav Styles (Predicai) ===== */
+
+    .site-header{
+      position: sticky;
+      top:0;
+      z-index:50;
+      height: var(--headerH, 72px);
+      display:flex;
+      align-items:center;
+      background: var(--header-bg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .container {
+      max-width: var(--container);
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 var(--padX);
+    }
+
+    .header-inner{
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 14px;
+      width: 100%;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      font-weight: 950;
+      font-size: 1.15rem;
+      color: var(--text-main);
+      white-space: nowrap;
+    }
+    .brand img{ width:26px; height:26px; border-radius: 6px; object-fit: contain; }
+    .brand-accent{ color: var(--teal-deep); }
+
+    .skip-link{
+      position:absolute; left:-9999px; top:12px;
+      background: var(--text-main);
       color: #fff;
-      font-weight: 900;
-      border-radius: 10px;
-      text-decoration: none;
+      padding:10px 14px;
+      border-radius:10px;
+      z-index:9999;
+      text-decoration:none;
+      font-weight:950;
+      border: 1px solid rgba(255,255,255,0.12);
       box-shadow: var(--shadow-soft);
     }
-    .skip-link:focus { left: 12px; }
+    .skip-link:focus{ left:12px; outline: 3px solid var(--focus); outline-offset: 2px; }
 
     :focus-visible {
       outline: 3px solid var(--focus);
@@ -65,139 +231,292 @@
       border-radius: 10px;
     }
 
-    /* HEADER (unified pattern) */
-    header {
-      position: sticky; top: 0; z-index: 50;
-      padding: 14px 24px;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-    }
-    .brand {
-      display: inline-flex;
-      align-items: center;
+    .site-nav{
+      display:flex;
       gap: 10px;
-      color: var(--text-main);
-      text-decoration: none;
-      font-weight: 950;
-      font-size: 1.1rem;
-      white-space: nowrap;
-    }
-    .brand-logo { width: 28px; height: 28px; border-radius: 6px; object-fit: contain; }
-
-    nav {
-      display: flex;
-      gap: 12px;
       flex-wrap: wrap;
       justify-content: flex-end;
+      align-items:center;
     }
-    nav a {
+
+    .site-nav a{
       color: var(--text-muted);
-      text-decoration: none;
+      text-decoration:none;
       font-size: 0.95rem;
       font-weight: 850;
-      padding: 6px 8px;
-      border-radius: 10px;
-      transition: background 0.15s ease, color 0.15s ease;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: background .15s ease, color .15s ease, border-color .15s ease, transform .15s ease;
+      white-space: nowrap;
     }
-    nav a:hover {
+
+    .site-nav a:hover{
       color: var(--text-main);
-      background: rgba(17,24,39,0.04);
+      background: var(--nav-hover);
+      border-color: var(--border-strong);
+      transform: translateY(-1px);
     }
-    nav a.active {
+
+    .site-nav a.active{
       color: var(--text-main);
       font-weight: 950;
-      background: rgba(15,118,110,0.10);
+      background: var(--teal-soft);
+      border-color: rgba(42,145,149,0.26);
     }
 
-    /* LAYOUT */
-    .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+    .menu{ position: relative; display:inline-flex; align-items:center; }
 
-    /* HERO */
-    .hero { padding: 100px 0 44px; text-align: center; }
+    .menu-btn{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-muted);
+      font-weight: 900;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background .15s ease, color .15s ease, border-color .15s ease, transform .15s ease;
+      -webkit-tap-highlight-color: transparent;
+      white-space: nowrap;
+    }
+
+    .menu-btn:hover{
+      color: var(--text-main);
+      background: var(--nav-hover);
+      border-color: var(--border-strong);
+      transform: translateY(-1px);
+    }
+
+    .caret{ font-size: 0.85rem; opacity: 0.9; }
+
+    .menu-panel{
+      position:absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      min-width: 240px;
+      padding: 10px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--surface-1);
+      box-shadow: var(--shadow-strong);
+      display:none;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .menu-panel a{
+      display:flex;
+      width:100%;
+      padding: 10px 10px;
+      border-radius: 12px;
+      font-weight: 900;
+      font-size: 0.94rem;
+      color: var(--text-main);
+      border: 1px solid transparent;
+      transform:none;
+    }
+
+    .menu-panel a:hover{
+      background: var(--nav-hover);
+      border-color: var(--border-strong);
+    }
+
+    .menu.open .menu-panel{ display:block; }
+    .menu.open .menu-btn{ color: var(--text-main); }
+
+    .theme-toggle{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface-3);
+      color: var(--text-main);
+      font-weight: 850;
+      font-size: 0.9rem;
+      cursor: pointer;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+      white-space: nowrap;
+      transition: background .15s ease, border-color .15s ease, transform .15s ease;
+    }
+    .theme-toggle:hover{
+      background: var(--panel-bg-strong);
+      border-color: var(--border-strong);
+      transform: translateY(-1px);
+    }
+
+    /* Mobile menu */
+    .nav-toggle{
+      display:none;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface-3);
+      color: var(--text-main);
+      font-weight: 950;
+      cursor:pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .nav-toggle-icon{ font-size: 1.1rem; }
+
+    @media (max-width: 860px){
+      .nav-toggle{ display:inline-flex; }
+
+      .site-nav{
+        position: absolute;
+        top: calc(var(--headerH, 72px) + 10px);
+        right: var(--padX);
+        left: var(--padX);
+        padding: 14px;
+        border-radius: 18px;
+        border: 1px solid var(--border);
+        background: var(--surface-1);
+        box-shadow: var(--shadow-strong);
+        display:none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+      .site-nav.open{ display:flex; }
+
+      .menu{ width: 100%; }
+      .menu-btn{ width: 100%; justify-content: space-between; }
+
+      .menu-panel{
+        position: static;
+        display:none;
+        box-shadow:none;
+        border-radius: 14px;
+        background: var(--surface-2);
+        margin-top: 6px;
+      }
+      .menu.open .menu-panel{ display:block; }
+    }
+
+    /* Layout */
+    .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 20px; }
+
+    /* Hero */
+    .hero { padding: 92px 0 44px; text-align: center; }
+
     .kicker {
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      font-weight: 950;
+      font-weight: 900;
       font-size: 0.85rem;
-      color: var(--accent-gold);
-      margin-bottom: 18px;
-      display: block;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
     }
+    .kdot{
+      width: 8px; height: 8px; border-radius: 999px;
+      background: var(--gold);
+      box-shadow: 0 0 0 4px rgba(202,138,4,0.15);
+    }
+
     h1 {
-      font-size: 3rem;
-      font-weight: 1000;
+      font-size: clamp(2.2rem, 4vw, 3.1rem);
+      font-weight: 900;
       line-height: 1.1;
       margin-bottom: 18px;
       letter-spacing: -0.03em;
       color: var(--text-main);
     }
-    .lead { font-size: 1.25rem; color: var(--text-muted); max-width: 760px; margin: 0 auto 22px; }
-    .principle { color: var(--text-muted); font-size: 0.98rem; max-width: 720px; margin: 0 auto 28px; opacity: 0.85; }
 
-    /* PLEDGE PILL */
+    .lead {
+      font-size: clamp(1.06rem, 1.6vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto 16px;
+    }
+
+    .principle {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 740px;
+      margin: 0 auto 26px;
+      opacity: 0.94;
+    }
+
+    /* Privacy pill */
     .pledge-pill {
-      margin-top: 18px;
+      margin-top: 10px;
       font-size: 0.92rem;
       color: var(--text-muted);
-      background: var(--bg-subtle);
+      background: var(--surface-2);
       display: inline-block;
-      padding: 8px 14px;
+      padding: 10px 14px;
       border-radius: 999px;
       border: 1px solid var(--border);
     }
+    .inline-link {
+      color: var(--teal-deep);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 900;
+      margin-left: 6px;
+    }
 
-    /* CTA Row */
-    .cta-row { display: flex; justify-content: center; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+    /* CTA */
+    .cta-row { display: flex; justify-content: center; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       padding: 12px 20px;
       border-radius: 12px;
-      font-weight: 950;
+      font-weight: 900;
       text-decoration: none;
       transition: transform 0.15s ease, opacity 0.15s ease, border-color 0.15s ease;
       border: 1px solid transparent;
+      -webkit-tap-highlight-color: transparent;
+      white-space: nowrap;
     }
-    .btn-primary { background: var(--text-main); color: white; border-color: var(--text-main); }
+    .btn-primary {
+      background: var(--text-main);
+      color: white;
+      border-color: rgba(17,24,39,0.35);
+    }
     .btn-primary:hover { opacity: 0.92; transform: translateY(-2px); }
-    .btn-secondary { background: white; border: 1px solid var(--border); color: var(--text-main); }
-    .btn-secondary:hover { border-color: rgba(15,118,110,0.35); transform: translateY(-2px); }
+    .btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--text-main); }
+    .btn-secondary:hover { border-color: rgba(42,145,149,0.30); transform: translateY(-2px); }
 
-    /* SPLIT SECTION */
+    /* Split cards */
     .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 56px 0; }
     .split-card {
-      background: var(--bg-page);
+      background: var(--surface-2);
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 32px;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
       box-shadow: 0 0 0 rgba(0,0,0,0);
     }
     .split-card:hover {
       transform: translateY(-2px);
       box-shadow: var(--shadow-soft);
-      border-color: rgba(17,24,39,0.10);
+      border-color: var(--border-strong);
+      background: var(--panel-bg-strong);
     }
 
     .card-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
-    .card-title { font-size: 1.25rem; font-weight: 1000; margin-bottom: 10px; color: var(--text-main); }
+    .card-title { font-size: 1.25rem; font-weight: 900; margin-bottom: 10px; color: var(--text-main); }
     .card-text { color: var(--text-muted); font-size: 1rem; margin-bottom: 16px; }
 
-    .link-teal { color: var(--accent-teal); font-weight: 950; text-decoration: none; }
+    .link-teal { color: var(--teal-deep); font-weight: 900; text-decoration: none; }
     .link-teal:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-    .link-gold { color: var(--accent-gold); font-weight: 950; text-decoration: none; }
+    .link-gold { color: var(--gold); font-weight: 900; text-decoration: none; }
     .link-gold:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-    /* ETHICS BOX */
+    /* Ethics box */
     .ethics-box {
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
@@ -212,20 +531,30 @@
       color: var(--text-muted);
       margin-bottom: 34px;
       display: block;
-      font-weight: 950;
+      font-weight: 900;
     }
-    .ethics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 34px; text-align: left; }
-    .ethics-item h3 { color: var(--text-main); font-size: 1.1rem; margin-bottom: 8px; font-weight: 1000; }
+    .ethics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 34px;
+      text-align: left;
+    }
+    .ethics-item h3 { color: var(--text-main); font-size: 1.1rem; margin-bottom: 8px; font-weight: 900; }
     .ethics-item p { color: var(--text-muted); font-size: 0.95rem; }
 
-    /* FOUNDER */
-    .founder { max-width: 740px; margin: 0 auto 100px; border-left: 4px solid var(--accent-gold); padding-left: 32px; }
-    .founder h2 { font-size: 1.8rem; margin-bottom: 14px; color: var(--text-main); font-weight: 1000; }
+    /* Founder */
+    .founder {
+      max-width: 760px;
+      margin: 0 auto 100px;
+      border-left: 4px solid var(--gold);
+      padding-left: 28px;
+    }
+    .founder h2 { font-size: 1.75rem; margin-bottom: 14px; color: var(--text-main); font-weight: 900; }
     .founder p { color: var(--text-muted); margin-bottom: 18px; font-size: 1.05rem; }
-    .sig { font-weight: 1000; color: var(--text-main); }
-    .role { display: block; font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
+    .sig { font-weight: 900; color: var(--text-main); }
+    .role { display: block; font-size: 0.9rem; color: var(--text-muted); font-weight: 600; margin-top: 2px; }
 
-    /* FOOTER */
+    /* Footer */
     footer {
       text-align: center;
       padding: 40px 20px;
@@ -233,125 +562,140 @@
       font-size: 0.9rem;
       color: var(--text-muted);
     }
-    footer a { color: inherit; margin: 0 10px; font-weight: 850; text-decoration: none; padding: 6px 8px; border-radius: 10px; }
-    footer a:hover { color: var(--text-main); background: rgba(17,24,39,0.04); }
-
-    .social-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 24px; flex-wrap: wrap; }
-
-    .inline-link { color: var(--accent-teal); text-decoration: underline; text-underline-offset: 3px; font-weight: 950; }
+    footer a {
+      color: inherit;
+      margin: 0 10px;
+      font-weight: 800;
+      text-decoration: none;
+      padding: 6px 8px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+    }
+    footer a:hover {
+      color: var(--text-main);
+      background: var(--nav-hover);
+      border-color: var(--border-strong);
+    }
+    .social-links { display: flex; justify-content: center; gap: 18px; margin-bottom: 18px; flex-wrap: wrap; }
 
     /* Mobile */
     @media (max-width: 900px) {
-      .header-inner { flex-direction: column; gap: 14px; align-items: flex-start; }
-      nav { justify-content: flex-start; gap: 10px; }
       .split-grid { grid-template-columns: 1fr; }
-      h1 { font-size: 2.2rem; }
+      .hero { padding: 72px 0 38px; }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior: auto; }
+      *{
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+      .site-nav a:hover,
+      .btn-primary:hover,
+      .btn-secondary:hover,
+      .split-card:hover,
+      .theme-toggle:hover,
+      .menu-btn:hover{
+        transform: none !important;
+      }
     }
   </style>
 </head>
 
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
-
-  <header>
-    <div class="header-inner">
-      <a class="brand" href="/" aria-label="Predicai home">
-        <img src="/logo.png" alt="Predicai logo" class="brand-logo" />
-        <span>Predic<span style="color: var(--accent-teal)">ai</span>™</span>
-      </a>
-
-      <nav aria-label="Primary navigation">
-        <a href="/">Home</a>
-        <a href="/about.html" class="active" aria-current="page">About</a>
-        <a href="/academy.html">Academy</a>
-        <a href="/shield.html">Shield</a>
-        <a href="/pricing.html">Pricing</a>
-        <a href="/resources.html">Resources</a>
-        <a href="/faq.html">FAQ</a>
-      </nav>
-    </div>
-  </header>
+  <!-- ✅ Shared nav injection mount -->
+  <div data-include="nav"></div>
 
   <main id="main" class="wrap" tabindex="-1">
     <section class="hero">
-      <h1>Judgment is the Last Defense</h1>
+      <span class="kicker"><span class="kdot" aria-hidden="true"></span> Predicai</span>
+
+      <h1>Better Judgment in the AI Age</h1>
+
       <p class="lead">
-        AI creates infinite output. The scarce resource is now discernment.
-        Predicai builds practical judgment — for work and for life.
+        AI can produce a thousand answers in a minute.
+        The question is whether any of them are true, useful, or safe to act on.
       </p>
 
       <p class="principle">
-        No hype. No dependency. No surveillance. Just systems that help you verify reality and create leverage.
+        Predicai exists for one reason: to help people think clearly, verify reality, and move with confidence.
+        No hype. No jargon. No dependency.
       </p>
 
       <div class="pledge-pill">
-        🔒 <strong>Privacy Pledge™</strong> We don’t sell data. We don’t train public models on your submissions.
-        <a href="/privacy.html#pledge" class="inline-link" style="margin-left:6px;">Read policy</a>
+        🔒 <strong>Privacy Pledge</strong> We don’t sell data. We don’t train public models on your submissions.
+        <a href="/privacy.html#pledge" class="inline-link">Read policy</a>
       </div>
 
       <div class="cta-row">
-        <a class="btn btn-primary" href="/">Choose Your Path →</a>
+        <a class="btn btn-primary" href="/resources.html">Start with Resources →</a>
         <a class="btn btn-secondary" href="/capability.html">Take the Capability Score →</a>
       </div>
     </section>
 
-    <section class="split-grid">
+    <section class="split-grid" aria-label="Work and family paths">
       <div class="split-card">
-        <span class="card-icon">🏗️</span>
-        <h3 class="card-title">Work is Speeding Up</h3>
+        <span class="card-icon" aria-hidden="true">🏗️</span>
+        <h3 class="card-title">For work</h3>
         <p class="card-text">
-          People who treat AI as “search” will be outpaced.
-          We teach you how to direct AI, audit the output, and turn workflows into systems.
+          We teach you how to direct AI, check the output, and turn one-off wins into repeatable systems.
+          The goal is simple: less chaos, better decisions, better results.
         </p>
-        <a href="/academy.html" class="link-teal">View Academy →</a>
+        <a href="/academy.html" class="link-teal">Explore Academy →</a>
       </div>
 
       <div class="split-card">
-        <span class="card-icon">🛡️</span>
-        <h3 class="card-title">Trust is Getting Harder</h3>
+        <span class="card-icon" aria-hidden="true">🛡️</span>
+        <h3 class="card-title">For family</h3>
         <p class="card-text">
-          Scams, deepfakes, and synthetic voice are becoming normal.
-          Shield gives families a protocol to verify humans before money moves.
+          Scams are getting smarter. Voices can be cloned. Screenshots can be faked.
+          Shield helps families slow down, verify, and protect each other before money moves.
         </p>
-        <a href="/shield.html" class="link-gold">View Shield →</a>
+        <a href="/shield.html" class="link-gold">Explore Shield →</a>
       </div>
     </section>
 
-    <section class="ethics-box">
-      <span class="ethics-title">What We Refuse To Do</span>
+    <section class="ethics-box" aria-label="Ethics and refusals">
+      <span class="ethics-title">What we refuse to do</span>
+
       <div class="ethics-grid">
         <div class="ethics-item">
-          <h3>No Hype</h3>
-          <p>We don’t sell “magic prompts.” We teach logic, systems, and repeatable execution.</p>
+          <h3>No hype</h3>
+          <p>We don’t sell “magic prompts.” We teach standards, clear thinking, and repeatable execution.</p>
         </div>
 
         <div class="ethics-item">
-          <h3>No Surveillance</h3>
-          <p>We don’t sell your data. We don’t train public models on your submissions. We use what you share only to deliver the service you request.</p>
+          <h3>No surveillance</h3>
+          <p>We don’t sell your data. We don’t train public models on your submissions. We use what you share to deliver what you asked for.</p>
         </div>
 
         <div class="ethics-item">
-          <h3>No Dependency</h3>
-          <p>AI doesn’t replace the human. It elevates the human who can direct it.</p>
+          <h3>No dependency</h3>
+          <p>AI doesn’t replace the human. It elevates the human who can direct it and judge it.</p>
         </div>
       </div>
     </section>
 
     <section class="founder">
-      <h2>Why I built this</h2>
+      <h2>Why I built Predicai</h2>
+
       <p>
-        I saw two problems rising at the same time:
-        professionals using AI without standards (and getting unreliable outputs),
-        and families being tricked by it (and getting hurt).
+        I kept seeing the same two stories.
+        At work, smart people were moving fast with AI and quietly losing quality control.
+        At home, good people were getting pressured, tricked, and rushed into decisions they couldn’t undo.
       </p>
+
       <p>
-        We can’t stop the technology. But we can upgrade the human.
-        Predicai exists so you stay in control — not by trusting AI more,
-        but by trusting your judgment again.
+        We can’t slow the technology down.
+        But we can raise the standard for how we use it.
+        Predicai is here to help you stay steady in a world that’s trying to speed you up.
       </p>
+
       <div class="sig">
-        — DeQuan<br>
-        <span class="role">Founder & Lead Architect</span>
+        — DeQuan
+        <span class="role">Founder</span>
       </div>
     </section>
   </main>
@@ -361,16 +705,165 @@
       <a href="https://www.linkedin.com/company/predicai-ai/" target="_blank" rel="noopener noreferrer" aria-label="Predicai on LinkedIn">LinkedIn</a>
     </div>
 
-    <div>
-      © 2026 Predicai™ — All rights reserved. • "Foresight is Clarity."
-    </div>
+    <div>© 2026 Predicai — All rights reserved.</div>
 
-    <div style="margin-top:16px; font-size: 0.85rem; opacity: 0.85;">
-      <a href="/academy.html">Academy</a>
-      <a href="/shield.html">Shield</a>
+    <div style="margin-top:16px; font-size: 0.85rem; opacity: 0.92;">
+      <a href="/resources.html">Resources</a>
       <a href="/terms.html">Terms</a>
-      <a href="https://predicai.notion.site/Trust-Ethics-Protocol-2cd73ab1bdd6800cac99c280cb264c52" target="_blank" rel="noopener noreferrer">Trust & Ethics</a>
+      <a href="/privacy.html">Privacy</a>
     </div>
   </footer>
+
+  <script>
+    // ===== Shared Nav Include Loader =====
+    (function(){
+      const mount = document.querySelector('[data-include="nav"]');
+      if(!mount) return;
+
+      fetch('/partials/nav.html', { cache: 'no-cache' })
+        .then(r => r.text())
+        .then(html => {
+          mount.outerHTML = html;
+          initPredicaiNav();
+          initPredicaiTheme();
+        })
+        .catch(() => {
+          // If nav fails, page still loads.
+          // Optional: add minimal fallback here if desired.
+          initPredicaiTheme();
+        });
+    })();
+
+    // ===== Nav behavior (dropdowns + mobile + active link) =====
+    function initPredicaiNav(){
+      const nav = document.getElementById('siteNav');
+      const toggle = document.querySelector('.nav-toggle');
+      if(!nav) return;
+
+      function closeAllMenus(except=null){
+        document.querySelectorAll('.menu.open').forEach(m => {
+          if(m !== except){
+            m.classList.remove('open');
+            const btn = m.querySelector('.menu-btn');
+            if(btn) btn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      // Mobile open/close
+      if(toggle){
+        toggle.addEventListener('click', () => {
+          const open = nav.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+          if(!open) closeAllMenus();
+        });
+      }
+
+      // Dropdown toggle
+      document.querySelectorAll('.menu').forEach(menu => {
+        const btn = menu.querySelector('.menu-btn');
+        if(!btn) return;
+
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const isOpen = menu.classList.contains('open');
+          closeAllMenus(menu);
+          menu.classList.toggle('open', !isOpen);
+          btn.setAttribute('aria-expanded', (!isOpen).toString());
+        });
+
+        // Keyboard: Escape closes
+        menu.addEventListener('keydown', (e) => {
+          if(e.key === 'Escape'){
+            menu.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+            btn.focus();
+          }
+        });
+      });
+
+      // Click outside closes
+      document.addEventListener('click', (e) => {
+        const clickedInsideMenu = e.target.closest('.menu');
+        const clickedToggle = e.target.closest('.nav-toggle');
+        if(clickedInsideMenu || clickedToggle) return;
+
+        closeAllMenus();
+
+        // On mobile, clicking outside closes the whole menu
+        if(nav.classList.contains('open') && window.innerWidth <= 860){
+          nav.classList.remove('open');
+          if(toggle) toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Mark active link by URL (exact .html match + home)
+      const path = (location.pathname || '/').toLowerCase();
+
+      document.querySelectorAll('#siteNav a[href]').forEach(a => {
+        const href = (a.getAttribute('href') || '').toLowerCase();
+
+        const isHome = (href === '/' && (path === '/' || path.endsWith('/index.html')));
+        const isExact = (href.endsWith('.html') && path.endsWith(href));
+
+        if(isHome || isExact){
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+        }
+      });
+    }
+
+    // ===== Theme toggle (auto -> dark -> light -> auto) + theme-color meta =====
+    function initPredicaiTheme(){
+      const root = document.documentElement;
+      const btn = document.getElementById('themeToggle');
+      const metaTheme = document.getElementById('themeColorMeta');
+
+      function getSystemTheme() {
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      function getSavedTheme() {
+        try { return localStorage.getItem('predicai_theme') || 'auto'; }
+        catch(e){ return 'auto'; }
+      }
+      function saveTheme(val){
+        try { localStorage.setItem('predicai_theme', val); } catch(e){}
+      }
+
+      function themeColorFor(val){
+        const resolved = (val === 'auto') ? getSystemTheme() : val;
+        return resolved === 'light' ? '#FFFFFF' : '#070B14';
+      }
+
+      function applyTheme(val){
+        root.setAttribute('data-theme', val);
+        if(btn){
+          const label = val === 'auto' ? ('Theme: Auto (' + getSystemTheme() + ')') : ('Theme: ' + val);
+          btn.textContent = '◐ ' + label;
+        }
+        if (metaTheme) metaTheme.setAttribute('content', themeColorFor(val));
+      }
+
+      const saved = getSavedTheme();
+      applyTheme(saved);
+
+      if(btn){
+        btn.addEventListener('click', () => {
+          const cur = root.getAttribute('data-theme') || 'auto';
+          const next = cur === 'auto' ? 'dark' : (cur === 'dark' ? 'light' : 'auto');
+          saveTheme(next);
+          applyTheme(next);
+        });
+      }
+
+      if (window.matchMedia) {
+        const mq = window.matchMedia('(prefers-color-scheme: light)');
+        mq.addEventListener?.('change', () => {
+          if ((root.getAttribute('data-theme') || 'auto') === 'auto') applyTheme('auto');
+        });
+      }
+    }
+  </script>
 </body>
 </html>
+
