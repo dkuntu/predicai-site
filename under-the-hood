@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Under the Hood – Predicai</title>
+
+  <meta name="description" content="A transparent look at the systems, tools, and guardrails behind Predicai." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Under the Hood – Predicai" />
+  <meta property="og:description" content="Predicai isn’t a prompt. It’s a system. A transparent look at the architecture and privacy guardrails behind the work." />
+  <meta property="og:image" content="https://predicai.ai/under-the-hood.png" />
+  <meta property="og:url" content="https://predicai.ai/under-the-hood.html" />
+
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#050A10" />
+
+  <link rel="canonical" href="https://predicai.ai/under-the-hood.html" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/logo.png" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Prevent theme flash (apply saved theme before CSS) -->
+  <script>
+    (function () {
+      const storedTheme = localStorage.getItem('predicai-theme');
+      if (storedTheme) document.documentElement.setAttribute('data-theme', storedTheme);
+    })();
+  </script>
+
+  <style>
+    :root{ --radius:14px; }
+
+    /* DARK (default) */
+    :root[data-theme="dark"]{
+      --bg0:#050A10;
+      --bg1:#070E16;
+      --panel:rgba(255,255,255,0.03);
+      --border:rgba(255,255,255,0.12);
+      --line:rgba(255,255,255,0.10);
+
+      --text:#F8FAFC;
+      --muted:#94A3B8;
+
+      --teal:#2A9195;
+      --gold:#D6B35A;
+      --gold2:#CA8A04;
+
+      --shadow:0 30px 80px rgba(0,0,0,0.55);
+
+      --header-bg: rgba(5,10,16,0.72);
+      --nav-hover: rgba(255,255,255,0.08);
+      --nav-link: rgba(255,255,255,0.74);
+      --focus: rgba(42,145,149,0.40);
+    }
+
+    /* LIGHT */
+    :root[data-theme="light"]{
+      --bg0:#F8FAFC;
+      --bg1:#EEF2F7;
+      --panel:rgba(2,6,23,0.03);
+      --border:rgba(2,6,23,0.12);
+      --line:rgba(2,6,23,0.10);
+
+      --text:#020617;
+      --muted:#475569;
+
+      --teal:#2A9195; /* keep brand teal consistent */
+      --gold:#B45309;
+      --gold2:#9A3412;
+
+      --shadow:0 26px 70px rgba(2,6,23,0.12);
+
+      --header-bg: rgba(248,250,252,0.85);
+      --nav-hover: rgba(2,6,23,0.04);
+      --nav-link: rgba(11,18,32,0.70);
+      --focus: rgba(42,145,149,0.35);
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 50% 15%, rgba(255,255,255,0.06), transparent 60%),
+        radial-gradient(900px 500px at 18% 80%, rgba(42,145,149,0.10), transparent 60%),
+        radial-gradient(900px 500px at 82% 80%, rgba(202,138,4,0.08), transparent 65%),
+        linear-gradient(180deg, var(--bg1), var(--bg0));
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      padding:
+        env(safe-area-inset-top)
+        env(safe-area-inset-right)
+        env(safe-area-inset-bottom)
+        env(safe-area-inset-left);
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto !important; }
+      *{ transition:none !important; animation:none !important; }
+    }
+
+    /* ACCESSIBILITY */
+    .skip-link{
+      position:absolute; left:-9999px; top:12px; z-index:9999;
+      padding:10px 12px; border-radius:10px;
+      background:#fff; color:#000;
+      border:2px solid var(--teal);
+      text-decoration:none;
+      font-weight: 900;
+      box-shadow: var(--shadow);
+    }
+    .skip-link:focus{ left: 16px; }
+
+    :focus-visible{
+      outline:3px solid var(--focus);
+      outline-offset:3px;
+      border-radius:12px;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+
+    /* ===========================
+       UPDATED STANDARD NAV (TOP)
+       =========================== */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      background: var(--header-bg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner{
+      width:min(1100px, 100%);
+      margin:0 auto;
+      padding:14px 18px;
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      letter-spacing:-0.02em;
+      white-space:nowrap;
+    }
+    .brand img{
+      width:26px; height:26px;
+      border-radius:6px;
+      object-fit:contain;
+      background: rgba(255,255,255,0.08);
+      border:1px solid var(--border);
+    }
+    :root[data-theme="light"] .brand img{
+      background: rgba(255,255,255,0.9);
+      border:1px solid rgba(0,0,0,0.06);
+    }
+
+    .nav-wrap{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    nav a{
+      color: var(--nav-link);
+      font-size:0.95rem;
+      font-weight:800;
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+      -webkit-tap-highlight-color: transparent;
+      white-space:nowrap;
+    }
+    nav a:hover{
+      color: var(--text);
+      background: var(--nav-hover);
+      border-color: rgba(148,163,184,0.22);
+      transform: translateY(-1px);
+    }
+    nav a.active,
+    nav a[aria-current="page"]{
+      color: var(--text);
+      background: rgba(42,145,149,0.16);
+      border-color: rgba(42,145,149,0.28);
+      font-weight:900;
+      transform:none;
+    }
+
+    /* Theme toggle (match nav styling) */
+    .theme-toggle{
+      background: transparent;
+      border:1px solid var(--border);
+      color: var(--nav-link);
+      padding:8px 10px;
+      border-radius:12px;
+      cursor:pointer;
+      font-size:0.95rem;
+      font-weight:800;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      user-select:none;
+      white-space:nowrap;
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease, color 0.15s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .theme-toggle:hover{
+      background: var(--nav-hover);
+      border-color: rgba(148,163,184,0.22);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+    .theme-toggle .sun, .theme-toggle .moon{ display:none; }
+    :root[data-theme="dark"] .theme-toggle .sun{ display:inline; }
+    :root[data-theme="light"] .theme-toggle .moon{ display:inline; }
+
+    /* Page Layout */
+    .wrap{
+      width:min(1100px, 100%);
+      margin:0 auto;
+      padding:56px 24px 96px;
+    }
+
+    .frame{
+      border:1px solid var(--border);
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    :root[data-theme="light"] .frame{
+      background:linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.72));
+    }
+
+    .frame:before{
+      content:"";
+      position:absolute;
+      inset:-120px;
+      background:
+        radial-gradient(700px 420px at 50% 10%, rgba(255,255,255,0.08), transparent 55%),
+        radial-gradient(520px 520px at 50% 92%, rgba(255,255,255,0.03), transparent 60%);
+      pointer-events:none;
+      opacity:0.85;
+    }
+
+    .content{ position:relative; padding:44px 44px 40px; }
+    @media (max-width: 940px){
+      .content{ padding:28px 18px 24px; }
+    }
+
+    /* Header inside frame */
+    .topbar{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:10px;
+    }
+
+    .title{
+      text-align:left;
+    }
+
+    .title h1{
+      margin:0;
+      font-size:44px;
+      font-weight:800;
+      letter-spacing:-0.02em;
+    }
+
+    .title p{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:16px;
+      font-weight:500;
+    }
+
+    .micro-note{
+      margin-top:10px;
+      color:rgba(148,163,184,0.78);
+      font-size:12.5px;
+      line-height:1.45;
+      max-width:520px;
+    }
+    :root[data-theme="light"] .micro-note{
+      color:rgba(71,85,105,0.80);
+    }
+
+    .rule{
+      height:1px;
+      background:linear-gradient(90deg, transparent, var(--line), transparent);
+      margin:18px 0 22px;
+    }
+
+    /* Context */
+    .context{
+      max-width:980px;
+      margin:0 auto 18px;
+      text-align:left;
+      font-size:14.5px;
+      line-height:1.7;
+      color:rgba(248,250,252,0.92);
+    }
+    :root[data-theme="light"] .context{
+      color:rgba(2,6,23,0.88);
+    }
+    .context p{ margin:0 0 10px; }
+    .context strong{ color:var(--text); font-weight:800; }
+
+    /* System Grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:0;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      margin-top:18px;
+    }
+
+    .cell{
+      padding:18px 18px 16px;
+      border-right:1px solid var(--line);
+      min-height:152px;
+    }
+    .cell:nth-child(3){ border-right:none; }
+
+    .cell h3{
+      margin:0 0 10px;
+      font-size:14px;
+      font-weight:800;
+      letter-spacing:0.01em;
+    }
+
+    .bullets{
+      margin:0 0 12px;
+      padding:0;
+      list-style:none;
+    }
+    .bullets li{
+      margin:0 0 6px;
+      padding-left:14px;
+      position:relative;
+      font-size:13px;
+      color:rgba(148,163,184,0.95);
+    }
+    :root[data-theme="light"] .bullets li{
+      color:rgba(71,85,105,0.92);
+    }
+    .bullets li:before{
+      content:"▪";
+      position:absolute;
+      left:0;
+      color:var(--teal);
+    }
+
+    .why{
+      font-size:12px;
+      color:rgba(214,179,90,0.95);
+      font-style:italic;
+    }
+    :root[data-theme="light"] .why{
+      color:var(--gold);
+    }
+    .why b{
+      color:var(--text);
+      font-style:normal;
+      font-weight:800;
+      margin-right:6px;
+    }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-bottom:1px solid var(--line);
+    }
+    .cell2{
+      padding:18px 18px 16px;
+      border-right:1px solid var(--line);
+      min-height:152px;
+    }
+    .cell2:last-child{ border-right:none; }
+
+    /* Pledge */
+    .pledge{
+      margin:22px 0 28px;
+      padding:18px 18px;
+      border:1px solid rgba(214,179,90,0.35);
+      border-radius:14px;
+      background:linear-gradient(180deg, rgba(214,179,90,0.06), rgba(255,255,255,0.02));
+    }
+    :root[data-theme="light"] .pledge{
+      border:1px solid rgba(180,83,9,0.28);
+      background:linear-gradient(180deg, rgba(180,83,9,0.06), rgba(255,255,255,0.65));
+    }
+
+    .pledge .kicker{
+      font-size:12px;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+      font-weight:800;
+      color:rgba(214,179,90,0.95);
+    }
+    :root[data-theme="light"] .pledge .kicker{
+      color:var(--gold);
+    }
+
+    .pledge h2{
+      margin:0 0 6px;
+      font-size:16px;
+      font-weight:900;
+    }
+
+    .pledge .fine{
+      margin:0 0 10px;
+      color:rgba(148,163,184,0.95);
+      font-size:13px;
+    }
+    :root[data-theme="light"] .pledge .fine{
+      color:rgba(71,85,105,0.85);
+    }
+
+    .pledge ul{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:8px 18px;
+    }
+    .pledge li{
+      font-size:13px;
+      color:rgba(248,250,252,0.90);
+      padding-left:14px;
+      position:relative;
+    }
+    :root[data-theme="light"] .pledge li{
+      color:rgba(2,6,23,0.86);
+    }
+    .pledge li:before{
+      content:"▪";
+      position:absolute;
+      left:0;
+      color:var(--gold);
+    }
+
+    .pledge .trust{
+      margin-top:10px;
+      font-size:13px;
+      color:rgba(248,250,252,0.88);
+      font-weight:900;
+      line-height:1.4;
+    }
+    :root[data-theme="light"] .pledge .trust{
+      color:rgba(2,6,23,0.88);
+    }
+
+    /* Seal */
+    .sealWrap{
+      text-align:center;
+      margin:22px 0 18px;
+    }
+    .sealWrap .headline{
+      font-size:18px;
+      font-weight:900;
+      margin:0 0 14px;
+    }
+    .sealWrap .sub{
+      margin:10px 0 0;
+      color:rgba(148,163,184,0.90);
+      font-size:13px;
+    }
+    :root[data-theme="light"] .sealWrap .sub{
+      color:rgba(71,85,105,0.75);
+    }
+    .seal{
+      width:380px;
+      max-width:100%;
+      margin:0 auto;
+      opacity:0.96;
+    }
+
+    .bottomLine{
+      height:1px;
+      background:linear-gradient(90deg, transparent, var(--line), transparent);
+      margin:22px 0 18px;
+    }
+
+    .ack{
+      color:rgba(148,163,184,0.78);
+      font-size:12.5px;
+      line-height:1.55;
+      max-width:980px;
+      margin:0 auto;
+      text-align:left;
+    }
+    :root[data-theme="light"] .ack{
+      color:rgba(71,85,105,0.72);
+    }
+
+    /* Responsive */
+    @media (max-width: 940px){
+      .topbar{ flex-direction:column; align-items:flex-start; }
+      .title h1{ font-size:34px; }
+
+      .grid{ grid-template-columns:1fr; }
+      .cell{ border-right:none; border-bottom:1px solid var(--line); min-height:auto; }
+      .cell:last-child{ border-bottom:none; }
+
+      .grid2{ grid-template-columns:1fr; }
+      .cell2{ border-right:none; border-bottom:1px solid var(--line); min-height:auto; }
+      .cell2:last-child{ border-bottom:none; }
+
+      .pledge ul{ grid-template-columns:1fr; }
+    }
+
+    @media print{
+      header, .theme-toggle { display:none !important; }
+      body{ background:#fff; color:#000; }
+      a{ text-decoration: underline; color:#000; }
+      .frame{ box-shadow:none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- UPDATED STANDARD NAV -->
+  <header>
+    <div class="header-inner">
+      <a href="/" class="brand" aria-label="Predicai home">
+        <img src="/logo.png" alt="Predicai logo" loading="eager" />
+        <span>Predic<span style="color: var(--teal)">ai</span>&trade;</span>
+      </a>
+
+      <div class="nav-wrap">
+        <nav aria-label="Primary navigation">
+          <a href="/">Home</a>
+          <a href="/about.html">About</a>
+          <a href="/academy.html">Academy</a>
+          <a href="/shield.html">Shield</a>
+          <a href="/signal.html">Signal</a>
+          <a href="/resources.html">Resources</a>
+          <a href="/faq.html">FAQ</a>
+          <a href="/under-the-hood.html" class="active" aria-current="page">Under the Hood</a>
+        </nav>
+
+        <!-- keep your existing theme behavior, but style it like nav -->
+        <button class="theme-toggle" type="button" aria-label="Toggle interface mode">
+          <span class="sun" aria-hidden="true">☀</span>
+          <span class="moon" aria-hidden="true">☾</span>
+          <span>Interface mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <div class="frame">
+        <div class="content">
+
+          <div class="topbar">
+            <div class="title">
+              <h1>Under the Hood</h1>
+              <p>What Predicai is built with — and why it matters</p>
+              <div class="micro-note">
+                Not a claim of partnership or endorsement. A transparent acknowledgment of the systems behind the work.
+              </div>
+            </div>
+
+            <!-- (removed the old theme toggle here to avoid duplicates) -->
+          </div>
+
+          <div class="rule"></div>
+
+          <div class="context">
+            <p><strong>Predicai is not a demo.</strong> It is a working system—designed, tested, and maintained across real tools, real constraints, and real tradeoffs.</p>
+            <p>What you see across the site, mailers, and knowledge systems is the output of an intentional architecture. Below is a transparent view of how that system is structured.</p>
+          </div>
+
+          <div class="grid">
+            <div class="cell">
+              <h3>Core Intelligence Layer</h3>
+              <ul class="bullets">
+                <li>Large language models</li>
+                <li>Custom prompts and evaluations</li>
+                <li>Human-in-the-loop review</li>
+              </ul>
+              <div class="why"><b>Why it matters:</b> Reliability over novelty.</div>
+            </div>
+
+            <div class="cell">
+              <h3>Workflow & Automation</h3>
+              <ul class="bullets">
+                <li>Automation systems</li>
+                <li>Form logic and routing</li>
+                <li>Explicit human checkpoints</li>
+              </ul>
+              <div class="why"><b>Why it matters:</b> Handoffs done right.</div>
+            </div>
+
+            <div class="cell">
+              <h3>Content & Knowledge Systems</h3>
+              <ul class="bullets">
+                <li>Structured knowledge base</li>
+                <li>Playbooks and shared assets</li>
+                <li>Versioning and change tracking</li>
+              </ul>
+              <div class="why"><b>Why it matters:</b> Trust through context.</div>
+            </div>
+          </div>
+
+          <div class="grid2">
+            <div class="cell2">
+              <h3>Delivery & Distribution</h3>
+              <ul class="bullets">
+                <li>Email infrastructure</li>
+                <li>Landing pages and gated resources</li>
+                <li>Minimal, intentional analytics</li>
+              </ul>
+              <div class="why"><b>Why it matters:</b> Clarity in delivery.</div>
+            </div>
+
+            <div class="cell2">
+              <h3>Security & Privacy</h3>
+              <ul class="bullets">
+                <li>Data minimization by default</li>
+                <li>No training on user data</li>
+                <li>Explicit safeguards and review points</li>
+              </ul>
+              <div class="why"><b>Why it matters:</b> Safety by design.</div>
+            </div>
+          </div>
+
+          <div class="pledge">
+            <div class="kicker">Privacy & Safety Pledge</div>
+            <h2>This is not fine print. It is a design principle.</h2>
+            <p class="fine">Predicai is built to reduce risk, not maximize data collection.</p>
+            <ul>
+              <li>User submissions are never used to train models</li>
+              <li>Data is not resold or repurposed</li>
+              <li>Only the minimum information required is retained</li>
+              <li>Human judgment is applied where decisions matter</li>
+            </ul>
+            <div class="trust">Trust is not a policy.<br/>It is a system property.</div>
+          </div>
+
+          <div class="sealWrap">
+            <div class="headline">Predicai isn’t a prompt. It’s a system.</div>
+
+            <!-- Replace this SVG with your under-the-hood.png if you prefer -->
+            <svg class="seal" viewBox="0 0 520 520" role="img" aria-label="Predicai system seal">
+              <defs>
+                <radialGradient id="g" cx="50%" cy="35%" r="70%">
+                  <stop offset="0%" stop-color="rgba(255,255,255,0.12)"/>
+                  <stop offset="60%" stop-color="rgba(255,255,255,0.04)"/>
+                  <stop offset="100%" stop-color="rgba(255,255,255,0.02)"/>
+                </radialGradient>
+              </defs>
+
+              <circle cx="260" cy="260" r="210" fill="url(#g)" stroke="rgba(255,255,255,0.12)" stroke-width="3"/>
+              <circle cx="260" cy="260" r="160" fill="transparent" stroke="rgba(255,255,255,0.10)" stroke-width="3"/>
+              <circle cx="260" cy="260" r="95" fill="rgba(0,0,0,0.18)" stroke="rgba(255,255,255,0.10)" stroke-width="3"/>
+
+              <text x="260" y="275" text-anchor="middle" font-family="Inter" font-size="44" font-weight="800" fill="rgba(248,250,252,0.92)">Predicai</text>
+
+              <text x="260" y="90" text-anchor="middle" font-size="18" font-weight="700" fill="rgba(248,250,252,0.78)">Intelligence</text>
+              <text x="420" y="185" text-anchor="middle" font-size="18" font-weight="700" fill="rgba(248,250,252,0.78)">Workflow</text>
+              <text x="420" y="345" text-anchor="middle" font-size="18" font-weight="700" fill="rgba(248,250,252,0.78)">Knowledge</text>
+              <text x="260" y="455" text-anchor="middle" font-size="18" font-weight="700" fill="rgba(248,250,252,0.78)">Guardrails</text>
+              <text x="100" y="345" text-anchor="middle" font-size="18" font-weight="700" fill="rgba(248,250,252,0.78)">Delivery</text>
+
+              <g stroke="rgba(255,255,255,0.08)" stroke-width="3">
+                <line x1="260" y1="50" x2="260" y2="100"/>
+                <line x1="470" y1="260" x2="420" y2="260"/>
+                <line x1="260" y1="470" x2="260" y2="420"/>
+                <line x1="50" y1="260" x2="100" y2="260"/>
+                <line x1="400" y1="120" x2="365" y2="155"/>
+                <line x1="400" y1="400" x2="365" y2="365"/>
+                <line x1="120" y1="400" x2="155" y2="365"/>
+                <line x1="120" y1="120" x2="155" y2="155"/>
+              </g>
+            </svg>
+
+            <div class="sub">Built, tested, and maintained across real tools.</div>
+          </div>
+
+          <div class="bottomLine"></div>
+
+          <div class="ack">
+            Predicai is built using a mix of modern AI platforms, automation tools, infrastructure providers, and open-source components.
+            <br/><br/>
+            This is not a claim of partnership or endorsement—only a transparent acknowledgment of the systems that make the work possible.
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const toggle = document.querySelector('.theme-toggle');
+
+      const storedTheme = localStorage.getItem('predicai-theme');
+      const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (storedTheme) {
+        root.setAttribute('data-theme', storedTheme);
+      } else {
+        root.setAttribute('data-theme', systemPrefersDark ? 'dark' : 'light');
+      }
+
+      const themeMeta = document.querySelector('meta[name="theme-color"]');
+      function syncThemeColor(){
+        const t = root.getAttribute('data-theme');
+        if (!themeMeta) return;
+        themeMeta.setAttribute('content', t === 'dark' ? '#050A10' : '#F8FAFC');
+      }
+      syncThemeColor();
+
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('predicai-theme', next);
+        syncThemeColor();
+      });
+    })();
+  </script>
+</body>
+</html>
