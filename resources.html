@@ -1,157 +1,373 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="auto">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Resources – Predicai™</title>
-  <meta name="description" content="Free tools and protocols for the AI age. Verify scams, get Shield checklists, and explore the Academy framework." />
+
+  <meta name="description" content="Free tools and checklists to help you stay safe and do better work with AI. Plus Signal: a short weekly brief on what changed, what held up once tested, and what to do differently." />
 
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Predicai" />
   <meta property="og:url" content="https://predicai.ai/resources.html" />
   <meta property="og:title" content="Resources – Predicai™" />
-  <meta property="og:description" content="Free tools and protocols for the AI age. Verify scams, get Shield checklists, and explore the Academy framework." />
-  <meta property="og:image" content="https://predicai.ai/assets/img/social-share.png" />
+  <meta property="og:description" content="Free tools and checklists to help you stay safe and do better work with AI. Plus Signal: a short weekly brief on what changed, what held up once tested, and what to do differently." />
+  <meta property="og:image" content="https://predicai.ai/social-share.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://predicai.ai/resources.html" />
+  <meta name="twitter:title" content="Resources – Predicai™" />
+  <meta name="twitter:description" content="Free tools and checklists to help you stay safe and do better work with AI. Plus Signal: a short weekly brief on what changed, what held up once tested, and what to do differently." />
+  <meta name="twitter:image" content="https://predicai.ai/social-share.png" />
 
   <meta name="theme-color" content="#FFFFFF" />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://predicai.ai/resources.html" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" href="/assets/img/logo.png" type="image/png" />
+  <link rel="icon" href="/logo.png" type="image/png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      /* Page */
-      --bg-page: #F8FAFC;
-      --bg-white: #FFFFFF;
-      --bg-subtle: #F3F4F6;
+    :root{
+      /* Predicai tokens (light default) */
+      --teal:#2A9195;
+      --teal-deep:#0F766E;
+      --teal-soft: rgba(42,145,149,0.14);
 
-      /* Text */
-      --text-main: #0F172A;
-      --text-muted: #64748B;
+      --bg-page:#F8FAFC;
+      --bg-card:#FFFFFF;
+      --bg-soft:#F1F5F9;
 
-      /* Predicai core */
-      --blue: #1D4ED8;
-      --teal: #0F766E;
+      --text-main:#0B1220;
+      --text-muted:#475569;
 
-      /* Shield: BRIGHT GOLD (no bronze/brown) */
-      --gold: #FFD24A;
-      --gold-strong: #F4B400;
-      --gold-bg: #FFFBEB;
-      --gold-ink: #111827;
+      --border:#E2E8F0;
+      --shadow: 0 10px 25px -5px rgba(2,6,23,0.10);
+      --shadow-strong: 0 16px 40px -12px rgba(2,6,23,0.18);
+
+      --radius:18px;
+      --radius2:14px;
+
+      --focus: rgba(42,145,149,0.35);
+
+      /* Shield gold (bright) */
+      --gold:#FFD24A;
+      --gold-strong:#F4B400;
+      --gold-bg:#FFFBEB;
+      --gold-ink:#111827;
       --gold-border: rgba(244,180,0,0.35);
 
-      /* Borders / Effects */
-      --border: #E2E8F0;
-      --shadow: 0 10px 25px -5px rgba(0,0,0,0.10);
-      --shadow-strong: 0 16px 40px -12px rgba(0,0,0,0.18);
-      --radius: 18px;
+      /* Signal */
+      --signal-bg:#F1F5F9;
+      --signal-border:#CBD5E1;
 
-      --focus: #2563EB;
+      --container: 1100px;
+      --padX: 24px;
+      --headerH: 72px;
+
+      --header-bg: rgba(248, 250, 252, 0.85);
+      --nav-hover: rgba(2,6,23,0.04);
+      --nav-link: rgba(11,18,32,0.70);
+      --nav-active-bg: rgba(42,145,149,0.14);
+      --nav-active-border: rgba(42,145,149,0.26);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg-page);
+    /* System dark tokens (used when data-theme="auto" AND OS is dark) */
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg-page:#050A10;
+        --bg-card: rgba(255,255,255,0.06);
+        --bg-soft: rgba(255,255,255,0.08);
+
+        --text-main:#FFFFFF;
+        --text-muted:#A7B4C8;
+
+        --border: rgba(148,163,184,0.18);
+        --shadow: 0 22px 70px rgba(0,0,0,0.40);
+        --shadow-strong: 0 28px 90px rgba(0,0,0,0.55);
+
+        --signal-bg: rgba(255,255,255,0.05);
+        --signal-border: rgba(255,255,255,0.12);
+
+        --gold-bg: rgba(255,210,74,0.12);
+        --gold-border: rgba(244,180,0,0.38);
+        --gold-ink: #FFD24A;
+
+        --header-bg: rgba(5, 10, 16, 0.72);
+        --nav-hover: rgba(255,255,255,0.08);
+        --nav-link: rgba(255,255,255,0.72);
+        --nav-active-bg: rgba(42,145,149,0.16);
+        --nav-active-border: rgba(42,145,149,0.30);
+      }
+    }
+
+    /* Explicit themes override tokens */
+    html[data-theme="light"]{
+      --bg-page:#F8FAFC;
+      --bg-card:#FFFFFF;
+      --bg-soft:#F1F5F9;
+
+      --text-main:#0B1220;
+      --text-muted:#475569;
+
+      --border:#E2E8F0;
+      --shadow: 0 10px 25px -5px rgba(2,6,23,0.10);
+      --shadow-strong: 0 16px 40px -12px rgba(2,6,23,0.18);
+
+      --signal-bg:#F1F5F9;
+      --signal-border:#CBD5E1;
+
+      --gold:#FFD24A;
+      --gold-strong:#F4B400;
+      --gold-bg:#FFFBEB;
+      --gold-border: rgba(244,180,0,0.35);
+      --gold-ink:#111827;
+
+      --header-bg: rgba(248, 250, 252, 0.85);
+      --nav-hover: rgba(2,6,23,0.04);
+      --nav-link: rgba(11,18,32,0.70);
+      --nav-active-bg: rgba(42,145,149,0.14);
+      --nav-active-border: rgba(42,145,149,0.26);
+    }
+
+    html[data-theme="dark"]{
+      --bg-page:#050A10;
+      --bg-card: rgba(255,255,255,0.06);
+      --bg-soft: rgba(255,255,255,0.08);
+
+      --text-main:#FFFFFF;
+      --text-muted:#A7B4C8;
+
+      --border: rgba(148,163,184,0.18);
+      --shadow: 0 22px 70px rgba(0,0,0,0.40);
+      --shadow-strong: 0 28px 90px rgba(0,0,0,0.55);
+
+      --signal-bg: rgba(255,255,255,0.05);
+      --signal-border: rgba(255,255,255,0.12);
+
+      --gold-bg: rgba(255,210,74,0.12);
+      --gold-border: rgba(244,180,0,0.38);
+      --gold-ink: #FFD24A;
+
+      --header-bg: rgba(5, 10, 16, 0.72);
+      --nav-hover: rgba(255,255,255,0.08);
+      --nav-link: rgba(255,255,255,0.72);
+      --nav-active-bg: rgba(42,145,149,0.16);
+      --nav-active-border: rgba(42,145,149,0.30);
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; scroll-padding-top: var(--headerH); }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto !important; }
+      *{ transition:none !important; }
+    }
+
+    body{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(900px 520px at 16% 6%, rgba(42,145,149,0.12), transparent 62%),
+        radial-gradient(900px 520px at 84% 10%, rgba(255,210,74,0.10), transparent 62%),
+        var(--bg-page);
       color: var(--text-main);
       line-height: 1.6;
+      min-height: 100vh;
+      min-height: 100svh;
+      padding:
+        env(safe-area-inset-top)
+        env(safe-area-inset-right)
+        env(safe-area-inset-bottom)
+        env(safe-area-inset-left);
     }
 
-    .container {
-      max-width: 1100px;
+    .container{
+      max-width: var(--container);
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 var(--padX);
     }
 
     .skip-link{
       position:absolute; left:-9999px; top:12px;
-      background:#fff; color: var(--text-main);
-      padding:10px 14px; border-radius:10px; z-index:9999;
-      text-decoration:none; font-weight:900;
-      border: 1px solid var(--border);
+      background: var(--text-main);
+      color: #fff;
+      padding:10px 14px;
+      border-radius:10px;
+      z-index:9999;
+      text-decoration:none;
+      font-weight:950;
+      border: 1px solid rgba(255,255,255,0.12);
       box-shadow: var(--shadow);
     }
-    .skip-link:focus{ left:12px; outline: 3px solid rgba(37,99,235,0.35); outline-offset: 2px; }
+    .skip-link:focus{ left:12px; outline: 3px solid var(--focus); outline-offset: 2px; }
 
-    a { color: inherit; }
-    a:focus, .btn:focus, .jump-btn:focus {
-      outline: 3px solid rgba(37,99,235,0.35);
+    :focus-visible{
+      outline: 3px solid var(--focus);
       outline-offset: 2px;
       border-radius: 12px;
     }
 
+    /* HEADER */
     header{
-      position: sticky; top:0; z-index:50;
-      background: rgba(255,255,255,0.92);
+      position: sticky;
+      top:0;
+      z-index:50;
+      height: var(--headerH);
+      display:flex;
+      align-items:center;
+      background: var(--header-bg);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
-      padding: 14px 0;
     }
+
     .header-inner{
       display:flex;
       justify-content: space-between;
       align-items:center;
-      gap: 16px;
+      gap: 14px;
+      width: 100%;
     }
+
     .brand{
-      display:flex; align-items:center; gap:10px;
+      display:flex;
+      align-items:center;
+      gap:10px;
       text-decoration:none;
       font-weight: 950;
       font-size: 1.15rem;
       color: var(--text-main);
       white-space: nowrap;
+      letter-spacing: -0.02em;
     }
-    .brand span{ color: var(--teal); }
     .brand img{ width:26px; height:26px; border-radius: 6px; object-fit: contain; }
 
-    nav{
+    .nav-wrap{
       display:flex;
-      gap: 14px;
+      align-items:center;
+      gap: 10px;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
+
+    nav{
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items:center;
+    }
+
     nav a{
-      color: var(--text-muted);
+      color: var(--nav-link);
       text-decoration:none;
       font-size: 0.95rem;
-      font-weight: 800;
-      padding: 6px 8px;
-      border-radius: 10px;
+      font-weight: 850;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: background .15s ease, color .15s ease, border-color .15s ease, transform .15s ease;
+      white-space: nowrap;
+      -webkit-tap-highlight-color: transparent;
     }
-    nav a:hover{ color: var(--text-main); background: rgba(15,118,110,0.06); }
-    nav a.active{
+    nav a:hover{
+      color: var(--text-main);
+      background: var(--nav-hover);
+      border-color: rgba(148,163,184,0.22);
+      transform: translateY(-1px);
+    }
+    nav a.active,
+    nav a[aria-current="page"]{
       color: var(--text-main);
       font-weight: 950;
-      background: rgba(29,78,216,0.06);
+      background: var(--nav-active-bg);
+      border-color: var(--nav-active-border);
+      transform: none;
+    }
+
+    .theme-toggle{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.60);
+      color: rgba(11,18,32,0.88);
+      font-weight: 850;
+      font-size: 0.9rem;
+      cursor: pointer;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+      white-space: nowrap;
+      transition: background .15s ease, border-color .15s ease, transform .15s ease;
+    }
+
+    /* ✅ FIX: theme-toggle respects AUTO + system dark */
+    html[data-theme="dark"] .theme-toggle{
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.88);
+    }
+    @media (prefers-color-scheme: dark){
+      html[data-theme="auto"] .theme-toggle{
+        background: rgba(255,255,255,0.08);
+        color: rgba(255,255,255,0.88);
+      }
+    }
+
+    .theme-toggle:hover{
+      background: rgba(255,255,255,0.78);
+      border-color: rgba(148,163,184,0.30);
+      transform: translateY(-1px);
+    }
+    html[data-theme="dark"] .theme-toggle:hover{ background: rgba(255,255,255,0.12); }
+    @media (prefers-color-scheme: dark){
+      html[data-theme="auto"] .theme-toggle:hover{ background: rgba(255,255,255,0.12); }
     }
 
     main{ padding-bottom: 80px; }
 
     .hero{
       text-align:center;
-      padding: 72px 0 40px;
+      padding: 72px 0 36px;
       max-width: 920px;
       margin: 0 auto;
     }
     h1{
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-size: clamp(2.1rem, 4vw, 3.1rem);
       font-weight: 950;
       letter-spacing: -0.03em;
       margin-bottom: 12px;
       line-height: 1.08;
     }
     .subtitle{
-      font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+      font-size: clamp(1.05rem, 1.6vw, 1.18rem);
       color: var(--text-muted);
       max-width: 760px;
-      margin: 0 auto 12px;
+      margin: 0 auto 10px;
     }
-    .micro-note{
-      font-size: 0.92rem;
+
+    .note-line{
+      max-width: 880px;
+      margin: 12px auto 0;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.65);
       color: var(--text-muted);
-      max-width: 860px;
-      margin: 0 auto 18px;
+      font-size: 0.92rem;
+      line-height: 1.45;
+      box-shadow: var(--shadow);
     }
+    /* ✅ FIX: note-line respects AUTO + system dark */
+    html[data-theme="dark"] .note-line{ background: rgba(255,255,255,0.07); box-shadow: none; }
+    @media (prefers-color-scheme: dark){
+      html[data-theme="auto"] .note-line{ background: rgba(255,255,255,0.07); box-shadow: none; }
+    }
+    .note-line b{ color: var(--text-main); font-weight: 950; }
 
     .jump-links{
       display:flex;
@@ -167,22 +383,39 @@
       padding: 12px 18px;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: #fff;
+      background: rgba(255,255,255,0.70);
       color: var(--text-muted);
       text-decoration:none;
-      font-weight: 900;
+      font-weight: 950;
       transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
       white-space: nowrap;
+      -webkit-tap-highlight-color: transparent;
+      user-select:none;
+      box-shadow: var(--shadow);
     }
+    html[data-theme="dark"] .jump-btn{ background: rgba(255,255,255,0.07); box-shadow: none; }
+    @media (prefers-color-scheme: dark){
+      html[data-theme="auto"] .jump-btn{ background: rgba(255,255,255,0.07); box-shadow: none; }
+    }
+
     .jump-btn:hover{
       transform: translateY(-2px);
-      border-color: #CBD5E1;
+      border-color: rgba(148,163,184,0.28);
+      background: rgba(255,255,255,0.86);
+      color: var(--text-main);
     }
+    html[data-theme="dark"] .jump-btn:hover{ background: rgba(255,255,255,0.10); }
+    @media (prefers-color-scheme: dark){
+      html[data-theme="auto"] .jump-btn:hover{ background: rgba(255,255,255,0.10); }
+    }
+
     .jump-btn.active{
       background: var(--text-main);
-      color: #fff;
+      color: var(--bg-page);
       border-color: var(--text-main);
+      box-shadow: none;
     }
+
     .btn-icon{
       width: 26px;
       height: 26px;
@@ -205,17 +438,20 @@
       font-weight: 950;
       text-transform: uppercase;
       letter-spacing: 0.08em;
+      color: var(--text-main);
     }
     .zone-badge{
       font-size: 0.75rem;
       padding: 5px 9px;
       border-radius: 999px;
       font-weight: 950;
-      background: var(--bg-subtle);
+      background: var(--bg-soft);
       color: var(--text-muted);
+      border: 1px solid var(--border);
     }
     .badge-safety{ background: var(--gold-bg); color: var(--gold-ink); border: 1px solid var(--gold-border); }
-    .badge-work{ background: rgba(13,148,136,0.10); color: var(--teal); border: 1px solid rgba(13,148,136,0.18); }
+    .badge-work{ background: rgba(42,145,149,0.10); color: var(--teal-deep); border: 1px solid rgba(42,145,149,0.18); }
+    .badge-signal{ background: var(--signal-bg); color: var(--text-main); border: 1px solid var(--signal-border); }
 
     .resource-grid{
       display:grid;
@@ -223,25 +459,44 @@
       gap: 18px;
       margin-top: 18px;
     }
+
     .resource-card{
-      background: var(--bg-white);
+      background: rgba(255,255,255,0.78);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 26px;
       display:flex;
       flex-direction:column;
       position:relative;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
       min-width: 0;
       box-shadow: none;
     }
+
+    /* ✅ FIX: resource-card respects AUTO + system dark */
+    html[data-theme="dark"] .resource-card{ background: rgba(255,255,255,0.06); }
+    @media (prefers-color-scheme: dark){
+      html[data-theme="auto"] .resource-card{ background: rgba(255,255,255,0.06); }
+    }
+
     .resource-card:hover{
       transform: translateY(-3px);
       box-shadow: var(--shadow-strong);
+      background: rgba(255,255,255,0.90);
+    }
+    html[data-theme="dark"] .resource-card:hover{
+      background: rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+    @media (prefers-color-scheme: dark){
+      html[data-theme="auto"] .resource-card:hover{
+        background: rgba(255,255,255,0.08);
+        box-shadow: var(--shadow);
+      }
     }
 
     .card-icon{ font-size: 2rem; margin-bottom: 12px; display:block; }
-    .card-title{ font-size: 1.2rem; font-weight: 950; margin-bottom: 10px; }
+    .card-title{ font-size: 1.2rem; font-weight: 950; margin-bottom: 10px; color: var(--text-main); }
     .card-desc{
       font-size: 0.98rem;
       color: var(--text-muted);
@@ -264,29 +519,96 @@
       user-select:none;
       -webkit-tap-highlight-color: transparent;
     }
-    .btn:hover{ transform: translateY(-2px); opacity: 0.96; }
+    .btn:hover{ transform: translateY(-2px); opacity: 0.97; }
     .btn:active{ transform: translateY(1px); }
 
-    .btn-primary{ background: var(--text-main); color:#fff; }
-    .btn-outline{ background:#fff; border-color: var(--border); color: var(--text-main); }
-    .btn-teal{ background: var(--teal); color:#fff; }
-    .btn-shield{ background: var(--gold); color: var(--gold-ink); }
-    .btn-shield:hover{ background: var(--gold-strong); }
+    .btn-primary{
+      background: var(--text-main);
+      color: var(--bg-page);
+      border-color: rgba(11,18,32,0.55);
+    }
+    .btn-outline{
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text-main);
+    }
+    .btn-teal{ background: var(--teal-deep); color: #fff; }
+
+    .btn-shield{
+      background: var(--gold);
+      color: #111827;
+      border-color: rgba(244,180,0,0.35);
+    }
+    .btn-shield:hover{
+      background: var(--gold-strong);
+      color: #111827;
+    }
 
     .btn-full{ width:100%; display:flex; }
 
     .card-shield-highlight{
-      background: var(--gold-bg);
+      background: rgba(255,251,235,0.88);
       border-color: var(--gold-border);
     }
+    html[data-theme="dark"] .card-shield-highlight{ background: rgba(255,210,74,0.12); }
+    @media (prefers-color-scheme: dark){
+      html[data-theme="auto"] .card-shield-highlight{ background: rgba(255,210,74,0.12); }
+    }
+
     .card-shield-highlight .card-title{ color: var(--gold-ink); }
-    .card-shield-highlight .card-desc{ color: rgba(17,24,39,0.88); }
+    .card-shield-highlight .card-desc{ color: rgba(17,24,39,0.82); }
+    html[data-theme="dark"] .card-shield-highlight .card-desc{ color: rgba(255,210,74,0.86); }
+    @media (prefers-color-scheme: dark){
+      html[data-theme="auto"] .card-shield-highlight .card-desc{ color: rgba(255,210,74,0.86); }
+    }
 
     .card-work-highlight{
-      background: rgba(13,148,136,0.08);
-      border-color: rgba(13,148,136,0.18);
+      background: rgba(42,145,149,0.08);
+      border-color: rgba(42,145,149,0.18);
     }
-    .card-work-highlight .card-title{ color: var(--teal); }
+    .card-work-highlight .card-title{ color: var(--teal-deep); }
+    .card-work-highlight .card-desc{ color: rgba(15,118,110,0.88); }
+    html[data-theme="dark"] .card-work-highlight .card-desc{ color: rgba(167,180,200,0.92); }
+    @media (prefers-color-scheme: dark){
+      html[data-theme="auto"] .card-work-highlight .card-desc{ color: rgba(167,180,200,0.92); }
+    }
+
+    .card-signal-highlight{
+      background: var(--signal-bg);
+      border-color: var(--signal-border);
+    }
+    html[data-theme="dark"] .card-signal-highlight{ background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.12); }
+    @media (prefers-color-scheme: dark){
+      html[data-theme="auto"] .card-signal-highlight{ background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.12); }
+    }
+
+    .card-archive-highlight{
+      background: rgba(42,145,149,0.06);
+      border-color: rgba(42,145,149,0.22);
+    }
+    html[data-theme="dark"] .card-archive-highlight{ background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.14); }
+    @media (prefers-color-scheme: dark){
+      html[data-theme="auto"] .card-archive-highlight{ background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.14); }
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size: 0.82rem;
+      font-weight: 950;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.65);
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      width: fit-content;
+    }
+    html[data-theme="dark"] .pill{ background: rgba(255,255,255,0.08); }
+    @media (prefers-color-scheme: dark){
+      html[data-theme="auto"] .pill{ background: rgba(255,255,255,0.08); }
+    }
 
     .price-row{ margin: 0 0 14px; }
     .price-big{
@@ -303,25 +625,9 @@
       font-weight: 950;
       padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(244,180,0,0.16);
+      background: rgba(244,180,0,0.18);
       color: var(--gold-ink);
-      border: 1px solid rgba(244,180,0,0.18);
-    }
-
-    .resource-card.disabled{
-      opacity: 0.70;
-      background: var(--bg-subtle);
-    }
-    .locked-badge{
-      position:absolute;
-      top: 16px;
-      right: 16px;
-      font-size: 1.2rem;
-    }
-    .blur-text{
-      filter: blur(4px);
-      opacity: 0.45;
-      user-select:none;
+      border: 1px solid rgba(244,180,0,0.25);
     }
 
     footer{
@@ -339,16 +645,30 @@
       display:inline-block;
       padding: 6px 8px;
       border-radius: 10px;
+      border: 1px solid transparent;
+      transition: background .15s ease, color .15s ease, border-color .15s ease;
     }
-    footer a:hover{ color: var(--text-main); background: rgba(15,118,110,0.06); }
+    footer a:hover{
+      color: var(--text-main);
+      background: rgba(42,145,149,0.10);
+      border-color: rgba(148,163,184,0.22);
+    }
 
     @media (max-width: 1040px){
       .resource-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 760px){
-      header{ padding: 12px 0; }
+      header{ height: auto; padding: 12px 0; }
       .header-inner{ flex-direction: column; align-items: flex-start; }
-      nav{ width: 100%; justify-content: flex-start; gap: 10px; }
+      .nav-wrap{ width:100%; justify-content:flex-start; }
+      nav{
+        width: 100%;
+        justify-content: flex-start;
+        gap: 8px;
+        overflow-x:auto;
+        padding-bottom: 4px;
+      }
+      .theme-toggle{ margin-top: 4px; }
 
       .hero{ padding: 54px 0 34px; }
       .jump-links{ width:100%; }
@@ -367,50 +687,74 @@
     <div class="container header-inner">
       <a href="/" class="brand" aria-label="Predicai home">
         <img src="/logo.png" alt="Predicai logo" />
-        <!-- ✅ FIX: --accent-teal doesn't exist; use --teal -->
-        <span>Predic<span style="color: var(--teal)">ai</span>™</span>
+        <span>Predic<span style="color: var(--teal-deep)">ai</span>&trade;</span>
       </a>
 
-      <nav aria-label="Primary navigation">
-        <a href="/">Home</a>
-        <a href="/about.html">About</a>
-        <a href="/academy.html">Academy</a>
-        <a href="/shield.html">Shield</a>
-        <a href="/pricing.html">Pricing</a>
-        <a href="/resources.html" class="active" aria-current="page">Resources</a>
-        <a href="/faq.html">FAQ</a>
-      </nav>
+      <div class="nav-wrap">
+        <nav aria-label="Primary navigation">
+          <a href="/">Home</a>
+          <a href="/about.html">About</a>
+          <a href="/academy.html">Academy</a>
+          <a href="/signal.html">Signal</a>
+          <a href="/signal-archive.html">Archive</a>
+          <a href="/shield.html">Shield</a>
+          <a href="/pricing.html">Pricing</a>
+          <a href="/resources.html" class="active" aria-current="page">Resources</a>
+          <a href="/faq.html">FAQ</a>
+        </nav>
+
+        <button class="theme-toggle" type="button" id="themeToggle" aria-label="Toggle theme">
+          ◐ Theme
+        </button>
+      </div>
     </div>
   </header>
 
   <main class="container" id="main" tabindex="-1">
     <section class="hero">
       <h1>Resources</h1>
-      <p class="subtitle">Free tools, protocols, and reference guides for the AI age.</p>
-      <p class="micro-note">Privacy first. Share only what’s needed for verification. Don’t paste passwords, SSNs, or financial account numbers.</p>
+
+      <p class="subtitle">
+        A few simple tools that make the AI moment less confusing and a lot more useful.
+      </p>
+
+      <div class="note-line" role="note" aria-label="How to use these resources">
+        <b>How to use this page:</b> start with Safety if you’re protecting your family.
+        Start with Work if you’re building better habits.
+        Signal is the weekly note that keeps it all grounded.
+      </div>
+
+      <div class="note-line" role="note" aria-label="Privacy note">
+        <b>Privacy first:</b> share only what’s needed for verification.
+        Don’t paste passwords, one-time codes, SSNs, or financial account numbers.
+      </div>
 
       <div class="jump-links" aria-label="Quick navigation">
         <a href="#safety-zone" class="jump-btn" id="jump-safety">
-          <img src="/assets/img/predicai-shield-gold.JPG" alt="" class="btn-icon round" aria-hidden="true">
-          I’m here for Safety
+          <img src="/predicai-shield-gold.JPG" alt="" class="btn-icon round" aria-hidden="true">
+          Safety
         </a>
         <a href="#work-zone" class="jump-btn" id="jump-work">
-          <img src="/assets/img/logo-academy.png" alt="" class="btn-icon" aria-hidden="true">
-          I’m here for Work
+          <img src="/logo-academy.png" alt="" class="btn-icon" aria-hidden="true">
+          Work
+        </a>
+        <a href="#signal-zone" class="jump-btn" id="jump-signal">
+          <img src="/logo.png" alt="" class="btn-icon" aria-hidden="true">
+          Signal
         </a>
       </div>
     </section>
 
     <!-- SAFETY -->
     <div id="safety-zone" class="zone-header">
-      <span class="zone-title">Shield Tools & Protocols</span>
+      <span class="zone-title">Shield tools &amp; protocols</span>
       <span class="zone-badge badge-safety">Personal Safety</span>
     </div>
 
     <div class="resource-grid">
       <div class="resource-card card-shield-highlight">
         <div style="margin-bottom:14px;">
-          <img src="/assets/img/predicai-shield-gold.JPG" alt="Shield logo" style="width:46px; height:46px; object-fit:contain; border-radius:50%;">
+          <img src="/predicai-shield-gold.JPG" alt="Shield logo" style="width:46px; height:46px; object-fit:contain; border-radius:50%;">
         </div>
 
         <div class="card-title">Shield</div>
@@ -421,39 +765,29 @@
         </div>
 
         <div class="card-desc">
-          Shareable family protocols that reduce risk fast: safe word setup, callback scripts, and checklists built for real life.
+          Clear family scripts and checklists.
+          The goal is simple: slow scams down before they reach your money, identity, or relationships.
         </div>
 
         <a href="/shield.html" class="btn btn-shield">View Shield →</a>
       </div>
 
       <div class="resource-card">
-        <div class="card-icon" aria-hidden="true">🛑</div>
-        <div class="card-title">Shield Check™ (Free)</div>
+        <div class="card-icon" aria-hidden="true">🛡️</div>
+        <div class="card-title">Shield Check (Free)</div>
         <div class="card-desc">
-          Paste a suspicious message, email, or screenshot text. Get a quick risk read and clear next steps.
+          Paste a suspicious text or email (or the text from a screenshot).
+          Get a quick risk read and the safest next step.
         </div>
-        <a href="/shield-check.html" class="btn btn-teal">Run Shield Check →</a>
+        <a href="https://tally.so/r/LZzErv" class="btn btn-teal">Run Shield Check →</a>
       </div>
 
-      <!-- ✅ ADD: Checklist discoverability -->
-      <div class="resource-card">
-        <div class="card-icon" aria-hidden="true">🧾</div>
-        <div class="card-title">“Is It Real?” Checklist</div>
-        <div class="card-desc">
-          A printable, step-by-step guide for urgent calls, texts, and emails. Built to stop panic and verify the source.
-        </div>
-        <a href="/shield-checklist.html" class="btn btn-primary">Open Checklist →</a>
-      </div>
-
-      <!-- ✅ UPGRADE: Community report first + official channels -->
       <div class="resource-card">
         <div class="card-icon" aria-hidden="true">📣</div>
         <div class="card-title">Report a Scam</div>
         <div class="card-desc">
-          Contribute patterns to strengthen the community dataset. If money, identity, or impersonation is involved, also report to official channels.
+          If money or identity is involved, report fast. These are the two main U.S. channels.
         </div>
-        <a href="/report-scam.html" class="btn btn-teal btn-full" style="margin-bottom:10px;">Report to Predicai →</a>
         <a href="https://reportfraud.ftc.gov/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full" style="margin-bottom:10px;">FTC ReportFraud →</a>
         <a href="https://www.ic3.gov/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-full">FBI IC3 →</a>
       </div>
@@ -461,7 +795,7 @@
 
     <!-- WORK -->
     <div id="work-zone" class="zone-header">
-      <span class="zone-title">Academy Tools & Frameworks</span>
+      <span class="zone-title">Work</span>
       <span class="zone-badge badge-work">Professional</span>
     </div>
 
@@ -471,42 +805,79 @@
           <img src="/logo-academy.png" alt="Academy logo" style="width:46px; height:46px; object-fit:contain; border-radius:10px;">
         </div>
 
-        <div class="card-title">Capability Score™</div>
-        <div class="card-desc" style="color: var(--teal);">
-          A fast diagnostic to see whether you’re operating, building, or leading with AI.
+        <div class="card-title">Capability Score</div>
+        <div class="card-desc">
+          A quick check to see where you are right now, and what to focus on next.
         </div>
 
         <a href="/capability.html" class="btn btn-teal">Take the Score →</a>
       </div>
 
       <div class="resource-card">
-        <div class="card-icon" aria-hidden="true">🔭</div>
-        <div class="card-title">Vision</div>
+        <div class="card-icon" aria-hidden="true">🧭</div>
+        <div class="card-title">Syllabus</div>
         <div class="card-desc">
-          The north star of Predicai: why capability matters, how trust stays intact, and what “good” looks like in the AI age.
+          The Builder track, week-by-week. What you’ll build, how it’s graded, and what “done” looks like.
         </div>
-        <!-- ✅ likely fix: use your .html route -->
-        <a href="/vision.html" class="btn btn-outline">Read the Vision →</a>
+        <a href="/syllabus.html" class="btn btn-primary">Open Syllabus →</a>
+      </div>
+
+      <div class="resource-card">
+        <div class="card-icon" aria-hidden="true">🏛️</div>
+        <div class="card-title">The Standard</div>
+        <div class="card-desc">
+          The quality bar. The levels. The rules that keep your work clean, safe, and repeatable.
+        </div>
+        <a href="/standard.html" class="btn btn-outline">View the Standard →</a>
       </div>
 
       <div class="resource-card">
         <div class="card-icon" aria-hidden="true">🏗️</div>
-        <div class="card-title">The Standard</div>
+        <div class="card-title">Academy</div>
         <div class="card-desc">
-          The 5-level framework and quality gates that define what “done right” looks like when you build with AI.
+          The program overview: who it’s for, what you get, and how to join.
         </div>
-        <a href="/standard.html" class="btn btn-primary">View the Standard →</a>
+        <a href="/academy.html" class="btn btn-teal">View Academy →</a>
+      </div>
+    </div>
+
+    <!-- SIGNAL -->
+    <div id="signal-zone" class="zone-header">
+      <span class="zone-title">Signal</span>
+      <span class="zone-badge badge-signal">Weekly brief</span>
+    </div>
+
+    <div class="resource-grid">
+      <div class="resource-card card-signal-highlight">
+        <div class="card-icon" aria-hidden="true">🛰️</div>
+        <div class="card-title">Predicai Signal</div>
+        <div class="card-desc">
+          A calm AI note sent when there’s something worth acting on: what changed, what held up in real use, and what to do next.
+        </div>
+        <a href="/signal.html" class="btn btn-primary">Open Signal →</a>
       </div>
 
-      <div class="resource-card disabled">
-        <div class="locked-badge" aria-hidden="true">🔒</div>
-        <div class="card-icon" aria-hidden="true">🗂️</div>
-        <div class="card-title">Research Library</div>
+      <div class="resource-card">
+        <div class="card-icon" aria-hidden="true">✉️</div>
+        <div class="card-title">Subscribe</div>
         <div class="card-desc">
-          Curated papers and workflow templates. Available to Academy members.
-          <div class="blur-text">Hidden content hidden content hidden content.</div>
+          Get Signal by email. Sent sparingly — and never daily. Unsubscribe anytime.
         </div>
-        <a href="/pricing.html" class="btn btn-outline">See Academy Access →</a>
+        <a href="/signal.html#subscribe" class="btn btn-outline">Subscribe →</a>
+      </div>
+
+      <div class="resource-card card-archive-highlight">
+        <div class="pill" aria-label="Archive pill">🧾 Archive • Issue 001</div>
+        <div class="card-title">Stop relying on generative summaries</div>
+        <div class="card-desc">
+          The first issue in the archive: the Decision Protocol, what changed, and one move to steal.
+        </div>
+
+        <a href="/signal-001-stop-generative-summaries.html" class="btn btn-teal">Read Issue 001 →</a>
+
+        <a href="mailto:hello@predicai.ai?subject=Signal%20feedback%20(Issue%20001)" class="btn btn-outline" style="margin-top:10px;">
+          Send feedback →
+        </a>
       </div>
     </div>
   </main>
@@ -516,9 +887,9 @@
       <a href="https://www.linkedin.com/company/predicai-ai/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
 
-    <div>© 2026 Predicai™ — All rights reserved.</div>
+    <div>© <span id="year">2026</span> Predicai™ — All rights reserved.</div>
 
-    <div style="margin-top: 12px; font-size: 0.88rem; opacity: 0.9;">
+    <div style="margin-top: 12px; font-size: 0.88rem; opacity: 0.92;">
       <a href="/academy.html">Academy</a>
       <a href="/shield.html">Shield</a>
       <a href="/about.html">About</a>
@@ -528,33 +899,91 @@
   </footer>
 
   <script>
-    const safetyBtn = document.getElementById('jump-safety');
-    const workBtn = document.getElementById('jump-work');
-    const safetyZone = document.getElementById('safety-zone');
-    const workZone = document.getElementById('work-zone');
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    function setActive(which) {
-      safetyBtn.classList.toggle('active', which === 'safety');
-      workBtn.classList.toggle('active', which === 'work');
-    }
+    // Theme toggle: auto -> dark -> light -> auto
+    (function () {
+      const root = document.documentElement;
+      const btn = document.getElementById('themeToggle');
+      const key = 'predicai_theme';
 
-    if (window.location.hash === '#work-zone') setActive('work');
-    else setActive('safety');
+      function getSystemTheme() {
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      function getSavedTheme() {
+        try { return localStorage.getItem(key) || 'auto'; }
+        catch(e){ return 'auto'; }
+      }
+      function saveTheme(val){
+        try { localStorage.setItem(key, val); } catch(e){}
+      }
+      function applyTheme(val){
+        root.setAttribute('data-theme', val);
+        const label = val === 'auto' ? ('Theme: Auto (' + getSystemTheme() + ')') : ('Theme: ' + val);
+        btn.textContent = '◐ ' + label;
+      }
 
-    if ('IntersectionObserver' in window) {
+      const saved = getSavedTheme();
+      applyTheme(saved);
+
+      btn.addEventListener('click', () => {
+        const cur = root.getAttribute('data-theme') || 'auto';
+        const next = cur === 'auto' ? 'dark' : (cur === 'dark' ? 'light' : 'auto');
+        saveTheme(next);
+        applyTheme(next);
+      });
+
+      if (window.matchMedia) {
+        const mq = window.matchMedia('(prefers-color-scheme: light)');
+        mq.addEventListener?.('change', () => {
+          if ((root.getAttribute('data-theme') || 'auto') === 'auto') applyTheme('auto');
+        });
+      }
+    })();
+
+    // Jump active state (IntersectionObserver)
+    (function () {
+      const safetyBtn  = document.getElementById('jump-safety');
+      const workBtn    = document.getElementById('jump-work');
+      const signalBtn  = document.getElementById('jump-signal');
+
+      const safetyZone = document.getElementById('safety-zone');
+      const workZone   = document.getElementById('work-zone');
+      const signalZone = document.getElementById('signal-zone');
+
+      function setActive(which) {
+        safetyBtn.classList.toggle('active', which === 'safety');
+        workBtn.classList.toggle('active', which === 'work');
+        signalBtn.classList.toggle('active', which === 'signal');
+      }
+
+      const hash = window.location.hash;
+      if (hash === '#work-zone') setActive('work');
+      else if (hash === '#signal-zone') setActive('signal');
+      else setActive('safety');
+
+      if (!('IntersectionObserver' in window)) return;
+
       const obs = new IntersectionObserver((entries) => {
         const visible = entries
           .filter(e => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
         if (!visible) return;
-        if (visible.target.id === 'work-zone') setActive('work');
-        if (visible.target.id === 'safety-zone') setActive('safety');
-      }, { rootMargin: "-30% 0px -60% 0px", threshold: [0.02, 0.08, 0.15, 0.25] });
 
-      if (safetyZone) obs.observe(safetyZone);
-      if (workZone) obs.observe(workZone);
-    }
+        if (visible.target.id === 'safety-zone') setActive('safety');
+        if (visible.target.id === 'work-zone') setActive('work');
+        if (visible.target.id === 'signal-zone') setActive('signal');
+      }, {
+        rootMargin: "-25% 0px -65% 0px",
+        threshold: [0.02, 0.08, 0.15, 0.25]
+      });
+
+      obs.observe(safetyZone);
+      obs.observe(workZone);
+      obs.observe(signalZone);
+    })();
   </script>
 </body>
 </html>
