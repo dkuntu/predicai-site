@@ -1,195 +1,617 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Capability Score™ – Predicai</title>
-  <meta name="description" content="Measure your AI maturity. Are you falling behind or building leverage?" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://predicai.ai/capability.html" />
-  <meta property="og:title" content="Capability Score™ – Predicai" />
-  <meta property="og:description" content="Measure your AI maturity. Are you falling behind or building leverage?" />
-  <meta property="og:image" content="https://predicai.ai/assets/img/social-share.png" />
-
-  <meta name="theme-color" content="#0B1220" />
-
+  <title>Predicai™ Capability Scorecard</title>
+  <meta name="description" content="The Predicai Progression™ Diagnostic. Measure capability (intent, judgment, coordination) — not tool usage." />
+  <meta name="theme-color" content="#050A10" />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://predicai.ai/capability.html" />
+
   <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" href="/assets/img/logo.png" type="image/png" />
+  <link rel="icon" href="/logo.png" type="image/png" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-dark: #0B1220;
-      --bg-card: #151E2E;
-      --text-light: #F9FAFB;
-      --text-muted: #9CA3AF;
-      --accent-teal: #2A9195;
-      --accent-teal-glow: rgba(42,145,149,.3);
-      --radius: 12px;
-      --border: rgba(255,255,255,0.08);
+      --bg: #050A10;
+      --card-bg: #0B121E;
+      --border: #1E293B;
+      --accent: #2A9195;
+      --accent-glow: rgba(42, 145, 149, 0.18);
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --level-tag: #1E293B;
+      --danger: #EF4444;
+      --good: #22C55E;
+      --warn: #F59E0B;
+
+      /* shared layout */
+      --container: 820px;
+      --padX: 20px;
+      --headerH: 72px;
+
+      /* Shared nav tokens for DARK pages */
+      --nav-bg: rgba(11,18,32,0.78);
+      --nav-hover: rgba(255,255,255,0.06);
+      --nav-panel-bg: rgba(11,18,32,0.92);
+      --nav-panel-item-hover: rgba(255,255,255,0.06);
+      --focus: rgba(42,145,149,0.45);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    * { box-sizing: border-box; }
+    html{ scroll-behavior:smooth; scroll-padding-top: var(--headerH); }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-light);
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+
+      min-height: 100vh;
+      min-height: 100svh;
+
+      padding:
+        env(safe-area-inset-top)
+        env(safe-area-inset-right)
+        env(safe-area-inset-bottom)
+        env(safe-area-inset-left);
+    }
+
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 var(--padX); }
+
+    /* Skip link */
+    .skip-link{
+      position:absolute; left:-9999px; top: 12px;
+      background: var(--text-main); color: #0B1220;
+      padding:10px 14px; border-radius:10px; z-index:9999;
+      font-weight:900; text-decoration:none;
+    }
+    .skip-link:focus{ left:12px; outline: 3px solid var(--focus); outline-offset: 2px; }
+
+    :focus-visible{
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+      border-radius: 12px;
+    }
+
+    /* ===== Shared Nav Styles (for /partials/nav.html) ===== */
+    .site-header{
+      position: sticky; top:0; z-index:50;
+      height: var(--headerH);
+      display:flex; align-items:center;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .header-inner{
+      width: 100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap: 16px;
+    }
+    .brand{
+      font-weight: 900;
+      font-size: 1.05rem;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      text-decoration:none;
+      color: var(--text-main);
+      white-space: nowrap;
+    }
+    .brand .logo{
+      width:26px; height:26px;
+      border-radius:6px;
+      object-fit: contain;
+      display:none;
+    }
+    html[data-theme="light"] .brand .logo-light{ display:block; }
+    html[data-theme="dark"] .brand .logo-dark{ display:block; }
+
+    .nav-toggle{
+      display:none;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.04);
+      color: var(--text-main);
+      font-weight: 950;
+      cursor:pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    #siteNav{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+      align-items:center;
+    }
+    #siteNav a{
+      text-decoration:none;
+      color: var(--text-muted);
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 8px 10px;
+      border-radius: 12px;
+      transition: background .15s ease, color .15s ease, transform .15s ease;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+    #siteNav a:hover{
+      color: var(--text-main);
+      background: var(--nav-hover);
+      transform: translateY(-1px);
+    }
+    #siteNav a.active{
+      color: var(--text-main);
+      background: rgba(42,145,149,0.14);
+      border-color: rgba(42,145,149,0.24);
+      font-weight: 900;
+    }
+
+    .menu{ position: relative; display:inline-flex; align-items:center; }
+    .menu-btn{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-muted);
+      font-weight: 900;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background .15s ease, color .15s ease, transform .15s ease;
+      -webkit-tap-highlight-color: transparent;
+      white-space: nowrap;
+    }
+    .menu-btn:hover{
+      color: var(--text-main);
+      background: var(--nav-hover);
+      transform: translateY(-1px);
+    }
+    .caret{ font-size: 0.85rem; opacity: 0.9; }
+
+    .menu-panel{
+      position:absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      min-width: 240px;
+      padding: 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: var(--nav-panel-bg);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+      display:none;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .menu-panel a{
+      display:flex;
+      width:100%;
+      padding: 10px 10px;
+      border-radius: 12px;
+      font-weight: 900;
+      font-size: 0.94rem;
+      color: var(--text-main);
+      border: 1px solid transparent;
+      transform:none;
+    }
+    .menu-panel a:hover{
+      background: var(--nav-panel-item-hover);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .menu.open .menu-panel{ display:block; }
+    .menu.open .menu-btn{ color: var(--text-main); }
+
+    @media (max-width: 768px){
+      .site-header{ height: auto; padding: 14px 0; }
+      .header-inner{ flex-direction: column; align-items: flex-start; }
+      .nav-toggle{ display:inline-flex; }
+
+      #siteNav{
+        width:100%;
+        justify-content:flex-start;
+        gap: 10px;
+
+        display:none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px;
+        border: 1px solid rgba(255,255,255,0.14);
+        border-radius: 18px;
+        background: var(--nav-panel-bg);
+      }
+      #siteNav.open{ display:flex; }
+
+      .menu{ width:100%; }
+      .menu-btn{ width:100%; justify-content: space-between; }
+      .menu-panel{ position: static; display:none; box-shadow:none; margin-top: 6px; }
+      .menu.open .menu-panel{ display:block; }
+    }
+
+    /* ===== Page-specific layout ===== */
+    main{
+      padding: 40px 0 40px;
+    }
+
+    .page-header {
+      text-align: center;
+      margin: 0 0 22px 0;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+    }
+    .brandline {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 0 0 8px 0;
+      color: #fff;
+    }
+    .subtitle { color: var(--text-muted); font-size: 1.05rem; margin: 0; }
+
+    /* Optional mini TOC (lightweight + useful on long pages) */
+    .toc{
+      display:flex;
+      justify-content:center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+    .toc a{
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+      padding: 8px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: border-color .12s ease, transform .12s ease, color .12s ease;
+    }
+    .toc a:hover{
+      color: #fff;
+      border-color: rgba(42,145,149,0.45);
+      transform: translateY(-1px);
+    }
+
+    /* TOP SUMMARY */
+    .topbar { margin: 18px 0 26px; display: grid; gap: 12px; }
+
+    .panel {
+      background: #020408;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 10px;
+    }
+    @media (max-width: 760px){
+      .score-grid { grid-template-columns: 1fr; }
+    }
+
+    .score-box {
+      border: 1px solid #0B1626;
+      border-radius: 12px;
+      padding: 12px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .score-number {
+      font-size: 1.18rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .score-sub {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.35;
+    }
+
+    .guidance {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.45;
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+    }
+
+    /* RECOMMENDATION */
+    .recommend {
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .rec-head {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+
+    .rec-title {
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.02em;
+      font-size: 1.05rem;
+    }
+
+    .pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.02);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+
+    .rec-body {
+      color: var(--text-muted);
       line-height: 1.5;
+      font-size: 0.95rem;
+      margin: 0;
     }
 
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto !important; }
-      * { transition: none !important; animation: none !important; }
+    .rec-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2px;
     }
 
-    /* ACCESSIBILITY */
-    .skip-link {
-      position: absolute; left: -9999px; top: 16px; z-index: 9999;
-      padding: 10px 14px; background: var(--text-light); color: var(--bg-dark);
-      font-weight: 900; border-radius: 10px; text-decoration: none;
-    }
-    .skip-link:focus { left: 16px; }
-
-    :focus-visible { outline: 3px solid rgba(42,145,149,.55); outline-offset: 3px; border-radius: 6px; }
-
-    /* GLOBAL NAVIGATION (Dark Mode) */
-    header {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(11, 18, 32, 0.85); backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border); padding: 14px 18px;
-    }
-
-    .header-inner {
-      max-width: 1000px; margin: 0 auto; display: flex;
-      justify-content: space-between; align-items: center; gap: 16px;
-    }
-
-    .brand {
-      display: inline-flex; align-items: center; gap: 10px;
-      color: var(--text-light); text-decoration: none; font-weight: 900;
-      letter-spacing: .2px; white-space: nowrap;
-    }
-    .brand-logo { width: 26px; height: 26px; border-radius: 8px; object-fit: contain; }
-
-    nav { display: flex; gap: 18px; flex-wrap: wrap; justify-content: flex-end; }
-    nav a {
-      font-size: 0.9rem; font-weight: 650; color: var(--text-muted);
-      text-decoration: none; transition: color 0.2s; padding: 6px 8px; border-radius: 10px;
-    }
-    nav a:hover { color: var(--text-light); }
-    nav a.active { color: var(--text-light); font-weight: 900; }
-    nav a.active[aria-current="page"] { background: rgba(255,255,255,0.05); }
-
-    /* TOOL LAYOUT */
-    .container { max-width: 720px; margin: 0 auto; padding: 40px 20px; }
-
-    .tool-header { text-align: center; margin-bottom: 32px; }
-
-    .logo-hero { width: 60px; height: 60px; border-radius: 12px; margin-bottom: 16px; object-fit: contain; }
-
-    h1 { font-size: 2.2rem; font-weight: 950; letter-spacing: -0.02em; margin-bottom: 10px; }
-
-    .subtitle { color: var(--text-muted); font-size: 1.1rem; max-width: 520px; margin: 0 auto; }
-
-    .prelude {
-      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 18px; margin: 28px 0;
-      font-size: 1rem; color: var(--text-muted); text-align: center;
-    }
-
-    .question-group {
-      background: var(--bg-card); padding: 24px; border-radius: var(--radius);
-      margin-bottom: 20px; border: 1px solid var(--border);
-    }
-
-    .group-title {
-      font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--accent-teal); font-weight: 900; margin-bottom: 16px; display: block;
-    }
-
-    .checklist-item {
-      display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px;
-      cursor: pointer; padding: 10px; border-radius: 10px; transition: background 0.2s;
-    }
-    .checklist-item:hover { background: rgba(255,255,255,0.04); }
-
-    input[type="checkbox"] {
-      appearance: none; width: 22px; height: 22px; border: 2px solid #4B5563;
-      border-radius: 6px; margin-top: 2px; cursor: pointer; position: relative;
-      flex-shrink: 0; background: transparent;
-    }
-    input[type="checkbox"]:checked { background-color: var(--accent-teal); border-color: var(--accent-teal); }
-    input[type="checkbox"]:checked::after {
-      content: '✓'; position: absolute; color: white; font-weight: 950;
-      left: 4px; top: -2px; font-size: 14px;
-    }
-
-    .label-text { font-size: 1.05rem; color: rgba(255,255,255,0.9); }
-
-    .progress { text-align: right; font-size: 0.9rem; color: var(--text-muted); margin: 10px 0 0; }
-
-    .calculate-btn {
-      width: 100%; background: white; color: var(--bg-dark); padding: 18px;
-      border: none; border-radius: 12px; font-size: 1.1rem; font-weight: 900;
-      cursor: pointer; margin-top: 24px; transition: transform 0.2s;
-    }
-    .calculate-btn:hover { transform: translateY(-2px); }
-
-    #resultPanel {
-      display: none; background: linear-gradient(145deg, #1e293b, #0f172a);
-      padding: 40px; border-radius: 20px; text-align: center;
-      border: 1px solid var(--accent-teal); box-shadow: 0 0 40px var(--accent-teal-glow);
-      animation: fadeIn 0.5s ease;
-    }
-
-    .score-badge { font-size: 3rem; font-weight: 950; color: var(--accent-teal); margin-bottom: 8px; display: block; }
-    .archetype { font-size: 1.5rem; font-weight: 900; margin-bottom: 14px; }
-    .analysis { color: var(--text-muted); margin-bottom: 28px; font-size: 1.1rem; }
-
-    /* Result Actions */
-    .action-container {
-        display: flex; flex-direction: column; gap: 12px;
-        align-items: center; justify-content: center;
-        margin-top: 24px;
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
     }
 
     .btn {
-      display: inline-block; background: var(--accent-teal); color: white;
-      padding: 16px 32px; border-radius: 50px; font-weight: 900; text-decoration: none;
-      transition: transform 0.2s; border: none; cursor: pointer; width: 100%; max-width: 340px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 900;
+      font-size: 0.92rem;
+      transition: transform 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
     }
-    .btn:hover { transform: translateY(-2px); }
-
-    .btn-link {
-        background: transparent; color: var(--text-muted);
-        text-decoration: underline; font-weight: 600; font-size: 0.95rem;
-        border: none; cursor: pointer; margin-top: 8px;
+    .btn:hover {
+      border-color: var(--accent);
+      box-shadow: 0 10px 24px -14px rgba(0,0,0,0.7);
+      transform: translateY(-1px);
     }
-    .btn-link:hover { color: white; }
+    .btn-primary {
+      background: rgba(42,145,149,0.16);
+      border-color: rgba(42,145,149,0.45);
+    }
+    .btn-ghost {
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(148,163,184,0.30);
+      color: #E2E8F0;
+    }
+    .btn-danger {
+      border-color: rgba(239,68,68,0.45);
+      background: rgba(239,68,68,0.10);
+    }
 
-    .btn.secondary { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: var(--text-muted); }
-    .btn.secondary:hover { border-color: white; color: white; }
-    
-    /* Print Utility */
+    .hint {
+      color: #64748B;
+      font-size: 0.82rem;
+      font-family: 'JetBrains Mono', monospace;
+      margin: 0;
+    }
+
+    /* CARDS */
+    .level-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 18px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .level-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+    }
+
+    .level-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      gap: 12px;
+    }
+    .level-title { font-size: 1.18rem; font-weight: 900; color: #fff; }
+    .level-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      background: var(--level-tag);
+      color: var(--text-muted);
+      padding: 4px 8px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* CHECKLIST */
+    .checklist { list-style: none; padding: 0; margin: 0; }
+    .check-item { margin-bottom: 14px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
+    .check-item:last-child { margin-bottom: 0; }
+
+    .check-item label {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .check-item:hover { color: #fff; }
+
+    .check-item input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .box {
+      min-width: 20px;
+      height: 20px;
+      border: 2px solid #334155;
+      border-radius: 6px;
+      margin-top: 2px;
+      position: relative;
+      flex: 0 0 20px;
+      transition: border-color 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .check-item input[type="checkbox"]:checked + .box {
+      border-color: var(--accent);
+      background: rgba(42,145,149,0.16);
+      box-shadow: 0 0 0 6px var(--accent-glow);
+    }
+
+    .check-item input[type="checkbox"]:checked + .box::after {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 1px;
+      width: 6px;
+      height: 12px;
+      border: solid #E2E8F0;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+
+    /* QUOTE */
+    .quote-box {
+      background: #0F172A;
+      border-left: 4px solid var(--accent);
+      padding: 22px;
+      margin: 24px 0;
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: #E2E8F0;
+      line-height: 1.6;
+      font-style: italic;
+      border-radius: 12px;
+    }
+
+    /* SCORING KEY */
+    .scoring-key {
+      background: #020408;
+      border: 1px dashed var(--border);
+      padding: 22px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+    .scoring-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: block;
+      font-weight: 900;
+    }
+    .score-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #1E293B;
+    }
+    .score-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .score-range { font-weight: 900; color: #fff; width: 150px; }
+    .score-action { color: var(--text-muted); text-align: right; flex: 1; }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: #475569;
+      font-family: 'JetBrains Mono', monospace;
+      padding-bottom: 16px;
+    }
+
     @media print {
-        body { background: white; color: black; }
-        .header, .calculate-btn, .prelude { display: none !important; }
-        #resultPanel { display: block !important; border: 2px solid black; color: black; box-shadow: none; background: white; }
-        .score-badge { color: black; }
-        .analysis { color: black; }
-        .btn, .btn-link { display: none; }
-    }
-
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-    @media (max-width: 600px) {
-      .header-inner { flex-direction: column; gap: 12px; }
-      nav { justify-content: center; }
-      .calculate-btn { font-size: 1.05rem; }
+      body { background: #fff; color: #000; }
+      :root { --bg: #fff; --card-bg: #fff; --border: #CBD5E1; --text-main: #000; --text-muted: #334155; }
+      .site-header, .nav-toggle, #siteNav { display: none !important; }
+      main{ padding: 18px 0; }
+      .panel, .level-card, .quote-box, .scoring-key {
+        box-shadow: none !important;
+        transform: none !important;
+        border-color: #CBD5E1 !important;
+        background: #fff !important;
+      }
+      .rec-actions { display: none !important; }
+      .check-item input[type="checkbox"]:checked + .box { box-shadow: none !important; }
+      .hint, .toc { display: none !important; }
     }
   </style>
 </head>
@@ -197,221 +619,581 @@
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
 
-  <header>
-    <div class="header-inner">
-      <a class="brand" href="/" aria-label="Predicai Home">
-        <img src="/logo.png" alt="" aria-hidden="true" class="brand-logo" />
-        Predicai™
-      </a>
+  <!-- Shared nav injection mount -->
+  <div data-include="nav"></div>
 
-      <nav aria-label="Primary navigation">
-        <a href="/">Home</a>
-        <a href="/academy.html">Academy</a>
-        <a href="/shield.html">Shield</a>
-        <a href="/pricing.html">Pricing</a>
-        <a href="/resources.html">Resources</a>
-        <a href="/faq.html">FAQ</a>
-      </nav>
-    </div>
-  </header>
+  <main id="main">
+    <div class="container">
+      <section class="page-header" aria-label="Capability scorecard header">
+        <span class="brandline">Predicai™ | Capability Diagnostic</span>
+        <h1>Capability Scorecard</h1>
+        <p class="subtitle">The Predicai Progression™ Diagnostic</p>
 
-  <main class="container" id="main" tabindex="-1" role="main">
+        <nav class="toc" aria-label="On this page">
+          <a href="#scorecard">Scorecard</a>
+          <a href="#levels">Levels</a>
+          <a href="#key">Scoring key</a>
+        </nav>
+      </section>
 
-    <div class="tool-header">
-      <img src="/logo-academy.png" alt="" aria-hidden="true" class="logo-hero">
-      <h1>Capability Score™</h1>
-      <div class="subtitle">
-        A fast diagnostic to understand how you’re actually using AI — and what leverage you’re leaving on the table.
-      </div>
-    </div>
+      <section class="topbar" id="scorecard" aria-label="Score summary and recommendation">
+        <div class="panel">
+          <div class="score-grid">
+            <div class="score-box">
+              <span class="mono">/// Total</span>
+              <div class="score-number"><span id="scoreTotalNow">0</span> / <span id="scoreTotalMax">15</span></div>
+              <div class="score-sub" id="totalBand">Check what’s true today.</div>
+            </div>
 
-    <div class="prelude">
-      Check what already applies to you. Don’t guess.
-      This is not a test — it’s a mirror.
-    </div>
+            <div class="score-box">
+              <span class="mono">/// Individual</span>
+              <div class="score-number"><span id="scoreIndNow">0</span> / <span id="scoreIndMax">0</span></div>
+              <div class="score-sub" id="indBand">Personal leverage + judgment.</div>
+            </div>
 
-    <form id="auditForm" novalidate>
-      <div class="question-group">
-        <span class="group-title">Level 1: The Translator</span>
-        <label class="checklist-item">
-          <input type="checkbox" value="1" name="q1">
-          <span class="label-text">I understand the difference between "Search" (Google) and "Reasoning" (LLMs).</span>
-        </label>
-        <label class="checklist-item">
-          <input type="checkbox" value="1" name="q2">
-          <span class="label-text">I can verify if an AI output is a hallucination without guessing.</span>
-        </label>
-        <label class="checklist-item">
-          <input type="checkbox" value="1" name="q3">
-          <span class="label-text">I use a structured prompt framework (Role, Context, Constraints) every time.</span>
-        </label>
-      </div>
-
-      <div class="question-group">
-        <span class="group-title">Level 2: The Co-Creator</span>
-        <label class="checklist-item">
-          <input type="checkbox" value="1" name="q4">
-          <span class="label-text">I use AI daily to reduce administrative drudgery (emails, summaries).</span>
-        </label>
-        <label class="checklist-item">
-          <input type="checkbox" value="1" name="q5">
-          <span class="label-text">I have a saved "Context Anchor" (My Voice/Bio) that I paste into chats.</span>
-        </label>
-        <label class="checklist-item">
-          <input type="checkbox" value="1" name="q6">
-          <span class="label-text">I save my successful prompts in a library to reuse later.</span>
-        </label>
-      </div>
-
-      <div class="question-group">
-        <span class="group-title">Level 3: The Builder</span>
-        <label class="checklist-item">
-          <input type="checkbox" value="1" name="q7">
-          <span class="label-text">I have redesigned at least one core weekly workflow to be "AI-First."</span>
-        </label>
-        <label class="checklist-item">
-          <input type="checkbox" value="1" name="q8">
-          <span class="label-text">I use "Agents" (Custom GPTs/Projects) rather than starting from scratch.</span>
-        </label>
-        <label class="checklist-item">
-          <input type="checkbox" value="1" name="q9">
-          <span class="label-text">I can quantify exactly how many hours AI saves me per week.</span>
-        </label>
-      </div>
-
-      <div class="question-group">
-        <span class="group-title">Level 4: The Strategist</span>
-        <label class="checklist-item">
-          <input type="checkbox" value="1" name="q10">
-          <span class="label-text">I use AI to analyze patterns and run "Pre-Mortems" on decisions.</span>
-        </label>
-        <label class="checklist-item">
-          <input type="checkbox" value="1" name="q11">
-          <span class="label-text">I have an established "AI Usage Policy" or ethical framework for my work.</span>
-        </label>
-        <label class="checklist-item">
-          <input type="checkbox" value="1" name="q12">
-          <span class="label-text">I actively teach or mentor others on Predictive Intelligence.</span>
-        </label>
-      </div>
-
-      <div class="progress" id="progressText" aria-live="polite">0 of 12 selected</div>
-
-      <button type="submit" class="calculate-btn">
-        Calculate Score
-      </button>
-    </form>
-
-    <div id="resultPanel" aria-live="polite">
-      <span class="score-badge" id="scoreDisplay">0 / 12</span>
-      <div class="archetype" id="archetypeDisplay"></div>
-      <p class="analysis" id="analysisText"></p>
-
-      <div class="action-container" id="actionContainer">
+            <div class="score-box">
+              <span class="mono">/// Team</span>
+              <div class="score-number"><span id="scoreTeamNow">0</span> / <span id="scoreTeamMax">0</span></div>
+              <div class="score-sub" id="teamBand">Coordination + governance.</div>
+            </div>
           </div>
-      
-      <div style="margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px; display:flex; justify-content:center; gap:16px;">
-        <button type="button" class="btn secondary" style="padding: 8px 16px; font-size: 0.85rem;" onclick="window.print()">🖨️ Save Results</button>
-        <button type="button" class="btn secondary" style="padding: 8px 16px; font-size: 0.85rem;" id="recalcBtn">Recalculate</button>
+
+          <div class="guidance" id="guidance">
+            This measures capability (intent, judgment, coordination). Not tool usage.
+          </div>
+
+          <div class="recommend" aria-label="Recommended next step">
+            <div class="rec-head">
+              <div class="rec-title" id="recTitle">Recommended next step</div>
+              <span class="pill" id="recPill">—</span>
+            </div>
+
+            <p class="rec-body" id="recBody">
+              Select what’s true above to get a recommendation.
+            </p>
+
+            <div class="rec-actions">
+              <p class="hint" id="recHint">We’ll route you based on your scores. No fluff.</p>
+              <div class="btn-row">
+                <button class="btn btn-ghost" id="printBtn" type="button">Print</button>
+                <button class="btn btn-danger" id="resetBtn" type="button">Reset</button>
+                <a class="btn btn-primary" id="recCta" href="#" target="_blank" rel="noopener noreferrer">Open →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="levels" aria-label="Capability levels">
+        <!-- LEVEL 01 -->
+        <div class="level-card">
+          <div class="level-header">
+            <span class="level-title">Level 01: The Architect</span>
+            <span class="level-tag">Foundation</span>
+          </div>
+
+          <ul class="checklist">
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="individual">
+                <span class="box" aria-hidden="true"></span>
+                <span>I understand the difference between <strong>Search</strong> (retrieval) and <strong>Reasoning</strong> (LLMs).</span>
+              </label>
+            </li>
+
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="individual">
+                <span class="box" aria-hidden="true"></span>
+                <span>I can write a prompt that includes a specific <strong>Role</strong>, <strong>Input</strong>, and <strong>Goal</strong>.</span>
+              </label>
+            </li>
+
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="individual">
+                <span class="box" aria-hidden="true"></span>
+                <span>I know what hallucination is and I can spot it in output.</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+
+        <!-- LEVEL 02 -->
+        <div class="level-card">
+          <div class="level-header">
+            <span class="level-title">Level 02: The Automator</span>
+            <span class="level-tag">Habits</span>
+          </div>
+
+          <ul class="checklist">
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="individual">
+                <span class="box" aria-hidden="true"></span>
+                <span>I use AI at least once a day to reduce administrative drudgery.</span>
+              </label>
+            </li>
+
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="team">
+                <span class="box" aria-hidden="true"></span>
+                <span>I have a shared <strong>Context Anchor</strong> (voice + goals + rules) that others can reuse consistently.</span>
+              </label>
+            </li>
+
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="individual">
+                <span class="box" aria-hidden="true"></span>
+                <span>I save my best prompts in a small library so I can reuse them.</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+
+        <!-- LEVEL 03 -->
+        <div class="level-card">
+          <div class="level-header">
+            <span class="level-title">Level 03: The Builder</span>
+            <span class="level-tag">Systems</span>
+          </div>
+
+          <ul class="checklist">
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="team">
+                <span class="box" aria-hidden="true"></span>
+                <span>I’ve redesigned at least one weekly workflow to be <strong>AI-first</strong> and repeatable for others.</span>
+              </label>
+            </li>
+
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="individual">
+                <span class="box" aria-hidden="true"></span>
+                <span>I use agents (Custom GPTs / Projects) rather than only raw chat.</span>
+              </label>
+            </li>
+
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="individual">
+                <span class="box" aria-hidden="true"></span>
+                <span>I can quantify roughly how many hours AI saves me per week.</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+
+        <!-- LEVEL 04 -->
+        <div class="level-card">
+          <div class="level-header">
+            <span class="level-title">Level 04: The Forecaster</span>
+            <span class="level-tag">Foresight</span>
+          </div>
+
+          <ul class="checklist">
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="individual">
+                <span class="box" aria-hidden="true"></span>
+                <span>I use AI to analyze data patterns, not just generate text.</span>
+              </label>
+            </li>
+
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="team">
+                <span class="box" aria-hidden="true"></span>
+                <span>I use AI to run pre-mortems or scenario planning with stakeholders before decisions ship.</span>
+              </label>
+            </li>
+
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="individual">
+                <span class="box" aria-hidden="true"></span>
+                <span>I can identify a weak signal before it becomes an obvious trend.</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+
+        <!-- LEVEL 05 -->
+        <div class="level-card">
+          <div class="level-header">
+            <span class="level-title">Level 05: The Leader</span>
+            <span class="level-tag">Governance</span>
+          </div>
+
+          <ul class="checklist">
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="individual">
+                <span class="box" aria-hidden="true"></span>
+                <span>I use AI as a sparring partner to stress-test strategy and decisions.</span>
+              </label>
+            </li>
+
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="team">
+                <span class="box" aria-hidden="true"></span>
+                <span>I have an AI usage policy (or working rules) that defines allowed data, review steps, and ownership.</span>
+              </label>
+            </li>
+
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="team">
+                <span class="box" aria-hidden="true"></span>
+                <span>I teach or mentor others on decision-grade AI use (so capability scales beyond me).</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="quote-box">
+        “You can’t delegate intent. Leaders must master Level 1 to direct teams effectively.”
       </div>
+
+      <div class="scoring-key" id="key">
+        <span class="scoring-title">/// Diagnostic Scoring Key</span>
+
+        <div class="score-row">
+          <span class="score-range">1–3 checks</span>
+          <span class="score-action">Start at Level 1 (The Architect).</span>
+        </div>
+
+        <div class="score-row">
+          <span class="score-range">4–9 checks</span>
+          <span class="score-action">Build habits and systems. Academy fits here.</span>
+        </div>
+
+        <div class="score-row">
+          <span class="score-range" style="color:var(--accent);">10+ checks</span>
+          <span class="score-action" style="color:var(--accent);">Leadership capacity: governance + coordination become the bottleneck.</span>
+        </div>
+      </div>
+
+      <footer>
+        PREDICAI • PREDICTIVE INTELLIGENCE
+      </footer>
     </div>
-
-    <noscript style="color:#9CA3AF; margin-top:20px; display:block; text-align:center;">
-      JavaScript is required to calculate your score.
-    </noscript>
-
   </main>
 
-<script>
-  const totalQuestions = 12;
+  <script>
+    // ===== Shared Nav Include Loader =====
+    (function(){
+      const mount = document.querySelector('[data-include="nav"]');
+      if(!mount) return;
 
-  const form = document.getElementById('auditForm');
-  const resultPanel = document.getElementById('resultPanel');
-  const progressText = document.getElementById('progressText');
-  const actionContainer = document.getElementById('actionContainer');
+      fetch('/partials/nav.html', { cache: 'no-cache' })
+        .then(r => r.text())
+        .then(html => {
+          mount.outerHTML = html;
+          initPredicaiNav();
+          initPredicaiActiveLink();
+        })
+        .catch(() => {});
+    })();
 
-  const scoreDisplay = document.getElementById('scoreDisplay');
-  const archetype = document.getElementById('archetypeDisplay');
-  const analysis = document.getElementById('analysisText');
-  const recalcBtn = document.getElementById('recalcBtn');
+    // ===== Nav behavior (dropdowns + mobile + close rules) =====
+    function initPredicaiNav(){
+      const nav = document.getElementById('siteNav');
+      const toggle = document.querySelector('.nav-toggle');
+      if(!nav) return;
 
-  const checkboxes = Array.from(document.querySelectorAll('#auditForm input[type="checkbox"]'));
+      function closeAllMenus(except=null){
+        document.querySelectorAll('.menu.open').forEach(m => {
+          if(m !== except){
+            m.classList.remove('open');
+            const btn = m.querySelector('.menu-btn');
+            if(btn) btn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
 
-  function prefersReducedMotion() {
-    return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  }
+      if(toggle){
+        toggle.addEventListener('click', () => {
+          const open = nav.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+          if(!open) closeAllMenus();
+        });
+      }
 
-  function updateProgress() {
-    const checked = checkboxes.filter(cb => cb.checked).length;
-    progressText.textContent = `${checked} of ${totalQuestions} selected`;
-  }
+      document.querySelectorAll('.menu').forEach(menu => {
+        const btn = menu.querySelector('.menu-btn');
+        if(!btn) return;
 
-  function calculateScore() {
-    const score = checkboxes.filter(cb => cb.checked).length;
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const isOpen = menu.classList.contains('open');
+          closeAllMenus(menu);
+          menu.classList.toggle('open', !isOpen);
+          btn.setAttribute('aria-expanded', (!isOpen).toString());
+        });
 
-    form.style.display = 'none';
-    resultPanel.style.display = 'block';
-    
-    scoreDisplay.textContent = `${score} / ${totalQuestions}`;
-    
-    // Logic for Content & Buttons
-    let btnPrimary = '';
-    let btnSecondary = '';
+        menu.addEventListener('keydown', (e) => {
+          if(e.key === 'Escape'){
+            menu.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+            btn.focus();
+          }
+        });
+      });
 
-    if (score <= 8) {
-        // Low/Mid Score -> Push Academy
-        if (score <= 4) {
-             archetype.textContent = "The Operator";
-             analysis.textContent = "You’re using AI reactively. Without structure, the risk is falling behind faster than you realize.";
-        } else {
-             archetype.textContent = "The Builder Gap";
-             analysis.textContent = "You have momentum, but not leverage. Systems — not effort — are the missing layer.";
+      document.addEventListener('click', (e) => {
+        const clickedInsideMenu = e.target.closest('.menu');
+        const clickedToggle = e.target.closest('.nav-toggle');
+        const clickedNav = e.target.closest('#siteNav');
+        if(clickedInsideMenu || clickedToggle || clickedNav) return;
+
+        closeAllMenus();
+
+        if(nav.classList.contains('open') && window.innerWidth <= 768){
+          nav.classList.remove('open');
+          if(toggle) toggle.setAttribute('aria-expanded', 'false');
         }
-        
-        btnPrimary = `<a href="https://buy.stripe.com/6oU9AVdC8eWUaHX9mk5ZC01" target="_blank" class="btn">Start the Builder Course</a>`;
-        btnSecondary = `<a href="https://calendly.com/predicai-strategy" target="_blank" class="btn-link">Need team training? Book Strategy Call →</a>`;
+      });
 
-    } else {
-        // High Score -> Push Strategy
-        archetype.textContent = "The Strategist";
-        analysis.textContent = "Your capability is strong. Your next constraint is scale, governance, and leadership.";
-        
-        btnPrimary = `<a href="https://calendly.com/predicai-strategy" target="_blank" class="btn">Book Executive Strategy Call</a>`;
-        btnSecondary = `<a href="/academy.html" class="btn-link">View Builder Curriculum →</a>`;
+      document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape'){
+          closeAllMenus();
+          if(nav.classList.contains('open')){
+            nav.classList.remove('open');
+            if(toggle) toggle.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+
+      nav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          closeAllMenus();
+          if(nav.classList.contains('open')){
+            nav.classList.remove('open');
+            if(toggle) toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
     }
 
-    actionContainer.innerHTML = btnPrimary + btnSecondary;
+    // ===== Active link highlighting by URL =====
+    function initPredicaiActiveLink(){
+      const path = (location.pathname || '/').toLowerCase();
 
-    trackCapabilityScore(score);
-    
-    window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
-  }
+      document.querySelectorAll('#siteNav a[href]').forEach(a => {
+        const href = (a.getAttribute('href') || '').toLowerCase();
+        const isHome = (href === '/' && (path === '/' || path.endsWith('/index.html')));
+        const isExactHtml = (href.endsWith('.html') && path.endsWith(href));
 
-  function resetScore() {
-    form.reset();
-    form.style.display = 'block';
-    resultPanel.style.display = 'none';
-    updateProgress();
-    window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
-  }
+        if(isHome || isExactHtml){
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+        }
+      });
+    }
+  </script>
 
-  function trackCapabilityScore(score) {
-    console.log("Capability Score:", score);
-  }
+  <script>
+    (function () {
+      /**
+       * Set these three links to your real pages.
+       * - Academy = self-serve learning
+       * - Accelerator = 1:1 / strategic support (or your scheduling link)
+       * - Teams = team coordination architecture call (or your scheduling link)
+       */
+      const ACADEMY_URL = "https://predicai.ai/academy.html";
+      const ACCELERATOR_URL = "https://predicai.ai/accelerator.html"; // or schedule link
+      const TEAMS_URL = "https://predicai.ai/teams.html";             // or schedule link
 
-  // Events
-  checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
+      const STORAGE_KEY = "predicai_capability_scorecard_routing_v1";
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    calculateScore();
-  });
+      const checks = Array.from(document.querySelectorAll(".cap-check"));
 
-  recalcBtn.addEventListener('click', resetScore);
+      const scoreTotalNow = document.getElementById("scoreTotalNow");
+      const scoreTotalMax = document.getElementById("scoreTotalMax");
+      const scoreIndNow = document.getElementById("scoreIndNow");
+      const scoreIndMax = document.getElementById("scoreIndMax");
+      const scoreTeamNow = document.getElementById("scoreTeamNow");
+      const scoreTeamMax = document.getElementById("scoreTeamMax");
 
-  // Init
-  updateProgress();
-</script>
+      const totalBand = document.getElementById("totalBand");
+      const indBand = document.getElementById("indBand");
+      const teamBand = document.getElementById("teamBand");
 
+      const guidance = document.getElementById("guidance");
+
+      const recTitle = document.getElementById("recTitle");
+      const recPill = document.getElementById("recPill");
+      const recBody = document.getElementById("recBody");
+      const recCta = document.getElementById("recCta");
+      const recHint = document.getElementById("recHint");
+
+      const resetBtn = document.getElementById("resetBtn");
+      const printBtn = document.getElementById("printBtn");
+
+      function maxFor(domain) {
+        return checks.filter(c => c.dataset.domain === domain).length;
+      }
+
+      const maxTotal = checks.length;
+      const maxInd = maxFor("individual");
+      const maxTeam = maxFor("team");
+
+      scoreTotalMax.textContent = String(maxTotal);
+      scoreIndMax.textContent = String(maxInd);
+      scoreTeamMax.textContent = String(maxTeam);
+
+      function scoreFor(domain) {
+        return checks.reduce((acc, c) => {
+          if (domain && c.dataset.domain !== domain) return acc;
+          return acc + (c.checked ? 1 : 0);
+        }, 0);
+      }
+
+      function bandLabel(score, max) {
+        if (max <= 0) return "—";
+        const pct = score / max;
+        if (pct === 0) return "Not started yet.";
+        if (pct < 0.34) return "Foundation forming.";
+        if (pct < 0.67) return "Working capability.";
+        return "Strong capability.";
+      }
+
+      function computeGuidance(ind, team) {
+        const indPct = maxInd ? ind / maxInd : 0;
+        const teamPct = maxTeam ? team / maxTeam : 0;
+
+        if (ind + team === 0) {
+          return "Select what’s true today. This measures capability (intent, judgment, coordination), not tool usage.";
+        }
+
+        if (indPct >= 0.67 && teamPct < 0.34) {
+          return "You have strong personal leverage, but coordination is behind. This is the common failure point: handoffs lose context, ownership is unclear, and review steps don’t exist.";
+        }
+
+        if (indPct < 0.34 && teamPct >= 0.67) {
+          return "You’ve got governance instincts, but personal leverage is underbuilt. Build the individual workflow first so the team rules have something real to govern.";
+        }
+
+        if (indPct >= 0.67 && teamPct >= 0.67) {
+          return "You’re operating with leverage + coordination. At this point, the work is institutionalizing standards and scaling outcomes.";
+        }
+
+        const total = ind + team;
+        if (total <= 3) return "Focus on foundation: prompt structure, failure spotting, and clean inputs.";
+        if (total <= 9) return "You have working habits. Next move is systems: repeatable workflows, agents, measurable time savings.";
+        return "You’re at leadership capacity. Next constraint is governance and coordination at scale.";
+      }
+
+      function computeRecommendation(ind, team, total) {
+        const indPct = maxInd ? ind / maxInd : 0;
+        const teamPct = maxTeam ? team / maxTeam : 0;
+
+        if (total === 0) {
+          return {
+            pill: "—",
+            title: "Recommended next step",
+            body: "Select what’s true above to get a recommendation.",
+            ctaText: "Open →",
+            ctaHref: ACADEMY_URL,
+            hint: "We’ll route you based on your scores. No fluff."
+          };
+        }
+
+        const coordinationGap = (teamPct < 0.34 && indPct >= 0.50);
+        if (coordinationGap) {
+          return {
+            pill: "Teams",
+            title: "Route: Team Coordination Architecture",
+            body:
+              "Your personal capability is ahead of your team system. The fastest improvement comes from defining ownership, context standards, review steps, and safe operating rules across handoffs.",
+            ctaText: "Schedule Teams Call →",
+            ctaHref: TEAMS_URL,
+            hint: "Best for leaders scaling AI across functions, not just individuals."
+          };
+        }
+
+        if (total >= 10) {
+          return {
+            pill: "Accelerator",
+            title: "Route: Accelerator (Strategic Support)",
+            body:
+              "You’re already operating at leadership capacity. The next step is tightening your operating system: decision-grade workflows, governance, and measurable outcomes.",
+            ctaText: "Schedule Accelerator Call →",
+            ctaHref: ACCELERATOR_URL,
+            hint: "Best for executives, founders, and operators shipping real work with AI."
+          };
+        }
+
+        return {
+          pill: "Academy",
+          title: "Route: Academy (Build Capability Fast)",
+          body:
+            "You’re building real momentum. The Academy helps you lock in the fundamentals, then turn habits into systems you can repeat weekly.",
+          ctaText: "Join the Academy →",
+          ctaHref: ACADEMY_URL,
+          hint: "Best for individuals and small teams building repeatable AI leverage."
+        };
+      }
+
+      function saveState() {
+        const state = checks.map(c => c.checked);
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+      }
+
+      function loadState() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return;
+          const state = JSON.parse(raw);
+          if (!Array.isArray(state)) return;
+          checks.forEach((c, i) => { c.checked = Boolean(state[i]); });
+        } catch (e) {}
+      }
+
+      function update() {
+        const total = scoreFor(null);
+        const ind = scoreFor("individual");
+        const team = scoreFor("team");
+
+        scoreTotalNow.textContent = String(total);
+        scoreIndNow.textContent = String(ind);
+        scoreTeamNow.textContent = String(team);
+
+        totalBand.textContent = bandLabel(total, maxTotal);
+        indBand.textContent = bandLabel(ind, maxInd);
+        teamBand.textContent = bandLabel(team, maxTeam);
+
+        guidance.textContent = computeGuidance(ind, team);
+
+        const rec = computeRecommendation(ind, team, total);
+        recPill.textContent = rec.pill;
+        recTitle.textContent = rec.title;
+        recBody.textContent = rec.body;
+        recCta.textContent = rec.ctaText;
+        recCta.href = rec.ctaHref;
+        recHint.textContent = rec.hint;
+
+        saveState();
+      }
+
+      checks.forEach(c => c.addEventListener("change", update));
+
+      resetBtn.addEventListener("click", () => {
+        checks.forEach(c => (c.checked = false));
+        update();
+      });
+
+      printBtn.addEventListener("click", () => window.print());
+
+      loadState();
+      update();
+    })();
+  </script>
 </body>
 </html>
