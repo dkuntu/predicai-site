@@ -1,1 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+  <title>Predicai™ – Session Confirmed</title>
+  <meta name="description" content="Your strategy session is confirmed. Review the mission briefing and prepare one broken workflow to fix.">
+  <meta name="theme-color" content="#111827" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://predicai.ai/strategy-confirmed.html" />
+   
+  <link rel="icon" type="image/png" href="https://predicai.ai/logo.png" />
+  <link rel="apple-touch-icon" href="https://predicai.ai/logo.png" />
 
+  <style>
+    /* CORE VARIABLES */
+    :root {
+      --bg-page: #F9FAFB; --bg-card: #FFFFFF; --bg-subtle: #F3F4F6; --bg-dark: #111827;
+      --text-primary: #111827; --text-secondary: #4B5563; --text-tertiary: #9CA3AF;
+      --accent-teal-strong: #2A9195; --border-light: #E5E7EB;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+      background-color: var(--bg-page); 
+      color: var(--text-primary); 
+      line-height: 1.6; 
+    }
+    
+    .container { max-width: 800px; margin: 0 auto; padding: 0 24px; position: relative; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ACCESSIBILITY */
+    .skip-link {
+        position: absolute;
+        left: -9999px;
+        z-index: 999;
+        padding: 12px 14px;
+        background: #fff;
+        border: 2px solid var(--accent-teal-strong);
+        font-weight: 800;
+        color: #000;
+    }
+    .skip-link:focus { left: 16px; top: 16px; }
+    
+    :focus-visible {
+        outline: 3px solid var(--accent-teal-strong);
+        outline-offset: 3px;
+        border-radius: 4px;
+    }
+
+    /* REDUCED MOTION */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto !important; }
+      * { transition: none !important; }
+    }
+
+    /* HEADER */
+    header { padding: 24px 0; display: flex; justify-content: center; align-items: center; margin-bottom: 60px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.2rem; }
+    .logo-mark { width: 28px; height: 28px; background: var(--text-primary); border-radius: 8px; position: relative; }
+    .logo-mark::after { content: ''; width: 8px; height: 8px; background: var(--accent-teal-strong); border-radius: 50%; position: absolute; top: 7px; left: 7px; }
+
+    /* MAIN CONTENT */
+    .hero { text-align: center; padding: 40px 0; }
+    h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.03em; }
+    .lead { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 40px; }
+    
+    .prep-box { 
+      background: white; 
+      border: 1px solid var(--border-light); 
+      border-radius: 24px; 
+      padding: 40px; 
+      text-align: left; 
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05); 
+    }
+    
+    .checklist { list-style: none; padding: 0; margin-top: 24px; }
+    .checklist li { margin-bottom: 20px; display: flex; gap: 16px; align-items: flex-start; }
+    .check { color: var(--accent-teal-strong); font-weight: bold; font-size: 1.2rem; line-height: 1; }
+    
+    .btn { 
+      display: inline-block; 
+      padding: 14px 28px; 
+      border-radius: 12px; 
+      font-weight: 600; 
+      font-size: 1rem; 
+      cursor: pointer; 
+      transition: all 0.2s ease; 
+      border: none; 
+      background-color: var(--text-primary); 
+      color: #FFFFFF; 
+      text-align: center; 
+      margin-top: 32px; 
+    }
+    
+    /* Hover Guard */
+    @media (hover: hover) {
+        .btn:hover { transform: translateY(-2px); background-color: #000; }
+        a.inline-link:hover { opacity: 0.85; }
+        #backToTop:hover { background-color: var(--accent-teal-strong); transform: translateY(-3px); }
+    }
+
+    /* LINKS */
+    a.inline-link {
+      color: var(--accent-teal-strong);
+      text-decoration: underline;
+      transition: opacity 0.2s;
+    }
+    footer a.inline-link { color: inherit; }
+
+    /* FOOTER */
+    footer { text-align: center; padding: 40px 0; border-top: 1px solid var(--border-light); color: var(--text-tertiary); font-size: 0.85rem; margin-top: 80px; }
+    .social-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 24px; }
+
+    /* BACK TO TOP BUTTON */
+    #backToTop { display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99; border: none; outline: none; background-color: var(--text-primary); color: white; cursor: pointer; padding: 12px; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2); font-size: 1.2rem; transition: opacity 0.3s, transform 0.3s; }
+  </style>
+</head>
+<body>
+  
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <div class="container">
+    <header>
+      <a href="index.html" class="brand">
+        <div class="logo-mark"></div>
+        <span>Predic<span style="color: var(--accent-teal-strong)">ai</span>&trade;</span>
+      </a>
+    </header>
+
+    <main id="main" class="hero">
+      <div style="font-size:3rem; margin-bottom:24px;">✅</div>
+      <h1>Strategy Session Confirmed.</h1>
+      <p class="lead">
+        Your calendar invite is on its way. <br>
+        <span style="font-size:0.9rem; color:var(--text-tertiary);">(If you don’t see it in 5 minutes, check Spam/Promotions.)</span>
+      </p>
+
+      <div class="prep-box">
+        <h3 style="margin-bottom:0; text-transform:uppercase; font-size:0.9rem; color:var(--accent-teal-strong); letter-spacing:1px; font-weight:700;">Mission Briefing</h3>
+        <ul class="checklist">
+          <li>
+            <span class="check">✓</span> 
+            <div><strong>Bring One "Broken" Workflow</strong><br><span style="font-size:0.95rem; color:var(--text-secondary);">Don't come with generic questions. Bring one specific process you want to fix.</span></div>
+          </li>
+          <li>
+            <span class="check">✓</span> 
+            <div><strong>Audit Your Stack</strong><br><span style="font-size:0.95rem; color:var(--text-secondary);">Know what tools your team currently has access to (ChatGPT, Copilot, etc).</span></div>
+          </li>
+          <li>
+            <span class="check">✓</span> 
+            <div><strong>Check Your Score (Optional)</strong><br><span style="font-size:0.95rem; color:var(--text-secondary);">If you haven't taken the diagnostic yet, it helps to know your baseline.</span></div>
+          </li>
+        </ul>
+        <div style="text-align:center;">
+            <a href="index.html" class="btn">Return to Home</a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/company/predicai-ai/" target="_blank" rel="noopener noreferrer" aria-label="Predicai on LinkedIn">LinkedIn</a>
+      </div>
+      <div class="copyright">
+        © 2025 Predicai™ — All rights reserved. • "Foresight is Clarity."
+      </div>
+      <div style="margin-top:16px; font-size: 0.85rem; opacity: 0.7;">
+        <a href="standard.html" class="inline-link" style="margin:0 10px;">The Standard</a>
+        <a href="https://predicai.notion.site/Trust-Ethics-Protocol-2cd73ab1bdd6800cac99c280cb264c52?source=copy_link" target="_blank" rel="noopener noreferrer" class="inline-link" style="margin:0 10px;">Trust & Ethics</a>
+        <a href="terms.html" class="inline-link" style="margin:0 10px;">Terms</a>
+      </div>
+    </footer>
+    
+    <button type="button" id="backToTop" title="Go to top" aria-label="Back to top" tabindex="-1" aria-hidden="true">↑</button>
+  </div>
+
+  <script>
+    const mybutton = document.getElementById("backToTop");
+
+    function scrollFunction() {
+      const show = (window.scrollY || document.documentElement.scrollTop) > 300;
+      mybutton.style.display = show ? "block" : "none";
+      mybutton.setAttribute("tabindex", show ? "0" : "-1");
+      mybutton.setAttribute("aria-hidden", show ? "false" : "true");
+    }
+
+    // Initialize on load
+    window.addEventListener("scroll", scrollFunction, { passive: true });
+    scrollFunction();
+
+    mybutton.addEventListener("click", () => {
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" });
+    });
+  </script>
+</body>
+</html>
