@@ -1,6 +1,6 @@
 ---
+active: shield
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +14,6 @@
   <meta name="theme-color" content="#FFFFFF" />
   <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Predicai" />
   <meta property="og:url" content="https://predicai.ai/shield-checklist.html" />
@@ -22,7 +21,6 @@
   <meta property="og:description" content="A calm, step-by-step guide to verifying suspicious calls, texts, or emails. Pause, verify, then act." />
   <meta property="og:image" content="https://predicai.ai/social-share.png" />
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Is It Real? – Predicai™ Shield Checklist" />
   <meta name="twitter:description" content="A calm, step-by-step guide to verifying suspicious calls, texts, or emails. Pause, verify, then act." />
@@ -68,6 +66,10 @@
       --headerMax: 1200px;
       --headerPadY: 14px;
       --headerPadX: 24px;
+      
+      /* Issuebar Tokens */
+      --issuebar-bg: #fff;
+      --issuebar-border: #E2E8F0;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -162,16 +164,33 @@
       border-color: rgba(29,78,216,0.16);
     }
 
+    /* ===== ISSUEBAR (Light Mode) ===== */
+    .issuebar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      border-bottom: 1px solid var(--issuebar-border);
+      background: var(--issuebar-bg);
+      font-size: 0.9rem;
+    }
+    .issuebar-left { display: flex; align-items: center; gap: 10px; }
+    .issuebar-mark { width: 10px; height: 10px; background: var(--gold); border-radius: 50%; display: inline-block; }
+    .issuebar-title { font-weight: 700; color: var(--text); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; }
+    .issuebar-links { display: flex; gap: 16px; }
+    .chip { text-decoration: none; color: var(--muted); font-weight: 600; font-size: 0.85rem; transition: color 0.2s; }
+    .chip:hover { color: var(--gold-dark); }
+
     /* Layout */
     .container{
       max-width: var(--containerMax);
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 24px 20px;
     }
 
     /* Top controls */
     .topbar{
-      margin: 22px 0 10px;
+      margin: 0 0 10px;
       display:flex;
       align-items:center;
       justify-content: space-between;
@@ -485,7 +504,7 @@
 
     /* Print */
     @media print {
-      header, nav, .topbar, .actions, .pledge-footer, footer { display: none !important; }
+      header, nav, .topbar, .actions, .pledge-footer, footer, .issuebar { display: none !important; }
       body { background: #fff; }
       .container{ max-width: 7.5in; }
       .hero, .section, .golden-rule { box-shadow: none !important; }
@@ -500,28 +519,24 @@
   </style>
 </head>
 
-<body>
-
-  <body data-active="shield">
+<body data-active="{{ page.active }}">
   {% include "nav.html" %}
 
- <div class="issuebar" aria-label="Shield checklist navigation">
-  <div class="issuebar-left">
-    <span class="issuebar-mark" aria-hidden="true"></span>
-    <div class="issuebar-title">Predicai Shield • Checklist</div>
+  <div class="issuebar" aria-label="Shield checklist navigation">
+    <div class="issuebar-left">
+      <span class="issuebar-mark" aria-hidden="true"></span>
+      <div class="issuebar-title">Predicai Shield • Checklist</div>
+    </div>
+    <div class="issuebar-links">
+      <a class="chip" href="/shield.html">← Back to Shield</a>
+      <a class="chip" href="/resources.html">Resources</a>
+    </div>
   </div>
-  <div class="issuebar-links">
-    <a class="chip" href="/shield.html">← Back to Shield</a>
-    <a class="chip" href="/resources.html">Resources</a>
-  </div>
-</div>
 
   <main id="main" class="container">
     <div class="topbar" aria-label="Page actions">
-      <div class="crumb">
-        <a href="/shield.html">&larr; Back to Shield</a>
-      </div>
-      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+      <div class="crumb" style="display:none;"></div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; width:100%; justify-content:flex-end;">
         <button type="button" id="printBtn" class="btn btn-outline" aria-label="Print this guide">🖨️ Print</button>
         <a class="btn btn-gold" href="/shield-check.html" aria-label="Run a Shield Check">Run a Shield Check</a>
       </div>
