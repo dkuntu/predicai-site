@@ -1,3 +1,6 @@
+---
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -120,8 +123,12 @@
     }
   </style>
 </head>
-<body>
-
+  
+<!-- ✅ THIS is the explicit, correct body tag -->
+<body data-active="intent">
+  <!-- ✅ THIS is the explicit, correct include (no fetch, no mount div) -->
+  {% include "nav.html" %}
+  
   <nav aria-label="Breadcrumb navigation" style="background: #111827; color: white; padding: 10px 20px; font-size: 0.9rem;">
     <div style="max-width:800px; margin:0 auto; display:flex; align-items:center; gap:10px;">
       <a href="/resources.html" style="text-decoration:none; color:white; font-weight:600;">← Back to Resources</a>
