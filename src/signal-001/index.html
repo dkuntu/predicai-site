@@ -1,13 +1,12 @@
 ---
+active: signal
 ---
-
 <!DOCTYPE html>
 <html lang="en" data-theme="auto">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Favicons (cache-busted) -->
   <link rel="icon" href="/favicon.ico?v=3" sizes="any">
   <link rel="icon" type="image/png" href="/favicon-32.png?v=3" sizes="32x32">
   <link rel="icon" type="image/png" href="/favicon-16.png?v=3" sizes="16x16">
@@ -23,9 +22,9 @@
   <meta property="og:type" content="article">
   <meta property="og:title" content="The most useful AI update this week wasn’t a new model">
   <meta property="og:description" content="Stop relying on AI summaries. Use tools that catch disagreement before you act.">
-  <meta property="og:url" content="https://predicai.ai/signal-001-stop-generative-summaries.html">
-  <meta property="og:image" content="https://predicai.ai/signal/assets/og/issue-001-stop-ai-summaries.png">
-  <meta property="og:image:alt" content="Predicai Signal Issue 001: Stop relying on AI summaries">
+  <meta property="og:url" content="https://predicai.ai/signal-001.html">
+  <meta property="og:image" content="https://predicai.ai/signal/assets/og/issue-001.png">
+  <meta property="og:image:alt" content="Predicai Signal Issue 001">
 
   <style>
     :root{
@@ -203,7 +202,7 @@
       position: relative;
     }
 
-    /* Issue Subnav (kept “Signal editorial” feel) */
+    /* Issue Subnav */
     .issuebar{
       display:flex;
       align-items:center;
@@ -327,7 +326,7 @@
     .backtotop:hover{ text-decoration:none; }
     .arrow{ font-size: 14px; line-height: 1; }
 
-    /* Your existing styles below remain unchanged */
+    /* Signal Specific Styles */
     .signal-hero{
       border: 1px solid var(--border);
       border-radius: 16px;
@@ -360,16 +359,7 @@
       .signal-hero:before{ animation:none; }
     }
 
-    .signal-row{
-      display:flex;
-      align-items:flex-start;
-      justify-content: space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      position: relative;
-      z-index: 1;
-    }
-    .brand{
+    .brand-title{
       font-size: 22px;
       font-weight: 950;
       letter-spacing: -0.03em;
@@ -384,35 +374,6 @@
       max-width: 64ch;
       line-height: var(--tight);
     }
-    .hero-badges{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-      align-items:flex-start;
-    }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: color-mix(in srgb, var(--panel) 85%, var(--statusBg));
-      font-weight: 950;
-      font-size: 12px;
-      color: var(--text);
-      white-space: nowrap;
-    }
-    .badge .dot{
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #22C55E;
-      display:inline-block;
-      flex: 0 0 auto;
-    }
-
     .hero-actions{
       margin-top: 12px;
       display:flex;
@@ -443,66 +404,6 @@
       border: 1px solid var(--border);
     }
 
-    .status-bar{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
-      font-size: 11px;
-      color: var(--muted2);
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      background: var(--statusBg);
-      padding: 10px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      margin: 14px 0 12px;
-    }
-    .status-item{ display:flex; align-items:center; gap:6px; }
-    .status-date{ color: var(--muted); }
-
-    .toc{
-      margin-top: 10px;
-      padding: 12px 12px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: color-mix(in srgb, var(--panel) 88%, var(--statusBg));
-    }
-    .toc-title{
-      margin:0 0 8px;
-      color: var(--textStrong);
-      font-weight: 950;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
-    .toc-links{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      line-height: 1.2;
-    }
-    .toc a{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--text);
-      font-weight: 950;
-      font-size: 12px;
-      text-decoration:none;
-      transition: transform .12s ease, box-shadow .12s ease;
-    }
-    .toc a:hover{
-      box-shadow: var(--shadow);
-      text-decoration:none;
-      transform: translateY(-1px);
-    }
-    .toc a span{ color: var(--muted2); font-weight: 950; }
-
     .section{
       margin-top: 18px;
       padding: var(--sectionPad);
@@ -532,13 +433,6 @@
       box-shadow: 0 0 0 4px color-mix(in srgb, var(--teal) 16%, transparent);
       flex:0 0 auto;
     }
-    .hnum{
-      color: var(--muted2);
-      font-weight: 950;
-      letter-spacing: .08em;
-      font-size: 12px;
-    }
-
     p{
       margin: 0 0 16px 0;
       font-size: 16px;
@@ -547,16 +441,13 @@
     }
     ul{ margin: 0 0 18px 0; padding-left: 20px; }
     li{ margin-bottom: 8px; color: color-mix(in srgb, var(--text) 92%, transparent); line-height: var(--tight); }
-
-    /* (rest of your CSS stays unchanged…) */
   </style>
 </head>
 
-<body data-active="signal" id="top">
+<body data-active="{{ page.active }}" id="top">
   <div class="preheader">A short note that drops when there’s something worth acting on.</div>
 
-  <!-- Global site nav -->
-  {% include "nav.html" %}
+  {% include nav.html %}
 
   <a class="backtotop" href="#top" aria-label="Back to top">
     <span class="arrow">↑</span> Top
@@ -564,7 +455,6 @@
 
   <div class="container">
 
-    <!-- Signal Issue Subnav (editorial back-links) -->
     <div class="issuebar" aria-label="Signal issue navigation">
       <div class="issuebar-left">
         <span class="issuebar-mark" aria-hidden="true"></span>
@@ -587,14 +477,23 @@
       </div>
     </div>
 
-    <!-- ✅ Your content continues unchanged from here -->
     <section class="signal-hero" aria-label="Predicai Signal header">
-      <!-- ...keep the rest of your page exactly as-is... -->
+        <div class="brand-title">Predicai Signal</div>
+        <p class="hero-sub">
+            Issue 001 • The "Decision Protocol" update.
+        </p>
+        <div class="hero-actions">
+            <a href="#subscribe" class="btn">Subscribe</a>
+            <a href="/signal-archive.html" class="btn secondary">Archive</a>
+        </div>
     </section>
 
-    <!-- ...rest of your sections... -->
+    <div class="section">
+        <h2><span class="hbar"></span><span class="hnum">01</span> Intro</h2>
+        <p>This placeholder text is where your newsletter content lives. Replace this block with your actual Issue 001 HTML content.</p>
+    </div>
 
-  </div>
+    </div>
 
   <script>
     (function(){
