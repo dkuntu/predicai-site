@@ -1,3 +1,6 @@
+---
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -394,25 +397,8 @@
   </style>
 </head>
 
-<body>
-  <a href="#main" class="skip-link">Skip to content</a>
-
-  <header>
-    <div class="header-inner">
-      <a class="brand" href="/shield.html" aria-label="Predicai Shield home">
-        <img src="/predicai-shield-gold.JPG" alt="Predicai Shield logo" />
-        Predicai Shield™
-      </a>
-
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="/">Home</a>
-        <a href="/shield.html">Shield</a>
-        <a href="/shield-check.html" aria-current="page">Shield Check</a>
-        <a href="/resources.html">Resources</a>
-        <a href="/pricing.html">Pricing</a>
-      </nav>
-    </div>
-  </header>
+<body data-active="shield-check">
+  {% include "nav.html" %}
 
   <main id="main" class="wrap" role="main" tabindex="-1">
     <section class="hero" aria-label="Shield Check introduction">
