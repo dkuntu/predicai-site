@@ -1,6 +1,6 @@
 ---
+active: resources
 ---
-
 <!DOCTYPE html>
 <html lang="en" data-theme="auto">
 <head>
@@ -308,8 +308,6 @@
       white-space: nowrap;
       transition: background .15s ease, border-color .15s ease, transform .15s ease;
     }
-
-    /* ✅ FIX: theme-toggle respects AUTO + system dark */
     html[data-theme="dark"] .theme-toggle{
       background: rgba(255,255,255,0.08);
       color: rgba(255,255,255,0.88);
@@ -683,8 +681,8 @@
   </style>
 </head>
 
-<body data-active="resources">
-  {% include "nav.html" %}
+<body data-active="{{ page.active }}">
+  {% include nav.html %}
 
   <main class="container" id="main" tabindex="-1">
     <section class="hero">
@@ -721,7 +719,6 @@
       </div>
     </section>
 
-    <!-- SAFETY -->
     <div id="safety-zone" class="zone-header">
       <span class="zone-title">Shield tools &amp; protocols</span>
       <span class="zone-badge badge-safety">Personal Safety</span>
@@ -769,7 +766,6 @@
       </div>
     </div>
 
-    <!-- WORK -->
     <div id="work-zone" class="zone-header">
       <span class="zone-title">Work</span>
       <span class="zone-badge badge-work">Professional</span>
@@ -817,7 +813,6 @@
       </div>
     </div>
 
-    <!-- SIGNAL -->
     <div id="signal-zone" class="zone-header">
       <span class="zone-title">Signal</span>
       <span class="zone-badge badge-signal">Weekly brief</span>
@@ -897,18 +892,20 @@
       function applyTheme(val){
         root.setAttribute('data-theme', val);
         const label = val === 'auto' ? ('Theme: Auto (' + getSystemTheme() + ')') : ('Theme: ' + val);
-        btn.textContent = '◐ ' + label;
+        if(btn) btn.textContent = '◐ ' + label;
       }
 
       const saved = getSavedTheme();
       applyTheme(saved);
 
-      btn.addEventListener('click', () => {
-        const cur = root.getAttribute('data-theme') || 'auto';
-        const next = cur === 'auto' ? 'dark' : (cur === 'dark' ? 'light' : 'auto');
-        saveTheme(next);
-        applyTheme(next);
-      });
+      if(btn) {
+        btn.addEventListener('click', () => {
+          const cur = root.getAttribute('data-theme') || 'auto';
+          const next = cur === 'auto' ? 'dark' : (cur === 'dark' ? 'light' : 'auto');
+          saveTheme(next);
+          applyTheme(next);
+        });
+      }
 
       if (window.matchMedia) {
         const mq = window.matchMedia('(prefers-color-scheme: light)');
