@@ -1,6 +1,6 @@
 ---
+active: academy
 ---
-
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
@@ -10,14 +10,12 @@
   <title>Predicai™ Academy – The Builder Program</title>
   <meta name="description" content="The 2026 Builder Program. Move from chatting to building. Application-only cohort with one-time tuition." />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://predicai.ai/academy.html" />
   <meta property="og:title" content="Predicai™ Academy – The Builder Program" />
   <meta property="og:description" content="Move from chatting to building. Application-only cohort with one-time tuition." />
   <meta property="og:image" content="https://predicai.ai/social-share.png" />
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Predicai™ Academy – The Builder Program" />
   <meta name="twitter:description" content="Move from chatting to building. Application-only cohort with one-time tuition." />
@@ -647,8 +645,8 @@
   </style>
 </head>
 
-  <body data-active="academy">
-  {% include "nav.html" %}
+<body data-active="{{ page.active }}">
+  {% include nav.html %}
 
   <main id="main" class="container">
     <section class="hero" aria-label="Academy hero">
@@ -770,123 +768,5 @@
       🔒 <strong>Privacy Pledge™</strong> We don’t sell data. We don’t train public models on your submissions.
     </div>
   </footer>
-
-  <script>
-    // ===== Shared Nav Include Loader =====
-    (function(){
-      const mount = document.querySelector('[data-include="nav"]');
-      if(!mount) return;
-
-      fetch('/partials/nav.html', { cache: 'no-cache' })
-        .then(r => r.text())
-        .then(html => {
-          mount.outerHTML = html;
-          initPredicaiNav();
-          initPredicaiActiveLink();
-        })
-        .catch(() => {});
-    })();
-
-    // ===== Nav behavior (dropdowns + mobile + close rules) =====
-    function initPredicaiNav(){
-      const nav = document.getElementById('siteNav');
-      const toggle = document.querySelector('.nav-toggle');
-      if(!nav) return;
-
-      function closeAllMenus(except=null){
-        document.querySelectorAll('.menu.open').forEach(m => {
-          if(m !== except){
-            m.classList.remove('open');
-            const btn = m.querySelector('.menu-btn');
-            if(btn) btn.setAttribute('aria-expanded', 'false');
-          }
-        });
-      }
-
-      // Mobile open/close
-      if(toggle){
-        toggle.addEventListener('click', () => {
-          const open = nav.classList.toggle('open');
-          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-          if(!open) closeAllMenus();
-        });
-      }
-
-      // Dropdown toggle
-      document.querySelectorAll('.menu').forEach(menu => {
-        const btn = menu.querySelector('.menu-btn');
-        if(!btn) return;
-
-        btn.addEventListener('click', (e) => {
-          e.preventDefault();
-          const isOpen = menu.classList.contains('open');
-          closeAllMenus(menu);
-          menu.classList.toggle('open', !isOpen);
-          btn.setAttribute('aria-expanded', (!isOpen).toString());
-        });
-
-        menu.addEventListener('keydown', (e) => {
-          if(e.key === 'Escape'){
-            menu.classList.remove('open');
-            btn.setAttribute('aria-expanded', 'false');
-            btn.focus();
-          }
-        });
-      });
-
-      // Click outside closes
-      document.addEventListener('click', (e) => {
-        const clickedInsideMenu = e.target.closest('.menu');
-        const clickedToggle = e.target.closest('.nav-toggle');
-        const clickedNav = e.target.closest('#siteNav');
-        if(clickedInsideMenu || clickedToggle || clickedNav) return;
-
-        closeAllMenus();
-
-        if(nav.classList.contains('open') && window.innerWidth <= 768){
-          nav.classList.remove('open');
-          if(toggle) toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      // Esc closes mobile tray too
-      document.addEventListener('keydown', (e) => {
-        if(e.key === 'Escape'){
-          closeAllMenus();
-          if(nav.classList.contains('open')){
-            nav.classList.remove('open');
-            if(toggle) toggle.setAttribute('aria-expanded', 'false');
-          }
-        }
-      });
-
-      // Selecting a link closes menus (and mobile tray)
-      nav.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => {
-          closeAllMenus();
-          if(nav.classList.contains('open')){
-            nav.classList.remove('open');
-            if(toggle) toggle.setAttribute('aria-expanded', 'false');
-          }
-        });
-      });
-    }
-
-    // ===== Active link highlighting by URL =====
-    function initPredicaiActiveLink(){
-      const path = (location.pathname || '/').toLowerCase();
-
-      document.querySelectorAll('#siteNav a[href]').forEach(a => {
-        const href = (a.getAttribute('href') || '').toLowerCase();
-        const isHome = (href === '/' && (path === '/' || path.endsWith('/index.html')));
-        const isExactHtml = (href.endsWith('.html') && path.endsWith(href));
-
-        if(isHome || isExactHtml){
-          a.classList.add('active');
-          a.setAttribute('aria-current','page');
-        }
-      });
-    }
-  </script>
 </body>
 </html>
