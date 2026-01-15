@@ -1,6 +1,6 @@
 ---
+active: pricing
 ---
-
 <!DOCTYPE html>
 <html lang="en" data-theme="auto">
 <head>
@@ -547,6 +547,7 @@
       text-align:center;
       color: var(--text-muted);
       font-size: 0.92rem;
+      margin-top: 64px;
     }
     html[data-theme="dark"] footer{ color: rgba(203,213,225,0.86); }
     footer a{
@@ -557,6 +558,8 @@
       display:inline-block;
       padding: 6px 8px;
       border-radius: 10px;
+      border: 1px solid transparent;
+      transition: background .15s ease, color .15s ease, border-color .15s ease;
     }
     footer a:hover{
       color: var(--text-main);
@@ -594,8 +597,8 @@
   </style>
 </head>
 
-<body data-active="pricing">
-  {% include "nav.html" %}
+<body data-active="{{ page.active }}">
+  {% include nav.html %}
 
   <main class="container" id="main">
     <section class="hero">
@@ -604,7 +607,6 @@
     </section>
 
     <section class="pricing-grid" aria-label="Pricing options">
-      <!-- Academy -->
       <article class="card card-academy">
         <div class="icon-box" aria-hidden="true">🏗️</div>
         <h2 class="card-title">The Academy</h2>
@@ -659,7 +661,6 @@
         </a>
       </article>
 
-      <!-- Accelerator -->
       <article class="card card-accelerator">
         <div class="badge" aria-hidden="true">FOR TEAMS</div>
 
@@ -704,7 +705,6 @@
         <a href="mailto:hello@predicai.ai" class="btn btn-outline" style="margin-top:12px;">Contact Sales</a>
       </article>
 
-      <!-- Shield -->
       <article class="card card-shield">
         <div class="icon-box" aria-hidden="true">🛡️</div>
         <h2 class="card-title">Shield</h2>
@@ -805,18 +805,20 @@
       function applyTheme(val){
         root.setAttribute('data-theme', val);
         const label = val === 'auto' ? ('Theme: Auto (' + getSystemTheme() + ')') : ('Theme: ' + val);
-        btn.textContent = '◐ ' + label;
+        if(btn) btn.textContent = '◐ ' + label;
       }
 
       const saved = getSavedTheme();
       applyTheme(saved);
 
-      btn.addEventListener('click', () => {
-        const cur = root.getAttribute('data-theme') || 'auto';
-        const next = cur === 'auto' ? 'dark' : (cur === 'dark' ? 'light' : 'auto');
-        saveTheme(next);
-        applyTheme(next);
-      });
+      if(btn) {
+        btn.addEventListener('click', () => {
+          const cur = root.getAttribute('data-theme') || 'auto';
+          const next = cur === 'auto' ? 'dark' : (cur === 'dark' ? 'light' : 'auto');
+          saveTheme(next);
+          applyTheme(next);
+        });
+      }
 
       if (window.matchMedia) {
         const mq = window.matchMedia('(prefers-color-scheme: light)');
