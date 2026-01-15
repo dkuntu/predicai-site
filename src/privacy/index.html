@@ -1,6 +1,6 @@
 ---
+active: privacy
 ---
-
 <!DOCTYPE html>
 <html lang="en" data-theme="auto">
 <head>
@@ -9,7 +9,6 @@
   <title>Predicai™ – Privacy & Data Governance</title>
   <meta name="description" content="How Predicai handles your data across Academy and Shield, including Shield Check submissions, retention, deletion, and security." />
 
-  <!-- Theme color: JS will keep this in sync if you later use a sitewide theme button -->
   <meta name="theme-color" content="#FFFFFF" id="themeColorMeta" />
 
   <meta name="robots" content="index, follow" />
@@ -504,8 +503,8 @@
   </style>
 </head>
 
-  <body data-active="">
-  {% include "nav.html" %}
+  <body data-active="{{ page.active }}">
+  {% include nav.html %}
 
   <main id="main" class="page" tabindex="-1">
     <h1>Privacy & Data Governance</h1>
