@@ -1,3 +1,6 @@
+---
+---
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -565,9 +568,8 @@
   </style>
 </head>
 
-<body>
-  <!-- ✅ Shared nav injection mount -->
-  <div data-include="nav"></div>
+<body data-active="home">
+  {% include "nav.html" %}
 
   <main id="main">
     <section class="hero container" aria-label="Predicai intro">
