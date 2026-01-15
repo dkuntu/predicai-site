@@ -1,6 +1,6 @@
 ---
+active: signal
 ---
-
 <!DOCTYPE html>
 <html lang="en" data-theme="auto">
 <head>
@@ -11,14 +11,12 @@
 
   <meta name="description" content="A calm AI note sent when there’s something worth acting on. What changed, what held up in real use, and what to do next. You won’t hear from us every day." />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://predicai.ai/signal.html" />
   <meta property="og:title" content="Predicai Signal™" />
   <meta property="og:description" content="A calm AI note sent when there’s something worth acting on. What changed, what held up in real use, and what to do next. You won’t hear from us every day." />
   <meta property="og:image" content="https://predicai.ai/social-share.png" />
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Predicai Signal™" />
   <meta name="twitter:description" content="A calm AI note sent when there’s something worth acting on. What changed, what held up in real use, and what to do next. You won’t hear from us every day." />
@@ -69,43 +67,41 @@
       --padX: 24px;
       --headerH: 72px;
 
-      /* Kicker pill (ensure readable in both themes) */
+      /* Kicker pill */
       --pill-bg: rgba(255,255,255,0.06);
       --pill-border: rgba(255,255,255,0.14);
       --pill-text: rgba(248,250,252,0.92);
 
-      /* Nav colors */
-      --nav-link: rgba(248,250,252,0.78);
-      --nav-hover-bg: rgba(255,255,255,0.06);
-      --nav-active-bg: rgba(42,145,149,0.16);
-      --nav-active-border: rgba(42,145,149,0.28);
+      /* Shared Nav Tokens (Dark Default) */
+      --nav-bg: rgba(7,11,20,0.72);
+      --nav-hover: rgba(255,255,255,0.08);
+      --nav-panel-bg: #111318;
+      --nav-text: #F8FAFC;
+      --nav-text-muted: rgba(255,255,255,0.7);
     }
 
     @media (prefers-color-scheme: light){
       :root{
         --bg:  #F6F7F9;
         --bg2: #EEF1F5;
-
         --text: #0B1220;
         --text2: rgba(11,18,32,0.78);
-
         --surface: rgba(15,23,42,0.05);
         --surface2: rgba(15,23,42,0.04);
         --border: rgba(15,23,42,0.12);
-
         --paper: #FFFFFF;
         --paper2:#FFFFFF;
-
         --shadow: 0 22px 70px rgba(15,23,42,0.12);
-
         --pill-bg: rgba(15,23,42,0.04);
         --pill-border: rgba(15,23,42,0.14);
         --pill-text: rgba(11,18,32,0.88);
 
-        --nav-link: rgba(11,18,32,0.70);
-        --nav-hover-bg: rgba(15,23,42,0.05);
-        --nav-active-bg: rgba(42,145,149,0.14);
-        --nav-active-border: rgba(42,145,149,0.26);
+        /* Nav Light */
+        --nav-bg: rgba(246,247,249,0.78);
+        --nav-hover: rgba(15,23,42,0.04);
+        --nav-panel-bg: #ffffff;
+        --nav-text: #0F172A;
+        --nav-text-muted: #64748B;
       }
     }
 
@@ -118,16 +114,17 @@
       --paper: rgba(255,255,255,0.96);
       --paper2: rgba(255,255,255,0.92);
       --shadow: 0 28px 80px rgba(0,0,0,.35);
-
       --pill-bg: rgba(255,255,255,0.06);
       --pill-border: rgba(255,255,255,0.14);
       --pill-text: rgba(248,250,252,0.92);
-
-      --nav-link: rgba(248,250,252,0.78);
-      --nav-hover-bg: rgba(255,255,255,0.06);
-      --nav-active-bg: rgba(42,145,149,0.16);
-      --nav-active-border: rgba(42,145,149,0.28);
+      
+      --nav-bg: rgba(7,11,20,0.72);
+      --nav-hover: rgba(255,255,255,0.08);
+      --nav-panel-bg: #111318;
+      --nav-text: #F8FAFC;
+      --nav-text-muted: rgba(255,255,255,0.7);
     }
+
     html[data-theme="light"]{
       --bg:#F6F7F9; --bg2:#EEF1F5;
       --text:#0B1220; --text2: rgba(11,18,32,0.78);
@@ -136,15 +133,15 @@
       --border: rgba(15,23,42,0.12);
       --paper:#FFFFFF; --paper2:#FFFFFF;
       --shadow: 0 22px 70px rgba(15,23,42,0.12);
-
       --pill-bg: rgba(15,23,42,0.04);
       --pill-border: rgba(15,23,42,0.14);
       --pill-text: rgba(11,18,32,0.88);
-
-      --nav-link: rgba(11,18,32,0.70);
-      --nav-hover-bg: rgba(15,23,42,0.05);
-      --nav-active-bg: rgba(42,145,149,0.14);
-      --nav-active-border: rgba(42,145,149,0.26);
+      
+      --nav-bg: rgba(246,247,249,0.78);
+      --nav-hover: rgba(15,23,42,0.04);
+      --nav-panel-bg: #ffffff;
+      --nav-text: #0F172A;
+      --nav-text-muted: #64748B;
     }
 
     *{ box-sizing:border-box; margin:0; padding:0; }
@@ -189,16 +186,15 @@
       border-radius: 12px;
     }
 
-    /* ---------- NAV BAR (updated) ---------- */
-    header{
+    /* ===== SHARED NAV STYLES (Required for include) ===== */
+    .site-header{
       position: sticky; top:0; z-index:50;
       height: var(--headerH);
       display:flex; align-items:center;
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      background: rgba(7,11,20,0.72);
+      background: var(--nav-bg);
     }
-    html[data-theme="light"] header{ background: rgba(246,247,249,0.78); }
 
     .header-inner{
       width:100%;
@@ -215,7 +211,7 @@
       font-weight: 950;
       font-size: 1.02rem;
       text-decoration:none;
-      color: var(--text);
+      color: var(--nav-text);
       white-space:nowrap;
       letter-spacing: -0.01em;
     }
@@ -226,53 +222,100 @@
       display:block;
     }
 
-    nav{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+    .nav-toggle{
+      display:none;
       align-items:center;
-    }
-
-    .nav-link{
-      text-decoration:none;
-      color: var(--nav-link);
-      font-weight: 850;
-      font-size: 0.95rem;
-      padding: 6px 8px;
-      border-radius: 10px;
-      transition: background .15s ease, color .15s ease, border-color .15s ease;
-      border: 1px solid transparent;
-      white-space: nowrap;
-    }
-    .nav-link:hover{
-      color: var(--text);
-      background: var(--nav-hover-bg);
-    }
-    .nav-link.active{
-      color: var(--text);
-      background: var(--nav-active-bg);
-      border-color: var(--nav-active-border);
-      font-weight: 950;
-    }
-
-    .theme-toggle{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 8px 10px;
+      gap: 10px;
+      padding: 10px 12px;
       border-radius: 12px;
       border: 1px solid var(--border);
-      background: var(--surface2);
-      color: var(--text);
-      font-weight: 850;
-      font-size: 0.9rem;
-      cursor: pointer;
-      user-select:none;
+      background: rgba(255,255,255,0.04);
+      color: var(--nav-text);
+      font-weight: 950;
+      cursor:pointer;
       -webkit-tap-highlight-color: transparent;
-      white-space: nowrap;
     }
-    .theme-toggle:hover{ background: var(--surface); }
+
+    .site-nav{
+      display:flex;
+      gap: 12px;
+      align-items:center;
+      justify-content:flex-end;
+    }
+
+    .site-nav a{
+      text-decoration:none;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--nav-text-muted);
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .site-nav a:hover{
+      background: var(--nav-hover);
+      color: var(--nav-text);
+    }
+    .site-nav a.active{
+      background: rgba(42,145,149,0.14);
+      border-color: rgba(42,145,149,0.24);
+      color: var(--nav-text);
+    }
+
+    .menu{ position: relative; display:inline-flex; align-items:center; }
+    .menu-btn{
+      display:inline-flex; align-items:center; gap: 8px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--nav-text-muted);
+      font-weight: 900;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .menu-btn:hover{ color: var(--nav-text); background: var(--nav-hover); }
+    .menu.open .menu-btn{ color: var(--nav-text); }
+
+    .menu-panel{
+      position:absolute; top: calc(100% + 10px); right: 0;
+      min-width: 200px;
+      padding: 8px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--nav-panel-bg);
+      box-shadow: var(--shadow);
+      display:none;
+      z-index: 100;
+    }
+    .menu-panel a{
+      display:flex; width:100%; padding: 10px;
+      border-radius: 8px; font-weight: 900; font-size: 0.9rem;
+      color: var(--nav-text);
+    }
+    .menu.open .menu-panel{ display:block; }
+
+    @media (max-width: 860px){
+      .nav-toggle{ display:inline-flex; }
+      .site-nav{
+        position: absolute; top: 80px; left: 18px; right: 18px;
+        background: var(--nav-panel-bg);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        display: none;
+        box-shadow: var(--shadow);
+      }
+      .site-nav.open{ display:flex; }
+      .menu{ width: 100%; }
+      .menu-btn{ width: 100%; justify-content: space-between; }
+      .menu-panel{ position: static; display:none; background: transparent; border:none; box-shadow:none; padding-left: 10px; }
+      .menu.open .menu-panel{ display:block; }
+    }
 
     /* ---------- PAGE ---------- */
     .hero{ padding: 58px 0 22px; text-align:center; }
@@ -379,7 +422,7 @@
     }
     .panel-topbar{
       height: 6px;
-      background: linear-gradient(90deg, var(--teal), rgba(42,145,149,0.65));
+      background: linear-gradient(9deg, var(--teal), rgba(42,145,149,0.65));
       border-top-left-radius: 28px;
       border-top-right-radius: 28px;
     }
@@ -709,37 +752,10 @@
   </style>
 </head>
 
-<body data-active="signal">
-  {% include "nav.html" %
+<body data-active="{{ page.active }}">
+  {% include "nav.html" %}
   
   <a href="#main" class="skip-link">Skip to content</a>
-
-  <header>
-    <div class="container header-inner">
-      <a href="/" class="brand" aria-label="Predicai home">
-        <picture>
-          <source srcset="/logo.png" media="(prefers-color-scheme: light)">
-          <img src="/logo-white.png" alt="Predicai logo" width="28" height="28" />
-        </picture>
-        Predicai™
-      </a>
-
-      <!-- ✅ Updated nav bar (site-wide) -->
-      <nav aria-label="Primary navigation">
-        <a class="nav-link" href="/">Home</a>
-        <a class="nav-link" href="/about.html">About</a>
-        <a class="nav-link" href="/academy.html">Academy</a>
-        <a class="nav-link active" href="/signal.html" aria-current="page">Signal</a>
-        <a class="nav-link" href="/shield.html">Shield</a>
-        <a class="nav-link" href="/pricing.html">Pricing</a>
-        <a class="nav-link" href="/resources.html">Resources</a>
-      </nav>
-
-      <button class="theme-toggle" type="button" id="themeToggle" aria-label="Toggle theme">
-        ◐ Theme
-      </button>
-    </div>
-  </header>
 
   <main id="main" class="container">
     <section class="hero" aria-label="Signal intro">
@@ -963,45 +979,6 @@ Where would each disagree — and why?
   </footer>
 
   <script>
-    // Theme toggle: auto -> dark -> light -> auto
-    (function () {
-      const root = document.documentElement;
-      const btn = document.getElementById('themeToggle');
-
-      function getSystemTheme() {
-        return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-      }
-      function getSavedTheme() {
-        try { return localStorage.getItem('predicai_theme') || 'auto'; }
-        catch(e){ return 'auto'; }
-      }
-      function saveTheme(val){
-        try { localStorage.setItem('predicai_theme', val); } catch(e){}
-      }
-      function applyTheme(val){
-        root.setAttribute('data-theme', val);
-        const label = val === 'auto' ? ('Theme: Auto (' + getSystemTheme() + ')') : ('Theme: ' + val);
-        btn.textContent = '◐ ' + label;
-      }
-
-      const saved = getSavedTheme();
-      applyTheme(saved);
-
-      btn.addEventListener('click', () => {
-        const cur = root.getAttribute('data-theme') || 'auto';
-        const next = cur === 'auto' ? 'dark' : (cur === 'dark' ? 'light' : 'auto');
-        saveTheme(next);
-        applyTheme(next);
-      });
-
-      if (window.matchMedia) {
-        const mq = window.matchMedia('(prefers-color-scheme: light)');
-        mq.addEventListener?.('change', () => {
-          if ((root.getAttribute('data-theme') || 'auto') === 'auto') applyTheme('auto');
-        });
-      }
-    })();
-
     // MailerLite loader
     (function(w,d,e,u,f,l,n){
       w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);};
