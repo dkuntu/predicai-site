@@ -1,3 +1,6 @@
+---
+---
+
 <!DOCTYPE html>
 <html lang="en" data-theme="auto">
 <head>
@@ -591,10 +594,11 @@
   </style>
 </head>
 
-<body>
-  <a href="#main" class="skip-link">Skip to content</a>
+<!-- ✅ THIS is the explicit, correct body tag -->
+<body data-active="pricing">
+  <!-- ✅ THIS is the explicit, correct include (no fetch, no mount div) -->
+  {% include "nav.html" %}
 
-  <!-- UPDATED NAV BAR -->
   <header>
     <div class="container header-inner">
       <a href="/" class="brand" aria-label="Predicai home">
