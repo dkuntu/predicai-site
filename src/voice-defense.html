@@ -1,6 +1,6 @@
 ---
+active: shield
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +11,6 @@
   <meta name="description" content="A printable one-page protocol to reduce voice-clone scam risk: voicemail settings, safe script, and family callback rules. Includes evidence-based SMS verification guidance." />
   <meta name="robots" content="noindex, nofollow" />
 
-  <!-- Canonical + Social (fine to include even with noindex) -->
   <link rel="canonical" href="https://predicai.ai/voice-defense.html" />
   <meta name="theme-color" content="#FFFFFF" />
 
@@ -22,7 +21,7 @@
   <meta property="og:image" content="https://predicai.ai/assets/img/social-share.png" />
 
   <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" href="/assets/img/logo.png" type="image/png" />
+  <link rel="icon" href="/logo.png" type="image/png" />
 
   <style>
     :root{
@@ -40,6 +39,17 @@
       --paper-bg:#ffffff;
       --border:#E5E7EB;
       --focus:#2A9195;
+
+      /* Shared Nav Tokens (Light) */
+      --nav-bg: rgba(255,255,255,0.92);
+      --nav-hover: rgba(15,23,42,0.04);
+      --nav-panel-bg: #ffffff;
+      --nav-text: #0F172A;
+      --nav-text-muted: #64748B;
+      
+      /* Issuebar Tokens */
+      --issuebar-bg: #fff;
+      --issuebar-border: #E2E8F0;
     }
 
     @page{ size: Letter; margin: 0.5in; }
@@ -61,6 +71,157 @@
     }
     .skip-link:focus{ left:12px; }
 
+    /* ===== SHARED NAV STYLES ===== */
+    .site-header{
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(10px);
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border);
+      height: 72px;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-inner{
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 14px;
+    }
+
+    .brand-nav{
+      display:flex; align-items:center; gap: 10px;
+      font-weight: 950;
+      text-decoration:none;
+      white-space: nowrap;
+      letter-spacing: -0.01em;
+      color: var(--nav-text);
+    }
+    .brand-nav img{
+      width: 26px; height: 26px;
+      border-radius: 6px;
+      object-fit: contain;
+      display:block;
+    }
+
+    .nav-toggle{
+      display:none;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--nav-text);
+      font-weight: 950;
+      cursor:pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .site-nav{
+      display:flex;
+      gap: 12px;
+      align-items:center;
+      justify-content:flex-end;
+    }
+
+    .site-nav a{
+      text-decoration:none;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--nav-text-muted);
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .site-nav a:hover{
+      background: var(--nav-hover);
+      color: var(--nav-text);
+    }
+    .site-nav a.active{
+      background: rgba(15,118,110,0.08);
+      border-color: rgba(15,118,110,0.2);
+      color: #0F766E;
+    }
+
+    /* Menus */
+    .menu{ position: relative; display:inline-flex; align-items:center; }
+    .menu-btn{
+      display:inline-flex; align-items:center; gap: 8px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--nav-text-muted);
+      font-weight: 900;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .menu-btn:hover{ color: var(--nav-text); background: var(--nav-hover); }
+    .menu.open .menu-btn{ color: var(--nav-text); }
+
+    .menu-panel{
+      position:absolute; top: calc(100% + 10px); right: 0;
+      min-width: 200px;
+      padding: 8px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--nav-panel-bg);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      display:none;
+      z-index: 100;
+    }
+    .menu-panel a{
+      display:flex; width:100%; padding: 10px;
+      border-radius: 8px; font-weight: 900; font-size: 0.9rem;
+      color: var(--nav-text);
+    }
+    .menu.open .menu-panel{ display:block; }
+
+    @media (max-width: 860px){
+      .nav-toggle{ display:inline-flex; }
+      .site-nav{
+        position: absolute; top: 80px; left: 18px; right: 18px;
+        background: var(--nav-panel-bg);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        display: none;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      }
+      .site-nav.open{ display:flex; }
+      .menu{ width: 100%; }
+      .menu-btn{ width: 100%; justify-content: space-between; }
+      .menu-panel{ position: static; display:none; background: transparent; border:none; box-shadow:none; padding-left: 10px; }
+      .menu.open .menu-panel{ display:block; }
+    }
+
+    /* ===== ISSUEBAR (Light Mode) ===== */
+    .issuebar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      border-bottom: 1px solid var(--issuebar-border);
+      background: var(--issuebar-bg);
+      font-size: 0.9rem;
+    }
+    .issuebar-left { display: flex; align-items: center; gap: 10px; }
+    .issuebar-mark { width: 10px; height: 10px; background: var(--accent-gold); border-radius: 50%; display: inline-block; }
+    .issuebar-title { font-weight: 700; color: var(--text-dark); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; }
+    .issuebar-links { display: flex; gap: 16px; }
+    .chip { text-decoration: none; color: var(--text-sub); font-weight: 600; font-size: 0.85rem; transition: color 0.2s; }
+    .chip:hover { color: var(--accent-gold); }
+
+    /* ===== PAGE CONTENT ===== */
     .page-wrap{ padding:40px 16px; }
 
     .sheet{
@@ -79,7 +240,7 @@
       border-radius:10px;
     }
 
-    .header{
+    .header-sheet{
       border-bottom:2px solid var(--text-dark);
       padding-bottom:20px;
       margin-bottom:30px;
@@ -91,8 +252,8 @@
     }
 
     .brand-block{ display:flex; align-items:center; gap:12px; }
-    .brand{ font-size:1.4rem; font-weight:900; letter-spacing:-0.02em; }
-    .brand span{ color:var(--accent-gold); }
+    .brand-sheet{ font-size:1.4rem; font-weight:900; letter-spacing:-0.02em; }
+    .brand-sheet span{ color:var(--accent-gold); }
     .meta{
       text-align:right;
       font-size:0.75rem;
@@ -401,35 +562,35 @@
     }
 
     @media print{
+      .site-header, .issuebar, .footer-links, .nav-toggle { display:none !important; }
       body{ background:#fff; }
       .page-wrap{ padding:0; }
       .sheet{ box-shadow:none; border:none; padding:0; }
-      .footer-links{ display:none; }
     }
   </style>
 </head>
 
-<body data-active="voice-defense">
+<body data-active="shield">
   {% include "nav.html" %}
 
   <div class="issuebar" aria-label="Shield Voice Defense navigation">
-  <div class="issuebar-left">
-    <span class="issuebar-mark" aria-hidden="true"></span>
-    <div class="issuebar-title">Predicai Shield • Voice Defense</div>
+    <div class="issuebar-left">
+      <span class="issuebar-mark" aria-hidden="true"></span>
+      <div class="issuebar-title">Predicai Shield • Voice Defense</div>
+    </div>
+    <div class="issuebar-links">
+      <a class="chip" href="/shield.html">← Back to Shield</a>
+      <a class="chip" href="/resources.html">Resources</a>
+    </div>
   </div>
-  <div class="issuebar-links">
-    <a class="chip" href="/shield.html">← Back to Shield</a>
-    <a class="chip" href="/resources.html">Resources</a>
-  </div>
-</div>
 
   <main id="content" class="page-wrap" role="main">
     <div class="sheet">
 
-      <div class="header">
+      <div class="header-sheet">
         <div class="brand-block">
           <img src="/predicai-shield-gold.JPG" alt="Predicai Shield logo" class="logo-img">
-          <div class="brand">Predicai Shield<span>™</span></div>
+          <div class="brand-sheet">Predicai Shield<span>™</span></div>
         </div>
         <div class="meta">Briefing: 003<br>Voice Defense</div>
       </div>
