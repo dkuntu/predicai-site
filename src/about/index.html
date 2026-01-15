@@ -1,6 +1,6 @@
 ---
+active: about
 ---
-
 <!DOCTYPE html>
 <html lang="en" data-theme="auto">
 <head>
@@ -11,20 +11,17 @@
 
   <meta name="description" content="Predicai helps people think clearly in the AI age. Better judgment for work. Better protection for families." />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://predicai.ai/about/" />
   <meta property="og:title" content="About Predicai – Better Judgment in the AI Age" />
   <meta property="og:description" content="Predicai helps people think clearly in the AI age. Better judgment for work. Better protection for families." />
   <meta property="og:image" content="https://predicai.ai/social-share.png" />
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="About Predicai – Better Judgment in the AI Age" />
   <meta name="twitter:description" content="Predicai helps people think clearly in the AI age. Better judgment for work. Better protection for families." />
   <meta name="twitter:image" content="https://predicai.ai/social-share.png" />
 
-  <!-- Theme color: JS will keep this in sync with selected theme -->
   <meta name="theme-color" content="#FFFFFF" id="themeColorMeta" />
 
   <meta name="robots" content="index, follow" />
@@ -573,8 +570,8 @@
   </style>
 </head>
 
-<body data-active="about">
-  {% include "nav.html" %}
+<body data-active="{{ page.active }}">
+  {% include nav.html %}
 
   <main id="main" class="wrap" tabindex="-1">
     <section class="hero">
