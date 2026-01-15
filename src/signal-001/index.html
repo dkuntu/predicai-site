@@ -22,9 +22,9 @@ active: signal
   <meta property="og:type" content="article">
   <meta property="og:title" content="The most useful AI update this week wasn’t a new model">
   <meta property="og:description" content="Stop relying on AI summaries. Use tools that catch disagreement before you act.">
-  <meta property="og:url" content="https://predicai.ai/signal-001.html">
-  <meta property="og:image" content="https://predicai.ai/signal/assets/og/issue-001.png">
-  <meta property="og:image:alt" content="Predicai Signal Issue 001">
+  <meta property="og:url" content="https://predicai.ai/signal-001-stop-generative-summaries.html">
+  <meta property="og:image" content="https://predicai.ai/signal/assets/og/issue-001-stop-ai-summaries.png">
+  <meta property="og:image:alt" content="Predicai Signal Issue 001: Stop relying on AI summaries">
 
   <style>
     :root{
@@ -59,12 +59,16 @@ active: signal
 
       --maxw: 720px;
 
+      /* Section scaffolding */
       --sectionBg: color-mix(in srgb, var(--panel) 88%, var(--statusBg));
       --sectionBorder: var(--border);
       --sectionShadow: var(--shadow);
       --sectionPad: 18px;
 
+      /* Podcast sizing (smaller ~60%) */
       --podcastDesktopMax: 320px;
+
+      /* Micro typography helpers */
       --tight: 1.55;
     }
 
@@ -98,6 +102,7 @@ active: signal
         --terminalText:#E2E8F0;
 
         --shadow: 0 12px 18px rgba(2,6,23,.10);
+
         --sectionBg: color-mix(in srgb, var(--panel) 92%, var(--statusBg));
       }
     }
@@ -131,6 +136,7 @@ active: signal
       --terminalText:#E2E8F0;
 
       --shadow: 0 12px 18px rgba(2,6,23,.10);
+
       --sectionBg: color-mix(in srgb, var(--panel) 92%, var(--statusBg));
     }
 
@@ -202,7 +208,7 @@ active: signal
       position: relative;
     }
 
-    /* Issue Subnav */
+    /* Issue Subnav (kept “Signal editorial” feel) */
     .issuebar{
       display:flex;
       align-items:center;
@@ -326,7 +332,7 @@ active: signal
     .backtotop:hover{ text-decoration:none; }
     .arrow{ font-size: 14px; line-height: 1; }
 
-    /* Signal Specific Styles */
+    /* Your existing styles below remain unchanged */
     .signal-hero{
       border: 1px solid var(--border);
       border-radius: 16px;
@@ -359,7 +365,16 @@ active: signal
       .signal-hero:before{ animation:none; }
     }
 
-    .brand-title{
+    .signal-row{
+      display:flex;
+      align-items:flex-start;
+      justify-content: space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .brand{
       font-size: 22px;
       font-weight: 950;
       letter-spacing: -0.03em;
@@ -374,6 +389,35 @@ active: signal
       max-width: 64ch;
       line-height: var(--tight);
     }
+    .hero-badges{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      align-items:flex-start;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--panel) 85%, var(--statusBg));
+      font-weight: 950;
+      font-size: 12px;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .badge .dot{
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22C55E;
+      display:inline-block;
+      flex: 0 0 auto;
+    }
+
     .hero-actions{
       margin-top: 12px;
       display:flex;
@@ -404,6 +448,66 @@ active: signal
       border: 1px solid var(--border);
     }
 
+    .status-bar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      font-size: 11px;
+      color: var(--muted2);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      background: var(--statusBg);
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin: 14px 0 12px;
+    }
+    .status-item{ display:flex; align-items:center; gap:6px; }
+    .status-date{ color: var(--muted); }
+
+    .toc{
+      margin-top: 10px;
+      padding: 12px 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: color-mix(in srgb, var(--panel) 88%, var(--statusBg));
+    }
+    .toc-title{
+      margin:0 0 8px;
+      color: var(--textStrong);
+      font-weight: 950;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .toc-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      line-height: 1.2;
+    }
+    .toc a{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      font-weight: 950;
+      font-size: 12px;
+      text-decoration:none;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .toc a:hover{
+      box-shadow: var(--shadow);
+      text-decoration:none;
+      transform: translateY(-1px);
+    }
+    .toc a span{ color: var(--muted2); font-weight: 950; }
+
     .section{
       margin-top: 18px;
       padding: var(--sectionPad);
@@ -433,6 +537,13 @@ active: signal
       box-shadow: 0 0 0 4px color-mix(in srgb, var(--teal) 16%, transparent);
       flex:0 0 auto;
     }
+    .hnum{
+      color: var(--muted2);
+      font-weight: 950;
+      letter-spacing: .08em;
+      font-size: 12px;
+    }
+
     p{
       margin: 0 0 16px 0;
       font-size: 16px;
@@ -441,6 +552,360 @@ active: signal
     }
     ul{ margin: 0 0 18px 0; padding-left: 20px; }
     li{ margin-bottom: 8px; color: color-mix(in srgb, var(--text) 92%, transparent); line-height: var(--tight); }
+
+    /* Callouts */
+    .callout{
+      background: var(--calloutBg);
+      border-left: 4px solid var(--calloutBar);
+      padding: 18px;
+      border-radius: 14px;
+      margin: 18px 0 16px;
+      border: 1px solid var(--border);
+    }
+    .callout-label{
+      font-size: 11px;
+      color: var(--teal);
+      text-transform: uppercase;
+      font-weight: 950;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      display:block;
+    }
+
+    .vignette{
+      margin: 16px 0 18px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: color-mix(in srgb, var(--panel) 86%, var(--calloutBg));
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .vignette strong{ color: var(--textStrong); }
+
+    .decision-rule{
+      background: var(--warnBg);
+      border: 1px solid var(--warnBorder);
+      padding: 16px;
+      border-left: 4px solid var(--warnBar);
+      border-radius: 14px;
+      margin: 18px 0 0;
+    }
+    .rule-title{
+      color: var(--warnTitle);
+      font-size: 12px;
+      font-weight: 950;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display:block;
+      letter-spacing: .08em;
+    }
+    .rule-text{
+      font-size: 16.2px;
+      font-weight: 800;
+      color: var(--warnText);
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    .translator{
+      margin: 14px 0 0;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: color-mix(in srgb, var(--panel) 86%, var(--statusBg));
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.55;
+    }
+    .translator b{
+      color: var(--textStrong);
+      font-weight: 950;
+    }
+
+    /* Terminal prompt */
+    .terminal-window{
+      background: var(--terminalBg);
+      border: 1px solid var(--terminalBorder);
+      border-radius: 14px;
+      overflow:hidden;
+      margin: 18px 0 18px;
+      box-shadow: var(--shadow);
+    }
+    .terminal-header{
+      background: var(--terminalTop);
+      padding: 8px 12px;
+      display:flex;
+      gap:6px;
+      border-bottom: 1px solid var(--terminalBorder);
+    }
+    .t-dot{ width: 10px; height: 10px; border-radius: 50%; background: #475569; }
+    .t-dot.red{ background:#EF4444; }
+    .t-dot.yellow{ background:#F59E0B; }
+    .t-dot.green{ background:#22C55E; }
+    .terminal-body{
+      padding: 16px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      font-size: 14px;
+      color: var(--terminalText);
+      line-height: 1.55;
+      white-space: pre-wrap;
+    }
+
+    /* Quick self-check */
+    .capability-cta{
+      margin: 14px 0 0;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: color-mix(in srgb, var(--panel) 86%, var(--calloutBg));
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      flex-wrap:wrap;
+    }
+    .capability-cta h3{
+      margin:0 0 6px;
+      color: var(--textStrong);
+      font-weight: 950;
+      letter-spacing: -0.02em;
+      font-size: 15px;
+      width: 100%;
+    }
+    .capability-cta p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.6;
+      max-width: 66ch;
+    }
+    .capability-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+      width: 100%;
+    }
+    .btn.small{
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    /* Cards */
+    .cards{
+      margin: 8px 0 0;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .mini-card{
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+      background: color-mix(in srgb, var(--panel) 90%, var(--statusBg));
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .mini-card:hover{
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+    }
+    .mini-title{
+      margin:0 0 8px;
+      color: var(--textStrong);
+      font-weight: 950;
+      letter-spacing: -0.02em;
+      font-size: 15px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .pilltag{
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: transparent;
+    }
+    .mini-card p{
+      margin: 0 0 10px;
+      font-size: 14.9px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .mini-card ul{
+      margin: 0;
+      padding-left: 18px;
+    }
+    .mini-card li{
+      margin: 6px 0;
+      color: color-mix(in srgb, var(--text) 88%, transparent);
+      font-size: 15px;
+    }
+
+    /* Field notes */
+    .field-notes{
+      margin-top: 8px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: color-mix(in srgb, var(--panel) 88%, var(--calloutBg));
+    }
+    .field-notes h3{
+      margin:0 0 8px;
+      color: var(--textStrong);
+      font-weight: 950;
+      letter-spacing: -0.02em;
+      font-size: 15px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .field-notes .sub{
+      margin:0 0 12px;
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.6;
+      max-width: 70ch;
+    }
+    .note{
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      background: color-mix(in srgb, var(--panel) 90%, var(--statusBg));
+      margin-top: 10px;
+    }
+    .note-top{
+      display:flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom: 6px;
+    }
+    .note-top b{
+      color: var(--textStrong);
+      font-weight: 950;
+    }
+    .note-top span{
+      color: var(--muted2);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .note p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14.8px;
+      line-height: 1.6;
+    }
+
+    /* Figures */
+    figure{
+      margin: 14px 0 18px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: color-mix(in srgb, var(--panel) 90%, var(--statusBg));
+      box-shadow: var(--shadow);
+    }
+    figure img{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--panel) 85%, var(--statusBg));
+    }
+    figcaption{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+
+    /* Smaller podcast figure */
+    .podcast-figure{
+      max-width: var(--podcastDesktopMax);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .podcast-figure img{
+      width: 100%;
+    }
+
+    @media (max-width: 560px){
+      .topbar{ flex-direction: column; align-items:flex-start; }
+      .theme-toggle{ justify-content:flex-start; }
+      .sitebar{ flex-direction: column; align-items:flex-start; }
+      .sitebar-links{ justify-content:flex-start; }
+      .hero-badges{ justify-content:flex-start; }
+
+      .podcast-figure{ max-width: 420px; }
+    }
+
+    /* Footer */
+    .footer{
+      margin-top: 26px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      font-size: 12.5px;
+      color: var(--muted2);
+      text-align:center;
+    }
+    .footer a{
+      color: var(--muted2);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+    .footer-lede{
+      margin: 10px auto 0;
+      max-width: 56ch;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    /* Back to top */
+    .backtotop{
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 50;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--panel) 80%, var(--statusBg));
+      color: var(--text);
+      font-weight: 950;
+      font-size: 12px;
+      text-decoration:none;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity .18s ease, transform .18s ease;
+      backdrop-filter: blur(8px);
+    }
+    .backtotop.show{
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .backtotop:hover{ text-decoration:none; }
+    .arrow{ font-size: 14px; line-height: 1; }
   </style>
 </head>
 
@@ -478,22 +943,506 @@ active: signal
     </div>
 
     <section class="signal-hero" aria-label="Predicai Signal header">
-        <div class="brand-title">Predicai Signal</div>
-        <p class="hero-sub">
-            Issue 001 • The "Decision Protocol" update.
-        </p>
-        <div class="hero-actions">
-            <a href="#subscribe" class="btn">Subscribe</a>
-            <a href="/signal-archive.html" class="btn secondary">Archive</a>
+      <div class="signal-row">
+        <div>
+          <div class="brand">Predicai Signal™</div>
+
+          <p class="hero-sub">
+            Signal is a short note that drops when there’s something worth acting on.
+            No background required. No hype. Just one clear idea you can use.
+            <br><br>
+            You won’t hear from us every day.
+          </p>
         </div>
+
+        <div class="hero-badges" aria-label="Issue badges">
+          <div class="badge"><span class="dot" aria-hidden="true"></span> SIGNAL LOCKED</div>
+          <div class="badge">Issue 001</div>
+          <div class="badge">Read: 4 min</div>
+        </div>
+      </div>
+
+      <div class="hero-actions" aria-label="Primary actions">
+        <a
+          class="btn"
+          href="https://predicai.ai/signal?utm_source=predicai_signal&utm_medium=editorial&utm_campaign=signal_001&utm_content=hero_subscribe"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-outbound="predicai_signal"
+          data-section="hero"
+        >Subscribe</a>
+
+        <a
+          class="btn secondary"
+          href="https://tally.so/r/gDqj8l?What+are+you+sending+us=General+Feedback"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-outbound="email_feedback"
+          data-section="hero"
+        >Send feedback</a>
+      </div>
+
+      <div class="status-bar" aria-label="Issue status">
+        <div class="status-item"><span>//</span><span class="status-date">Week Ending: JAN 09</span></div>
+        <div class="status-item"><span>//</span><span class="status-date">Drop: JAN 10, 2026</span></div>
+        <div class="status-item"><span>//</span><span class="status-date">Format: Archive Preview</span></div>
+      </div>
+
+      <div class="toc" aria-label="Table of contents">
+        <div class="toc-title">Jump to</div>
+        <div class="toc-links">
+          <a href="#short"><span>01</span> Short version</a>
+          <a href="#changed"><span>02</span> What changed</a>
+          <a href="#tested"><span>03</span> What I tried</a>
+          <a href="#move"><span>04</span> One small thing</a>
+          <a href="#outside"><span>05</span> AI outside chat</a>
+          <a href="#notes"><span>06</span> Field notes</a>
+          <a href="#watch"><span>07</span> Worth watching</a>
+          <a href="#send"><span>08</span> Send Signal</a>
+        </div>
+      </div>
     </section>
 
-    <div class="section">
-        <h2><span class="hbar"></span><span class="hnum">01</span> Intro</h2>
-        <p>This placeholder text is where your newsletter content lives. Replace this block with your actual Issue 001 HTML content.</p>
-    </div>
+    <section class="section" id="short" aria-label="The short version">
+      <h2><span class="hbar" aria-hidden="true"></span><span class="hnum">01</span> The short version</h2>
 
-    </div>
+      <div class="callout">
+        <span class="callout-label">If you only read one thing</span>
+
+        <p style="margin-top:0; font-size: 18px;">
+          <strong>Don’t trust AI summaries by default.</strong>
+        </p>
+
+        <p>
+          They can sound smooth and confident — and still miss the part that matters most:
+          where people actually disagree.
+        </p>
+
+        <p style="margin-bottom:0;">
+          <strong>Try this instead:</strong><br>
+          Use tools that help you <em>review</em> information — not just rewrite it.
+          NotebookLM is especially helpful when you ask it to point out gaps, tension, and missing steps.
+        </p>
+      </div>
+
+      <div class="vignette">
+        This is the pattern we keep seeing:<br>
+        Someone shares a clean AI summary. Everyone nods.<br>
+        Then later someone says, <strong>“Wait… that’s not what I meant.”</strong><br><br>
+        That’s not an AI problem. That’s a review problem.
+      </div>
+
+      <p>
+        This week’s “held up” update wasn’t about speed.
+        It was about <strong>catching mistakes early</strong>, when they are still easy to fix.
+      </p>
+
+      <div class="decision-rule">
+        <span class="rule-title">Quick rule</span>
+        <p class="rule-text">
+          If a tool can’t show where people might disagree, don’t use it for important decisions.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="changed" aria-label="What actually changed">
+      <h2><span class="hbar" aria-hidden="true"></span><span class="hnum">02</span> What actually changed</h2>
+
+      <p>
+        <strong>
+          <a
+            href="https://notebooklm.google.com/?utm_source=predicai_signal&utm_medium=editorial&utm_campaign=signal_001&utm_content=changed_notebooklm"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-outbound="notebooklm"
+            data-section="changed"
+          >NotebookLM</a>
+          got more useful in a quiet way.
+        </strong>
+        Not in a flashy “look what I can do” way — in the kind of way that helps you make better calls when it counts.
+      </p>
+
+      <p>
+        The practical difference: it’s less about “give me a summary,” and more about
+        “show me what I might be missing.”
+      </p>
+
+      <ul>
+        <li><strong>Concrete detail:</strong> ask for contradictions, missing steps, and weak assumptions — not a prettier rewrite.</li>
+        <li><strong>What it replaces:</strong> the moment when a polished summary makes everyone relax too soon.</li>
+        <li><strong>So what:</strong> you reduce surprises later because the hard parts show up earlier.</li>
+        <li><strong>Skeptic line:</strong> if your sources are weak, the review will be weak. The tool can’t create truth — it can only reflect what you gave it.</li>
+      </ul>
+
+      <figure aria-label="NotebookLM screenshot from iPad">
+        <img
+          src="/notebooklm-interface.jpg"
+          alt="NotebookLM reviewing a document with citations and structured notes"
+          loading="lazy">
+        <figcaption>
+          <strong>Screenshot from my iPad:</strong> the value isn’t the summary — it’s the review.
+          This is where disagreements and gaps show up early.
+        </figcaption>
+      </figure>
+
+      <div class="translator">
+        <b>Plain-English translation:</b><br>
+        “Alignment tax” = the frustration you deal with later because nobody slowed down earlier.
+      </div>
+    </section>
+
+    <section class="section" id="tested" aria-label="What I tried">
+      <h2><span class="hbar" aria-hidden="true"></span><span class="hnum">03</span> What I tried</h2>
+
+      <p>
+        I put early <strong>Predicai Academy</strong> curriculum drafts through a review process that imitates real life:
+        the same document, read by people who carry different fears and responsibilities.
+      </p>
+
+      <ul>
+        <li><strong>Viewpoint 1:</strong> someone who has been burned before (skeptical, protective).</li>
+        <li><strong>Viewpoint 2:</strong> someone brand new (smart, but not fluent in the language).</li>
+        <li><strong>Viewpoint 3:</strong> someone who gets blamed if it goes wrong (risk-focused).</li>
+      </ul>
+
+      <p><strong>What held up</strong></p>
+      <ul>
+        <li><strong>Tone problems surfaced fast.</strong> Not “rewrite it better” — “this sentence sounds like a promise you can’t keep.”</li>
+        <li><strong>Order problems surfaced faster.</strong> It showed where we skipped a step that beginners actually need.</li>
+        <li><strong>Cutting got easier.</strong> Anything that didn’t help someone act stood out immediately.</li>
+      </ul>
+
+      <p><strong>What still needs a human</strong></p>
+      <ul>
+        <li><strong>Defining what “good” means.</strong> If you don’t say what success looks like, the critique can drift.</li>
+      </ul>
+
+      <p><strong>What surprised me</strong></p>
+      <ul>
+        <li>The beginner lens was the toughest — and the most valuable. It found missing steps instantly.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="move" aria-label="One small thing to try">
+      <h2><span class="hbar" aria-hidden="true"></span><span class="hnum">04</span> One small thing to try</h2>
+
+      <p>
+        If you do nothing else this week, add one “review move” before you send something out or make a call.
+        Think of it like a seatbelt: simple, quick, and it can save you from a big mistake.
+      </p>
+
+      <div class="terminal-window" aria-label="Copy/paste prompt">
+        <div class="terminal-header">
+          <div class="t-dot red"></div>
+          <div class="t-dot yellow"></div>
+          <div class="t-dot green"></div>
+        </div>
+        <div class="terminal-body">Read this from three different points of view.
+Where would they disagree?
+What would each person worry about?</div>
+      </div>
+
+      <ul>
+        <li><strong>So what:</strong> disagreement isn’t failure — it’s an early warning system.</li>
+        <li><strong>Now what:</strong> use the prompt above and force three truly different viewpoints.</li>
+        <li><strong>Skeptic line:</strong> if all three responses agree politely, you didn’t create a real lens. Add stakes. Make the roles sharper.</li>
+      </ul>
+
+      <div class="capability-cta" aria-label="Quick self-check callout">
+        <h3>Quick self-check (2 minutes)</h3>
+        <p>Want a baseline? This is the fastest one we’ve got. No prep.</p>
+        <div class="capability-actions">
+          <a
+            class="btn small"
+            href="https://predicai.ai/capability?utm_source=predicai_signal&utm_medium=editorial&utm_campaign=signal_001&utm_content=move_capability"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-outbound="predicai_capability"
+            data-section="move"
+          >Get my score →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="outside" aria-label="AI outside the chat box">
+      <h2><span class="hbar" aria-hidden="true"></span><span class="hnum">05</span> AI outside the chat box</h2>
+
+      <p>
+        A quick note for anyone who doesn’t follow tech news: CES is the big annual event where companies show
+        what they believe the next year of consumer technology will look like.
+      </p>
+
+      <p>
+        This year, the real signal wasn’t “a better chatbot.”
+        It was AI moving into the background — inside buttons, simple controls, and tools that reduce steps in everyday life.
+      </p>
+
+      <div class="cards" aria-label="AI outside the chat box cards">
+        <div class="mini-card">
+          <div class="mini-title">
+            The quiet CES story: fewer steps between “I should” and “I did”
+            <span class="pilltag">CES</span>
+          </div>
+          <p>
+            The most convincing demos didn’t feel dramatic. They felt honest.
+            They solved a simple human problem: getting stuck between a thought and the follow-through.
+          </p>
+          <ul>
+            <li><strong>Concrete detail:</strong> quick actions that pull the right context, draft the follow-up, and set up the next step.</li>
+            <li><strong>What it replaces:</strong> re-reading threads, switching tabs, and rebuilding context every time you come back.</li>
+            <li><strong>So what:</strong> most people don’t adopt “AI.” They adopt what makes life simpler.</li>
+            <li><strong>Now what:</strong> choose one message you send every week. Save it as a template. Add one “review move” before you send it.</li>
+            <li><strong>Skeptic line:</strong> if it turns your message into confident filler, it will waste time faster. Keep only what makes it clearer.</li>
+          </ul>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-title">
+            Wearables are shifting from tracking to guiding
+            <span class="pilltag">Trend</span>
+          </div>
+          <p>
+            We’ve spent years collecting numbers.
+            The next promise is different: don’t just tell me what happened — help me choose what to do next.
+          </p>
+          <ul>
+            <li><strong>Concrete detail:</strong> “take a 2-minute reset” can beat “here’s your stress score,” if it arrives at the right moment.</li>
+            <li><strong>What it replaces:</strong> dashboards that look impressive but don’t change behavior.</li>
+            <li><strong>So what:</strong> the real product becomes timing + clarity, not data alone.</li>
+            <li><strong>Now what:</strong> replace one metric obsession with one action rule for a week: “If X, then Y.”</li>
+            <li><strong>Skeptic line:</strong> guidance becomes nagging fast. If it increases guilt more than outcomes, turn it off.</li>
+          </ul>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-title">
+            Small physical controls can change habits faster than apps
+            <span class="pilltag">Practical</span>
+          </div>
+          <p>
+            Sometimes the “AI story” isn’t AI at all.
+            It’s a tiny object that reduces friction: a button, a dial, a single shortcut.
+          </p>
+          <ul>
+            <li><strong>Concrete detail:</strong> one-action controls that start a task instantly (capture, record, save, send).</li>
+            <li><strong>What it replaces:</strong> the 30 seconds of setup that quietly kills momentum.</li>
+            <li><strong>So what:</strong> behavior grows when the first step is easy.</li>
+            <li><strong>Now what:</strong> create your own “button” this week: a pinned note, a saved template, a single home-screen link.</li>
+            <li><strong>Skeptic line:</strong> shortcuts can make you sloppy. Pair every shortcut with one review habit.</li>
+          </ul>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-title">
+            The real upgrade is clearer instructions, not more tools
+            <span class="pilltag">Signal</span>
+          </div>
+          <p>
+            The best “smart” products are quietly doing the same thing:
+            they guide behavior and make it easier to catch mistakes early.
+          </p>
+          <ul>
+            <li><strong>Concrete detail:</strong> the tool asks one clarifying question before acting, instead of guessing.</li>
+            <li><strong>What it replaces:</strong> “AI said so” moments where nobody can explain why.</li>
+            <li><strong>So what:</strong> most teams don’t need more ideas. They need clearer steps and faster feedback.</li>
+            <li><strong>Now what:</strong> before using AI for an important decision, write one sentence: “This is only valid if ____.”</li>
+            <li><strong>Skeptic line:</strong> if it can’t show its work, it’s entertainment — not something you should rely on.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="translator">
+        <b>Plain-English translation:</b><br>
+        “AI outside the chat box” = tools that change behavior without making you learn new software.
+      </div>
+    </section>
+
+    <section class="section" id="notes" aria-label="Field notes">
+      <h2><span class="hbar" aria-hidden="true"></span><span class="hnum">06</span> Field notes</h2>
+
+      <div class="field-notes" aria-label="Field notes and community feedback loop">
+        <h3>Predicai Field Notes <span class="pilltag">Community loop</span></h3>
+        <p class="sub">
+          This is the part that keeps Signal honest.
+          Send a tool, a workflow, or a “this failed hard” story. We’ll try to learn from it and report back.
+        </p>
+
+        <div class="hero-actions" style="margin-top:14px;">
+          <a
+            class="btn secondary"
+            href="https://tally.so/r/gDqj8l?What+are+you+sending+us=Field+Note"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-outbound="email_field_notes"
+            data-section="notes"
+          >Send a Field Note</a>
+
+          <a
+            class="btn"
+            href="https://predicai.ai/signal?utm_source=predicai_signal&utm_medium=editorial&utm_campaign=signal_001&utm_content=notes_subscribe"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-outbound="predicai_signal"
+            data-section="notes"
+          >Subscribe</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="watch" aria-label="Worth watching">
+      <h2><span class="hbar" aria-hidden="true"></span><span class="hnum">07</span> Worth watching</h2>
+
+      <figure class="podcast-figure" aria-label="Podcast screenshot from iPhone">
+        <img
+          src="/podcast-cover.PNG"
+          alt="The Brave Technologist podcast screenshot"
+          loading="lazy">
+        <figcaption>
+          <strong>Screenshot from my iPhone:</strong> The Brave Technologist — Episode E102.
+          The theme that fits this issue: “sounds right” is not “stress-tested.”
+        </figcaption>
+      </figure>
+
+      <div class="cards" aria-label="Worth watching cards">
+        <div class="mini-card">
+          <div class="mini-title">
+            One listen that matches the lesson
+            <span class="pilltag">Podcast</span>
+          </div>
+          <p>
+            This isn’t homework. It’s reinforcement.
+            The value is the reminder that risk shows up when people stop verifying and start trusting the feeling of confidence.
+          </p>
+          <ul>
+            <li><strong>Concrete detail:</strong> the important part isn’t the scare story. It’s the pattern: confidence replacing checking.</li>
+            <li><strong>So what:</strong> if your process has no place for disagreement, you will pay later.</li>
+            <li><strong>Now what:</strong> add one “where could I be wrong?” step to your next write-up.</li>
+            <li><strong>Skeptic line:</strong> don’t turn podcast wisdom into policy. Convert it into a small test you can run this week.</li>
+            <li>
+              <a
+                href="https://brave.com/podcast/e102/?utm_source=predicai_signal&utm_medium=editorial&utm_campaign=signal_001&utm_content=watch_brave_podcast"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-outbound="brave_podcast_e102"
+                data-section="watch"
+              >Listen →</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-title">
+            A thing to watch this quarter: “one-step” products
+            <span class="pilltag">Watch</span>
+          </div>
+          <p>
+            The next winners may not call themselves “AI companies.”
+            They will feel like this: fewer steps, fewer mistakes, less friction.
+          </p>
+          <ul>
+            <li><strong>Concrete detail:</strong> tools that reduce steps without asking you to manage yet another system.</li>
+            <li><strong>So what:</strong> ease beats novelty when you’re trying to change habits at scale.</li>
+            <li><strong>Now what:</strong> when you evaluate a tool, ask: does it reduce steps, or does it create a new place to manage?</li>
+            <li><strong>Skeptic line:</strong> shortcuts without guardrails create faster mistakes. Require “show your work” for anything important.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="translator" style="margin-top:14px;">
+        <b>Signal editorial rule:</b><br>
+        We don’t cover every release. We cover changes only when they hold up in real work —
+        and only when you can test or fix something immediately.
+      </div>
+    </section>
+
+    <section class="section" id="send" aria-label="Send Signal">
+      <h2><span class="hbar" aria-hidden="true"></span><span class="hnum">08</span> Send Signal</h2>
+
+      <p style="margin-bottom:10px;">
+        Have a tool, a workflow, or a failure mode you want us to try to break?
+        Send it. If it holds up, it may show up in a future issue.
+      </p>
+      <div class="hero-actions" style="margin-top:0;">
+        <a
+          class="btn"
+          href="https://tally.so/r/gDqj8l?What+are+you+sending+us=Signal+Tip"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-outbound="email_signal_submission"
+          data-section="send"
+        >Email a tip</a>
+
+        <a
+          class="btn secondary"
+          href="https://predicai.ai/signal?utm_source=predicai_signal&utm_medium=editorial&utm_campaign=signal_001&utm_content=send_subscribe"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-outbound="predicai_signal"
+          data-section="send"
+        >Subscribe</a>
+      </div>
+
+      <div class="footer">
+        <p style="font-size:16px; color:var(--textStrong); font-weight:950; letter-spacing:-0.02em; margin:0;">PREDICAI</p>
+
+        <p class="footer-lede">
+          Predictive enablement for an AI world.<br>
+          Not “more prompts.” Better decisions, fewer reversals, and real foresight — built through review moves that hold up under pressure.
+        </p>
+
+        <p style="margin:16px 0 0; font-size:13px; color:var(--muted);">
+          Signal is the note that drops when there’s something worth acting on. Academy builds capability. Shield protects families.
+        </p>
+
+        <p style="margin:14px 0 12px;">
+          <a
+            href="https://predicai.ai/?utm_source=predicai_signal&utm_medium=editorial&utm_campaign=signal_001&utm_content=footer_home"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-outbound="predicai_home"
+            data-section="footer"
+          >Home</a> &nbsp;|&nbsp;
+
+          <a
+            href="https://predicai.ai/signal?utm_source=predicai_signal&utm_medium=editorial&utm_campaign=signal_001&utm_content=footer_signal"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-outbound="predicai_signal"
+            data-section="footer"
+          >Signal</a> &nbsp;|&nbsp;
+
+          <a
+            href="https://predicai.ai/signal-archive.html?utm_source=predicai_signal&utm_medium=editorial&utm_campaign=signal_001&utm_content=footer_archive"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-outbound="predicai_archive"
+            data-section="footer"
+          >Archive</a> &nbsp;|&nbsp;
+
+          <a
+            href="https://predicai.ai/academy.html?utm_source=predicai_signal&utm_medium=editorial&utm_campaign=signal_001&utm_content=footer_academy"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-outbound="predicai_academy"
+            data-section="footer"
+          >Academy</a> &nbsp;|&nbsp;
+
+          <a
+            href="https://predicai.ai/shield.html?utm_source=predicai_signal&utm_medium=editorial&utm_campaign=signal_001&utm_content=footer_shield"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-outbound="predicai_shield"
+            data-section="footer"
+          >Shield</a>
+        </p>
+
+        <p style="margin-top:16px;">
+          This is an archive page. Email delivery + preferences are managed via MailerLite.
+        </p>
+      </div>
+    </section>
+
+  </div>
 
   <script>
     (function(){
@@ -534,6 +1483,13 @@ active: signal
         };
 
         console.log("Signal outbound click:", payload);
+
+        // Later option:
+        // fetch("/analytics/outbound", {
+        //   method: "POST",
+        //   headers: { "Content-Type": "application/json" },
+        //   body: JSON.stringify(payload)
+        // });
       });
     })();
   </script>
