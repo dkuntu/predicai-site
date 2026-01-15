@@ -1,4 +1,7 @@
-ji<!DOCTYPE html>
+---
+---
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -303,7 +306,22 @@ ji<!DOCTYPE html>
   </style>
 </head>
 
-<body>
+<body data-active="shield">
+  {% include "nav.html" %}
+
+  <main id ="main">
+    
+  <div class="issuebar" aria-label="Shield Download navigation">
+  <div class="issuebar-left">
+    <span class="issuebar-mark" aria-hidden="true"></span>
+    <div class="issuebar-title">Predicai Shield • Download</div>
+  </div>
+  <div class="issuebar-links">
+    <a class="chip" href="/shield.html">← Back to Shield</a>
+    <a class="chip" href="/resources.html">Resources</a>
+  </div>
+</div>
+
 
   <a href="#main" class="skip-link">Skip to content</a>
 
@@ -315,12 +333,6 @@ ji<!DOCTYPE html>
       Mobile users: Tap <strong>Share</strong> → <strong>Print</strong> to save as PDF.<br>
       <em>If the gold/black doesn't show, enable <strong>Background Graphics</strong> in print options.</em>
     </div>
-    <div style="margin-top:16px;">
-      <a href="/" style="color:white; font-size:0.9rem; text-decoration:underline;" aria-label="Return to Predicai home">
-        ← Return to Website
-      </a>
-    </div>
-  </div>
 
   <div class="page-wrap">
     <main id="main" class="sheet">
