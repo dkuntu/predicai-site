@@ -1,3 +1,6 @@
+---
+---
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -616,11 +619,10 @@
   </style>
 </head>
 
-<body>
-  <a href="#main" class="skip-link">Skip to content</a>
-
-  <!-- Shared nav injection mount -->
-  <div data-include="nav"></div>
+<!-- ✅ THIS is the explicit, correct body tag -->
+<body data-active="capability">
+  <!-- ✅ THIS is the explicit, correct include (no fetch, no mount div) -->
+  {% include "nav.html" %}
 
   <main id="main">
     <div class="container">
