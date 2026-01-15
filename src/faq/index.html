@@ -1,6 +1,6 @@
 ---
+active: faq
 ---
-
 <!DOCTYPE html>
 <html lang="en" data-theme="auto">
 <head>
@@ -28,7 +28,6 @@
   <meta name="theme-color" content="#FFFFFF" />
   <meta name="robots" content="index, follow" />
 
-  <!-- Favicons -->
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/logo.png" type="image/png" />
 
@@ -527,37 +526,8 @@
   </style>
 </head>
 
-<body>
-  <a href="#main" class="skip-link">Skip to content</a>
-
-  <header>
-    <div class="container header-inner">
-      <a href="/" class="brand" aria-label="Predicai home">
-        <img src="/logo.png" alt="Predicai logo" />
-        <span>Predic<span style="color: var(--teal-deep)">ai</span>&trade;</span>
-      </a>
-
-      <div class="nav-wrap">
-        <!-- UPDATED NAV BAR -->
-        <nav aria-label="Primary navigation">
-          <a href="/">Home</a>
-          <a href="/about.html">About</a>
-          <a href="/academy.html">Academy</a>
-          <a href="/shield.html">Shield</a>
-          <a href="/signal.html">Signal</a>
-          <a href="/resources.html">Resources</a>
-          <a href="/faq.html" class="active" aria-current="page">FAQ</a>
-        </nav>
-
-        <button class="theme-toggle" type="button" id="themeToggle" aria-label="Toggle theme">
-          ◐ Theme
-        </button>
-      </div>
-    </div>
-  </header>
-  
-<body data-active="faq">
-  {% include "nav.html" %}
+<body data-active="{{ page.active }}">
+  {% include nav.html %}
 
   <main class="container" id="main" tabindex="-1">
     <h1>Frequently Asked Questions</h1>
@@ -573,7 +543,6 @@
       <a href="#privacy">Privacy</a>
     </div>
 
-    <!-- Academy -->
     <section class="faq-group" id="academy" aria-label="Academy FAQs">
       <div class="faq-label">Academy</div>
 
@@ -604,7 +573,6 @@
       </details>
     </section>
 
-    <!-- Accelerator -->
     <section class="faq-group" id="accelerator" aria-label="Accelerator FAQs">
       <div class="faq-label">Academy vs Accelerator</div>
 
@@ -635,7 +603,6 @@
       </details>
     </section>
 
-    <!-- Signal -->
     <section class="faq-group" id="signal" aria-label="Signal FAQs">
       <div class="faq-label">Signal</div>
 
@@ -709,7 +676,6 @@
       </details>
     </section>
 
-    <!-- Shield -->
     <section class="faq-group" id="shield" aria-label="Shield FAQs">
       <div class="faq-label">Shield</div>
 
@@ -738,7 +704,6 @@
       </details>
     </section>
 
-    <!-- Privacy -->
     <section class="faq-group" id="privacy" aria-label="Privacy FAQs">
       <div class="faq-label">Privacy</div>
 
@@ -794,7 +759,6 @@
       <a href="/privacy.html">Privacy</a>
     </div>
 
-    <!-- Optional: keep Pricing reachable without putting it in the main nav -->
     <div style="margin-top: 10px; font-size: 0.88rem; opacity: 0.92;">
       <a href="/pricing.html">Pricing</a>
       <a href="/signal-archive.html">Signal Archive</a>
@@ -824,18 +788,20 @@
       function applyTheme(val){
         root.setAttribute('data-theme', val);
         const label = val === 'auto' ? ('Theme: Auto (' + getSystemTheme() + ')') : ('Theme: ' + val);
-        btn.textContent = '◐ ' + label;
+        if(btn) btn.textContent = '◐ ' + label;
       }
 
       const saved = getSavedTheme();
       applyTheme(saved);
 
-      btn.addEventListener('click', () => {
-        const cur = root.getAttribute('data-theme') || 'auto';
-        const next = cur === 'auto' ? 'dark' : (cur === 'dark' ? 'light' : 'auto');
-        saveTheme(next);
-        applyTheme(next);
-      });
+      if(btn) {
+        btn.addEventListener('click', () => {
+          const cur = root.getAttribute('data-theme') || 'auto';
+          const next = cur === 'auto' ? 'dark' : (cur === 'dark' ? 'light' : 'auto');
+          saveTheme(next);
+          applyTheme(next);
+        });
+      }
 
       if (window.matchMedia) {
         const mq = window.matchMedia('(prefers-color-scheme: light)');
