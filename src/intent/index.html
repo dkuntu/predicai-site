@@ -1,8 +1,8 @@
 ---
+active: academy
 ---
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -54,6 +54,23 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
+
+    /* ISSUEBAR (Added to support your top bar) */
+    .issuebar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      border-bottom: 1px solid var(--border);
+      background: #fff;
+      font-size: 0.9rem;
+    }
+    .issuebar-left { display: flex; align-items: center; gap: 10px; }
+    .issuebar-mark { width: 10px; height: 10px; background: var(--accent-teal); border-radius: 50%; display: inline-block; }
+    .issuebar-title { font-weight: 700; color: var(--text-ink); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; }
+    .issuebar-links { display: flex; gap: 16px; }
+    .chip { text-decoration: none; color: var(--text-sub); font-weight: 600; font-size: 0.85rem; transition: color 0.2s; }
+    .chip:hover { color: var(--accent-teal); }
 
     .container { max-width: 800px; margin: 0 auto; padding: 60px 24px; }
 
@@ -120,25 +137,27 @@
       .comparison-grid, .use-grid { grid-template-columns: 1fr; }
       h1 { font-size: 2rem; }
       .container { padding: 40px 20px; }
+      .issuebar { flex-direction: column; gap: 10px; }
     }
   </style>
 </head>
   
-<body data-active="intent">
-  {% include "nav.html" %}
+<body data-active="{{ page.active }}">
+  {% include nav.html %}
 
-  <div class="issuebar" aria-label="Intent Protocol">
-  <div class="issuebar-left">
-    <span class="issuebar-mark" aria-hidden="true"></span>
-    <div class="issuebar-title">Predicai Academy • Intent Protocol</div>
+  <div class="issuebar" aria-label="Intent Protocol Navigation">
+    <div class="issuebar-left">
+      <span class="issuebar-mark" aria-hidden="true"></span>
+      <div class="issuebar-title">Predicai Academy • Intent Protocol</div>
+    </div>
+    <div class="issuebar-links">
+      <a class="chip" href="/academy.html">← Back to Academy</a>
+      <a class="chip" href="/resources.html">Resources</a>
+    </div>
   </div>
-  <div class="issuebar-links">
-    <a class="chip" href="/academy.html">← Back to Academy</a>
-    <a class="chip" href="/resources.html">Resources</a>
-  </div>
-</div>
 
-
+  <div class="container">
+    <header>
       <span class="brand">Predicai Academy™ | Level 1</span>
       <h1>The Intent Protocol</h1>
       <div class="subtitle">The cure for generic AI output. Build intent before you prompt.</div>
