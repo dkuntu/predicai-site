@@ -1,3 +1,6 @@
+---
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -406,8 +409,19 @@
   </style>
 </head>
 
-<body>
-  <a class="skip-link" href="#content">Skip to content</a>
+<body data-active="voice-defense">
+  {% include "nav.html" %}
+
+  <div class="issuebar" aria-label="Shield Voice Defense navigation">
+  <div class="issuebar-left">
+    <span class="issuebar-mark" aria-hidden="true"></span>
+    <div class="issuebar-title">Predicai Shield • Voice Defense</div>
+  </div>
+  <div class="issuebar-links">
+    <a class="chip" href="/shield.html">← Back to Shield</a>
+    <a class="chip" href="/resources.html">Resources</a>
+  </div>
+</div>
 
   <main id="content" class="page-wrap" role="main">
     <div class="sheet">
