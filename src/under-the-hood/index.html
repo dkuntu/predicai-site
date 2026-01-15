@@ -1,6 +1,6 @@
 ---
+active: academy
 ---
-
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -26,7 +26,6 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Prevent theme flash (apply saved theme before CSS) -->
   <script>
     (function () {
       const storedTheme = localStorage.getItem('predicai-theme');
@@ -54,9 +53,17 @@
 
       --shadow:0 30px 80px rgba(0,0,0,0.55);
 
-      --header-bg: rgba(5,10,16,0.72);
+      /* Nav Tokens */
+      --nav-bg: rgba(5,10,16,0.85);
       --nav-hover: rgba(255,255,255,0.08);
-      --nav-link: rgba(255,255,255,0.74);
+      --nav-panel-bg: #111318;
+      --nav-text: #F8FAFC;
+      --nav-text-muted: #94A3B8;
+      
+      /* Issuebar */
+      --issuebar-bg: #050A10;
+      --issuebar-border: rgba(255,255,255,0.12);
+      
       --focus: rgba(42,145,149,0.40);
     }
 
@@ -71,15 +78,23 @@
       --text:#020617;
       --muted:#475569;
 
-      --teal:#2A9195; /* keep brand teal consistent */
+      --teal:#2A9195;
       --gold:#B45309;
       --gold2:#9A3412;
 
       --shadow:0 26px 70px rgba(2,6,23,0.12);
 
-      --header-bg: rgba(248,250,252,0.85);
+      /* Nav Tokens */
+      --nav-bg: rgba(248,250,252,0.92);
       --nav-hover: rgba(2,6,23,0.04);
-      --nav-link: rgba(11,18,32,0.70);
+      --nav-panel-bg: #ffffff;
+      --nav-text: #020617;
+      --nav-text-muted: #475569;
+      
+      /* Issuebar */
+      --issuebar-bg: #F8FAFC;
+      --issuebar-border: rgba(2,6,23,0.12);
+      
       --focus: rgba(42,145,149,0.35);
     }
 
@@ -129,27 +144,24 @@
 
     a{ color:inherit; text-decoration:none; }
 
-    /* ===========================
-       UPDATED STANDARD NAV (TOP)
-       =========================== */
-    header{
-      position: sticky;
-      top: 0;
-      z-index: 80;
-      background: var(--header-bg);
+    /* ===== SHARED NAV STYLES (Required for include) ===== */
+    .site-header{
+      position: sticky; top:0; z-index:50;
+      height: 72px;
+      display:flex; align-items:center;
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
+      background: var(--nav-bg);
     }
 
     .header-inner{
       width:min(1100px, 100%);
       margin:0 auto;
-      padding:14px 18px;
+      padding:0 24px;
       display:flex;
-      justify-content: space-between;
+      justify-content:space-between;
       align-items:center;
       gap:14px;
-      flex-wrap:wrap;
     }
 
     .brand{
@@ -159,6 +171,8 @@
       font-weight:900;
       letter-spacing:-0.02em;
       white-space:nowrap;
+      color: var(--nav-text);
+      text-decoration: none;
     }
     .brand img{
       width:26px; height:26px;
@@ -172,80 +186,125 @@
       border:1px solid rgba(0,0,0,0.06);
     }
 
-    .nav-wrap{
-      display:flex;
+    .nav-toggle{
+      display:none;
       align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-
-    nav{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-    nav a{
-      color: var(--nav-link);
-      font-size:0.95rem;
-      font-weight:800;
-      padding:8px 10px;
-      border-radius:12px;
-      border:1px solid transparent;
-      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
-      -webkit-tap-highlight-color: transparent;
-      white-space:nowrap;
-    }
-    nav a:hover{
-      color: var(--text);
-      background: var(--nav-hover);
-      border-color: rgba(148,163,184,0.22);
-      transform: translateY(-1px);
-    }
-    nav a.active,
-    nav a[aria-current="page"]{
-      color: var(--text);
-      background: rgba(42,145,149,0.16);
-      border-color: rgba(42,145,149,0.28);
-      font-weight:900;
-      transform:none;
-    }
-
-    /* Theme toggle (match nav styling) */
-    .theme-toggle{
-      background: transparent;
-      border:1px solid var(--border);
-      color: var(--nav-link);
-      padding:8px 10px;
-      border-radius:12px;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--nav-text);
+      font-weight: 950;
       cursor:pointer;
-      font-size:0.95rem;
-      font-weight:800;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      user-select:none;
-      white-space:nowrap;
-      transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease, color 0.15s ease;
       -webkit-tap-highlight-color: transparent;
     }
-    .theme-toggle:hover{
-      background: var(--nav-hover);
-      border-color: rgba(148,163,184,0.22);
-      color: var(--text);
-      transform: translateY(-1px);
+
+    .site-nav{
+      display:flex;
+      gap: 12px;
+      align-items:center;
+      justify-content:flex-end;
     }
-    .theme-toggle .sun, .theme-toggle .moon{ display:none; }
-    :root[data-theme="dark"] .theme-toggle .sun{ display:inline; }
-    :root[data-theme="light"] .theme-toggle .moon{ display:inline; }
+
+    .site-nav a{
+      text-decoration:none;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--nav-text-muted);
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .site-nav a:hover{
+      background: var(--nav-hover);
+      color: var(--nav-text);
+    }
+    .site-nav a.active{
+      background: rgba(42,145,149,0.14);
+      border-color: rgba(42,145,149,0.24);
+      color: var(--nav-text);
+    }
+
+    .menu{ position: relative; display:inline-flex; align-items:center; }
+    .menu-btn{
+      display:inline-flex; align-items:center; gap: 8px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--nav-text-muted);
+      font-weight: 900;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .menu-btn:hover{ color: var(--nav-text); background: var(--nav-hover); }
+    .menu.open .menu-btn{ color: var(--nav-text); }
+
+    .menu-panel{
+      position:absolute; top: calc(100% + 10px); right: 0;
+      min-width: 200px;
+      padding: 8px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--nav-panel-bg);
+      box-shadow: var(--shadow);
+      display:none;
+      z-index: 100;
+    }
+    .menu-panel a{
+      display:flex; width:100%; padding: 10px;
+      border-radius: 8px; font-weight: 900; font-size: 0.9rem;
+      color: var(--nav-text);
+    }
+    .menu.open .menu-panel{ display:block; }
+
+    @media (max-width: 860px){
+      .nav-toggle{ display:inline-flex; }
+      .site-nav{
+        position: absolute; top: 80px; left: 18px; right: 18px;
+        background: var(--nav-panel-bg);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        display: none;
+        box-shadow: var(--shadow);
+      }
+      .site-nav.open{ display:flex; }
+      .menu{ width: 100%; }
+      .menu-btn{ width: 100%; justify-content: space-between; }
+      .menu-panel{ position: static; display:none; background: transparent; border:none; box-shadow:none; padding-left: 10px; }
+      .menu.open .menu-panel{ display:block; }
+    }
+
+    /* ===== ISSUEBAR ===== */
+    .issuebar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      border-bottom: 1px solid var(--issuebar-border);
+      background: var(--issuebar-bg);
+      font-size: 0.9rem;
+      width: min(1100px, 100%);
+      margin: 0 auto 24px;
+    }
+    .issuebar-left { display: flex; align-items: center; gap: 10px; }
+    .issuebar-mark { width: 10px; height: 10px; background: var(--teal); border-radius: 50%; display: inline-block; }
+    .issuebar-title { font-weight: 700; color: var(--text); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; }
+    .issuebar-links { display: flex; gap: 16px; }
+    .chip { text-decoration: none; color: var(--muted); font-weight: 600; font-size: 0.85rem; transition: color 0.2s; }
+    .chip:hover { color: var(--teal); }
 
     /* Page Layout */
     .wrap{
       width:min(1100px, 100%);
       margin:0 auto;
-      padding:56px 24px 96px;
+      padding: 0 24px 96px;
     }
 
     .frame{
@@ -317,7 +376,7 @@
 
     .rule{
       height:1px;
-      background:linear-gradient(90deg, transparent, var(--line), transparent);
+      background:linear-gradient(9deg, transparent, var(--line), transparent);
       margin:18px 0 22px;
     }
 
@@ -511,7 +570,7 @@
 
     .bottomLine{
       height:1px;
-      background:linear-gradient(90deg, transparent, var(--line), transparent);
+      background:linear-gradient(9deg, transparent, var(--line), transparent);
       margin:22px 0 18px;
     }
 
@@ -552,19 +611,19 @@
   </style>
 </head>
 
-<body data-active="under-the-hood">
+<body data-active="{{ page.active }}">
   {% include "nav.html" %}
 
- <div class="issuebar" aria-label="Under The Hood navigation">
-  <div class="issuebar-left">
-    <span class="issuebar-mark" aria-hidden="true"></span>
-    <div class="issuebar-title">Predicai • Under The Hood </div>
+  <div class="issuebar" aria-label="Under The Hood navigation">
+    <div class="issuebar-left">
+      <span class="issuebar-mark" aria-hidden="true"></span>
+      <div class="issuebar-title">Predicai • Under The Hood </div>
+    </div>
+    <div class="issuebar-links">
+      <a class="chip" href="/academy.html">← Back to Academy</a>
+      <a class="chip" href="/resources.html">Resources</a>
+    </div>
   </div>
-  <div class="issuebar-links">
-    <a class="chip" href="/academy.html">← Back to Academy</a>
-    <a class="chip" href="/resources.html">Resources</a>
-  </div>
-</div>
 
   <main id="main">
     <div class="wrap">
@@ -579,8 +638,6 @@
                 Not a claim of partnership or endorsement. A transparent acknowledgment of the systems behind the work.
               </div>
             </div>
-
-            <!-- (removed the old theme toggle here to avoid duplicates) -->
           </div>
 
           <div class="rule"></div>
@@ -660,7 +717,6 @@
           <div class="sealWrap">
             <div class="headline">Predicai isn’t a prompt. It’s a system.</div>
 
-            <!-- Replace this SVG with your under-the-hood.png if you prefer -->
             <svg class="seal" viewBox="0 0 520 520" role="img" aria-label="Predicai system seal">
               <defs>
                 <radialGradient id="g" cx="50%" cy="35%" r="70%">
@@ -680,66 +736,4 @@
               <text x="420" y="185" text-anchor="middle" font-size="18" font-weight="700" fill="rgba(248,250,252,0.78)">Workflow</text>
               <text x="420" y="345" text-anchor="middle" font-size="18" font-weight="700" fill="rgba(248,250,252,0.78)">Knowledge</text>
               <text x="260" y="455" text-anchor="middle" font-size="18" font-weight="700" fill="rgba(248,250,252,0.78)">Guardrails</text>
-              <text x="100" y="345" text-anchor="middle" font-size="18" font-weight="700" fill="rgba(248,250,252,0.78)">Delivery</text>
-
-              <g stroke="rgba(255,255,255,0.08)" stroke-width="3">
-                <line x1="260" y1="50" x2="260" y2="100"/>
-                <line x1="470" y1="260" x2="420" y2="260"/>
-                <line x1="260" y1="470" x2="260" y2="420"/>
-                <line x1="50" y1="260" x2="100" y2="260"/>
-                <line x1="400" y1="120" x2="365" y2="155"/>
-                <line x1="400" y1="400" x2="365" y2="365"/>
-                <line x1="120" y1="400" x2="155" y2="365"/>
-                <line x1="120" y1="120" x2="155" y2="155"/>
-              </g>
-            </svg>
-
-            <div class="sub">Built, tested, and maintained across real tools.</div>
-          </div>
-
-          <div class="bottomLine"></div>
-
-          <div class="ack">
-            Predicai is built using a mix of modern AI platforms, automation tools, infrastructure providers, and open-source components.
-            <br/><br/>
-            This is not a claim of partnership or endorsement—only a transparent acknowledgment of the systems that make the work possible.
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <script>
-    (function () {
-      const root = document.documentElement;
-      const toggle = document.querySelector('.theme-toggle');
-
-      const storedTheme = localStorage.getItem('predicai-theme');
-      const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-      if (storedTheme) {
-        root.setAttribute('data-theme', storedTheme);
-      } else {
-        root.setAttribute('data-theme', systemPrefersDark ? 'dark' : 'light');
-      }
-
-      const themeMeta = document.querySelector('meta[name="theme-color"]');
-      function syncThemeColor(){
-        const t = root.getAttribute('data-theme');
-        if (!themeMeta) return;
-        themeMeta.setAttribute('content', t === 'dark' ? '#050A10' : '#F8FAFC');
-      }
-      syncThemeColor();
-
-      toggle.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme');
-        const next = current === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', next);
-        localStorage.setItem('predicai-theme', next);
-        syncThemeColor();
-      });
-    })();
-  </script>
-</body>
-</html>
+              <text x="100" y="345" text-anchor="middle" font-size="18" font-weight="70
