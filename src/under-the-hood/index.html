@@ -736,4 +736,60 @@ active: academy
               <text x="420" y="185" text-anchor="middle" font-size="18" font-weight="700" fill="rgba(248,250,252,0.78)">Workflow</text>
               <text x="420" y="345" text-anchor="middle" font-size="18" font-weight="700" fill="rgba(248,250,252,0.78)">Knowledge</text>
               <text x="260" y="455" text-anchor="middle" font-size="18" font-weight="700" fill="rgba(248,250,252,0.78)">Guardrails</text>
-              <text x="100" y="345" text-anchor="middle" font-size="18" font-weight="70
+              <text x="100" y="345" text-anchor="middle" font-size="18" font-weight="700" fill="rgba(248,250,252,0.78)">Delivery</text>
+
+              <g stroke="rgba(255,255,255,0.08)" stroke-width="3">
+                <line x1="260" y1="50" x2="260" y2="100"/>
+                <line x1="470" y1="260" x2="420" y2="260"/>
+                <line x1="260" y1="470" x2="260" y2="420"/>
+                <line x1="50" y1="260" x2="100" y2="260"/>
+                <line x1="400" y1="120" x2="365" y2="155"/>
+                <line x1="400" y1="400" x2="365" y2="365"/>
+                <line x1="120" y1="400" x2="155" y2="365"/>
+                <line x1="120" y1="120" x2="155" y2="155"/>
+              </g>
+            </svg>
+
+            <div class="sub">Built, tested, and maintained across real tools.</div>
+          </div>
+
+          <div class="bottomLine"></div>
+
+          <div class="ack">
+            Predicai is built using a mix of modern AI platforms, automation tools, infrastructure providers, and open-source components.
+            <br/><br/>
+            This is not a claim of partnership or endorsement—only a transparent acknowledgment of the systems that make the work possible.
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      
+      const storedTheme = localStorage.getItem('predicai-theme');
+      const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (storedTheme) {
+        root.setAttribute('data-theme', storedTheme);
+      } else {
+        root.setAttribute('data-theme', systemPrefersDark ? 'dark' : 'light');
+      }
+
+      const themeMeta = document.querySelector('meta[name="theme-color"]');
+      function syncThemeColor(){
+        const t = root.getAttribute('data-theme');
+        if (!themeMeta) return;
+        themeMeta.setAttribute('content', t === 'dark' ? '#050A10' : '#F8FAFC');
+      }
+      syncThemeColor();
+      
+      // Note: toggle logic is handled inside nav.html if present, 
+      // but we leave this here just in case specific page logic is needed
+    })();
+  </script>
+</body>
+</html>
