@@ -27,6 +27,9 @@ active: signal
   <meta property="og:image:alt" content="Predicai Signal Issue 001: Stop relying on AI summaries">
 
   <style>
+    /* ============================
+       1. GLOBAL & NAV STYLES
+       ============================ */
     :root{
       --bg: #050A10;
       --panel: #050A10;
@@ -65,11 +68,20 @@ active: signal
       --sectionShadow: var(--shadow);
       --sectionPad: 18px;
 
-      /* Podcast sizing (smaller ~60%) */
+      /* Podcast sizing */
       --podcastDesktopMax: 320px;
-
-      /* Micro typography helpers */
       --tight: 1.55;
+
+      /* Shared Nav Tokens (Dark Default) */
+      --nav-bg: rgba(11,18,32,0.85);
+      --nav-hover: rgba(255,255,255,0.08);
+      --nav-panel-bg: #111318;
+      --nav-text: #fff;
+      --nav-text-muted: rgba(255,255,255,0.7);
+      
+      /* Issuebar Tokens */
+      --issuebar-bg: #050A10;
+      --issuebar-border: #1E293B;
     }
 
     @media (prefers-color-scheme: light){
@@ -102,8 +114,17 @@ active: signal
         --terminalText:#E2E8F0;
 
         --shadow: 0 12px 18px rgba(2,6,23,.10);
-
         --sectionBg: color-mix(in srgb, var(--panel) 92%, var(--statusBg));
+
+        /* Nav Light */
+        --nav-bg: rgba(255,255,255,0.92);
+        --nav-hover: rgba(15,23,42,0.04);
+        --nav-panel-bg: #ffffff;
+        --nav-text: #0F172A;
+        --nav-text-muted: #64748B;
+        
+        --issuebar-bg: #F8FAFC;
+        --issuebar-border: #E2E8F0;
       }
     }
 
@@ -114,30 +135,32 @@ active: signal
       --textStrong:#0B1220;
       --muted:#475569;
       --muted2:#64748B;
-
       --border:#E2E8F0;
       --statusBg:#F1F5F9;
-
       --teal:#0F766E;
       --tealHover:#0F766E;
-
       --calloutBg:#F1F5F9;
       --calloutBar:#0F766E;
-
       --warnBg:#FFF7ED;
       --warnBorder:#FED7AA;
       --warnBar:#CA8A04;
       --warnTitle:#92400E;
       --warnText:#0B1220;
-
       --terminalBg:#0B1220;
       --terminalBorder:#E2E8F0;
       --terminalTop:#F1F5F9;
       --terminalText:#E2E8F0;
-
       --shadow: 0 12px 18px rgba(2,6,23,.10);
-
       --sectionBg: color-mix(in srgb, var(--panel) 92%, var(--statusBg));
+      
+      --nav-bg: rgba(255,255,255,0.92);
+      --nav-hover: rgba(15,23,42,0.04);
+      --nav-panel-bg: #ffffff;
+      --nav-text: #0F172A;
+      --nav-text-muted: #64748B;
+      
+      --issuebar-bg: #F8FAFC;
+      --issuebar-border: #E2E8F0;
     }
 
     html[data-theme="dark"]{
@@ -147,29 +170,32 @@ active: signal
       --textStrong:#F8FAFC;
       --muted:#94A3B8;
       --muted2:#64748B;
-
       --teal:#2A9195;
       --tealHover:#5EEAD4;
-
       --border:#1E293B;
       --statusBg:#0B121E;
-
       --calloutBg:#0F172A;
       --calloutBar:#2A9195;
-
       --warnBg:#1C1502;
       --warnBorder:#422006;
       --warnBar:#CA8A04;
       --warnTitle:#FACC15;
       --warnText:#FEFCE8;
-
       --terminalBg:#020408;
       --terminalBorder:#334155;
       --terminalTop:#1E293B;
       --terminalText:#A5F3FC;
-
       --shadow: 0 12px 22px rgba(0,0,0,.45);
       --sectionBg: color-mix(in srgb, var(--panel) 88%, var(--statusBg));
+      
+      --nav-bg: rgba(11,18,32,0.85);
+      --nav-hover: rgba(255,255,255,0.08);
+      --nav-panel-bg: #111318;
+      --nav-text: #fff;
+      --nav-text-muted: rgba(255,255,255,0.7);
+      
+      --issuebar-bg: #050A10;
+      --issuebar-border: #1E293B;
     }
 
     *{ box-sizing:border-box; }
@@ -189,17 +215,147 @@ active: signal
     a:hover{ text-decoration: underline; color: var(--tealHover); }
     strong{ color: var(--textStrong); font-weight: 780; }
 
-    .preheader{
-      display:none;
-      font-size:1px;
-      color:transparent;
-      line-height:1px;
-      max-height:0;
-      max-width:0;
-      opacity:0;
-      overflow:hidden;
+    /* ===== NAVIGATION STYLES (REQUIRED FOR INCLUDE) ===== */
+    .skip-link{
+      position:absolute; left:-9999px; top:10px; z-index:9999;
+      background:#fff; color:#000; padding:10px 14px;
+      border-radius:10px; font-weight:900; text-decoration:none;
+    }
+    .skip-link:focus{ left:12px; }
+
+    .site-header{
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(10px);
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border);
+      height: 72px;
+      display: flex;
+      align-items: center;
     }
 
+    .header-inner{
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 18px;
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 14px;
+    }
+
+    .brand{
+      display:flex; align-items:center; gap: 10px;
+      font-weight: 950;
+      text-decoration:none;
+      white-space: nowrap;
+      letter-spacing: -0.01em;
+      color: var(--nav-text);
+    }
+    .brand img{
+      width: 26px; height: 26px;
+      border-radius: 6px;
+      object-fit: contain;
+      display:block;
+    }
+
+    .nav-toggle{
+      display:none;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--nav-text);
+      font-weight: 950;
+      cursor:pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .site-nav{
+      display:flex;
+      gap: 12px;
+      align-items:center;
+      justify-content:flex-end;
+    }
+
+    .site-nav a{
+      text-decoration:none;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--nav-text-muted);
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .site-nav a:hover{
+      background: var(--nav-hover);
+      color: var(--nav-text);
+    }
+    .site-nav a.active{
+      background: rgba(42,145,149,0.14);
+      border-color: rgba(42,145,149,0.24);
+      color: var(--nav-text);
+    }
+
+    /* Menus */
+    .menu{ position: relative; display:inline-flex; align-items:center; }
+    .menu-btn{
+      display:inline-flex; align-items:center; gap: 8px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--nav-text-muted);
+      font-weight: 900;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .menu-btn:hover{ color: var(--nav-text); background: var(--nav-hover); }
+    .menu.open .menu-btn{ color: var(--nav-text); }
+
+    .menu-panel{
+      position:absolute; top: calc(100% + 10px); right: 0;
+      min-width: 200px;
+      padding: 8px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--nav-panel-bg);
+      box-shadow: var(--shadow);
+      display:none;
+      z-index: 100;
+    }
+    .menu-panel a{
+      display:flex; width:100%; padding: 10px;
+      border-radius: 8px; font-weight: 900; font-size: 0.9rem;
+      color: var(--nav-text);
+    }
+    .menu.open .menu-panel{ display:block; }
+
+    @media (max-width: 860px){
+      .nav-toggle{ display:inline-flex; }
+      .site-nav{
+        position: absolute; top: 80px; left: 18px; right: 18px;
+        background: var(--nav-panel-bg);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        display: none;
+        box-shadow: var(--shadow);
+      }
+      .site-nav.open{ display:flex; }
+      .menu{ width: 100%; }
+      .menu-btn{ width: 100%; justify-content: space-between; }
+      .menu-panel{ position: static; display:none; background: transparent; border:none; box-shadow:none; padding-left: 10px; }
+      .menu.open .menu-panel{ display:block; }
+    }
+
+    /* ===== PAGE LAYOUT ===== */
     .container{
       max-width: var(--maxw);
       margin: 0 auto;
@@ -208,7 +364,7 @@ active: signal
       position: relative;
     }
 
-    /* Issue Subnav (kept “Signal editorial” feel) */
+    /* Issue Subnav */
     .issuebar{
       display:flex;
       align-items:center;
@@ -216,6 +372,7 @@ active: signal
       gap:12px;
       padding: 10px 0 14px;
       border-bottom: 1px solid var(--border);
+      background: var(--issuebar-bg);
       margin-bottom: 14px;
     }
     .issuebar-left{
@@ -332,7 +489,7 @@ active: signal
     .backtotop:hover{ text-decoration:none; }
     .arrow{ font-size: 14px; line-height: 1; }
 
-    /* Your existing styles below remain unchanged */
+    /* Signal Specific Styles */
     .signal-hero{
       border: 1px solid var(--border);
       border-radius: 16px;
@@ -374,7 +531,7 @@ active: signal
       position: relative;
       z-index: 1;
     }
-    .brand{
+    .brand-title{
       font-size: 22px;
       font-weight: 950;
       letter-spacing: -0.03em;
@@ -846,10 +1003,7 @@ active: signal
     @media (max-width: 560px){
       .topbar{ flex-direction: column; align-items:flex-start; }
       .theme-toggle{ justify-content:flex-start; }
-      .sitebar{ flex-direction: column; align-items:flex-start; }
-      .sitebar-links{ justify-content:flex-start; }
-      .hero-badges{ justify-content:flex-start; }
-
+      
       .podcast-figure{ max-width: 420px; }
     }
 
@@ -874,45 +1028,13 @@ active: signal
       font-size: 13px;
       line-height: 1.65;
     }
-
-    /* Back to top */
-    .backtotop{
-      position: fixed;
-      right: 16px;
-      bottom: 16px;
-      z-index: 50;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: color-mix(in srgb, var(--panel) 80%, var(--statusBg));
-      color: var(--text);
-      font-weight: 950;
-      font-size: 12px;
-      text-decoration:none;
-      box-shadow: var(--shadow);
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(6px);
-      transition: opacity .18s ease, transform .18s ease;
-      backdrop-filter: blur(8px);
-    }
-    .backtotop.show{
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-    .backtotop:hover{ text-decoration:none; }
-    .arrow{ font-size: 14px; line-height: 1; }
   </style>
 </head>
 
 <body data-active="{{ page.active }}" id="top">
   <div class="preheader">A short note that drops when there’s something worth acting on.</div>
 
-  {% include nav.html %}
+  {% include "nav.html" %}
 
   <a class="backtotop" href="#top" aria-label="Back to top">
     <span class="arrow">↑</span> Top
@@ -945,8 +1067,7 @@ active: signal
     <section class="signal-hero" aria-label="Predicai Signal header">
       <div class="signal-row">
         <div>
-          <div class="brand">Predicai Signal™</div>
-
+          <div class="brand-title">Predicai Signal™</div>
           <p class="hero-sub">
             Signal is a short note that drops when there’s something worth acting on.
             No background required. No hype. Just one clear idea you can use.
@@ -1329,23 +1450,6 @@ What would each person worry about?</div>
             </li>
           </ul>
         </div>
-
-        <div class="mini-card">
-          <div class="mini-title">
-            A thing to watch this quarter: “one-step” products
-            <span class="pilltag">Watch</span>
-          </div>
-          <p>
-            The next winners may not call themselves “AI companies.”
-            They will feel like this: fewer steps, fewer mistakes, less friction.
-          </p>
-          <ul>
-            <li><strong>Concrete detail:</strong> tools that reduce steps without asking you to manage yet another system.</li>
-            <li><strong>So what:</strong> ease beats novelty when you’re trying to change habits at scale.</li>
-            <li><strong>Now what:</strong> when you evaluate a tool, ask: does it reduce steps, or does it create a new place to manage?</li>
-            <li><strong>Skeptic line:</strong> shortcuts without guardrails create faster mistakes. Require “show your work” for anything important.</li>
-          </ul>
-        </div>
       </div>
 
       <div class="translator" style="margin-top:14px;">
@@ -1483,13 +1587,6 @@ What would each person worry about?</div>
         };
 
         console.log("Signal outbound click:", payload);
-
-        // Later option:
-        // fetch("/analytics/outbound", {
-        //   method: "POST",
-        //   headers: { "Content-Type": "application/json" },
-        //   body: JSON.stringify(payload)
-        // });
       });
     })();
   </script>
