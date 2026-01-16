@@ -142,7 +142,22 @@ active: home
 </head>
 
 <body data-active="home">
-  {% include "nav.html" %}
+  
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="/" class="brand">
+        <img src="/logo.png" alt="Predicai Logo" style="height:28px;width:auto;">
+        Predicai™
+      </a>
+      <nav class="site-nav">
+        <a href="/academy/">Academy</a>
+        <a href="/shield/">Shield</a>
+        <a href="/shield-desk/">Shield Desk</a>
+        <a href="/resources/">Resources</a>
+        <a href="/pricing/">Pricing</a>
+      </nav>
+    </div>
+  </header>
 
   <main id="main">
     <section class="hero container" aria-label="Predicai intro">
