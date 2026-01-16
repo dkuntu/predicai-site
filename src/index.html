@@ -14,7 +14,7 @@ active: home
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
   <style>
     :root{ --bg:#0B1220; --text:#F8FAFC; --teal:#0F766E; --gold:#FFD24A; --link:#7DD3FC; --border:rgba(255,255,255,0.12); --radius:24px; }
-    body{ background:var(--bg); color:var(--text); font-family:'Inter', sans-serif; margin:0; line-height:1.6; }
+    body{ background:radial-gradient(1200px 800px at 50% -10%, rgba(29,78,216,0.15), transparent 60%), #0B1220; color:var(--text); font-family:'Inter', sans-serif; margin:0; line-height:1.6; }
     .container{ max-width:1200px; margin:0 auto; padding:0 24px; }
     
     /* NAV */
@@ -25,7 +25,6 @@ active: home
     .site-nav{ display:flex; gap:20px; }
     .site-nav a{ color:#94A3B8; text-decoration:none; font-weight:700; transition:color 0.2s; }
     .site-nav a:hover{ color:#fff; }
-    .site-nav a.active{ color:#fff; border-bottom:2px solid var(--teal); }
 
     /* HERO */
     .hero{ text-align:center; padding:92px 0 44px; }
@@ -50,7 +49,18 @@ active: home
   </style>
 </head>
 <body>
-  {% include "nav.html" %}
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="/" class="brand"><img src="/logo.png" alt="Logo"> Predicai™</a>
+      <nav class="site-nav">
+        <a href="/academy/">Academy</a>
+        <a href="/shield/">Shield</a>
+        <a href="/shield-desk/">Desk</a>
+        <a href="/pricing/">Pricing</a>
+        <a href="/resources/">Resources</a>
+      </nav>
+    </div>
+  </header>
 
   <main class="container">
     <section class="hero">

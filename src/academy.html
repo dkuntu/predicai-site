@@ -8,13 +8,13 @@ active: academy
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Predicai™ Academy – The Builder Program</title>
+  <title>Predicai™ Academy</title>
   <link rel="icon" href="/logo.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
   <style>
     :root{ --bg:#F8FAFC; --text:#0F172A; --teal:#0F766E; --border:#E2E8F0; --titanium:linear-gradient(135deg, #0F172A 0%, #111827 55%, #0B1220 100%); }
     body{ background:var(--bg); color:var(--text); font-family:'Inter', sans-serif; margin:0; line-height:1.6; }
-    .container{ max-width:1100px; margin:0 auto; padding:0 24px; }
+    .container{ max-width:1200px; margin:0 auto; padding:0 24px; }
     
     .site-header{ padding:20px 0; border-bottom:1px solid var(--border); background:rgba(255,255,255,0.95); position:sticky; top:0; z-index:100; backdrop-filter:blur(10px); }
     .header-inner{ display:flex; justify-content:space-between; align-items:center; }
@@ -26,22 +26,19 @@ active: academy
 
     .hero{ text-align:center; padding:80px 0 50px; }
     h1{ font-size:3rem; font-weight:900; margin-bottom:15px; letter-spacing:-0.02em; }
-    .btn-teal{ background:var(--teal); color:white; padding:14px 28px; border-radius:12px; font-weight:900; text-decoration:none; display:inline-block; box-shadow:0 10px 25px rgba(15,118,110,0.15); transition:transform 0.2s; }
-    .btn-teal:hover{ transform:translateY(-2px); }
-
-    .grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:24px; margin:40px auto; }
-    .card{ background:white; padding:32px; border-radius:20px; border:1px solid var(--border); box-shadow:0 10px 25px -10px rgba(0,0,0,0.05); }
-    .card h3{ margin-top:0; font-size:1.25rem; }
-
-    .offer-block{ max-width:800px; margin:80px auto; background:white; border:1px solid rgba(15,118,110,0.2); border-radius:24px; padding:50px; box-shadow:0 20px 40px -10px rgba(15,118,110,0.15); }
-    .price-tag{ font-size:3.5rem; font-weight:900; color:#0F172A; line-height:1; margin:20px 0; }
-    .price-sub{ font-size:1.1rem; color:#64748B; font-weight:500; }
+    .btn-teal{ background:var(--teal); color:white; padding:14px 24px; border-radius:12px; font-weight:900; text-decoration:none; display:inline-block; box-shadow:0 10px 25px rgba(15,118,110,0.15); }
+    
+    .grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; max-width:1000px; margin:40px auto; }
+    .card{ background:white; padding:28px; border-radius:20px; border:1px solid var(--border); box-shadow:0 10px 25px -10px rgba(0,0,0,0.05); }
+    
+    .offer-block{ max-width:800px; margin:60px auto; background:white; border:1px solid rgba(15,118,110,0.2); border-radius:24px; padding:40px; box-shadow:0 20px 40px -10px rgba(15,118,110,0.15); }
+    .price{ font-size:3rem; font-weight:900; margin:10px 0; }
     
     .module-list{ list-style:none; padding:0; margin:30px 0; text-align:left; }
     .module-list li{ padding:12px 0; border-bottom:1px solid #F1F5F9; color:#334155; display:flex; align-items:start; gap:10px; }
     .check{ color:var(--teal); font-weight:bold; }
 
-    .titanium-block{ background:var(--titanium); color:white; padding:60px; border-radius:24px; text-align:center; margin:80px auto; }
+    .titanium-block{ background:var(--titanium); color:white; padding:60px; border-radius:24px; text-align:center; margin:80px auto; max-width:960px; }
     .btn-white{ background:white; color:#0F172A; padding:14px 24px; border-radius:12px; font-weight:900; text-decoration:none; display:inline-block; }
 
     footer{ text-align:center; padding:50px 0; border-top:1px solid var(--border); margin-top:80px; color:#64748B; }
@@ -53,55 +50,36 @@ active: academy
 
   <main class="container">
     <section class="hero">
-      <span style="background:rgba(15,118,110,0.1); color:#0F766E; padding:6px 12px; border-radius:99px; font-weight:900; font-size:0.8rem; letter-spacing:0.05em;">2026 BUILDER PROGRAM</span>
+      <span style="background:rgba(15,118,110,0.1); color:#0F766E; padding:6px 12px; border-radius:99px; font-weight:900; font-size:0.8rem;">2026 BUILDER PROGRAM</span>
       <h1>Build your personal<br>operating system</h1>
-      <p style="font-size:1.2rem; color:#64748B; max-width:640px; margin:0 auto 30px;">
-        Stop chatting. Start building repeatable AI systems that hold up in real work. 
-        Move from <strong>Translator (Level 1)</strong> to <strong>Builder (Level 3)</strong>.
-      </p>
+      <p style="font-size:1.15rem; color:#64748B; max-width:600px; margin:0 auto 30px;">Stop chatting. Start building repeatable AI systems.</p>
       <a href="https://buy.stripe.com/6oU9AVdC8eWUaHX9mk5ZC01" class="btn-teal">Apply for Academy</a>
     </section>
 
     <section class="grid">
-      <div class="card">
-        <h3>🗂️ The Notion Vault</h3>
-        <p style="color:#64748B;">A complete, duplicatable workspace. Includes the Prompt Library, Project Trackers, and Context Anchors.</p>
-      </div>
-      <div class="card">
-        <h3>⚖️ The Time Ledger™</h3>
-        <p style="color:#64748B;">Audit your week using the Jagged Frontier method. Identify exactly which tasks to automate for maximum leverage.</p>
-      </div>
-      <div class="card">
-        <h3>🔍 Cai™ QC Toolkit</h3>
-        <p style="color:#64748B;">The 7 Gates of Quality. A checklist system to verify AI output for hallucinations, drift, and logic gaps.</p>
-      </div>
+      <div class="card"><h3>🗂️ Notion Vault</h3><p style="color:#64748B;">Complete workspace with protocol libraries and project trackers.</p></div>
+      <div class="card"><h3>⚖️ Time Ledger</h3><p style="color:#64748B;">Audit your week to find high-leverage automation targets.</p></div>
+      <div class="card"><h3>🔍 QC Toolkit</h3><p style="color:#64748B;">Auditor protocols to verify AI output for hallucinations.</p></div>
     </section>
 
     <section class="offer-block">
       <h2 style="margin-top:0;">Level 3 Certification</h2>
-      <div class="price-sub">One-time tuition. Lifetime access.</div>
-      <div class="price-tag">49</div>
-      
-      <a href="https://buy.stripe.com/6oU9AVdC8eWUaHX9mk5ZC01" class="btn-teal" style="display:block; text-align:center; width:100%;">Join the Cohort</a>
-
-      <div style="margin-top:40px;">
-        <h4 style="margin-bottom:10px;">What's Inside:</h4>
-        <ul class="module-list">
-          <li><span class="check">✓</span> <strong>Module 1:</strong> Stepwise Decomposition & Logic Chains</li>
-          <li><span class="check">✓</span> <strong>Module 2:</strong> Building "Context Anchors" to stop drift</li>
-          <li><span class="check">✓</span> <strong>Module 3:</strong> The 7 Gates of Quality Control</li>
-          <li><span class="check">✓</span> <strong>Capstone:</strong> Build a live system & get certified</li>
-          <li><span class="check">✓</span> <strong>Bonus:</strong> Full Notion Template Pack (Vault + Ledger)</li>
-        </ul>
-      </div>
+      <div class="price">49</div>
+      <p style="color:#64748B;">Application-only cohort. Includes full templates + lifetime access.</p>
+      <hr style="border:0; border-top:1px solid #E2E8F0; margin:20px 0;">
+      <ul class="module-list">
+        <li><span class="check">✓</span> <strong>Module 1:</strong> Stepwise Decomposition & Logic Chains</li>
+        <li><span class="check">✓</span> <strong>Module 2:</strong> Building "Context Anchors" to stop drift</li>
+        <li><span class="check">✓</span> <strong>Module 3:</strong> The 7 Gates of Quality Control</li>
+        <li><span class="check">✓</span> <strong>Capstone:</strong> Build a live system & get certified</li>
+      </ul>
+      <a href="https://buy.stripe.com/6oU9AVdC8eWUaHX9mk5ZC01" class="btn-teal" style="display:block; text-align:center; margin-top:20px;">Join the Cohort</a>
     </section>
 
     <section class="titanium-block">
       <span style="background:white; color:#0F172A; padding:4px 10px; border-radius:6px; font-weight:900; font-size:0.75rem;">FOR TEAMS</span>
       <h2 style="font-size:2.5rem; margin:15px 0;">The Accelerator</h2>
-      <p style="color:#CBD5E1; max-width:600px; margin:0 auto 30px;">
-        Need hands-on implementation? We act as your <strong>Fractional AI Officer</strong> to build governance, custom tooling, and internal training.
-      </p>
+      <p style="color:#CBD5E1; max-width:600px; margin:0 auto 30px;">We act as your Fractional AI Officer to build governance, custom tooling, and internal training.</p>
       <a href="https://calendly.com/predicai-strategy" class="btn-white">Contact for Strategy</a>
     </section>
   </main>
