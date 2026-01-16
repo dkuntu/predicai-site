@@ -15,25 +15,10 @@ active: academy
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://predicai.ai/academy/" />
 
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Predicai" />
-  <meta property="og:url" content="https://predicai.ai/academy/" />
-  <meta property="og:title" content="Predicai™ Academy – The Builder Program" />
-  <meta property="og:description" content="Move from chatting to building. Application-only cohort with one-time tuition." />
-  <meta property="og:image" content="https://predicai.ai/social-share.png" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Predicai™ Academy – The Builder Program" />
-  <meta name="twitter:description" content="Move from chatting to building. Application-only cohort with one-time tuition." />
-  <meta name="twitter:image" content="https://predicai.ai/social-share.png" />
-
-  <meta name="theme-color" content="#F8FAFC" />
-
   <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
   <link rel="icon" type="image/png" href="/favicon-32.png?v=3" sizes="32x32" />
   <link rel="icon" type="image/png" href="/favicon-16.png?v=3" sizes="16x16" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" sizes="180x180" />
-  <link rel="manifest" href="/site.webmanifest?v=3" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,35 +28,21 @@ active: academy
     :root{
       --bg-page:#F8FAFC;
       --bg-white:#FFFFFF;
-      --bg-subtle:#F3F4F6;
       --text-main:#0F172A;
       --text-muted:#64748B;
       --teal:#0F766E;
       --teal-soft: rgba(15,118,110,0.10);
       --teal-border: rgba(15,118,110,0.18);
-      --titanium: linear-gradient(135deg, #0F172A 0%, #111827 55%, #0B1220 100%);
       --border:#E2E8F0;
-      --border-strong:#CBD5E1;
       --shadow:0 10px 25px -8px rgba(0,0,0,0.12);
-      --shadow-strong:0 16px 44px -14px rgba(0,0,0,0.18);
-      --radius:18px;
-      --focus: rgba(29,78,216,0.45);
-      --container: 1200px;
-      --padX: 24px;
       --headerH: 72px;
-      --link: #1D4ED8;
-      --link-hover: #1E40AF;
-      --nav-bg: rgba(255,255,255,0.92);
-      --nav-hover: rgba(15,23,42,0.04);
-      --nav-panel-bg: rgba(255,255,255,0.96);
-      --nav-panel-item-hover: rgba(15,23,42,0.04);
     }
 
     *{ box-sizing:border-box; margin:0; padding:0; }
     html{ scroll-behavior:smooth; scroll-padding-top: var(--headerH); }
 
     body{
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      font-family: Inter, system-ui, sans-serif;
       -webkit-font-smoothing: antialiased;
       background: var(--bg-page);
       color: var(--text-main);
@@ -79,149 +50,73 @@ active: academy
       min-height: 100vh;
     }
 
-    .container{ max-width: var(--container); margin: 0 auto; padding: 0 var(--padX); }
+    .container{ max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    
+    .site-header{ background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); height: var(--headerH); display: flex; align-items: center; position: sticky; top: 0; z-index: 100; }
+    .nav-inner{ width: 100%; display: flex; justify-content: space-between; align-items: center; }
+    .brand{ font-weight: 900; text-decoration: none; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
+    .site-nav a{ text-decoration: none; color: var(--text-muted); font-weight: 800; font-size: 0.95rem; margin-left: 20px; }
 
     .hero{ text-align:center; padding: 84px 0 44px; max-width: 860px; margin: 0 auto; }
-    .kicker{ display:inline-block; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--teal-border); color: var(--teal); background: var(--teal-soft); font-weight: 900; font-size: 0.82rem; text-transform: uppercase; margin-bottom: 18px; letter-spacing: 0.06em; }
+    .kicker{ display:inline-block; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--teal-border); color: var(--teal); background: var(--teal-soft); font-weight: 900; font-size: 0.82rem; text-transform: uppercase; margin-bottom: 18px; }
     h1{ font-size: clamp(2.3rem, 4.8vw, 3.35rem); font-weight: 900; margin-bottom: 14px; line-height: 1.08; letter-spacing: -0.02em; }
-    .lead{ font-size: 1.12rem; color: var(--text-muted); margin-bottom: 22px; max-width: 680px; margin: 0 auto; }
 
-    .cta-row{ display:flex; justify-content:center; gap: 14px; flex-wrap: wrap; }
-    .btn{ padding: 14px 18px; border-radius: 12px; font-weight: 900; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; transition: transform 0.15s ease, opacity 0.15s ease; min-width: 220px; border: 1px solid transparent; }
-    .btn:hover{ transform: translateY(-2px); opacity: 0.98; }
-    .btn-teal{ background: var(--teal); color: #fff; border-color: rgba(15,118,110,0.25); box-shadow: 0 10px 22px rgba(15,118,110,0.16); }
-    .btn-outline{ background: var(--bg-white); border-color: var(--border); color: var(--text-main); }
+    .grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin: 40px auto; }
+    .card{ background: var(--bg-white); padding: 26px; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow); }
+    .card h3{ font-size: 1.15rem; margin-bottom: 6px; font-weight: 900; }
 
-    .grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; max-width: 1050px; margin: 40px auto 20px; padding: 0 var(--padX); }
-    .card{ background: var(--bg-white); padding: 26px; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow); transition: transform 0.18s ease; }
-    .card:hover{ transform: translateY(-3px); box-shadow: var(--shadow-strong); }
-    .emoji{ font-size: 1.9rem; margin-bottom: 12px; }
+    .offer-card{ background: var(--bg-white); border: 1px solid rgba(15,118,110,0.22); border-radius: 24px; padding: 34px; box-shadow: 0 18px 50px -25px rgba(15,118,110,0.35); max-width: 800px; margin: 50px auto; }
+    .offer-price{ font-size: 3rem; font-weight: 900; margin: 18px 0; color: var(--text-main); }
 
-    .offer-block{ max-width: 860px; margin: 50px auto 0; padding: 0 var(--padX); text-align:left; }
-    .offer-card{ background: var(--bg-white); border: 1px solid rgba(15,118,110,0.22); border-radius: 24px; padding: 34px; box-shadow: 0 18px 50px -25px rgba(15,118,110,0.35); }
-    .offer-price{ font-size: 3rem; font-weight: 900; line-height: 1; margin: 18px 0 12px; color: var(--text-main); letter-spacing: -0.02em; }
-    
-    .how-box{ background: var(--teal-soft); border: 1px solid var(--teal-border); padding: 18px; border-radius: 14px; margin: 14px 0 18px; }
-    .how-box strong{ color: var(--teal); font-weight: 900; display:block; margin-bottom: 6px; }
-
-    .titanium-block{ background: var(--titanium); border: 1px solid rgba(255,255,255,0.14); border-radius: 24px; padding: 56px 34px; margin: 80px auto 0; max-width: 960px; text-align:center; box-shadow: 0 25px 60px -20px rgba(0,0,0,0.55); position: relative; overflow:hidden; }
-    .btn-white{ background: white; color: #0F172A; font-weight: 900; padding: 14px 18px; border-radius: 12px; text-decoration:none; display:inline-block; transition: transform 0.15s ease; border: 1px solid rgba(255,255,255,0.25); min-width: 240px; }
+    .btn-teal{ background: var(--teal); color: #fff; text-decoration: none; padding: 14px 22px; border-radius: 12px; font-weight: 900; display: inline-block; text-align: center; }
 
     footer{ text-align:center; padding: 50px 0; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.92rem; margin-top: 70px; }
-
-    @media (max-width: 768px){ .site-header{ height: auto; padding: 14px 0; } }
   </style>
 </head>
 
 <body>
-  <div data-include="nav"></div>
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="/" class="brand"><img src="/logo.png" alt="" width="26"> Predicai™</a>
+      <nav class="site-nav">
+        <a href="/academy/">Academy</a>
+        <a href="/shield/">Shield</a>
+        <a href="/pricing/">Pricing</a>
+      </nav>
+    </div>
+  </header>
 
-  <main id="main" class="container">
-    <section class="hero" aria-label="Academy hero">
+  <main class="container">
+    <section class="hero">
       <span class="kicker">2026 Builder Program</span>
       <h1>Build your personal<br>operating system</h1>
-      <p class="lead">Stop chatting. Start building repeatable AI systems that hold up in real work.</p>
-
-      <div class="cta-row" aria-label="Primary calls to action">
-        <a href="https://buy.stripe.com/6oU9AVdC8eWUaHX9mk5ZC01" target="_blank" rel="noopener noreferrer" class="btn btn-teal">Apply for Academy</a>
-        <a href="/capability/" class="btn btn-outline">Capability Score</a>
-      </div>
-      <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 14px;">Application-only • One-time tuition</p>
-    </section>
-
-    <section class="grid" aria-label="Core components">
-      <div class="card">
-        <div class="emoji" aria-hidden="true">🗂️</div>
-        <h3>The Notion Vault</h3>
-        <p>A complete, duplicatable workspace with protocol libraries, templates, and project trackers.</p>
-      </div>
-      <div class="card">
-        <div class="emoji" aria-hidden="true">⚖️</div>
-        <h3>The Time Ledger™</h3>
-        <p>Audit your week to find high-leverage automation targets using the Jagged Frontier method.</p>
-      </div>
-      <div class="card">
-        <div class="emoji" aria-hidden="true">🔍</div>
-        <h3>Cai™ QC Toolkit</h3>
-        <p>Auditor protocols to verify AI output for hallucinations, gaps, and weak reasoning.</p>
+      <p style="font-size: 1.12rem; color: var(--text-muted);">Stop chatting. Start building repeatable AI systems that hold up in real work.</p>
+      <div style="margin-top:20px;">
+        <a href="https://buy.stripe.com/6oU9AVdC8eWUaHX9mk5ZC01" target="_blank" class="btn-teal">Apply for Academy</a>
       </div>
     </section>
 
-    <section class="offer-block" aria-label="Offer">
-      <div class="offer-card">
-        <h3 style="font-size: 1.35rem; font-weight: 900; margin-bottom: 6px;">Level 3 Certification</h3>
-        <div style="color: var(--text-muted); margin-bottom: 16px; font-weight: 800;">Complete Builder Access</div>
-
-        <div class="offer-price">49</div>
-
-        <div class="how-box">
-          <strong>How it works</strong>
-          <p style="margin:0; font-size:0.98rem;">This is an application-only cohort. Upon acceptance, you get the Notion system and a guided build to completion.</p>
-        </div>
-
-        <ul style="list-style:none; padding:0; margin: 16px 0 18px;">
-          <li style="display:flex; align-items:flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.98rem; color: var(--text-muted);">
-            <span style="color: var(--teal); font-weight: 900;">✓</span> <strong>Stepwise Decomposition</strong> (logic training)
-          </li>
-          <li style="display:flex; align-items:flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.98rem; color: var(--text-muted);">
-            <span style="color: var(--teal); font-weight: 900;">✓</span> Capstone reviewed against the 7 Gates
-          </li>
-          <li style="display:flex; align-items:flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.98rem; color: var(--text-muted);">
-            <span style="color: var(--teal); font-weight: 900;">✓</span> Lifetime access to program + all 2026 updates
-          </li>
-        </ul>
-
-        <a href="https://buy.stripe.com/6oU9AVdC8eWUaHX9mk5ZC01" target="_blank" rel="noopener noreferrer" class="btn btn-teal" style="width:100%;">Apply for Academy</a>
-      </div>
+    <section class="grid">
+      <div class="card"><h3>The Notion Vault</h3><p>Complete workspace with protocol libraries, templates, and project trackers.</p></div>
+      <div class="card"><h3>The Time Ledger™</h3><p>Audit your week to find high-leverage automation targets.</p></div>
+      <div class="card"><h3>Cai™ QC Toolkit</h3><p>Auditor protocols to verify AI output for gaps and weak reasoning.</p></div>
     </section>
 
-    <section class="titanium-block" aria-label="Accelerator for teams">
-      <div style="background: white; color: #0F172A; padding: 6px 14px; border-radius: 8px; font-weight: 900; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 18px; display:inline-block;">For Teams</div>
-      <h2>The Accelerator</h2>
-      <p>We act as your <strong>Fractional AI Officer</strong> to build governance, custom tooling, and internal training.</p>
-      <a href="https://calendly.com/predicai-strategy" target="_blank" rel="noopener noreferrer" class="btn-white">Contact for Strategy</a>
+    <section class="offer-card">
+      <h2 style="font-size: 1.35rem; font-weight: 900;">Level 3 Certification</h2>
+      <div class="offer-price">$149</div>
+      <p>This is an application-only cohort. Upon acceptance, you get the Notion system and a guided build to completion.</p>
+      <ul style="list-style:none; padding:0; margin: 20px 0;">
+        <li>✓ Stepwise Decomposition logic training</li>
+        <li>✓ Capstone reviewed against the 7 Gates</li>
+        <li>✓ Lifetime access to this program</li>
+      </ul>
+      <a href="https://buy.stripe.com/6oU9AVdC8eWUaHX9mk5ZC01" target="_blank" class="btn-teal" style="width:100%;">Apply for Academy</a>
     </section>
   </main>
 
   <footer>
-    <div style="margin-bottom:12px;">© 2026 Predicai™</div>
-    <div style="margin-bottom:18px;">
-        <a href="/terms/" style="color: inherit; margin: 0 10px; font-weight: 900; text-decoration:none;">Terms</a>
-        <a href="/privacy/" style="color: inherit; margin: 0 10px; font-weight: 900; text-decoration:none;">Privacy</a>
-    </div>
-    <div style="margin-top:18px; opacity:0.85; font-size:0.88rem;">
-      🔒 <strong>Privacy Pledge™</strong> We don’t sell data. We don’t train public models on your submissions.
-    </div>
+    <div>© 2026 Predicai™ — Privacy Pledge™ Locked.</div>
   </footer>
-
-  <script>
-    (function(){
-      const mount = document.querySelector('[data-include="nav"]');
-      if(!mount) return;
-      fetch('/partials/nav.html', { cache: 'no-cache' }).then(r => r.text()).then(html => {
-        mount.outerHTML = html;
-        initPredicaiNav();
-        initPredicaiActiveLink();
-      });
-    })();
-
-    function initPredicaiNav(){
-      const nav = document.getElementById('siteNav');
-      const toggle = document.querySelector('.nav-toggle');
-      if(!nav || !toggle) return;
-      toggle.addEventListener('click', () => {
-        const open = nav.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-    }
-
-    function initPredicaiActiveLink(){
-      const path = (location.pathname || '/').toLowerCase().replace(/index\.html$/, '');
-      document.querySelectorAll('#siteNav a[href]').forEach(a => {
-        const href = (a.getAttribute('href') || '').toLowerCase().replace(/index\.html$/, '');
-        if(path === href){ a.classList.add('active'); a.setAttribute('aria-current','page'); }
-      });
-    }
-  </script>
 </body>
 </html>
