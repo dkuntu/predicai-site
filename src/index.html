@@ -35,43 +35,29 @@ active: home
       /* DARK BASE */
       --bg-page: #0B1220;
       --bg-card: rgba(255,255,255,0.06);
-
       --text-main: #F8FAFC;
       --text-muted: #A9B7CC;
-
-      /* Brand */
       --teal: #0F766E;
       --teal-glow: rgba(15,118,110,0.18);
       --blue: #1D4ED8;
-
-      /* Shield */
       --gold: #FFD24A;
       --gold-glow: rgba(255,210,74,0.18);
-
       --border: rgba(255,255,255,0.12);
       --border-strong: rgba(255,255,255,0.20);
-
       --shadow: 0 18px 50px rgba(0,0,0,0.55);
       --radius: 24px;
-
       --focus: rgba(29,78,216,0.50);
-
-      /* Link colors */
       --link: #7DD3FC;
       --link-hover: #A5F3FC;
-
       --container: 1200px;
       --padX: 24px;
       --headerH: 72px;
-
-      /* Shared nav surfaces */
       --header-bg: rgba(11,18,32,0.78);
       --nav-hover: rgba(255,255,255,0.06);
       --surface-1: rgba(11,18,32,0.92);
       --surface-2: rgba(255,255,255,0.06);
       --surface-3: rgba(255,255,255,0.06);
       --panel-bg-strong: rgba(255,255,255,0.08);
-
       --teal-soft: rgba(15,118,110,0.16);
     }
 
@@ -81,491 +67,41 @@ active: home
     body{
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-
-      background:
-        radial-gradient(1200px 800px at 50% -10%, rgba(29,78,216,0.14), transparent 60%),
-        radial-gradient(1000px 700px at 10% 10%, rgba(15,118,110,0.12), transparent 55%),
-        var(--bg-page);
-
+      background: radial-gradient(1200px 800px at 50% -10%, rgba(29,78,216,0.14), transparent 60%),
+                  radial-gradient(1000px 700px at 10% 10%, rgba(15,118,110,0.12), transparent 55%),
+                  var(--bg-page);
       color: var(--text-main);
       line-height: 1.6;
       min-height: 100vh;
-      min-height: 100svh;
-
-      padding:
-        env(safe-area-inset-top)
-        env(safe-area-inset-right)
-        env(safe-area-inset-bottom)
-        env(safe-area-inset-left);
     }
-
-    a{ color: var(--link); }
-    a:hover{ color: var(--link-hover); }
 
     .container{ max-width: var(--container); margin:0 auto; padding: 0 var(--padX); }
 
-    /* ===== Shared Nav Styles (same as About/Resources system) ===== */
-
-    .skip-link{
-      position:absolute; left:-9999px; top: 12px;
-      background: var(--text-main); color: #0B1220;
-      padding:10px 14px; border-radius:10px; z-index:9999;
-      font-weight:900; text-decoration:none;
-    }
-    .skip-link:focus{ left:12px; outline: 3px solid var(--focus); outline-offset: 2px; }
-
-    :focus-visible{
-      outline: 3px solid var(--focus);
-      outline-offset: 3px;
-      border-radius: 12px;
-    }
-
-    .site-header{
-      position: sticky;
-      top:0;
-      z-index:50;
-      height: var(--headerH);
-      display:flex;
-      align-items:center;
-      background: var(--header-bg);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .header-inner{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap: 16px;
-      width: 100%;
-    }
-
-    .brand{
-      font-weight: 900;
-      font-size: 1.15rem;
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      text-decoration:none;
-      color: var(--text-main);
-      white-space: nowrap;
-    }
-    .brand img{
-      width:26px; height:26px;
-      border-radius:6px;
-      object-fit: contain;
-      display:block;
-    }
-
-    .site-nav{
-      display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content:flex-end;
-      align-items:center;
-    }
-
-    .site-nav a{
-      text-decoration:none;
-      color: var(--text-muted);
-      font-weight: 800;
-      font-size: 0.95rem;
-      padding: 8px 10px;
-      border-radius: 12px;
-      transition: background .15s ease, color .15s ease, transform .15s ease;
-      border: 1px solid transparent;
-      white-space: nowrap;
-    }
-    .site-nav a:hover{
-      color: var(--text-main);
-      background: var(--nav-hover);
-      transform: translateY(-1px);
-    }
-    .site-nav a.active{
-      color: var(--text-main);
-      background: rgba(29,78,216,0.12);
-      border-color: rgba(29,78,216,0.22);
-      font-weight: 900;
-    }
-
-    .menu{ position: relative; display:inline-flex; align-items:center; }
-    .menu-btn{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      padding: 8px 10px;
-      border-radius: 12px;
-      border: 1px solid transparent;
-      background: transparent;
-      color: var(--text-muted);
-      font-weight: 900;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: background .15s ease, color .15s ease, transform .15s ease;
-      -webkit-tap-highlight-color: transparent;
-      white-space: nowrap;
-    }
-    .menu-btn:hover{
-      color: var(--text-main);
-      background: var(--nav-hover);
-      transform: translateY(-1px);
-    }
-    .caret{ font-size: 0.85rem; opacity: 0.9; }
-
-    .menu-panel{
-      position:absolute;
-      top: calc(100% + 10px);
-      right: 0;
-      min-width: 240px;
-      padding: 10px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: var(--surface-1);
-      box-shadow: var(--shadow);
-      display:none;
-      z-index: 100;
-      backdrop-filter: blur(12px);
-    }
-
-    .menu-panel a{
-      display:flex;
-      width:100%;
-      padding: 10px 10px;
-      border-radius: 12px;
-      font-weight: 900;
-      font-size: 0.94rem;
-      color: var(--text-main);
-      border: 1px solid transparent;
-      transform:none;
-    }
-
-    .menu-panel a:hover{
-      background: var(--panel-bg-strong);
-      border-color: var(--border-strong);
-    }
-
-    .menu.open .menu-panel{ display:block; }
-    .menu.open .menu-btn{ color: var(--text-main); }
-
-    .nav-toggle{
-      display:none;
-      align-items:center;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--surface-3);
-      color: var(--text-main);
-      font-weight: 950;
-      cursor:pointer;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .nav-toggle-icon{ font-size: 1.1rem; }
-
-    @media (max-width: 860px){
-      .nav-toggle{ display:inline-flex; }
-
-      .site-nav{
-        position: absolute;
-        top: calc(var(--headerH) + 10px);
-        right: var(--padX);
-        left: var(--padX);
-        padding: 14px;
-        border-radius: 18px;
-        border: 1px solid var(--border);
-        background: var(--surface-1);
-        box-shadow: var(--shadow);
-        display:none;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-      }
-      .site-nav.open{ display:flex; }
-
-      .menu{ width: 100%; }
-      .menu-btn{ width: 100%; justify-content: space-between; }
-
-      .menu-panel{
-        position: static;
-        display:none;
-        box-shadow:none;
-        border-radius: 14px;
-        background: var(--surface-2);
-        margin-top: 6px;
-      }
-      .menu.open .menu-panel{ display:block; }
-    }
-
-    /* ===== Your page styles (unchanged below) ===== */
-
-    /* Hero */
-    .hero{
-      text-align:center;
-      padding: 92px 0 44px;
-      max-width: 980px;
-      margin: 0 auto;
-    }
-
-    .kicker{
-      display:inline-flex;
-      gap: 10px;
-      align-items:center;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.04);
-      color: var(--text-muted);
-      font-weight: 900;
-      font-size: 0.85rem;
-      letter-spacing: 0.02em;
-      margin-bottom: 18px;
-    }
-
-    h1{
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      font-weight: 900;
-      line-height: 1.05;
-      margin-bottom: 18px;
-      letter-spacing: -0.02em;
-    }
-
+    .hero{ text-align:center; padding: 92px 0 44px; max-width: 980px; margin: 0 auto; }
+    .kicker{ display:inline-flex; gap: 10px; align-items:center; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.04); color: var(--text-muted); font-weight: 900; font-size: 0.85rem; letter-spacing: 0.02em; margin-bottom: 18px; }
+    h1{ font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 900; line-height: 1.05; margin-bottom: 18px; letter-spacing: -0.02em; }
     .text-teal{ color: #38BDF8; }
     .text-gold{ color: var(--gold); }
+    .lead{ font-size: clamp(1.05rem, 1.6vw, 1.25rem); color: var(--text-muted); margin-bottom: 26px; max-width: 760px; margin: 0 auto; }
+    .cta-row{ display:flex; gap: 14px; justify-content:center; flex-wrap: wrap; margin-bottom: 14px; }
+    
+    .btn{ padding: 14px 22px; border-radius: 14px; font-weight: 900; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; border: 1px solid transparent; transition: transform .15s ease; color: var(--text-main); min-width: 210px; }
+    .btn:hover{ transform: translateY(-2px); }
+    .btn-academy{ background: var(--teal-glow); border-color: rgba(15,118,110,0.35); }
+    .btn-shield{ background: var(--gold-glow); border-color: rgba(255,210,74,0.38); }
+    .btn-outline{ border-color: var(--border); }
 
-    .lead{
-      font-size: clamp(1.05rem, 1.6vw, 1.25rem);
-      color: var(--text-muted);
-      margin-bottom: 26px;
-      max-width: 760px;
-      margin-left:auto;
-      margin-right:auto;
-    }
-
-    .lead strong,
-    .card p strong,
-    .card-sub strong,
-    .pledge-line strong{
-      color: var(--text-main);
-      font-weight: 900;
-    }
-
-    .cta-row{
-      display:flex;
-      gap: 14px;
-      justify-content:center;
-      flex-wrap: wrap;
-      margin-bottom: 14px;
-    }
-
-    .btn{
-      padding: 14px 22px;
-      border-radius: 14px;
-      font-weight: 900;
-      text-decoration:none;
-      transition: transform .15s ease, opacity .15s ease, background .15s ease, border-color .15s ease;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border: 1px solid transparent;
-      user-select:none;
-      -webkit-tap-highlight-color: transparent;
-      min-width: 210px;
-      color: var(--text-main);
-    }
-    .btn:hover{ transform: translateY(-2px); opacity: .98; }
-    .btn:active{ transform: translateY(1px); }
-
-    .btn-academy{
-      background: var(--teal-glow);
-      border-color: rgba(15,118,110,0.35);
-    }
-    .btn-academy:hover{ border-color: rgba(15,118,110,0.55); }
-
-    .btn-shield{
-      background: var(--gold-glow);
-      border-color: rgba(255,210,74,0.38);
-    }
-    .btn-shield:hover{ border-color: rgba(255,210,74,0.58); }
-
-    .btn-outline{
-      background: transparent;
-      border-color: var(--border);
-      min-width: 210px;
-    }
-    .btn-outline:hover{ border-color: var(--border-strong); }
-
-    .micro-links{
-      display:flex;
-      justify-content:center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-    .micro-link{
-      font-size: 0.95rem;
-      color: var(--link);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      font-weight: 800;
-    }
-    .micro-link:hover{ color: var(--link-hover); }
-
-    .pledge-line{
-      margin: 28px auto 0;
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      background: rgba(255,255,255,0.04);
-      display:inline-block;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-    }
-    .pledge-line a{
-      color: var(--link);
-      font-weight: 900;
-      margin-left: 6px;
-      text-decoration:none;
-    }
-    .pledge-line a:hover{
-      color: var(--link-hover);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      max-width: 1050px;
-      margin: 44px auto 90px;
-      padding: 0 var(--padX);
-    }
-
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
-      transition: transform .18s ease, border-color .18s ease;
-      display:flex;
-      flex-direction:column;
-      min-width: 0;
-    }
-    .card:hover{ transform: translateY(-3px); border-color: var(--border-strong); }
-
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-      padding: 7px 12px;
-      border-radius: 999px;
-      font-weight: 900;
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      width: fit-content;
-      margin-bottom: 14px;
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      background: rgba(255,255,255,0.04);
-    }
-
-    .pill .dot{
-      width: 8px; height: 8px;
-      border-radius: 999px;
-      display:inline-block;
-    }
+    .grid{ display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; max-width: 1050px; margin: 44px auto 90px; }
+    .card{ background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04)); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); }
+    .pill{ display:inline-flex; align-items:center; gap: 10px; padding: 7px 12px; border-radius: 999px; font-weight: 900; font-size: 0.78rem; text-transform: uppercase; border: 1px solid var(--border); margin-bottom: 14px; }
+    .dot{ width: 8px; height: 8px; border-radius: 999px; }
     .dot-teal{ background: var(--teal); }
     .dot-gold{ background: var(--gold); }
+    
+    footer{ text-align:center; padding: 50px 0; border-top: 1px solid var(--border); color: var(--text-muted); }
+    footer a{ color: var(--link); margin: 0 10px; font-weight: 900; text-decoration:none; }
 
-    .card h2{
-      margin-bottom: 8px;
-      font-size: 1.55rem;
-      font-weight: 900;
-    }
-
-    .card-sub{
-      font-size: 0.98rem;
-      color: var(--text-muted);
-      font-weight: 800;
-      margin-bottom: 12px;
-      display:block;
-    }
-
-    .card p{
-      color: var(--text-muted);
-      margin-bottom: 18px;
-      flex-grow: 1;
-    }
-
-    .mini-list{
-      list-style: none;
-      padding: 0;
-      margin: 0 0 18px;
-    }
-    .mini-list li{
-      color: var(--text-main);
-      opacity: 0.9;
-      margin-bottom: 8px;
-      font-weight: 750;
-    }
-    .mini-list li span{
-      color: var(--text-muted);
-      font-weight: 700;
-    }
-
-    .link-arrow{
-      font-weight: 900;
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      width: fit-content;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
-      transition: border-color .15s ease, transform .15s ease, color .15s ease;
-      color: var(--text-main);
-    }
-    .link-arrow:hover{
-      border-color: var(--border-strong);
-      transform: translateY(-1px);
-      color: var(--text-main);
-    }
-
-    footer{
-      text-align:center;
-      padding: 50px 0;
-      border-top: 1px solid var(--border);
-      color: var(--text-muted);
-      font-size: 0.92rem;
-    }
-    footer a{
-      color: var(--link);
-      margin: 0 10px;
-      font-weight: 900;
-      text-decoration:none;
-      padding: 6px 8px;
-      border-radius: 10px;
-      display:inline-block;
-    }
-    footer a:hover{ color: var(--link-hover); background: rgba(255,255,255,0.06); }
-
-    @media (max-width: 860px){
-      .grid{ grid-template-columns: 1fr; }
-      .btn{ width: 100%; min-width: unset; }
-      .hero{ padding: 66px 0 34px; }
-      .card:hover{ transform: none; }
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      html{ scroll-behavior: auto; }
-      *{ transition: none !important; animation: none !important; }
-      .btn:hover, .site-nav a:hover, .card:hover, .link-arrow:hover{ transform: none !important; }
-    }
+    @media (max-width: 860px){ .grid{ grid-template-columns: 1fr; } .btn{ width: 100%; } }
   </style>
 </head>
 
@@ -573,207 +109,55 @@ active: home
   <div data-include="nav"></div>
 
   <main id="main">
-    <section class="hero container" aria-label="Predicai intro">
+    <section class="hero container">
       <div class="kicker">Built for real people • Clear protocols • Practical tools</div>
-
       <h1>
         <span class="text-teal">Work leverage</span><br>
         <span class="text-gold">Family safety</span>
       </h1>
-
       <p class="lead">
-        Predicai helps you build <strong>reliable</strong> AI workflows at work,
-        and protect your family from modern scams at home.
-        Simple systems you can reuse for years.
+        Predicai helps you build <strong>reliable</strong> AI workflows at work, and protect your family from modern scams at home.
       </p>
 
-      <div class="cta-row" aria-label="Primary calls to action">
-        <a href="/academy.html" class="btn btn-academy">Explore the Academy</a>
-        <a href="/shield.html" class="btn btn-shield">Explore Shield</a>
-        <a href="/capability.html" class="btn btn-outline">Capability Score</a>
-      </div>
-
-      <div class="micro-links" aria-label="Quick links">
-        <a href="https://predicai.ai/shield-check" target="_blank" rel="noopener noreferrer" class="micro-link">
-          Run a free Shield Check (2 min)
-        </a>
-        <a href="/resources.html" class="micro-link">Browse free resources</a>
-      </div>
-
-      <div class="pledge-line">
-        🔒 <strong>Privacy Pledge&trade;</strong> We don’t sell data. We don’t train public models on your submissions.
-        <a href="/privacy.html">Read policy</a>
+      <div class="cta-row">
+        <a href="/academy/" class="btn btn-academy">Explore the Academy</a>
+        <a href="/shield/" class="btn btn-shield">Explore Shield</a>
+        <a href="/capability/" class="btn btn-outline">Capability Score</a>
       </div>
     </section>
 
-    <section class="grid" aria-label="Primary offerings">
+    <section class="grid container">
       <div class="card">
         <div class="pill"><span class="dot dot-teal"></span> For Builders</div>
         <h2>The Academy</h2>
-        <span class="card-sub">Build repeatable workflows you can trust</span>
-
-        <ul class="mini-list">
-          <li>✅ <span>7 Gates quality system for reliable outputs</span></li>
-          <li>✅ <span>Notion vault: prompts, trackers, context anchors</span></li>
-          <li>✅ <span>Capstone audit for Builder-level certification</span></li>
-        </ul>
-
-        <p>
-          Stop chatting. Start shipping systems: briefings, dashboards, checklists,
-          and agents that hold up under pressure.
-        </p>
-
-        <a href="/academy.html" class="link-arrow">View the Academy →</a>
+        <p>Stop chatting. Start shipping systems: briefings, dashboards, and agents that hold up under pressure.</p>
+        <a href="/academy/" style="color:#fff; font-weight:900;">View the Academy →</a>
       </div>
 
       <div class="card">
         <div class="pill"><span class="dot dot-gold"></span> For Families</div>
-        <h2>Predicai Shield&trade;</h2>
-        <span class="card-sub">Verification tools + family protocols</span>
-
-        <ul class="mini-list">
-          <li>🛡️ <span>Safe word + callback scripts for voice clones</span></li>
-          <li>🛑 <span>Shield Check: fast second-opinion on suspicious messages</span></li>
-          <li>✅ <span>Incident steps: what to do after a close call</span></li>
-        </ul>
-
-        <p>
-          No complicated apps. Just practical protection that works even when someone is stressed,
-          rushed, or unsure.
-        </p>
-
-        <a href="/shield.html" class="link-arrow">View Shield →</a>
+        <h2>Predicai Shield™</h2>
+        <p>No complicated apps. Practical protection that works even when someone is stressed, rushed, or unsure.</p>
+        <a href="/shield/" style="color:#fff; font-weight:900;">View Shield →</a>
       </div>
     </section>
   </main>
 
   <footer>
-    <div style="margin-bottom: 14px;">© 2026 Predicai&trade;</div>
-    <a href="/terms.html">Terms</a>
-    <a href="/privacy.html">Privacy</a>
-    <a href="https://www.linkedin.com/company/predicai-ai/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <div style="margin-bottom: 14px;">© 2026 Predicai™</div>
+    <a href="/terms/">Terms</a>
+    <a href="/privacy/">Privacy</a>
+    <a href="https://linkedin.com/company/predicai-ai/" target="_blank">LinkedIn</a>
   </footer>
 
   <script>
-    // ===== Shared Nav Include Loader =====
     (function(){
       const mount = document.querySelector('[data-include="nav"]');
       if(!mount) return;
-
-      fetch('/partials/nav.html', { cache: 'no-cache' })
-        .then(r => r.text())
-        .then(html => {
-          mount.outerHTML = html;
-          initPredicaiNav();
-          initPredicaiActiveLink();
-        })
-        .catch(() => {
-          // If nav fails, page still loads.
-        });
+      fetch('/partials/nav.html').then(r => r.text()).then(html => {
+        mount.outerHTML = html;
+      });
     })();
-
-    // ===== Nav behavior (dropdowns + mobile + close rules) =====
-    function initPredicaiNav(){
-      const nav = document.getElementById('siteNav');
-      const toggle = document.querySelector('.nav-toggle');
-      if(!nav) return;
-
-      function closeAllMenus(except=null){
-        document.querySelectorAll('.menu.open').forEach(m => {
-          if(m !== except){
-            m.classList.remove('open');
-            const btn = m.querySelector('.menu-btn');
-            if(btn) btn.setAttribute('aria-expanded', 'false');
-          }
-        });
-      }
-
-      // Mobile open/close
-      if(toggle){
-        toggle.addEventListener('click', () => {
-          const open = nav.classList.toggle('open');
-          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-          if(!open) closeAllMenus();
-        });
-      }
-
-      // Dropdown toggle
-      document.querySelectorAll('.menu').forEach(menu => {
-        const btn = menu.querySelector('.menu-btn');
-        if(!btn) return;
-
-        btn.addEventListener('click', (e) => {
-          e.preventDefault();
-          const isOpen = menu.classList.contains('open');
-          closeAllMenus(menu);
-          menu.classList.toggle('open', !isOpen);
-          btn.setAttribute('aria-expanded', (!isOpen).toString());
-        });
-
-        menu.addEventListener('keydown', (e) => {
-          if(e.key === 'Escape'){
-            menu.classList.remove('open');
-            btn.setAttribute('aria-expanded', 'false');
-            btn.focus();
-          }
-        });
-      });
-
-      // Click outside closes
-      document.addEventListener('click', (e) => {
-        const clickedInsideMenu = e.target.closest('.menu');
-        const clickedToggle = e.target.closest('.nav-toggle');
-        const clickedNav = e.target.closest('#siteNav');
-        if(clickedInsideMenu || clickedToggle || clickedNav) return;
-
-        closeAllMenus();
-
-        // On mobile, clicking outside closes the whole menu
-        if(nav.classList.contains('open') && window.innerWidth <= 860){
-          nav.classList.remove('open');
-          if(toggle) toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      // Esc closes mobile tray too
-      document.addEventListener('keydown', (e) => {
-        if(e.key === 'Escape'){
-          closeAllMenus();
-          if(nav.classList.contains('open')){
-            nav.classList.remove('open');
-            if(toggle) toggle.setAttribute('aria-expanded', 'false');
-          }
-        }
-      });
-
-      // Selecting a link closes menus (and mobile tray)
-      nav.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => {
-          closeAllMenus();
-          if(nav.classList.contains('open')){
-            nav.classList.remove('open');
-            if(toggle) toggle.setAttribute('aria-expanded', 'false');
-          }
-        });
-      });
-    }
-
-    // ===== Active link highlighting by URL =====
-    function initPredicaiActiveLink(){
-      const path = (location.pathname || '/').toLowerCase();
-
-      document.querySelectorAll('#siteNav a[href]').forEach(a => {
-        const href = (a.getAttribute('href') || '').toLowerCase();
-
-        const isHome = (href === '/' && (path === '/' || path.endsWith('/index.html')));
-        const isExactHtml = (href.endsWith('.html') && path.endsWith(href));
-
-        if(isHome || isExactHtml){
-          a.classList.add('active');
-          a.setAttribute('aria-current','page');
-        }
-      });
-    }
   </script>
 </body>
 </html>
