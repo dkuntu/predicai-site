@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /artifacts.html
+Disallow: /robots.txt
