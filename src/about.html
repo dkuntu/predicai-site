@@ -29,7 +29,6 @@ active: about
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://predicai.ai/about/" />
 
-  <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/logo.png" type="image/png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -170,7 +169,6 @@ active: about
     a { color: inherit; }
 
     /* ===== Shared Nav Styles (Predicai) ===== */
-    /* IMPORTANT: your nav uses <header class="-header">, so we style BOTH */
     .site-header,
     .-header{
       position: sticky;
@@ -573,7 +571,7 @@ active: about
 </head>
 
 <body data-active="{{ page.active }}">
-  {% include nav.html %}
+  {% include "nav.html" %}
 
   <main id="main" class="wrap" tabindex="-1">
     <section class="hero">
@@ -682,7 +680,6 @@ active: about
   </footer>
 
   <script>
-    // Optional: if you later add a theme button with id="themeToggle", this will work.
     (function(){
       const root = document.documentElement;
       const metaTheme = document.getElementById('themeColorMeta');
