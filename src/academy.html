@@ -6,21 +6,38 @@ active: academy
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8"><title>Academy – Predicai™</title>
-  <style>body{font-family:sans-serif; margin:0; background:#F8FAFC;} .container{max-width:1200px; margin:0 auto; padding:40px 24px;} .card{background:#fff; padding:30px; border-radius:20px; border:1px solid #E2E8F0; box-shadow:0 10px 25px rgba(0,0,0,0.05); margin-top:20px;}</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Predicai™ Academy – The Builder Program</title>
+  <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+  <style>
+    :root{ --teal:#0F766E; --bg-page:#F8FAFC; --text-main:#0F172A; }
+    body{ font-family: Inter, sans-serif; background: var(--bg-page); color: var(--text-main); margin:0; }
+    .site-header{ background: rgba(255,255,255,0.9); border-bottom: 1px solid #E2E8F0; padding: 20px; position: sticky; top: 0; }
+    .container{ max-width: 1200px; margin: 0 auto; }
+    .nav-inner{ display: flex; justify-content: space-between; align-items: center; }
+    .offer-card{ background: #fff; padding: 40px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 800px; margin: 40px auto; }
+    .price{ font-size: 3.5rem; font-weight: 900; margin: 20px 0; }
+    .btn{ background: var(--teal); color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 900; display: inline-block; }
+  </style>
 </head>
 <body>
-  {% include "nav.html" %}
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="/" style="font-weight:900; text-decoration:none; color:inherit;">Predicai™</a>
+      <nav>
+        <a href="/academy/" style="margin-left:20px; text-decoration:none; font-weight:700;">Academy</a>
+        <a href="/shield/" style="margin-left:20px; text-decoration:none; font-weight:700;">Shield</a>
+        <a href="/pricing/" style="margin-left:20px; text-decoration:none; font-weight:700;">Pricing</a>
+      </nav>
+    </div>
+  </header>
   <main class="container">
-    <section style="text-align:center;">
-        <h1 style="font-size:3rem; font-weight:900;">Builder Program</h1>
-        <p>Move from chatting to building repeatable systems.</p>
-    </section>
-    <section class="card" style="max-width:600px; margin-left:auto; margin-right:auto; text-align:center;">
-      <h2 style="font-weight:900;">Level 3 Certification</h2>
-      <div style="font-size:3rem; font-weight:900; margin:20px 0;">$149</div>
-      <a href="https://buy.stripe.com/6oU9AVdC8eWUaHX9mk5ZC01" style="background:#0F766E; color:white; padding:15px 30px; text-decoration:none; border-radius:12px; font-weight:900; display:block;">Apply for Academy</a>
-    </section>
+    <div class="offer-card" style="text-align:center;">
+      <h1 style="font-weight:900;">Builder Program</h1>
+      <div class="price">$149</div>
+      <a href="https://buy.stripe.com/6oU9AVdC8eWUaHX9mk5ZC01" class="btn">Apply for Academy</a>
+    </div>
   </main>
 </body>
 </html>
