@@ -13,8 +13,8 @@ active: shield
 
   <style>
     /* =========================
-       CORE VARIABLES
-       ========================= */
+        CORE VARIABLES
+        ========================= */
     :root{
       --text-dark:#111827;
       --text-sub:#4B5563;
@@ -32,17 +32,6 @@ active: shield
       --bg-page: #F3F4F6;
 
       --shadow-soft: 0 6px 18px rgba(0,0,0,0.05);
-
-      /* Shared Nav Tokens (Light) */
-      --nav-bg: rgba(255,255,255,0.92);
-      --nav-hover: rgba(15,23,42,0.04);
-      --nav-panel-bg: #ffffff;
-      --nav-text: #0F172A;
-      --nav-text-muted: #64748B;
-      
-      /* Issuebar Tokens */
-      --issuebar-bg: #fff;
-      --issuebar-border: #E2E8F0;
     }
 
     @page{ size: Letter; margin: 0.5in; }
@@ -56,157 +45,6 @@ active: shield
       print-color-adjust:exact;
     }
 
-    /* ===== SHARED NAV STYLES ===== */
-    .site-header{
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: blur(10px);
-      background: var(--nav-bg);
-      border-bottom: 1px solid var(--border);
-      height: 72px;
-      display: flex;
-      align-items: center;
-    }
-
-    .header-inner{
-      max-width: 1200px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 0 24px;
-      display:flex;
-      justify-content: space-between;
-      align-items:center;
-      gap: 14px;
-    }
-
-    .brand{
-      display:flex; align-items:center; gap: 10px;
-      font-weight: 950;
-      text-decoration:none;
-      white-space: nowrap;
-      letter-spacing: -0.01em;
-      color: var(--nav-text);
-    }
-    .brand img{
-      width: 26px; height: 26px;
-      border-radius: 6px;
-      object-fit: contain;
-      display:block;
-    }
-
-    .nav-toggle{
-      display:none;
-      align-items:center;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: #fff;
-      color: var(--nav-text);
-      font-weight: 950;
-      cursor:pointer;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .site-nav{
-      display:flex;
-      gap: 12px;
-      align-items:center;
-      justify-content:flex-end;
-    }
-
-    .site-nav a{
-      text-decoration:none;
-      font-weight: 800;
-      font-size: 0.95rem;
-      color: var(--nav-text-muted);
-      padding: 8px 10px;
-      border-radius: 12px;
-      border: 1px solid transparent;
-      transition: all 0.15s ease;
-    }
-    .site-nav a:hover{
-      background: var(--nav-hover);
-      color: var(--nav-text);
-    }
-    .site-nav a.active{
-      background: rgba(15,118,110,0.08);
-      border-color: rgba(15,118,110,0.2);
-      color: #0F766E;
-    }
-
-    /* Menus */
-    .menu{ position: relative; display:inline-flex; align-items:center; }
-    .menu-btn{
-      display:inline-flex; align-items:center; gap: 8px;
-      padding: 8px 10px;
-      border-radius: 12px;
-      border: 1px solid transparent;
-      background: transparent;
-      color: var(--nav-text-muted);
-      font-weight: 900;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-    .menu-btn:hover{ color: var(--nav-text); background: var(--nav-hover); }
-    .menu.open .menu-btn{ color: var(--nav-text); }
-
-    .menu-panel{
-      position:absolute; top: calc(100% + 10px); right: 0;
-      min-width: 200px;
-      padding: 8px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: var(--nav-panel-bg);
-      box-shadow: var(--shadow-soft);
-      display:none;
-      z-index: 100;
-    }
-    .menu-panel a{
-      display:flex; width:100%; padding: 10px;
-      border-radius: 8px; font-weight: 900; font-size: 0.9rem;
-      color: var(--nav-text);
-    }
-    .menu.open .menu-panel{ display:block; }
-
-    @media (max-width: 860px){
-      .nav-toggle{ display:inline-flex; }
-      .site-nav{
-        position: absolute; top: 80px; left: 18px; right: 18px;
-        background: var(--nav-panel-bg);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 16px;
-        flex-direction: column;
-        align-items: stretch;
-        display: none;
-        box-shadow: var(--shadow-soft);
-      }
-      .site-nav.open{ display:flex; }
-      .menu{ width: 100%; }
-      .menu-btn{ width: 100%; justify-content: space-between; }
-      .menu-panel{ position: static; display:none; background: transparent; border:none; box-shadow:none; padding-left: 10px; }
-      .menu.open .menu-panel{ display:block; }
-    }
-
-    /* ===== ISSUEBAR (Light Mode) ===== */
-    .issuebar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 24px;
-      border-bottom: 1px solid var(--issuebar-border);
-      background: var(--issuebar-bg);
-      font-size: 0.9rem;
-    }
-    .issuebar-left { display: flex; align-items: center; gap: 10px; }
-    .issuebar-mark { width: 10px; height: 10px; background: var(--gold-strong); border-radius: 50%; display: inline-block; }
-    .issuebar-title { font-weight: 700; color: var(--text-dark); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; }
-    .issuebar-links { display: flex; gap: 16px; }
-    .chip { text-decoration: none; color: var(--muted); font-weight: 600; font-size: 0.85rem; transition: color 0.2s; }
-    .chip:hover { color: var(--gold-strong); }
-
-    /* ===== PAGE STYLES ===== */
     .action-bar {
       background: #111827;
       color: white;
@@ -287,7 +125,7 @@ active: shield
       gap: 16px;
     }
     .brand-block { display: flex; align-items: center; gap: 12px; }
-    .header .brand{ font-size: 1.55rem; font-weight: 950; letter-spacing: -0.02em; color: var(--text-dark); }
+    .brand{ font-size: 1.55rem; font-weight: 950; letter-spacing: -0.02em; }
     .meta{ text-align:right; font-size: 0.82rem; color: var(--muted); }
 
     /* IMAGE STYLES */
@@ -442,7 +280,7 @@ active: shield
 
     /* PRINT QUERY */
     @media print{
-      .action-bar, .site-header, .issuebar, .nav-toggle { display:none !important; }
+      .action-bar { display:none !important; }
       html,body{ background:#fff; }
       .page-wrap{ padding:0; }
       .sheet{ box-shadow:none; border:none; border-radius:0; max-width: 100%; }
@@ -470,19 +308,7 @@ active: shield
   </style>
 </head>
 
-<body data-active="{{ page.active }}">
-  {% include "nav.html" %}
-
-  <div class="issuebar" aria-label="Shield Download navigation">
-    <div class="issuebar-left">
-      <span class="issuebar-mark" aria-hidden="true"></span>
-      <div class="issuebar-title">Predicai Shield • Download</div>
-    </div>
-    <div class="issuebar-links">
-      <a class="chip" href="/shield/">← Back to Shield</a>
-      <a class="chip" href="/resources/">Resources</a>
-    </div>
-  </div>
+<body>
 
   <a href="#main" class="skip-link">Skip to content</a>
 
@@ -493,6 +319,11 @@ active: shield
     <div class="mobile-tip">
       Mobile users: Tap <strong>Share</strong> → <strong>Print</strong> to save as PDF.<br>
       <em>If the gold/black doesn't show, enable <strong>Background Graphics</strong> in print options.</em>
+    </div>
+    <div style="margin-top:16px;">
+      <a href="/" style="color:white; font-size:0.9rem; text-decoration:underline;" aria-label="Return to Predicai home">
+        ← Return to Website
+      </a>
     </div>
   </div>
 
