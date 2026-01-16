@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  {% include "head.html" %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title | default: "Predicai™" }}</title>
   <style>
     body { background: #0B1220; color: #F8FAFC; margin: 0; font-family: sans-serif; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -9,7 +11,8 @@
 </head>
 <body>
   {% include "nav.html" %}
-  {{ content }}
-  {% include "footer.html" %}
+  <main>
+    {{ content }}
+  </main>
 </body>
 </html>
