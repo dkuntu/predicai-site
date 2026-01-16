@@ -9,20 +9,56 @@ active: capability
   <meta charset="UTF-8">
   <title>Capability Score – Predicai™</title>
   <link rel="icon" href="/logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
   <style>
-    body { background: #0B1220; color: #fff; font-family: sans-serif; text-align: center; padding: 50px; }
-    .btn { display: inline-block; padding: 12px 24px; background: #0F766E; color: #fff; text-decoration: none; border-radius: 8px; margin-top: 20px; }
+    :root{ --bg:#0B1220; --text:#F8FAFC; --teal:#0F766E; --border:rgba(255,255,255,0.12); }
+    body{ background:var(--bg); color:var(--text); font-family:'Inter', sans-serif; margin:0; line-height:1.6; }
+    .container{ max-width:800px; margin:0 auto; padding:0 24px; }
+    
+    .site-header{ padding:20px 0; border-bottom:1px solid var(--border); background:rgba(11,18,32,0.95); position:sticky; top:0; z-index:100; backdrop-filter:blur(10px); }
+    .header-inner{ display:flex; justify-content:space-between; align-items:center; }
+    .brand{ font-weight:900; color:#fff; text-decoration:none; display:flex; gap:10px; align-items:center; }
+    .site-nav a{ color:#94A3B8; text-decoration:none; font-weight:700; margin-left:20px; }
+    .site-nav a:hover{ color:#fff; }
+
+    .hero{ text-align:center; padding:100px 0 60px; }
+    h1{ font-size:3rem; font-weight:900; margin-bottom:20px; }
+    .score-circle{ width:120px; height:120px; border-radius:50%; border:4px solid var(--teal); display:flex; align-items:center; justify-content:center; font-size:2rem; font-weight:900; margin:0 auto 30px; box-shadow:0 0 30px rgba(15,118,110,0.3); }
+    
+    .btn{ background:var(--teal); color:white; padding:16px 32px; border-radius:12px; font-weight:900; text-decoration:none; display:inline-block; font-size:1.1rem; }
+    .btn:hover{ transform:translateY(-2px); }
+
+    .details{ margin-top:60px; text-align:left; background:rgba(255,255,255,0.05); padding:40px; border-radius:20px; border:1px solid var(--border); }
+    
+    footer{ text-align:center; padding:50px 0; border-top:1px solid var(--border); margin-top:80px; color:#64748B; }
+    footer a{ color:#7DD3FC; text-decoration:none; margin:0 10px; }
   </style>
 </head>
 <body>
   {% include "nav.html" %}
-  
-  <h1>Capability Score</h1>
-  <p>Assess your AI readiness level.</p>
-  <a href="https://tally.so/r/3x4k5j" class="btn" target="_blank">Start Assessment</a>
 
-  <footer style="margin-top:50px; color:#64748B;">
-    © 2026 Predicai™
+  <main class="container">
+    <section class="hero">
+      <div class="score-circle">? / 100</div>
+      <h1>What is your AI Capability?</h1>
+      <p style="font-size:1.2rem; color:#A9B7CC; max-width:600px; margin:0 auto 40px;">
+        Most people are stuck at Level 1 (Chatter). Take the 3-minute assessment to find your level and get a custom roadmap to Level 3 (Builder).
+      </p>
+      <a href="https://tally.so/r/3x4k5j" class="btn" target="_blank">Start Assessment</a>
+    </section>
+
+    <div class="details">
+      <h3>What we measure:</h3>
+      <ul style="color:#CBD5E1; line-height:1.8;">
+        <li><strong>Prompt Structure:</strong> Do you use context anchors?</li>
+        <li><strong>System Thinking:</strong> Can you decompose complex logic?</li>
+        <li><strong>Risk Management:</strong> Do you have a verification protocol?</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    © 2026 Predicai™ • <a href="/terms/">Terms</a>
   </footer>
 </body>
 </html>

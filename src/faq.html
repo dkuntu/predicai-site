@@ -3,7 +3,64 @@ layout: null
 permalink: /faq/
 active: faq
 ---
-<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><title>FAQ – Predicai</title><link rel="icon" href="/logo.png"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet"><style>body{background:#0B1220;color:#F8FAFC;font-family:'Inter',sans-serif;margin:0;} .container{max-width:800px;margin:0 auto;padding:80px 24px;}.site-header{padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.1);background:rgba(11,18,32,0.95);position:sticky;top:0;}.header-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;}.brand{font-weight:900;color:#fff;text-decoration:none;}.site-nav a{color:#94A3B8;text-decoration:none;margin-left:20px;}</style></head><body>
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>FAQ – Predicai™</title>
+  <link rel="icon" href="/logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
+  <style>
+    :root{ --bg:#0B1220; --text:#F8FAFC; --border:rgba(255,255,255,0.12); }
+    body{ background:var(--bg); color:var(--text); font-family:'Inter', sans-serif; margin:0; line-height:1.6; }
+    .container{ max-width:800px; margin:0 auto; padding:0 24px; }
+    
+    .site-header{ padding:20px 0; border-bottom:1px solid var(--border); background:rgba(11,18,32,0.95); position:sticky; top:0; z-index:100; backdrop-filter:blur(10px); }
+    .header-inner{ display:flex; justify-content:space-between; align-items:center; }
+    .brand{ font-weight:900; color:#fff; text-decoration:none; display:flex; gap:10px; align-items:center; }
+    .site-nav a{ color:#94A3B8; text-decoration:none; font-weight:700; margin-left:20px; }
+
+    h1{ text-align:center; font-size:3rem; margin:60px 0 40px; }
+    
+    details{ background:rgba(255,255,255,0.05); border:1px solid var(--border); border-radius:12px; margin-bottom:16px; overflow:hidden; }
+    summary{ padding:20px; font-weight:700; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; font-size:1.1rem; }
+    summary::-webkit-details-marker { display: none; }
+    summary:after { content: "+"; font-size: 1.5rem; font-weight: 300; color:#7DD3FC; }
+    details[open] summary:after { content: "-"; }
+    .answer{ padding:0 20px 24px; color:#A9B7CC; }
+
+    footer{ text-align:center; padding:50px 0; border-top:1px solid var(--border); margin-top:80px; color:#64748B; }
+  </style>
+</head>
+<body>
   {% include "nav.html" %}
-  <main class="container"><h1>FAQ</h1><p>Questions about the Academy and Shield.</p></main>
-</body></html>
+
+  <main class="container">
+    <h1>Frequency Asked Questions</h1>
+
+    <details>
+      <summary>Is the Academy suitable for beginners?</summary>
+      <div class="answer">Yes. We start from the fundamentals of logic and decomposition. You do not need to know how to code, but you should be familiar with using ChatGPT or Claude.</div>
+    </details>
+
+    <details>
+      <summary>What is included in the 49 tuition?</summary>
+      <div class="answer">You get the full Notion Vault (templates), the 3-module video curriculum, the 7 Gates certification exam, and lifetime access to all 2026 updates.</div>
+    </details>
+
+    <details>
+      <summary>How does Shield protect my family?</summary>
+      <div class="answer">Shield provides non-technical protocols (like the Safe Word system) and tools (like Shield Check) to verify identities and stop voice cloning scams before money moves.</div>
+    </details>
+
+    <details>
+      <summary>Do you sell my data?</summary>
+      <div class="answer">Never. We are a privacy-first company. We do not sell user data, and we do not use your submissions to train public AI models.</div>
+    </details>
+  </main>
+
+  <footer>
+    © 2026 Predicai™
+  </footer>
+</body>
+</html>
