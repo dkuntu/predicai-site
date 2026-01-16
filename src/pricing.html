@@ -3,5 +3,133 @@ layout: null
 permalink: /pricing/
 active: pricing
 ---
-<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><title>Pricing – Predicai</title><link rel="icon" href="/logo.png"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet"><style>:root{--bg:#0B1220;--text:#F8FAFC;--teal:#0F766E;} body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;margin:0;} .container{max-width:1100px;margin:0 auto;padding:0 24px;} .site-header{padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.1);background:rgba(11,18,32,0.95);position:sticky;top:0;} .header-inner{display:flex;justify-content:space-between;align-items:center;} .brand{font-weight:900;color:#fff;text-decoration:none;display:flex;gap:10px;align-items:center;} .site-nav a{color:#94A3B8;font-weight:700;text-decoration:none;margin-left:20px;} .hero{text-align:center;padding:80px 0;} h1{font-size:3rem;font-weight:900;} .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;max-width:900px;margin:0 auto;} .card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:40px;text-align:center;} .card.featured{border-color:var(--teal);background:rgba(15,118,110,0.1);} .price{font-size:3.5rem;font-weight:900;margin:20px 0;} .btn{display:block;width:100%;padding:14px;border-radius:12px;font-weight:900;text-decoration:none;background:var(--teal);color:#fff;} .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.2);} table{width:100%;margin-top:60px;border-collapse:collapse;} th{text-align:left;padding:20px;border-bottom:1px solid rgba(255,255,255,0.1);color:#94A3B8;} td{padding:20px;border-bottom:1px solid rgba(255,255,255,0.1);} footer{text-align:center;padding:60px 0;border-top:1px solid rgba(255,255,255,0.1);margin-top:80px;color:#64748B;}</style></head>
-<body>{% include "nav.html" %}<main class="container"><section class="hero"><h1>Simple Pricing</h1></section><div class="grid"><div class="card"><h2>Shield</h2><div class="price">/bin/bash</div><p>For families.</p><a href="/shield/" class="btn btn-outline">Free</a></div><div class="card featured"><h2>Academy</h2><div class="price">49</div><p>For builders.</p><a href="https://buy.stripe.com/6oU9AVdC8eWUaHX9mk5ZC01" class="btn">Join</a></div></div><h2 style="text-align:center;margin-top:80px;">Compare</h2><table><tr><th>Feature</th><th>Shield</th><th>Academy</th></tr><tr><td>Protocols</td><td>✔</td><td>✔</td></tr><tr><td>Notion Vault</td><td>-</td><td>✔</td></tr><tr><td>Certification</td><td>-</td><td>✔</td></tr></table></main><footer>© 2026 Predicai™</footer></body></html>
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>Pricing – Predicai™</title>
+  <link rel="icon" href="/logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
+  <style>
+    :root{ --bg:#0B1220; --text:#F8FAFC; --teal:#0F766E; --gold:#FFD24A; --border:rgba(255,255,255,0.12); }
+    body{ background:var(--bg); color:var(--text); font-family:'Inter', sans-serif; margin:0; line-height:1.6; }
+    .container{ max-width:1100px; margin:0 auto; padding:0 24px; }
+    
+    .site-header{ padding:20px 0; border-bottom:1px solid var(--border); background:rgba(11,18,32,0.95); position:sticky; top:0; z-index:100; backdrop-filter:blur(10px); }
+    .header-inner{ display:flex; justify-content:space-between; align-items:center; }
+    .brand{ font-weight:900; color:#fff; text-decoration:none; font-size:1.2rem; display:flex; gap:10px; align-items:center; }
+    .brand img{ height:28px; }
+    .site-nav a{ color:#94A3B8; text-decoration:none; font-weight:700; margin-left:20px; }
+    .site-nav a:hover{ color:#fff; }
+    .site-nav a.active{ color:#fff; border-bottom:2px solid var(--teal); }
+
+    .hero{ text-align:center; padding:80px 0 40px; }
+    h1{ font-size:3rem; font-weight:900; margin-bottom:10px; }
+    
+    .grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:30px; max-width:900px; margin:40px auto; }
+    .card{ background:rgba(255,255,255,0.05); border:1px solid var(--border); border-radius:24px; padding:40px; text-align:center; display:flex; flex-direction:column; }
+    .card.featured{ border-color:var(--teal); background:rgba(15,118,110,0.1); }
+    
+    .price{ font-size:3.5rem; font-weight:900; margin:20px 0; line-height:1; }
+    .period{ font-size:1rem; color:#94A3B8; font-weight:400; }
+    
+    .btn{ display:block; width:100%; padding:14px; border-radius:12px; font-weight:900; text-decoration:none; margin-top:auto; }
+    .btn-teal{ background:var(--teal); color:white; }
+    .btn-outline{ border:1px solid var(--border); color:white; }
+
+    ul{ list-style:none; padding:0; text-align:left; margin:30px 0; }
+    li{ margin-bottom:12px; color:#CBD5E1; }
+
+    /* COMPARISON TABLE */
+    .compare-section{ margin-top:80px; }
+    table{ width:100%; border-collapse:collapse; margin-top:30px; }
+    th{ text-align:left; padding:20px; border-bottom:1px solid var(--border); color:#94A3B8; }
+    td{ padding:20px; border-bottom:1px solid var(--border); color:#fff; }
+    .check{ color:var(--teal); font-weight:bold; }
+
+    footer{ text-align:center; padding:50px 0; border-top:1px solid var(--border); margin-top:80px; color:#64748B; }
+    footer a{ color:#7DD3FC; margin:0 10px; text-decoration:none; }
+  </style>
+</head>
+<body>
+  {% include "nav.html" %}
+
+  <main class="container">
+    <section class="hero">
+      <h1>Simple Pricing</h1>
+      <p style="color:#A9B7CC;">Invest in yourself, protect your family.</p>
+    </section>
+
+    <div class="grid">
+      <div class="card">
+        <h2 style="color:var(--gold);">Shield</h2>
+        <div class="price">/bin/bash<span class="period">/mo</span></div>
+        <p style="color:#A9B7CC;">Essential protection for families.</p>
+        <ul>
+          <li>🛡️ Shield Check Tool</li>
+          <li>🛡️ Voice Clone Protocol</li>
+          <li>🛡️ Incident Response Guide</li>
+        </ul>
+        <a href="/shield/" class="btn btn-outline">Access Shield</a>
+      </div>
+
+      <div class="card featured">
+        <h2 style="color:var(--teal);">Academy</h2>
+        <div class="price">49<span class="period">/once</span></div>
+        <p style="color:#A9B7CC;">Builder Certification Program.</p>
+        <ul>
+          <li>✅ Full Notion Vault</li>
+          <li>✅ 7 Gates Quality System</li>
+          <li>✅ Lifetime Updates</li>
+        </ul>
+        <a href="https://buy.stripe.com/6oU9AVdC8eWUaHX9mk5ZC01" class="btn btn-teal">Apply Now</a>
+      </div>
+    </div>
+
+    <section class="compare-section">
+      <h2 style="text-align:center;">Compare Features</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Shield (Free)</th>
+            <th>Academy (49)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Family Protocols</td>
+            <td class="check">✔</td>
+            <td class="check">✔</td>
+          </tr>
+          <tr>
+            <td>Shield Check Tool</td>
+            <td class="check">✔</td>
+            <td class="check">✔</td>
+          </tr>
+          <tr>
+            <td>Notion Vault System</td>
+            <td>-</td>
+            <td class="check">✔</td>
+          </tr>
+          <tr>
+            <td>7 Gates Training</td>
+            <td>-</td>
+            <td class="check">✔</td>
+          </tr>
+          <tr>
+            <td>Builder Certification</td>
+            <td>-</td>
+            <td class="check">✔</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <div style="margin-bottom:12px;">© 2026 Predicai™</div>
+    <a href="/terms/">Terms</a> <a href="/privacy/">Privacy</a>
+  </footer>
+</body>
+</html>
