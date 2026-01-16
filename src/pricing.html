@@ -4,132 +4,895 @@ permalink: /pricing/
 active: pricing
 ---
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="auto">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pricing – Predicai™</title>
-  <link rel="icon" href="/logo.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
+  <meta name="description" content="Transparent pricing for the Academy Builder Program, Accelerator for Teams, and Shield Protection." />
+
+  <link rel="canonical" href="https://predicai.ai/pricing.html" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/logo.png" type="image/png" />
+
   <style>
-    :root{ --bg:#0B1220; --text:#F8FAFC; --teal:#0F766E; --gold:#FFD24A; --border:rgba(255,255,255,0.12); }
-    body{ background:var(--bg); color:var(--text); font-family:'Inter', sans-serif; margin:0; line-height:1.6; }
-    .container{ max-width:1100px; margin:0 auto; padding:0 24px; }
-    
-    .site-header{ padding:20px 0; border-bottom:1px solid var(--border); background:rgba(11,18,32,0.95); position:sticky; top:0; z-index:100; backdrop-filter:blur(10px); }
-    .header-inner{ display:flex; justify-content:space-between; align-items:center; }
-    .brand{ font-weight:900; color:#fff; text-decoration:none; font-size:1.2rem; display:flex; gap:10px; align-items:center; }
-    .brand img{ height:28px; }
-    .site-nav a{ color:#94A3B8; text-decoration:none; font-weight:700; margin-left:20px; }
-    .site-nav a:hover{ color:#fff; }
-    .site-nav a.active{ color:#fff; border-bottom:2px solid var(--teal); }
+    :root{
+      /* Brand */
+      --teal:#0F766E;
+      --blue:#1D4ED8;
 
-    .hero{ text-align:center; padding:80px 0 40px; }
-    h1{ font-size:3rem; font-weight:900; margin-bottom:10px; }
-    
-    .grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:30px; max-width:900px; margin:40px auto; }
-    .card{ background:rgba(255,255,255,0.05); border:1px solid var(--border); border-radius:24px; padding:40px; text-align:center; display:flex; flex-direction:column; }
-    .card.featured{ border-color:var(--teal); background:rgba(15,118,110,0.1); }
-    
-    .price{ font-size:3.5rem; font-weight:900; margin:20px 0; line-height:1; }
-    .period{ font-size:1rem; color:#94A3B8; font-weight:400; }
-    
-    .btn{ display:block; width:100%; padding:14px; border-radius:12px; font-weight:900; text-decoration:none; margin-top:auto; }
-    .btn-teal{ background:var(--teal); color:white; }
-    .btn-outline{ border:1px solid var(--border); color:white; }
+      /* Light (default) */
+      --bg-page:#F8FAFC;
+      --bg2:#EEF2F7;
+      --bg-white:#FFFFFF;
 
-    ul{ list-style:none; padding:0; text-align:left; margin:30px 0; }
-    li{ margin-bottom:12px; color:#CBD5E1; }
+      --text-main:#0F172A;
+      --text-muted:#64748B;
 
-    /* COMPARISON TABLE */
-    .compare-section{ margin-top:80px; }
-    table{ width:100%; border-collapse:collapse; margin-top:30px; }
-    th{ text-align:left; padding:20px; border-bottom:1px solid var(--border); color:#94A3B8; }
-    td{ padding:20px; border-bottom:1px solid var(--border); color:#fff; }
-    .check{ color:var(--teal); font-weight:bold; }
+      --border:#E2E8F0;
+      --shadow:0 10px 25px -5px rgba(0,0,0,0.10);
 
-    footer{ text-align:center; padding:50px 0; border-top:1px solid var(--border); margin-top:80px; color:#64748B; }
-    footer a{ color:#7DD3FC; margin:0 10px; text-decoration:none; }
+      /* Shield: bright gold */
+      --gold:#FFD24A;
+      --gold-strong:#F4B400;
+      --gold-ink:#111827;
+      --gold-bg:#FFFBEB;
+
+      /* Accelerator */
+      --platinum-dark:#020617;
+      --platinum-mid:#0B1220;
+      --platinum-light:#1E293B;
+
+      /* Header / Nav (light) */
+      --header-bg: rgba(255,255,255,0.88);
+      --nav-link: rgba(15,23,42,0.66);
+      --nav-hover-bg: rgba(15,118,110,0.06);
+      --nav-active-bg: rgba(29,78,216,0.08);
+
+      /* Focus */
+      --focus: rgba(37,99,235,0.45);
+
+      /* Layout */
+      --container: 1200px;
+      --padX: 24px;
+      --headerH: 72px;
+    }
+
+    /* Auto -> Dark */
+    @media (prefers-color-scheme: dark){
+      html[data-theme="auto"]{
+        --bg-page:#070B14;
+        --bg2:#0B1220;
+        --bg-white: rgba(255,255,255,0.06);
+
+        --text-main:#F8FAFC;
+        --text-muted: rgba(148,163,184,0.92);
+
+        --border: rgba(255,255,255,0.12);
+        --shadow: 0 28px 80px rgba(0,0,0,.35);
+
+        --header-bg: rgba(7,11,20,0.72);
+        --nav-link: rgba(248,250,252,0.76);
+        --nav-hover-bg: rgba(255,255,255,0.06);
+        --nav-active-bg: rgba(42,145,149,0.16);
+      }
+    }
+
+    /* Forced themes */
+    html[data-theme="dark"]{
+      --bg-page:#070B14;
+      --bg2:#0B1220;
+      --bg-white: rgba(255,255,255,0.06);
+
+      --text-main:#F8FAFC;
+      --text-muted: rgba(148,163,184,0.92);
+
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 28px 80px rgba(0,0,0,.35);
+
+      --header-bg: rgba(7,11,20,0.72);
+      --nav-link: rgba(248,250,252,0.76);
+      --nav-hover-bg: rgba(255,255,255,0.06);
+      --nav-active-bg: rgba(42,145,149,0.16);
+    }
+    html[data-theme="light"]{
+      --bg-page:#F8FAFC;
+      --bg2:#EEF2F7;
+      --bg-white:#FFFFFF;
+
+      --text-main:#0F172A;
+      --text-muted:#64748B;
+
+      --border:#E2E8F0;
+      --shadow:0 10px 25px -5px rgba(0,0,0,0.10);
+
+      --header-bg: rgba(255,255,255,0.88);
+      --nav-link: rgba(15,23,42,0.66);
+      --nav-hover-bg: rgba(15,118,110,0.06);
+      --nav-active-bg: rgba(29,78,216,0.08);
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; scroll-padding-top: var(--headerH); }
+
+    body{
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text-main);
+      background:
+        radial-gradient(900px 540px at 18% 8%, rgba(42,145,149,.14), transparent 60%),
+        radial-gradient(900px 540px at 82% 12%, rgba(42,145,149,.08), transparent 60%),
+        linear-gradient(180deg, var(--bg-page), var(--bg2));
+      min-height:100vh;
+      min-height:100svh;
+      line-height:1.6;
+
+      padding:
+        env(safe-area-inset-top)
+        env(safe-area-inset-right)
+        env(safe-area-inset-bottom)
+        env(safe-area-inset-left);
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto !important; }
+      *{ transition:none !important; animation:none !important; }
+    }
+
+    .container{
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--padX);
+    }
+
+    a{ color:inherit; }
+
+    :focus-visible{
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+      border-radius: 12px;
+    }
+
+    /* Skip link */
+    .skip-link{
+      position:absolute; left:-9999px; top:12px;
+      background:#fff;
+      border:1px solid var(--border);
+      padding:10px 12px;
+      border-radius:10px;
+      font-weight:800;
+      color:#0F172A;
+      text-decoration:none;
+      box-shadow: var(--shadow);
+      z-index:9999;
+    }
+    .skip-link:focus{ left:12px; }
+
+    /* Header / Nav (UPDATED) */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: var(--headerH);
+      display:flex;
+      align-items:center;
+      background: var(--header-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner{
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+    }
+
+    .brand{
+      font-weight: 950;
+      font-size: 1.05rem;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      white-space:nowrap;
+      letter-spacing: -0.02em;
+    }
+    .brand img{
+      width:26px;
+      height:26px;
+      border-radius:6px;
+      object-fit:contain;
+      display:block;
+    }
+
+    .nav-wrap{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    nav{
+      display:flex;
+      gap: 8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      align-items:center;
+    }
+
+    nav a{
+      font-size: 0.95rem;
+      font-weight: 850;
+      color: var(--nav-link);
+      text-decoration:none;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+      white-space: nowrap;
+    }
+    nav a:hover{
+      color: var(--text-main);
+      background: var(--nav-hover-bg);
+    }
+    nav a.active,
+    nav a[aria-current="page"]{
+      color: var(--text-main);
+      background: var(--nav-active-bg);
+      border-color: rgba(42,145,149,0.28);
+      font-weight: 950;
+    }
+
+    .theme-toggle{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      color: var(--text-main);
+      font-weight: 900;
+      font-size: 0.9rem;
+      cursor:pointer;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+      white-space: nowrap;
+      transition: background .15s ease, border-color .15s ease, transform .15s ease;
+    }
+    html[data-theme="light"] .theme-toggle{ background: rgba(15,23,42,0.03); }
+    .theme-toggle:hover{
+      background: rgba(255,255,255,0.10);
+    }
+    html[data-theme="light"] .theme-toggle:hover{
+      background: rgba(15,23,42,0.06);
+    }
+
+    /* Hero */
+    .hero{
+      text-align:center;
+      padding: 72px 0 52px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    h1{
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 900;
+      margin-bottom: 16px;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+    .lead{
+      font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+      color: var(--text-muted);
+    }
+
+    /* Pricing grid */
+    .pricing-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+      margin: 0 auto 70px;
+      align-items: stretch;
+    }
+
+    /* Card base */
+    .card{
+      background: var(--bg-white);
+      border-radius: 24px;
+      padding: 36px 30px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+      display:flex;
+      flex-direction:column;
+      height:100%;
+      position:relative;
+      min-width:0;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px -12px rgba(0,0,0,0.18);
+    }
+    html[data-theme="dark"] .card:hover{
+      box-shadow: 0 26px 70px rgba(0,0,0,0.45);
+    }
+
+    .icon-box{
+      width:56px;
+      height:56px;
+      border-radius:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:20px;
+      font-size:24px;
+      font-weight:900;
+    }
+
+    .card-title{
+      font-size: 1.75rem;
+      font-weight: 900;
+      margin-bottom: 4px;
+      line-height: 1.15;
+    }
+    .sub-head{
+      font-size: 0.82rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      margin-bottom: 22px;
+      display:block;
+    }
+
+    .price-block{
+      margin-bottom: 22px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid rgba(15,23,42,0.08);
+    }
+    html[data-theme="dark"] .price-block{
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .price{
+      font-size: 3rem;
+      font-weight: 950;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .price-meta{
+      font-size: 0.95rem;
+      opacity: 0.85;
+      font-weight: 600;
+      margin-top: 8px;
+      color: var(--text-muted);
+    }
+    html[data-theme="dark"] .price-meta{ color: rgba(203,213,225,0.92); }
+
+    .features{
+      list-style:none;
+      margin: 0 0 28px;
+      flex-grow: 1;
+      padding:0;
+    }
+    .features li{
+      display:flex;
+      align-items:flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .check{ font-weight: 1000; margin-top: 2px; flex-shrink:0; }
+    .feat-detail{
+      display:block;
+      font-size: 0.87rem;
+      opacity: 0.82;
+      font-weight: 500;
+      margin-top: 2px;
+      color: var(--text-muted);
+    }
+    html[data-theme="dark"] .feat-detail{ color: rgba(203,213,225,0.84); }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      padding: 15px 16px;
+      border-radius: 12px;
+      font-weight: 900;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease, opacity .15s ease;
+      cursor:pointer;
+      border: 1px solid transparent;
+      font-size: 1rem;
+      text-decoration:none;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:active{ transform: translateY(1px); }
+
+    .btn-outline{
+      margin-top:12px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-main);
+    }
+    .btn-outline:hover{ border-color: rgba(148,163,184,0.8); }
+
+    /* ACADEMY */
+    .card-academy{ border-top: 8px solid var(--teal); }
+    .card-academy .icon-box{ background: rgba(13,148,136,0.10); color: var(--teal); }
+    .card-academy .check{ color: var(--teal); }
+    .card-academy .btn{ background: var(--teal); color: white; }
+    .card-academy .btn:hover{ background: #0D9488; }
+
+    /* ACCELERATOR */
+    .card-accelerator{
+      background: linear-gradient(145deg, var(--platinum-light) 0%, var(--platinum-dark) 100%);
+      border: 1px solid rgba(148,163,184,0.28);
+      color: #F8FAFC;
+      z-index: 10;
+      box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.55);
+    }
+    .card-accelerator:hover{ border-color: rgba(226,232,240,0.28); }
+    .card-accelerator .sub-head{ color: #CBD5E1; }
+    .card-accelerator .price-meta{ color:#CBD5E1; opacity: 0.95; }
+    .card-accelerator .feat-detail{ color:#CBD5E1; opacity: 0.9; }
+
+    .card-accelerator .icon-box{
+      background: rgba(255,255,255,0.10);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .card-accelerator .check{ color: #fff; }
+    .card-accelerator .btn{
+      background: #fff;
+      color: #0F172A;
+      border-color: rgba(255,255,255,0.15);
+    }
+    .card-accelerator .btn:hover{ background: #F1F5F9; }
+    .card-accelerator .btn-outline{
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.28);
+    }
+    .card-accelerator .btn-outline:hover{ border-color: rgba(255,255,255,0.45); }
+
+    .badge{
+      position:absolute;
+      top:14px;
+      right:14px;
+      background: rgba(255,255,255,0.95);
+      color: #0F172A;
+      padding: 6px 12px;
+      font-weight: 950;
+      font-size: 0.72rem;
+      border-radius: 999px;
+      letter-spacing: 0.08em;
+    }
+
+    /* SHIELD */
+    .card-shield{
+      border-top: 8px solid var(--gold);
+      background: var(--gold-bg);
+      border-color: rgba(244,180,0,0.35);
+      color: #0F172A;
+    }
+    html[data-theme="dark"] .card-shield{
+      background: rgba(255, 251, 235, 0.92);
+      border-color: rgba(244,180,0,0.40);
+    }
+
+    .card-shield .icon-box{
+      background: rgba(255,210,74,0.22);
+      color: var(--gold-ink);
+      border: 1px solid rgba(244,180,0,0.25);
+    }
+    .card-shield .sub-head{ color: var(--gold-ink); opacity: 0.85; }
+    .card-shield .check{ color: var(--gold-ink); }
+    .card-shield .feat-detail{ color: rgba(17,24,39,0.74); }
+    .card-shield .btn{ background: var(--gold); color: #111827; }
+    .card-shield .btn:hover{ background: var(--gold-strong); }
+    .card-shield .btn-outline{
+      background: transparent;
+      border-color: rgba(244,180,0,0.55);
+      color: #111827;
+    }
+    .card-shield .btn-outline:hover{ border-color: rgba(244,180,0,0.85); }
+
+    /* Privacy pill */
+    .privacy-pill{
+      max-width: 920px;
+      margin: -30px auto 70px;
+      padding: 12px 16px;
+      background: rgba(15,118,110,0.06);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      text-align:center;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+    html[data-theme="dark"] .privacy-pill{
+      background: rgba(255,255,255,0.06);
+      color: rgba(203,213,225,0.92);
+    }
+    .privacy-pill a{
+      color: var(--teal);
+      font-weight: 900;
+      margin-left: 6px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* FAQ section */
+    .faq{
+      max-width: 760px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+    }
+    .faq h3{
+      font-weight: 950;
+      font-size: 1.5rem;
+      margin-bottom: 22px;
+    }
+    .faq h4{ font-weight: 900; margin-bottom: 8px; }
+    .faq p{ color: var(--text-muted); }
+    html[data-theme="dark"] .faq p{ color: rgba(203,213,225,0.88); }
+
+    /* Footer */
+    footer{
+      border-top: 1px solid var(--border);
+      padding: 38px 0;
+      text-align:center;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+    html[data-theme="dark"] footer{ color: rgba(203,213,225,0.86); }
+    footer a{
+      color: inherit;
+      text-decoration:none;
+      font-weight: 800;
+      margin: 0 10px;
+      display:inline-block;
+      padding: 6px 8px;
+      border-radius: 10px;
+    }
+    footer a:hover{
+      color: var(--text-main);
+      background: rgba(15,118,110,0.06);
+    }
+    html[data-theme="dark"] footer a:hover{
+      background: rgba(255,255,255,0.06);
+      color: #F8FAFC;
+    }
+
+    /* Responsive */
+    @media (max-width: 1040px){
+      .pricing-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 860px){
+      .header-inner{ flex-direction:column; align-items:flex-start; gap: 12px; }
+      .nav-wrap{ width:100%; justify-content:flex-start; }
+      nav{
+        width:100%;
+        justify-content:flex-start;
+        overflow-x:auto;
+        padding-bottom: 4px;
+        gap: 6px;
+      }
+      .hero{ padding: 54px 0 40px; }
+    }
+
+    @media (max-width: 720px){
+      .pricing-grid{ grid-template-columns: 1fr; gap: 18px; }
+      .card{ padding: 28px 22px; border-radius: 22px; }
+      .card:hover{ transform: none; }
+      .privacy-pill{ margin: 0 auto 60px; border-radius: 18px; }
+    }
   </style>
 </head>
+
 <body>
-  {% include "nav.html" %}
+  <a href="#main" class="skip-link">Skip to content</a>
 
-  <main class="container">
+  <div data-include="nav"></div>
+
+  <main class="container" id="main">
     <section class="hero">
-      <h1>Simple Pricing</h1>
-      <p style="color:#A9B7CC;">Invest in yourself, protect your family.</p>
+      <h1>Simple, Transparent Pricing</h1>
+      <p class="lead">Choose professional leverage (Academy), executive build support (Accelerator), or family protection (Shield).</p>
     </section>
 
-    <div class="grid">
-      <div class="card">
-        <h2 style="color:var(--gold);">Shield</h2>
-        <div class="price">/bin/bash<span class="period">/mo</span></div>
-        <p style="color:#A9B7CC;">Essential protection for families.</p>
-        <ul>
-          <li>🛡️ Shield Check Tool</li>
-          <li>🛡️ Voice Clone Protocol</li>
-          <li>🛡️ Incident Response Guide</li>
-        </ul>
-        <a href="/shield/" class="btn btn-outline">Access Shield</a>
-      </div>
+    <section class="pricing-grid" aria-label="Pricing options">
+      <article class="card card-academy">
+        <div class="icon-box" aria-hidden="true">🏗️</div>
+        <h2 class="card-title">The Academy</h2>
+        <span class="sub-head" style="color:var(--teal);">Builder Program</span>
 
-      <div class="card featured">
-        <h2 style="color:var(--teal);">Academy</h2>
-        <div class="price">49<span class="period">/once</span></div>
-        <p style="color:#A9B7CC;">Builder Certification Program.</p>
-        <ul>
-          <li>✅ Full Notion Vault</li>
-          <li>✅ 7 Gates Quality System</li>
-          <li>✅ Lifetime Updates</li>
+        <div class="price-block">
+          <div class="price">49</div>
+          <div class="price-meta">One-time tuition. Application only.</div>
+        </div>
+
+        <p style="margin-bottom:22px; color:var(--text-muted);">
+          For builders who want to master the 7 Gates and architect repeatable AI systems.
+        </p>
+
+        <ul class="features">
+          <li>
+            <span class="check">✓</span>
+            <div>
+              <strong>Guided Builder Program</strong>
+              <span class="feat-detail">6-week self-paced build with step-by-step logic training.</span>
+            </div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div>
+              <strong>The Notion Vault System</strong>
+              <span class="feat-detail">Workspace with project trackers, prompt library, and context anchors.</span>
+            </div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div>
+              <strong>Cai™ QC Toolkit</strong>
+              <span class="feat-detail">Auditor checklists to catch hallucinations and verify logic.</span>
+            </div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div>
+              <strong>Level 3 Certification</strong>
+              <span class="feat-detail">Submit your capstone for audit to earn the “Builder” credential.</span>
+            </div>
+          </li>
         </ul>
-        <a href="https://buy.stripe.com/6oU9AVdC8eWUaHX9mk5ZC01" class="btn btn-teal">Apply Now</a>
-      </div>
+
+        <a href="https://buy.stripe.com/6oU9AVdC8eWUaHX9mk5ZC01" class="btn" target="_blank" rel="noopener noreferrer">
+          Secure Your Spot (49) →
+        </a>
+
+        <a href="/academy.html" style="display:block; text-align:center; margin-top:14px; color:var(--text-muted); font-weight:800; text-decoration:underline; text-underline-offset:3px;">
+          View Syllabus & Details
+        </a>
+      </article>
+
+      <article class="card card-accelerator">
+        <div class="badge" aria-hidden="true">FOR TEAMS</div>
+
+        <div class="icon-box" aria-hidden="true">🚀</div>
+        <h2 class="card-title">Accelerator</h2>
+        <span class="sub-head">Teams &amp; 1:1 Coaching</span>
+
+        <div class="price-block">
+          <div class="price" style="font-size:1.9rem; padding:12px 0;">Application Only</div>
+          <div class="price-meta">Monthly retainer or project basis</div>
+        </div>
+
+        <p style="margin-bottom:22px; opacity:0.92;">
+          Fractional AI Officer services. We work with your leadership to build governance, strategy, and custom tooling.
+        </p>
+
+        <ul class="features">
+          <li>
+            <span class="check">✓</span>
+            <div>
+              <strong>1:1 Executive Strategy</strong>
+              <span class="feat-detail">Bi-weekly strategy calls to align AI initiatives with business goals.</span>
+            </div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div>
+              <strong>Custom “Company Brain” Build</strong>
+              <span class="feat-detail">We architect your internal knowledge base and retrieval workflows.</span>
+            </div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div>
+              <strong>Governance &amp; Ethics Policy</strong>
+              <span class="feat-detail">Drafting the “constitution” for how your org uses (and doesn’t use) AI.</span>
+            </div>
+          </li>
+        </ul>
+
+        <a href="https://calendly.com/predicai-strategy" target="_blank" rel="noopener noreferrer" class="btn">Book Strategy Call</a>
+        <a href="mailto:hello@predicai.ai" class="btn btn-outline" style="margin-top:12px;">Contact Sales</a>
+      </article>
+
+      <article class="card card-shield">
+        <div class="icon-box" aria-hidden="true">🛡️</div>
+        <h2 class="card-title">Shield</h2>
+        <span class="sub-head">Family Protection</span>
+
+        <div class="price-block">
+          <div class="price">9<span style="font-size:1rem; font-weight:800;">/yr</span></div>
+          <div class="price-meta" style="color: var(--gold-ink);">or /mo. Cancel anytime.</div>
+        </div>
+
+        <p style="margin-bottom:22px; color:var(--gold-ink); opacity:0.92;">
+          For families who want safety, not tech support. Day 1 protocols to stop scams and deepfakes.
+        </p>
+
+        <ul class="features">
+          <li>
+            <span class="check">✓</span>
+            <div>
+              <strong>Fast Second-Opinion Checks</strong>
+              <span class="feat-detail">Paste any text/email. Get an instant risk analysis and explanation.</span>
+            </div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div>
+              <strong>Deepfake Defense Protocols</strong>
+              <span class="feat-detail">Family safe word setup and callback scripts for voice clones.</span>
+            </div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div>
+              <strong>Incident Command Guide</strong>
+              <span class="feat-detail">Step-by-step checklist for what to do after a potential breach.</span>
+            </div>
+          </li>
+        </ul>
+
+        <a href="https://buy.stripe.com/eVq3cx7dKdSQeYd7ec5ZC02" class="btn" target="_blank" rel="noopener noreferrer">
+          Get Protected (9/yr)
+        </a>
+        <a href="https://buy.stripe.com/dRm00l9lScOM8zP4205ZC03" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+          Monthly Option (/mo)
+        </a>
+
+        <p style="margin-top:12px; font-size:0.86rem; color:var(--gold-ink); opacity:0.80; text-align:center;">
+          Shield Check is an educational tool, not an emergency service.
+        </p>
+      </article>
+    </section>
+
+    <div class="privacy-pill">
+      🔒 <strong>Privacy Pledge™</strong> Your inputs are never used for public model training or shared with third parties.
+      <a href="/privacy.html">Read policy</a>
     </div>
-
-    <section class="compare-section">
-      <h2 style="text-align:center;">Compare Features</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Feature</th>
-            <th>Shield (Free)</th>
-            <th>Academy (49)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Family Protocols</td>
-            <td class="check">✔</td>
-            <td class="check">✔</td>
-          </tr>
-          <tr>
-            <td>Shield Check Tool</td>
-            <td class="check">✔</td>
-            <td class="check">✔</td>
-          </tr>
-          <tr>
-            <td>Notion Vault System</td>
-            <td>-</td>
-            <td class="check">✔</td>
-          </tr>
-          <tr>
-            <td>7 Gates Training</td>
-            <td>-</td>
-            <td class="check">✔</td>
-          </tr>
-          <tr>
-            <td>Builder Certification</td>
-            <td>-</td>
-            <td class="check">✔</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
   </main>
 
+  <section class="faq" aria-label="Common questions">
+    <h3>Common Questions</h3>
+
+    <div style="margin-bottom: 20px;">
+      <h4>Is the Academy just for coders?</h4>
+      <p>No. The Builder program is designed for domain experts who want to architect systems using natural language. No coding required.</p>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <h4>What is the difference between Academy and Accelerator?</h4>
+      <p>The <strong>Academy</strong> (49) is a guided, self-paced builder program for individuals. The <strong>Accelerator</strong> is a high-touch service for teams and executives.</p>
+    </div>
+  </section>
+
   <footer>
-    <div style="margin-bottom:12px;">© 2026 Predicai™</div>
-    <a href="/terms/">Terms</a> <a href="/privacy/">Privacy</a>
+    <div>© 2026 Predicai™ — All rights reserved.</div>
+    <div style="margin-top:14px;">
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="https://www.linkedin.com/company/predicai-ai/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
   </footer>
+
+  <script>
+    // Theme toggle: auto -> dark -> light -> auto
+    (function () {
+      const root = document.documentElement;
+      const btn = document.getElementById('themeToggle');
+      const key = 'predicai_theme';
+
+      function getSystemTheme() {
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      function getSavedTheme() {
+        try { return localStorage.getItem(key) || 'auto'; } catch(e){ return 'auto'; }
+      }
+      function saveTheme(val){
+        try { localStorage.setItem(key, val); } catch(e){}
+      }
+      function applyTheme(val){
+        root.setAttribute('data-theme', val);
+        const label = val === 'auto' ? ('Theme: Auto (' + getSystemTheme() + ')') : ('Theme: ' + val);
+        if(btn) btn.textContent = '◐ ' + label;
+      }
+
+      const saved = getSavedTheme();
+      applyTheme(saved);
+
+      if(btn) {
+        btn.addEventListener('click', () => {
+          const cur = root.getAttribute('data-theme') || 'auto';
+          const next = cur === 'auto' ? 'dark' : (cur === 'dark' ? 'light' : 'auto');
+          saveTheme(next);
+          applyTheme(next);
+        });
+      }
+
+      // ===== Shared Nav Include Loader =====
+      const mount = document.querySelector('[data-include="nav"]');
+      if(mount) {
+        fetch('/partials/nav.html', { cache: 'no-cache' })
+          .then(r => r.text())
+          .then(html => {
+            mount.outerHTML = html;
+            initPredicaiNav();
+            // Re-apply active link logic since nav is dynamic
+            initPredicaiActiveLink();
+          })
+          .catch(() => {});
+      }
+
+      // ===== Nav behavior (dropdowns + mobile + active link) =====
+      function initPredicaiNav(){
+        const nav = document.getElementById('siteNav');
+        const toggle = document.querySelector('.nav-toggle');
+        if(!nav) return;
+
+        function closeAllMenus(except=null){
+          document.querySelectorAll('.menu.open').forEach(m => {
+            if(m !== except){
+              m.classList.remove('open');
+              const btn = m.querySelector('.menu-btn');
+              if(btn) btn.setAttribute('aria-expanded', 'false');
+            }
+          });
+        }
+
+        if(toggle){
+          toggle.addEventListener('click', () => {
+            const open = nav.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            if(!open) closeAllMenus();
+          });
+        }
+
+        document.addEventListener('click', (e) => {
+          const clickedToggle = e.target.closest('.nav-toggle');
+          const clickedNav = e.target.closest('#siteNav');
+          if(clickedToggle || clickedNav) return;
+
+          if(nav.classList.contains('open') && window.innerWidth <= 860){
+            nav.classList.remove('open');
+            if(toggle) toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      function initPredicaiActiveLink(){
+        const path = (location.pathname || '/').toLowerCase();
+        document.querySelectorAll('#siteNav a[href]').forEach(a => {
+          const href = (a.getAttribute('href') || '').toLowerCase();
+          const isHome = (href === '/' && (path === '/' || path.endsWith('/index.html')));
+          const isExact = (href.endsWith('.html') && path.endsWith(href));
+
+          if(isHome || isExact){
+            a.classList.add('active');
+            a.setAttribute('aria-current','page');
+          }
+        });
+      }
+
+      if (window.matchMedia) {
+        const mq = window.matchMedia('(prefers-color-scheme: light)');
+        mq.addEventListener?.('change', () => {
+          if ((root.getAttribute('data-theme') || 'auto') === 'auto') applyTheme('auto');
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

@@ -14,7 +14,7 @@ active: about
   <meta name="description" content="Predicai helps people think clearly in the AI age. Better judgment for work. Better protection for families." />
 
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://predicai.ai/about/" />
+  <meta property="og:url" content="https://predicai.ai/about.html" />
   <meta property="og:title" content="About Predicai – Better Judgment in the AI Age" />
   <meta property="og:description" content="Predicai helps people think clearly in the AI age. Better judgment for work. Better protection for families." />
   <meta property="og:image" content="https://predicai.ai/social-share.png" />
@@ -27,8 +27,9 @@ active: about
   <meta name="theme-color" content="#FFFFFF" id="themeColorMeta" />
 
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://predicai.ai/about/" />
+  <link rel="canonical" href="https://predicai.ai/about.html" />
 
+  <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/logo.png" type="image/png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -159,6 +160,7 @@ active: about
       min-height: 100vh;
       min-height: 100svh;
 
+      /* Safe areas */
       padding:
         env(safe-area-inset-top)
         env(safe-area-inset-right)
@@ -169,8 +171,8 @@ active: about
     a { color: inherit; }
 
     /* ===== Shared Nav Styles (Predicai) ===== */
-    .site-header,
-    .-header{
+
+    .site-header{
       position: sticky;
       top:0;
       z-index:50;
@@ -327,6 +329,29 @@ active: about
     .menu.open .menu-panel{ display:block; }
     .menu.open .menu-btn{ color: var(--text-main); }
 
+    .theme-toggle{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface-3);
+      color: var(--text-main);
+      font-weight: 850;
+      font-size: 0.9rem;
+      cursor: pointer;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+      white-space: nowrap;
+      transition: background .15s ease, border-color .15s ease, transform .15s ease;
+    }
+    .theme-toggle:hover{
+      background: var(--panel-bg-strong);
+      border-color: var(--border-strong);
+      transform: translateY(-1px);
+    }
+
     /* Mobile menu */
     .nav-toggle{
       display:none;
@@ -377,6 +402,7 @@ active: about
       .menu.open .menu-panel{ display:block; }
     }
 
+    /* Layout */
     .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 20px; }
 
     /* Hero */
@@ -423,6 +449,7 @@ active: about
       opacity: 0.94;
     }
 
+    /* Privacy pill */
     .pledge-pill {
       margin-top: 10px;
       font-size: 0.92rem;
@@ -441,6 +468,7 @@ active: about
       margin-left: 6px;
     }
 
+    /* CTA */
     .cta-row { display: flex; justify-content: center; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
@@ -462,6 +490,7 @@ active: about
     .btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--text-main); }
     .btn-secondary:hover { border-color: rgba(42,145,149,0.30); transform: translateY(-2px); }
 
+    /* Split cards */
     .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 56px 0; }
     .split-card {
       background: var(--surface-2);
@@ -488,6 +517,7 @@ active: about
     .link-gold { color: var(--gold); font-weight: 900; text-decoration: none; }
     .link-gold:hover { text-decoration: underline; text-underline-offset: 3px; }
 
+    /* Ethics box */
     .ethics-box {
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
@@ -513,6 +543,7 @@ active: about
     .ethics-item h3 { color: var(--text-main); font-size: 1.1rem; margin-bottom: 8px; font-weight: 900; }
     .ethics-item p { color: var(--text-muted); font-size: 0.95rem; }
 
+    /* Founder */
     .founder {
       max-width: 760px;
       margin: 0 auto 100px;
@@ -524,6 +555,7 @@ active: about
     .sig { font-weight: 900; color: var(--text-main); }
     .role { display: block; font-size: 0.9rem; color: var(--text-muted); font-weight: 600; margin-top: 2px; }
 
+    /* Footer */
     footer {
       text-align: center;
       padding: 40px 20px;
@@ -547,11 +579,13 @@ active: about
     }
     .social-links { display: flex; justify-content: center; gap: 18px; margin-bottom: 18px; flex-wrap: wrap; }
 
+    /* Mobile */
     @media (max-width: 900px) {
       .split-grid { grid-template-columns: 1fr; }
       .hero { padding: 72px 0 38px; }
     }
 
+    /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
       html{ scroll-behavior: auto; }
       *{
@@ -563,6 +597,7 @@ active: about
       .btn-primary:hover,
       .btn-secondary:hover,
       .split-card:hover,
+      .theme-toggle:hover,
       .menu-btn:hover{
         transform: none !important;
       }
@@ -570,8 +605,8 @@ active: about
   </style>
 </head>
 
-<body data-active="{{ page.active }}">
-  {% include "nav.html" %}
+<body>
+  <div data-include="nav"></div>
 
   <main id="main" class="wrap" tabindex="-1">
     <section class="hero">
@@ -591,12 +626,12 @@ active: about
 
       <div class="pledge-pill">
         🔒 <strong>Privacy Pledge</strong> We don’t sell data. We don’t train public models on your submissions.
-        <a href="/privacy/" class="inline-link">Read policy</a>
+        <a href="/privacy.html#pledge" class="inline-link">Read policy</a>
       </div>
 
       <div class="cta-row">
-        <a class="btn btn-primary" href="/resources/">Start with Resources →</a>
-        <a class="btn btn-secondary" href="/capability/">Take the Capability Score →</a>
+        <a class="btn btn-primary" href="/resources.html">Start with Resources →</a>
+        <a class="btn btn-secondary" href="/capability.html">Take the Capability Score →</a>
       </div>
     </section>
 
@@ -608,7 +643,7 @@ active: about
           We teach you how to direct AI, check the output, and turn one-off wins into repeatable systems.
           The goal is simple: less chaos, better decisions, better results.
         </p>
-        <a href="/academy/" class="link-teal">Explore Academy →</a>
+        <a href="/academy.html" class="link-teal">Explore Academy →</a>
       </div>
 
       <div class="split-card">
@@ -618,7 +653,7 @@ active: about
           Scams are getting smarter. Voices can be cloned. Screenshots can be faked.
           Shield helps families slow down, verify, and protect each other before money moves.
         </p>
-        <a href="/shield/" class="link-gold">Explore Shield →</a>
+        <a href="/shield.html" class="link-gold">Explore Shield →</a>
       </div>
     </section>
 
@@ -673,15 +708,114 @@ active: about
     <div>© 2026 Predicai — All rights reserved.</div>
 
     <div style="margin-top:16px; font-size: 0.85rem; opacity: 0.92;">
-      <a href="/resources/">Resources</a>
-      <a href="/terms/">Terms</a>
-      <a href="/privacy/">Privacy</a>
+      <a href="/resources.html">Resources</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
     </div>
   </footer>
 
   <script>
+    // ===== Shared Nav Include Loader =====
     (function(){
+      const mount = document.querySelector('[data-include="nav"]');
+      if(!mount) return;
+
+      fetch('/partials/nav.html', { cache: 'no-cache' })
+        .then(r => r.text())
+        .then(html => {
+          mount.outerHTML = html;
+          initPredicaiNav();
+          initPredicaiTheme();
+        })
+        .catch(() => {
+          // If nav fails, page still loads.
+          initPredicaiTheme();
+        });
+    })();
+
+    // ===== Nav behavior (dropdowns + mobile + active link) =====
+    function initPredicaiNav(){
+      const nav = document.getElementById('siteNav');
+      const toggle = document.querySelector('.nav-toggle');
+      if(!nav) return;
+
+      function closeAllMenus(except=null){
+        document.querySelectorAll('.menu.open').forEach(m => {
+          if(m !== except){
+            m.classList.remove('open');
+            const btn = m.querySelector('.menu-btn');
+            if(btn) btn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      // Mobile open/close
+      if(toggle){
+        toggle.addEventListener('click', () => {
+          const open = nav.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+          if(!open) closeAllMenus();
+        });
+      }
+
+      // Dropdown toggle
+      document.querySelectorAll('.menu').forEach(menu => {
+        const btn = menu.querySelector('.menu-btn');
+        if(!btn) return;
+
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const isOpen = menu.classList.contains('open');
+          closeAllMenus(menu);
+          menu.classList.toggle('open', !isOpen);
+          btn.setAttribute('aria-expanded', (!isOpen).toString());
+        });
+
+        // Keyboard: Escape closes
+        menu.addEventListener('keydown', (e) => {
+          if(e.key === 'Escape'){
+            menu.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+            btn.focus();
+          }
+        });
+      });
+
+      // Click outside closes
+      document.addEventListener('click', (e) => {
+        const clickedInsideMenu = e.target.closest('.menu');
+        const clickedToggle = e.target.closest('.nav-toggle');
+        if(clickedInsideMenu || clickedToggle) return;
+
+        closeAllMenus();
+
+        // On mobile, clicking outside closes the whole menu
+        if(nav.classList.contains('open') && window.innerWidth <= 860){
+          nav.classList.remove('open');
+          if(toggle) toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Mark active link by URL (exact .html match + home)
+      const path = (location.pathname || '/').toLowerCase();
+
+      document.querySelectorAll('#siteNav a[href]').forEach(a => {
+        const href = (a.getAttribute('href') || '').toLowerCase();
+
+        const isHome = (href === '/' && (path === '/' || path.endsWith('/index.html')));
+        const isExact = (href.endsWith('.html') && path.endsWith(href));
+
+        if(isHome || isExact){
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+        }
+      });
+    }
+
+    // ===== Theme toggle (auto -> dark -> light -> auto) + theme-color meta =====
+    function initPredicaiTheme(){
       const root = document.documentElement;
+      const btn = document.getElementById('themeToggle');
       const metaTheme = document.getElementById('themeColorMeta');
 
       function getSystemTheme() {
@@ -691,16 +825,35 @@ active: about
         try { return localStorage.getItem('predicai_theme') || 'auto'; }
         catch(e){ return 'auto'; }
       }
+      function saveTheme(val){
+        try { localStorage.setItem('predicai_theme', val); } catch(e){}
+      }
+
       function themeColorFor(val){
         const resolved = (val === 'auto') ? getSystemTheme() : val;
         return resolved === 'light' ? '#FFFFFF' : '#070B14';
       }
+
       function applyTheme(val){
         root.setAttribute('data-theme', val);
+        if(btn){
+          const label = val === 'auto' ? ('Theme: Auto (' + getSystemTheme() + ')') : ('Theme: ' + val);
+          btn.textContent = '◐ ' + label;
+        }
         if (metaTheme) metaTheme.setAttribute('content', themeColorFor(val));
       }
 
-      applyTheme(getSavedTheme());
+      const saved = getSavedTheme();
+      applyTheme(saved);
+
+      if(btn){
+        btn.addEventListener('click', () => {
+          const cur = root.getAttribute('data-theme') || 'auto';
+          const next = cur === 'auto' ? 'dark' : (cur === 'dark' ? 'light' : 'auto');
+          saveTheme(next);
+          applyTheme(next);
+        });
+      }
 
       if (window.matchMedia) {
         const mq = window.matchMedia('(prefers-color-scheme: light)');
@@ -708,7 +861,35 @@ active: about
           if ((root.getAttribute('data-theme') || 'auto') === 'auto') applyTheme('auto');
         });
       }
-    })();
+    }
   </script>
 </body>
 </html>
+# 1. Go to source
+cd /workspaces/predicai-site/src
+
+# ---------------------------------------------------------
+# STEP 1: ENSURE NAV PARTIAL EXISTS (Safety Check)
+# ---------------------------------------------------------
+mkdir -p partials
+cat > partials/nav.html <<EOF
+<header class="site-header" id="siteNav">
+  <div class="header-inner container">
+    <a href="/" class="brand">
+      <img src="/logo.png" alt="Predicai Logo" width="26" height="26"> 
+      Predicai™
+    </a>
+    
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="nav-toggle-icon">☰</span>
+    </button>
+
+    <nav class="site-nav">
+      <a href="/academy.html">Academy</a>
+      <a href="/shield.html">Shield</a>
+      <a href="/shield-desk.html">Desk</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/resources.html">Resources</a>
+    </nav>
+  </div>
+</header>
