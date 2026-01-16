@@ -13,20 +13,20 @@ active: home
   <link rel="icon" href="/logo.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
   <style>
-    :root{ --bg:#0B1220; --text:#F8FAFC; --teal:#0F766E; --gold:#FFD24A; --link:#7DD3FC; }
+    :root{ --bg:#0B1220; --text:#F8FAFC; --teal:#0F766E; --gold:#FFD24A; --link:#7DD3FC; --border:rgba(255,255,255,0.12); }
     body{ background:var(--bg); color:var(--text); font-family:'Inter', sans-serif; margin:0; }
     .container{ max-width:1200px; margin:0 auto; padding:0 24px; }
     
-    /* Hardcoded Nav Styles */
-    .site-header{ padding:20px 0; border-bottom:1px solid rgba(255,255,255,0.1); background:rgba(11,18,32,0.95); position:sticky; top:0; z-index:100; }
+    /* HARDCODED NAV STYLES */
+    .site-header{ padding:20px 0; border-bottom:1px solid var(--border); background:rgba(11,18,32,0.95); position:sticky; top:0; z-index:100; }
     .header-inner{ display:flex; justify-content:space-between; align-items:center; }
     .brand{ display:flex; gap:10px; font-weight:900; color:#fff; text-decoration:none; font-size:1.2rem; align-items:center; }
     .brand img{ height:28px; width:auto; }
     .site-nav{ display:flex; gap:20px; }
-    .site-nav a{ color:#94A3B8; text-decoration:none; font-weight:700; }
+    .site-nav a{ color:#94A3B8; text-decoration:none; font-weight:700; transition:color 0.2s; }
     .site-nav a:hover{ color:#fff; }
 
-    /* Hero & Grid */
+    /* HERO */
     .hero{ text-align:center; padding:92px 0 44px; }
     h1{ font-size:3.5rem; font-weight:900; margin-bottom:20px; line-height:1.1; }
     .text-teal{ color:#2DD4BF; } .text-gold{ color:#FACC15; }
@@ -34,11 +34,12 @@ active: home
     .btn-academy{ background:rgba(45,212,191,0.1); color:#2DD4BF; border:1px solid rgba(45,212,191,0.2); }
     .btn-shield{ background:rgba(250,204,21,0.1); color:#FACC15; border:1px solid rgba(250,204,21,0.2); margin-left:10px; }
     .grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:18px; max-width:1050px; margin:40px auto; }
-    .card{ background:rgba(255,255,255,0.05); padding:28px; border-radius:24px; border:1px solid rgba(255,255,255,0.1); }
-    footer{ text-align:center; padding:50px 0; color:#475569; font-size:0.9rem; border-top:1px solid rgba(255,255,255,0.1); margin-top:60px; }
+    .card{ background:rgba(255,255,255,0.05); padding:28px; border-radius:24px; border:1px solid var(--border); }
+    footer{ text-align:center; padding:50px 0; color:#64748B; font-size:0.9rem; border-top:1px solid var(--border); margin-top:60px; }
   </style>
 </head>
 <body>
+
   <header class="site-header">
     <div class="header-inner container">
       <a href="/" class="brand"><img src="/logo.png" alt="Logo"> Predicai™</a>
@@ -55,14 +56,31 @@ active: home
   <main class="container">
     <section class="hero">
       <h1><span class="text-teal">Work leverage</span><br><span class="text-gold">Family safety</span></h1>
-      <p style="max-width:600px; margin:0 auto 30px; color:#94A3B8; font-size:1.2rem;">Predicai helps you build reliable AI workflows at work, and protect your family from scams at home.</p>
-      <div><a href="/academy/" class="btn btn-academy">Explore Academy</a><a href="/shield/" class="btn btn-shield">Explore Shield</a></div>
+      <p style="max-width:600px; margin:0 auto 30px; color:#94A3B8; font-size:1.2rem;">
+        Predicai helps you build reliable AI workflows at work, and protect your family from scams at home.
+      </p>
+      <div>
+        <a href="/academy/" class="btn btn-academy">Explore Academy</a>
+        <a href="/shield/" class="btn btn-shield">Explore Shield</a>
+      </div>
     </section>
+
     <section class="grid">
-      <div class="card"><h2>The Academy</h2><p style="color:#A9B7CC;">Build repeatable workflows you can trust.</p><br><a href="/academy/" style="color:#7DD3FC; font-weight:bold; text-decoration:none;">View Academy →</a></div>
-      <div class="card"><h2>Shield</h2><p style="color:#A9B7CC;">Verification tools + family protocols.</p><br><a href="/shield/" style="color:#7DD3FC; font-weight:bold; text-decoration:none;">View Shield →</a></div>
+      <div class="card">
+        <h2>The Academy</h2>
+        <p style="color:#A9B7CC;">Build repeatable workflows you can trust.</p>
+        <br><a href="/academy/" style="color:#7DD3FC; font-weight:bold; text-decoration:none;">View Academy →</a>
+      </div>
+      <div class="card">
+        <h2>Shield</h2>
+        <p style="color:#A9B7CC;">Verification tools + family protocols.</p>
+        <br><a href="/shield/" style="color:#7DD3FC; font-weight:bold; text-decoration:none;">View Shield →</a>
+      </div>
     </section>
   </main>
-  <footer>© 2026 Predicai™</footer>
+
+  <footer>
+    © 2026 Predicai™
+  </footer>
 </body>
 </html>
