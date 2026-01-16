@@ -4,56 +4,358 @@ permalink: /voice-defense/
 active: shield
 ---
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Voice Defense – Predicai Shield</title>
-  <link rel="icon" href="/logo.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Voice Defense Guide – Predicai Shield™</title>
+  <meta name="description" content="A printable one-page protocol to reduce voice-clone scam risk: voicemail settings, safe script, and family callback rules." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="canonical" href="https://predicai.ai/voice-defense/" />
+  <meta name="theme-color" content="#FFFFFF" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://predicai.ai/voice-defense/" />
+  <meta property="og:title" content="Predicai Shield™ – Voice Defense Guide" />
+  <meta property="og:description" content="A printable one-page protocol to reduce voice-clone scam risk: voicemail settings, safe script, and family callback rules." />
+  <meta property="og:image" content="https://predicai.ai/social-share.png" />
+
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/logo.png" type="image/png" />
+
   <style>
-    :root{ --bg:#0B1220; --text:#F8FAFC; --gold:#FFD24A; --border:rgba(255,255,255,0.12); }
-    body{ background:var(--bg); color:var(--text); font-family:'Inter', sans-serif; margin:0; line-height:1.6; }
-    .container{ max-width:800px; margin:0 auto; padding:60px 24px; }
-    .site-header{ padding:20px 0; border-bottom:1px solid var(--border); background:rgba(11,18,32,0.95); position:sticky; top:0; }
-    .header-inner{ max-width:1100px; margin:0 auto; padding:0 24px; display:flex; justify-content:space-between; align-items:center; }
-    .brand{ font-weight:900; color:#fff; text-decoration:none; display:flex; gap:10px; align-items:center; }
-    .site-nav a{ color:#94A3B8; text-decoration:none; font-weight:700; margin-left:20px; }
-    
-    .card{ background:rgba(255,255,255,0.05); padding:30px; border-radius:20px; border:1px solid var(--gold); text-align:center; margin:40px 0; }
-    h1{ font-size:3rem; font-weight:900; color:var(--gold); }
-    .step{ text-align:left; margin-bottom:20px; padding:20px; background:rgba(0,0,0,0.3); border-radius:12px; }
-    .step h3{ margin:0 0 10px; color:var(--gold); }
-    
-    footer{ text-align:center; padding:50px 0; border-top:1px solid var(--border); margin-top:80px; color:#64748B; }
+    :root{
+      --text-dark:#111827;
+      --text-sub:#4B5563;
+
+      --accent-gold:#CA8A04;
+      --gold-light:#FCD34D;
+      --gold-dark:#92400E;
+      --gold-bg:#FFFBEB;
+
+      --alert-red:#B91C1C;
+      --alert-bg:#FEF2F2;
+      --bg-page:#F3F4F6;
+      --paper-bg:#ffffff;
+      --border:#E5E7EB;
+      --focus:#2A9195;
+    }
+
+    @page{ size: Letter; margin: 0.5in; }
+
+    html,body{
+      background:var(--bg-page);
+      margin:0; padding:0;
+      color:var(--text-dark);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.6;
+    }
+
+    .skip-link{
+      position:absolute; left:-9999px; top:10px; z-index:9999;
+      background:#fff; color:#000; padding:10px 14px;
+      border-radius:10px; font-weight:900; text-decoration:none;
+      border: 2px solid var(--focus);
+    }
+    .skip-link:focus{ left:12px; }
+
+    .page-wrap{ padding:40px 16px; }
+
+    .sheet{
+      background:var(--paper-bg);
+      max-width:720px;
+      margin:0 auto;
+      border:1px solid var(--border);
+      border-radius:12px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.05);
+      padding:40px;
+    }
+
+    .header{
+      border-bottom:2px solid var(--text-dark);
+      padding-bottom:20px;
+      margin-bottom:30px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .brand-block{ display:flex; align-items:center; gap:12px; }
+    .brand{ font-size:1.4rem; font-weight:900; letter-spacing:-0.02em; }
+    .brand span{ color:var(--accent-gold); }
+    .meta{
+      text-align:right;
+      font-size:0.75rem;
+      color:#6B7280;
+      text-transform:uppercase;
+      letter-spacing:0.05em;
+      white-space:nowrap;
+    }
+
+    .logo-img{ width:42px; height:42px; object-fit:contain; border-radius:50%; }
+
+    h1{ font-size:1.8rem; font-weight:900; line-height:1.1; margin-bottom:10px; }
+    h2{
+      font-size:1.1rem;
+      font-weight:800;
+      margin-top:30px;
+      margin-bottom:12px;
+      text-transform:uppercase;
+      letter-spacing:0.05em;
+      border-left:4px solid var(--accent-gold);
+      padding-left:12px;
+      color:var(--text-dark);
+    }
+
+    p{ margin-bottom:18px; color:var(--text-sub); }
+    .lead{ font-size:1.02rem; }
+
+    .alert-box{
+      background:var(--alert-bg);
+      border:1px solid #FECACA;
+      border-radius:10px;
+      padding:16px;
+      margin-bottom:26px;
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+    }
+    .alert-icon{ font-size:1.4rem; margin-top:-2px; }
+    .alert-content strong{ color:var(--alert-red); display:block; margin-bottom:4px; }
+    .alert-content p{ margin:0; font-size:0.95rem; color:#7F1D1D; max-width:60ch; }
+
+    .step-card{
+      background:#F9FAFB;
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:20px;
+      margin-bottom:18px;
+      display:flex;
+      flex-direction: column;
+      break-inside: avoid;
+    }
+    .step-num{
+      background:var(--text-dark);
+      color:#fff;
+      font-weight:800;
+      font-size:0.8rem;
+      padding:4px 8px;
+      border-radius:6px;
+      display:inline-block;
+      margin-bottom:10px;
+      align-self: flex-start;
+    }
+    .step-title{
+      font-weight:900;
+      font-size:1.1rem;
+      margin-bottom:8px;
+      display:block;
+      color:var(--text-dark);
+    }
+
+    .script-box{
+      background:#fff;
+      border:2px dashed #9CA3AF;
+      padding:18px;
+      border-radius:10px;
+      font-family:"Courier New", Courier, monospace;
+      color:#374151;
+      font-weight:600;
+      margin-top:10px;
+    }
+    .script-label{
+      text-transform:uppercase;
+      font-size:0.7rem;
+      color:#9CA3AF;
+      letter-spacing:0.1em;
+      margin-bottom:8px;
+      display:block;
+      font-family: inherit;
+      font-weight:800;
+    }
+
+    .helper-note{
+      font-size:0.88rem;
+      color:#6B7280;
+      font-weight:600;
+      margin-top:10px;
+      line-height:1.5;
+    }
+
+    .shortcuts-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px 14px;
+      margin-top: 14px;
+    }
+    .shortcut{
+      border:1px solid rgba(0,0,0,0.06);
+      border-radius:10px;
+      padding:12px;
+      background:#F9FAFB;
+    }
+    .shortcut strong{
+      display:block;
+      color:var(--text-dark);
+      font-weight:900;
+      margin-bottom:6px;
+      font-size:0.9rem;
+    }
+
+    .shield-box {
+      margin-top: 22px;
+      background: var(--gold-bg);
+      border: 1px solid var(--gold-light);
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .shield-icon { font-size: 1.45rem; line-height: 1; margin-top: 2px; }
+
+    .response-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .pill{
+      display:inline-block;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      padding: 4px 10px;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .do{ background:#ECFDF5; color:#065F46; }
+    .dont{ background:#FEF2F2; color:#7F1D1D; }
+
+    .safe-word{
+      margin-top: 12px;
+      background: #FFFBEB;
+      border: 1px dashed rgba(202,138,4,0.55);
+      border-radius: 10px;
+      padding: 14px;
+      text-align:center;
+    }
+    .safe-word .label{
+      font-size:0.72rem;
+      text-transform:uppercase;
+      letter-spacing:0.1em;
+      font-weight:900;
+      color: var(--gold-dark);
+      margin-bottom: 6px;
+      display:block;
+    }
+
+    .footer-links{
+      margin-top:30px;
+      padding-top:18px;
+      border-top:1px solid var(--border);
+      text-align:center;
+    }
+
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      background:var(--text-dark);
+      color:#fff;
+      padding:12px 18px;
+      border-radius:10px;
+      font-weight:800;
+      font-size:0.92rem;
+      margin:6px 6px 0;
+      cursor: pointer;
+      border: none;
+    }
+
+    @media (max-width:600px){
+      .sheet{ padding:24px; border:none; box-shadow:none; }
+      .response-grid, .shortcuts-grid{ grid-template-columns: 1fr; }
+    }
+
+    @media print{
+      body{ background:#fff; }
+      .page-wrap{ padding:0; }
+      .sheet{ box-shadow:none; border:none; padding:0; }
+      .footer-links{ display:none; }
+    }
   </style>
 </head>
-<body>
-  {% include "nav.html" %}
-  
-  <main class="container">
-    <h1>Voice Defense Protocol</h1>
-    <p style="font-size:1.2rem; color:#A9B7CC;">How to stop AI voice cloning scams in 3 steps.</p>
 
-    <div class="card">
-      <div class="step">
-        <h3>1. Establish a Safe Word</h3>
-        <p>Pick a word that is unique but easy to remember (e.g., "Popcorn" or "Blueberry"). Never share it online.</p>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <main id="content" class="page-wrap" role="main">
+    <div class="sheet">
+
+      <div class="header">
+        <div class="brand-block">
+          <img src="/predicai-shield-gold.JPG" alt="Predicai Shield logo" class="logo-img">
+          <div class="brand">Predicai Shield<span>™</span></div>
+        </div>
+        <div class="meta">Briefing: 003<br>Voice Defense</div>
       </div>
-      <div class="step">
-        <h3>2. The Challenge Rule</h3>
-        <p>If you get a distress call from a family member, ask for the Safe Word immediately. AI cannot know it.</p>
+
+      <h1>The Voice Clone Threat</h1>
+      <p class="lead">
+        Remove clean voice samples from your public voicemail and establish family callback rules to force verification.
+      </p>
+
+      <div class="alert-box">
+        <div class="alert-icon">⚠️</div>
+        <div class="alert-content">
+          <strong>Audio Source Risk: Voicemail</strong>
+          <p>Personal greetings provide scammers with a clean sample of your voice. Switch to a system default greeting to reduce exposure.</p>
+        </div>
       </div>
-      <div class="step">
-        <h3>3. Hang Up & Call Back</h3>
-        <p>If they "can't remember" the word, hang up. Call their known phone number directly.</p>
+
+      <div class="step-card">
+        <span class="step-num">Step 1</span>
+        <span class="step-title">Reset Your Greeting</span>
+        <p>Switch to the <strong>System Greeting</strong> (the automated voice that reads your number).</p>
+        <div class="script-box">
+          <span class="script-label">The Safe Script</span>
+          “You have reached [Read Phone Number]. Please leave a message.”
+        </div>
       </div>
-    </div>
-    
-    <div style="text-align:center;">
-      <a href="/shield-download/" style="color:#FFD24A; font-weight:bold;">Download PDF Guide →</a>
+
+      <div class="step-card">
+        <span class="step-num">Step 2</span>
+        <span class="step-title">The Family Safe Word</span>
+        <p>Establish a word not found on social media to verify identity during emotional or urgent calls.</p>
+        <div class="safe-word">
+          <span class="label">Family Safe Word</span>
+          <div class="line">SAFE WORD: ______________________________</div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <span class="step-num">Step 3</span>
+        <span class="step-title">In-The-Moment Script</span>
+        <div class="script-box">
+          <span class="script-label">If you get a suspicious call</span>
+          “I’m going to hang up and call you back on your saved number. What’s the Safe Word?”
+        </div>
+        <div class="response-grid">
+          <div><span class="pill do">Do</span><p>Hang up, call back, ask Safe Word.</p></div>
+          <div><span class="pill dont">Don't</span><p>Stay on line or use provided numbers.</p></div>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="/shield-desk/" class="btn">Back to Shield Desk</a>
+        <button type="button" class="btn" onclick="window.print()">Print Protocol</button>
+      </div>
+
     </div>
   </main>
-  
-  <footer>© 2026 Predicai Shield™</footer>
 </body>
 </html>
