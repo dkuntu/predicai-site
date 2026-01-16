@@ -1,0 +1,204 @@
+---
+layout: null
+permalink: /booked/
+active: pricing
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+  <title>Booking Confirmed – Predicai™</title>
+  <meta name="description" content="Your strategy session is confirmed. Here is how to prepare.">
+  <meta name="robots" content="noindex, nofollow" />
+   
+  <meta name="theme-color" content="#111827" />
+  <link rel="icon" href="https://predicai.ai/favicon.ico" sizes="any" />
+  <link rel="icon" href="https://predicai.ai/logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="https://predicai.ai/logo.png" />
+
+  <style>
+    /* CORE VARIABLES */
+    :root {
+      --bg-page: #F9FAFB; --bg-card: #FFFFFF; --bg-subtle: #F3F4F6; --bg-dark: #111827;
+      --text-primary: #111827; --text-secondary: #4B5563; --text-tertiary: #9CA3AF;
+      --accent-teal-strong: #2A9195; --accent-teal-wash: #F0FDFA;
+      --accent-shield: #D4AF37;
+      --border-light: #E5E7EB;
+      --success-green: #059669;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      background-color: var(--bg-page); 
+      color: var(--text-primary); 
+      line-height: 1.6; 
+      -webkit-font-smoothing: antialiased; 
+    }
+
+    /* LINKS */
+    a { color: inherit; text-decoration: none; }
+    a.inline-link {
+      color: var(--accent-teal-strong);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 2px;
+      transition: opacity 0.2s;
+    }
+    a.inline-link:hover { opacity: 0.85; }
+    footer a.inline-link { color: inherit; }
+
+    /* UTILITIES */
+    .container { max-width: 800px; margin: 0 auto; padding: 0 24px; position: relative; }
+    .text-center { text-align: center; }
+    
+    /* HEADER */
+    header { padding: 32px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); margin-bottom: 60px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.2rem; color: var(--text-primary); }
+    .logo-mark { width: 28px; height: 28px; background: var(--text-primary); border-radius: 8px; position: relative; }
+    .logo-mark::after { content: ''; width: 8px; height: 8px; background: var(--accent-teal-strong); border-radius: 50%; position: absolute; top: 7px; left: 7px; }
+    
+    nav { display: flex; align-items: center; gap: 20px; }
+    nav a { font-size: 0.9rem; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
+    nav a:hover { color: var(--text-primary); }
+
+    /* SUCCESS HERO */
+    .success-hero { text-align: center; padding: 40px 0 60px; max-width: 600px; margin: 0 auto; }
+    
+    .success-icon {
+        width: 80px; height: 80px; 
+        background: #ECFDF5; 
+        color: var(--success-green);
+        border-radius: 50%; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+        font-size: 2.5rem;
+        margin: 0 auto 24px;
+        box-shadow: 0 4px 12px rgba(5, 150, 105, 0.15);
+    }
+
+    h1 { font-size: 2.5rem; line-height: 1.1; font-weight: 800; letter-spacing: -0.03em; color: var(--text-primary); margin-bottom: 16px; }
+    .lead { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 8px; }
+    .receipt-note { font-size: 0.9rem; color: var(--text-tertiary); }
+
+    /* MEETING CARD */
+    .meeting-card {
+        background: white;
+        border: 1px solid var(--border-light);
+        border-left: 6px solid var(--accent-teal-strong);
+        border-radius: 12px;
+        padding: 32px;
+        max-width: 600px;
+        margin: 0 auto 60px;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+    }
+
+    .checklist { list-style: none; margin: 0; padding: 0; }
+    .checklist li { 
+        margin-bottom: 16px; 
+        color: var(--text-secondary); 
+        font-size: 0.95rem; 
+        display: flex; 
+        align-items: flex-start; 
+        gap: 12px; 
+    }
+    .checklist li::before { content: "✓"; font-weight: 800; color: var(--accent-teal-strong); }
+    
+    /* BUTTONS */
+    .btn-full {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background: var(--text-primary);
+      color: white;
+      text-align: center;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s;
+      margin-top: 24px;
+    }
+    .btn-full:hover { transform: translateY(-2px); opacity: 0.95; }
+
+    /* FOOTER */
+    footer { text-align: center; padding: 40px 0; font-size: 0.9rem; color: var(--text-secondary); border-top: 1px solid var(--border-light); }
+    .social-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 24px; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+        h1 { font-size: 2rem; }
+        header { flex-direction: column; gap: 16px; } 
+        nav { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <header>
+      <a href="/" class="brand" aria-label="Predicai home">
+        <div class="logo-mark"></div>
+        <span>Predic<span style="color: var(--accent-teal-strong)">ai</span>&trade;</span>
+      </a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/academy.html">Academy</a> 
+        <a href="/shield.html">Shield</a>
+        <a href="/resources.html">Resources</a>
+      </nav>
+    </header>
+
+    <main id="main" role="main">
+      
+      <section class="success-hero">
+        <div class="success-icon">📅</div>
+        <h1>Booking Confirmed.</h1>
+        <p class="lead">Your strategy session is set.</p>
+        <p class="receipt-note">A calendar invitation has been sent to your email.</p>
+      </section>
+
+      <div class="meeting-card">
+        <h3 style="font-size:1.2rem; font-weight:800; margin-bottom:20px;">Meeting Prep:</h3>
+        <ul class="checklist">
+            <li><strong>Check your calendar.</strong> Ensure the invite is visible (check spam if not).</li>
+            <li><strong>Review the Agenda.</strong> We will focus on your team's specific AI bottlenecks.</li>
+            <li><strong>Optional Homework:</strong> Take the 5-minute audit below so we have data to discuss.</li>
+        </ul>
+        
+        <a href="/capability/" class="btn-full">
+            Take Capability Audit (Optional) →
+        </a>
+      </div>
+
+      <div class="text-center" style="margin-bottom:80px;">
+        <p style="color:var(--text-tertiary); font-size:0.9rem;">
+            Need to reschedule? Use the link in your calendar invite.
+        </p>
+        <a href="/" class="inline-link">Return Home</a>
+      </div>
+
+    </main>
+
+    <footer>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/company/predicai-ai/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+      <div class="copyright">
+        © 2026 Predicai™ — All rights reserved. • "Foresight is Clarity."
+      </div>
+      <div style="margin-top:16px; font-size: 0.85rem; opacity: 0.7;">
+        <a href="/standard/" class="inline-link" style="margin:0 10px;">The Standard</a>
+        <a href="/terms.html" class="inline-link" style="margin:0 10px;">Terms</a>
+      </div>
+    </footer>
+    
+  </div>
+
+</body>
+</html>
