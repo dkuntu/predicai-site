@@ -1,38 +1,937 @@
 ---
 layout: null
 permalink: /capability/
-active: capability
+active: academy
 ---
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <title>Capability Score – Predicai™</title>
-  <link rel="icon" href="/logo.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Predicai™ Capability Scorecard</title>
+  <meta name="description" content="The Predicai Progression™ Diagnostic. Measure capability (intent, judgment, coordination) — not tool usage." />
+  <meta name="theme-color" content="#050A10" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://predicai.ai/capability/" />
+
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/logo.png" type="image/png" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
-    :root{ --bg:#0B1220; --text:#F8FAFC; --teal:#0F766E; --border:rgba(255,255,255,0.12); }
-    body{ background:var(--bg); color:var(--text); font-family:'Inter', sans-serif; margin:0; line-height:1.6; }
-    .container{ max-width:800px; margin:0 auto; padding:0 24px; }
-    .site-header{ padding:20px 0; border-bottom:1px solid var(--border); }
-    .brand{ font-weight:900; color:#fff; text-decoration:none; }
-    .hero{ text-align:center; padding:100px 0 60px; }
-    h1{ font-size:3rem; font-weight:900; margin-bottom:20px; }
-    .score-circle{ width:120px; height:120px; border-radius:50%; border:4px solid var(--teal); display:flex; align-items:center; justify-content:center; font-size:2rem; font-weight:900; margin:0 auto 30px; box-shadow:0 0 30px rgba(15,118,110,0.3); }
-    .btn{ background:var(--teal); color:white; padding:16px 32px; border-radius:12px; font-weight:900; text-decoration:none; display:inline-block; font-size:1.1rem; }
-    footer{ text-align:center; padding:50px 0; border-top:1px solid var(--border); margin-top:80px; color:#64748B; }
+    :root {
+      --bg: #050A10;
+      --card-bg: #0B121E;
+      --border: #1E293B;
+      --accent: #2A9195;
+      --accent-glow: rgba(42, 145, 149, 0.18);
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --level-tag: #1E293B;
+      --danger: #EF4444;
+      --good: #22C55E;
+      --warn: #F59E0B;
+
+      /* shared layout */
+      --container: 820px;
+      --padX: 20px;
+      --headerH: 72px;
+
+      /* Shared nav tokens for DARK pages */
+      --nav-bg: rgba(11,18,32,0.78);
+      --nav-hover: rgba(255,255,255,0.06);
+      --nav-panel-bg: rgba(11,18,32,0.92);
+      --nav-panel-item-hover: rgba(255,255,255,0.06);
+      --focus: rgba(42,145,149,0.45);
+    }
+
+    * { box-sizing: border-box; }
+    html{ scroll-behavior:smooth; scroll-padding-top: var(--headerH); }
+
+    body {
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+
+      min-height: 100vh;
+      min-height: 100svh;
+
+      padding:
+        env(safe-area-inset-top)
+        env(safe-area-inset-right)
+        env(safe-area-inset-bottom)
+        env(safe-area-inset-left);
+    }
+
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 var(--padX); }
+
+    /* Skip link */
+    .skip-link{
+      position:absolute; left:-9999px; top: 12px;
+      background: var(--text-main); color: #0B1220;
+      padding:10px 14px; border-radius:10px; z-index:9999;
+      font-weight:900; text-decoration:none;
+    }
+    .skip-link:focus{ left:12px; outline: 3px solid var(--focus); outline-offset: 2px; }
+
+    :focus-visible{
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+      border-radius: 12px;
+    }
+
+    /* ===== Shared Nav Styles ===== */
+    .site-header{
+      position: sticky; top:0; z-index:50;
+      height: var(--headerH);
+      display:flex; align-items:center;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .header-inner{
+      width: 100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap: 16px;
+    }
+    .brand{
+      font-weight: 900;
+      font-size: 1.05rem;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      text-decoration:none;
+      color: var(--text-main);
+      white-space: nowrap;
+    }
+    .brand .logo{
+      width:26px; height:26px;
+      border-radius:6px;
+      object-fit: contain;
+    }
+
+    .nav-toggle{
+      display:none;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.04);
+      color: var(--text-main);
+      font-weight: 950;
+      cursor:pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    #siteNav{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+      align-items:center;
+    }
+    #siteNav a{
+      text-decoration:none;
+      color: var(--text-muted);
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 8px 10px;
+      border-radius: 12px;
+      transition: background .15s ease, color .15s ease, transform .15s ease;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+    #siteNav a:hover{
+      color: var(--text-main);
+      background: var(--nav-hover);
+      transform: translateY(-1px);
+    }
+    #siteNav a.active{
+      color: var(--text-main);
+      background: rgba(42,145,149,0.14);
+      border-color: rgba(42,145,149,0.24);
+      font-weight: 900;
+    }
+
+    @media (max-width: 768px){
+      .site-header{ height: auto; padding: 14px 0; }
+      .header-inner{ flex-direction: column; align-items: flex-start; }
+      .nav-toggle{ display:inline-flex; }
+
+      #siteNav{
+        width:100%;
+        justify-content:flex-start;
+        gap: 10px;
+        display:none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px;
+        border: 1px solid rgba(255,255,255,0.14);
+        border-radius: 18px;
+        background: var(--nav-panel-bg);
+      }
+      #siteNav.open{ display:flex; }
+    }
+
+    /* ===== Page-specific layout ===== */
+    main{ padding: 40px 0 40px; }
+
+    .page-header {
+      text-align: center;
+      margin: 0 0 22px 0;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+    }
+    .brandline {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 0 0 8px 0;
+      color: #fff;
+    }
+    .subtitle { color: var(--text-muted); font-size: 1.05rem; margin: 0; }
+
+    .toc{
+      display:flex;
+      justify-content:center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+    .toc a{
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+      padding: 8px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: border-color .12s ease, transform .12s ease, color .12s ease;
+    }
+    .toc a:hover{
+      color: #fff;
+      border-color: rgba(42,145,149,0.45);
+      transform: translateY(-1px);
+    }
+
+    .topbar { margin: 18px 0 26px; display: grid; gap: 12px; }
+
+    .panel {
+      background: #020408;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 10px;
+    }
+    @media (max-width: 760px){
+      .score-grid { grid-template-columns: 1fr; }
+    }
+
+    .score-box {
+      border: 1px solid #0B1626;
+      border-radius: 12px;
+      padding: 12px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .score-number {
+      font-size: 1.18rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .score-sub {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.35;
+    }
+
+    .guidance {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.45;
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+    }
+
+    .recommend {
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .rec-head {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+
+    .rec-title {
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.02em;
+      font-size: 1.05rem;
+    }
+
+    .pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.02);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+
+    .rec-body {
+      color: var(--text-muted);
+      line-height: 1.5;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .rec-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2px;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .btn {
+      border: 1px solid var(--border);
+      background: transparent;
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 900;
+      font-size: 0.92rem;
+      transition: transform 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+    }
+    .btn:hover {
+      border-color: var(--accent);
+      box-shadow: 0 10px 24px -14px rgba(0,0,0,0.7);
+      transform: translateY(-1px);
+    }
+    .btn-primary {
+      background: rgba(42,145,149,0.16);
+      border-color: rgba(42,145,149,0.45);
+    }
+    .btn-ghost {
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(148,163,184,0.30);
+      color: #E2E8F0;
+    }
+    .btn-danger {
+      border-color: rgba(239,68,68,0.45);
+      background: rgba(239,68,68,0.10);
+    }
+
+    .hint {
+      color: #64748B;
+      font-size: 0.82rem;
+      font-family: 'JetBrains Mono', monospace;
+      margin: 0;
+    }
+
+    .level-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 18px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .level-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+    }
+
+    .level-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      gap: 12px;
+    }
+    .level-title { font-size: 1.18rem; font-weight: 900; color: #fff; }
+    .level-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      background: var(--level-tag);
+      color: var(--text-muted);
+      padding: 4px 8px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .checklist { list-style: none; padding: 0; margin: 0; }
+    .check-item { margin-bottom: 14px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
+    .check-item label {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      cursor: pointer;
+      width: 100%;
+    }
+    .check-item:hover { color: #fff; }
+
+    .check-item input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .box {
+      min-width: 20px;
+      height: 20px;
+      border: 2px solid #334155;
+      border-radius: 6px;
+      margin-top: 2px;
+      position: relative;
+      flex: 0 0 20px;
+      transition: border-color 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .check-item input[type="checkbox"]:checked + .box {
+      border-color: var(--accent);
+      background: rgba(42,145,149,0.16);
+      box-shadow: 0 0 0 6px var(--accent-glow);
+    }
+
+    .check-item input[type="checkbox"]:checked + .box::after {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 1px;
+      width: 6px;
+      height: 12px;
+      border: solid #E2E8F0;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+
+    .quote-box {
+      background: #0F172A;
+      border-left: 4px solid var(--accent);
+      padding: 22px;
+      margin: 24px 0;
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: #E2E8F0;
+      line-height: 1.6;
+      font-style: italic;
+      border-radius: 12px;
+    }
+
+    .scoring-key {
+      background: #020408;
+      border: 1px dashed var(--border);
+      padding: 22px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+    .scoring-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: block;
+      font-weight: 900;
+    }
+    .score-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #1E293B;
+    }
+    .score-range { font-weight: 900; color: #fff; width: 150px; }
+    .score-action { color: var(--text-muted); text-align: right; flex: 1; }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: #475569;
+      font-family: 'JetBrains Mono', monospace;
+      padding-bottom: 16px;
+    }
+
+    @media print {
+      body { background: #fff; color: #000; }
+      :root { --bg: #fff; --card-bg: #fff; --border: #CBD5E1; --text-main: #000; --text-muted: #334155; }
+      .site-header, .nav-toggle, #siteNav { display: none !important; }
+      main{ padding: 18px 0; }
+      .panel, .level-card, .quote-box, .scoring-key {
+        box-shadow: none !important;
+        transform: none !important;
+        border-color: #CBD5E1 !important;
+        background: #fff !important;
+      }
+      .rec-actions { display: none !important; }
+      .hint, .toc { display: none !important; }
+    }
   </style>
 </head>
+
 <body>
-  <header class="site-header"><div class="container"><a href="/" class="brand">Predicai™</a></div></header>
-  <main class="container">
-    <section class="hero">
-      <div class="score-circle">?</div>
-      <h1>AI Capability Assessment</h1>
-      <p style="font-size:1.2rem; color:#A9B7CC; max-width:600px; margin:0 auto 40px;">Find your level and get a custom roadmap to becoming a Builder.</p>
-      <a href="https://tally.so/r/3x4k5j" class="btn" target="_blank">Start Assessment</a>
-    </section>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <div data-include="nav"></div>
+
+  <main id="main">
+    <div class="container">
+      <section class="page-header" aria-label="Capability scorecard header">
+        <span class="brandline">Predicai™ | Capability Diagnostic</span>
+        <h1>Capability Scorecard</h1>
+        <p class="subtitle">The Predicai Progression™ Diagnostic</p>
+
+        <nav class="toc" aria-label="On this page">
+          <a href="#scorecard">Scorecard</a>
+          <a href="#levels">Levels</a>
+          <a href="#key">Scoring key</a>
+        </nav>
+      </section>
+
+      <section class="topbar" id="scorecard" aria-label="Score summary and recommendation">
+        <div class="panel">
+          <div class="score-grid">
+            <div class="score-box">
+              <span class="mono">/// Total</span>
+              <div class="score-number"><span id="scoreTotalNow">0</span> / <span id="scoreTotalMax">15</span></div>
+              <div class="score-sub" id="totalBand">Check what’s true today.</div>
+            </div>
+
+            <div class="score-box">
+              <span class="mono">/// Individual</span>
+              <div class="score-number"><span id="scoreIndNow">0</span> / <span id="scoreIndMax">0</span></div>
+              <div class="score-sub" id="indBand">Personal leverage + judgment.</div>
+            </div>
+
+            <div class="score-box">
+              <span class="mono">/// Team</span>
+              <div class="score-number"><span id="scoreTeamNow">0</span> / <span id="scoreTeamMax">0</span></div>
+              <div class="score-sub" id="teamBand">Coordination + governance.</div>
+            </div>
+          </div>
+
+          <div class="guidance" id="guidance">
+            This measures capability (intent, judgment, coordination). Not tool usage.
+          </div>
+
+          <div class="recommend" aria-label="Recommended next step">
+            <div class="rec-head">
+              <div class="rec-title" id="recTitle">Recommended next step</div>
+              <span class="pill" id="recPill">—</span>
+            </div>
+
+            <p class="rec-body" id="recBody">
+              Select what’s true above to get a recommendation.
+            </p>
+
+            <div class="rec-actions">
+              <p class="hint" id="recHint">We’ll route you based on your scores. No fluff.</p>
+              <div class="btn-row">
+                <button class="btn btn-ghost" id="printBtn" type="button">Print</button>
+                <button class="btn btn-danger" id="resetBtn" type="button">Reset</button>
+                <a class="btn btn-primary" id="recCta" href="#" target="_blank" rel="noopener noreferrer">Open →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="levels" aria-label="Capability levels">
+        <div class="level-card">
+          <div class="level-header">
+            <span class="level-title">Level 01: The Architect</span>
+            <span class="level-tag">Foundation</span>
+          </div>
+
+          <ul class="checklist">
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="individual">
+                <span class="box" aria-hidden="true"></span>
+                <span>I understand the difference between <strong>Search</strong> (retrieval) and <strong>Reasoning</strong> (LLMs).</span>
+              </label>
+            </li>
+
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="individual">
+                <span class="box" aria-hidden="true"></span>
+                <span>I can write a prompt that includes a specific <strong>Role</strong>, <strong>Input</strong>, and <strong>Goal</strong>.</span>
+              </label>
+            </li>
+
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="individual">
+                <span class="box" aria-hidden="true"></span>
+                <span>I know what hallucination is and I can spot it in output.</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+
+        <div class="level-card">
+          <div class="level-header">
+            <span class="level-title">Level 02: The Automator</span>
+            <span class="level-tag">Habits</span>
+          </div>
+
+          <ul class="checklist">
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="individual">
+                <span class="box" aria-hidden="true"></span>
+                <span>I use AI at least once a day to reduce administrative drudgery.</span>
+              </label>
+            </li>
+
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="team">
+                <span class="box" aria-hidden="true"></span>
+                <span>I have a shared <strong>Context Anchor</strong> (voice + goals + rules) that others can reuse consistently.</span>
+              </label>
+            </li>
+
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="individual">
+                <span class="box" aria-hidden="true"></span>
+                <span>I save my best prompts in a small library so I can reuse them.</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+
+        <div class="level-card">
+          <div class="level-header">
+            <span class="level-title">Level 03: The Builder</span>
+            <span class="level-tag">Systems</span>
+          </div>
+
+          <ul class="checklist">
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="team">
+                <span class="box" aria-hidden="true"></span>
+                <span>I’ve redesigned at least one weekly workflow to be <strong>AI-first</strong> and repeatable for others.</span>
+              </label>
+            </li>
+
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="individual">
+                <span class="box" aria-hidden="true"></span>
+                <span>I use agents (Custom GPTs / Projects) rather than only raw chat.</span>
+              </label>
+            </li>
+
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="individual">
+                <span class="box" aria-hidden="true"></span>
+                <span>I can quantify roughly how many hours AI saves me per week.</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+
+        <div class="level-card">
+          <div class="level-header">
+            <span class="level-title">Level 04: The Forecaster</span>
+            <span class="level-tag">Foresight</span>
+          </div>
+
+          <ul class="checklist">
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="individual">
+                <span class="box" aria-hidden="true"></span>
+                <span>I use AI to analyze data patterns, not just generate text.</span>
+              </label>
+            </li>
+
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="team">
+                <span class="box" aria-hidden="true"></span>
+                <span>I use AI to run pre-mortems or scenario planning before decisions ship.</span>
+              </label>
+            </li>
+
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="individual">
+                <span class="box" aria-hidden="true"></span>
+                <span>I can identify a weak signal before it becomes an obvious trend.</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+
+        <div class="level-card">
+          <div class="level-header">
+            <span class="level-title">Level 05: The Leader</span>
+            <span class="level-tag">Governance</span>
+          </div>
+
+          <ul class="checklist">
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="individual">
+                <span class="box" aria-hidden="true"></span>
+                <span>I use AI as a sparring partner to stress-test strategy and decisions.</span>
+              </label>
+            </li>
+
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="team">
+                <span class="box" aria-hidden="true"></span>
+                <span>I have an AI usage policy that defines allowed data, review steps, and ownership.</span>
+              </label>
+            </li>
+
+            <li class="check-item">
+              <label>
+                <input type="checkbox" class="cap-check" data-domain="team">
+                <span class="box" aria-hidden="true"></span>
+                <span>I teach or mentor others on decision-grade AI use.</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="quote-box">
+        “You can’t delegate intent. Leaders must master Level 1 to direct teams effectively.”
+      </div>
+
+      <div class="scoring-key" id="key">
+        <span class="scoring-title">/// Diagnostic Scoring Key</span>
+        <div class="score-row">
+          <span class="score-range">1–3 checks</span>
+          <span class="score-action">Start at Level 1 (The Architect).</span>
+        </div>
+        <div class="score-row">
+          <span class="score-range">4–9 checks</span>
+          <span class="score-action">Build habits and systems. Academy fits here.</span>
+        </div>
+        <div class="score-row">
+          <span class="score-range" style="color:var(--accent);">10+ checks</span>
+          <span class="score-action" style="color:var(--accent);">Leadership capacity: governance + coordination.</span>
+        </div>
+      </div>
+
+      <footer>
+        PREDICAI • PREDICTIVE INTELLIGENCE
+      </footer>
+    </div>
   </main>
-  <footer>© 2026 Predicai™</footer>
+
+  <script>
+    (function () {
+      const ACADEMY_URL = "https://predicai.ai/academy/";
+      const ACCELERATOR_URL = "https://predicai.ai/pricing/";
+      const TEAMS_URL = "https://predicai.ai/pricing/";
+
+      const STORAGE_KEY = "predicai_capability_scorecard_v2";
+      const checks = Array.from(document.querySelectorAll(".cap-check"));
+
+      const scoreTotalNow = document.getElementById("scoreTotalNow");
+      const scoreTotalMax = document.getElementById("scoreTotalMax");
+      const scoreIndNow = document.getElementById("scoreIndNow");
+      const scoreIndMax = document.getElementById("scoreIndMax");
+      const scoreTeamNow = document.getElementById("scoreTeamNow");
+      const scoreTeamMax = document.getElementById("scoreTeamMax");
+
+      const totalBand = document.getElementById("totalBand");
+      const indBand = document.getElementById("indBand");
+      const teamBand = document.getElementById("teamBand");
+
+      const guidance = document.getElementById("guidance");
+
+      const recTitle = document.getElementById("recTitle");
+      const recPill = document.getElementById("recPill");
+      const recBody = document.getElementById("recBody");
+      const recCta = document.getElementById("recCta");
+      const recHint = document.getElementById("recHint");
+
+      const resetBtn = document.getElementById("resetBtn");
+      const printBtn = document.getElementById("printBtn");
+
+      function maxFor(domain) {
+        return checks.filter(c => c.dataset.domain === domain).length;
+      }
+
+      const maxTotal = checks.length;
+      const maxInd = maxFor("individual");
+      const maxTeam = maxFor("team");
+
+      scoreTotalMax.textContent = String(maxTotal);
+      scoreIndMax.textContent = String(maxInd);
+      scoreTeamMax.textContent = String(maxTeam);
+
+      function scoreFor(domain) {
+        return checks.reduce((acc, c) => {
+          if (domain && c.dataset.domain !== domain) return acc;
+          return acc + (c.checked ? 1 : 0);
+        }, 0);
+      }
+
+      function bandLabel(score, max) {
+        if (max <= 0) return "—";
+        const pct = score / max;
+        if (pct === 0) return "Not started yet.";
+        if (pct < 0.34) return "Foundation forming.";
+        if (pct < 0.67) return "Working capability.";
+        return "Strong capability.";
+      }
+
+      function computeGuidance(ind, team) {
+        const indPct = maxInd ? ind / maxInd : 0;
+        const teamPct = maxTeam ? team / maxTeam : 0;
+        if (ind + team === 0) return "Select what’s true today. This measures capability, not tool usage.";
+        if (indPct >= 0.67 && teamPct < 0.34) return "Strong personal leverage, but coordination is behind. Define ownership and review steps.";
+        if (indPct < 0.34 && teamPct >= 0.67) return "Governance instincts exist, but personal leverage is underbuilt. Build the individual workflow first.";
+        if (indPct >= 0.67 && teamPct >= 0.67) return "Operating with leverage + coordination. Scale your outcomes.";
+        const total = ind + team;
+        if (total <= 3) return "Focus on foundation: prompt structure and failure spotting.";
+        if (total <= 9) return "You have working habits. Next move is repeatable systems.";
+        return "Leadership capacity reached. Next constraint is governance at scale.";
+      }
+
+      function computeRecommendation(ind, team, total) {
+        if (total === 0) {
+          return { pill: "—", title: "Recommended next step", body: "Select what’s true above to get a recommendation.", ctaText: "Open →", ctaHref: ACADEMY_URL, hint: "We’ll route you based on your scores." };
+        }
+        const indPct = maxInd ? ind / maxInd : 0;
+        const teamPct = maxTeam ? team / maxTeam : 0;
+        const coordinationGap = (teamPct < 0.34 && indPct >= 0.50);
+        if (coordinationGap) {
+          return { pill: "Teams", title: "Route: Team Coordination", body: "Personal capability is ahead of your team system. Define ownership and review standards.", ctaText: "Explore Pricing →", ctaHref: TEAMS_URL, hint: "Best for leaders scaling AI across functions." };
+        }
+        if (total >= 10) {
+          return { pill: "Accelerator", title: "Route: Accelerator", body: "Operating at leadership capacity. Tighten your operating system and governance.", ctaText: "See Membership →", ctaHref: ACCELERATOR_URL, hint: "Best for founders and operators shipping real work." };
+        }
+        return { pill: "Academy", title: "Route: Academy", body: "Building momentum. Lock in fundamentals and turn habits into repeatable systems.", ctaText: "Join Academy →", ctaHref: ACADEMY_URL, hint: "Best for individuals building repeatable leverage." };
+      }
+
+      function update() {
+        const total = scoreFor(null);
+        const ind = scoreFor("individual");
+        const team = scoreFor("team");
+        scoreTotalNow.textContent = String(total);
+        scoreIndNow.textContent = String(ind);
+        scoreTeamNow.textContent = String(team);
+        totalBand.textContent = bandLabel(total, maxTotal);
+        indBand.textContent = bandLabel(ind, maxInd);
+        teamBand.textContent = bandLabel(team, maxTeam);
+        guidance.textContent = computeGuidance(ind, team);
+        const rec = computeRecommendation(ind, team, total);
+        recPill.textContent = rec.pill;
+        recTitle.textContent = rec.title;
+        recBody.textContent = rec.body;
+        recCta.textContent = rec.ctaText;
+        recCta.href = rec.ctaHref;
+        recHint.textContent = rec.hint;
+        const state = checks.map(c => c.checked);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      }
+
+      checks.forEach(c => c.addEventListener("change", update));
+      resetBtn.addEventListener("click", () => { checks.forEach(c => (c.checked = false)); update(); });
+      printBtn.addEventListener("click", () => window.print());
+
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const state = JSON.parse(saved);
+        checks.forEach((c, i) => { c.checked = Boolean(state[i]); });
+      }
+      update();
+
+      const mount = document.querySelector('[data-include="nav"]');
+      if(mount) {
+        fetch('/partials/nav.html').then(r => r.text()).then(html => {
+          mount.outerHTML = html;
+          const nav = document.getElementById('siteNav');
+          const toggle = document.querySelector('.nav-toggle');
+          if(toggle) toggle.addEventListener('click', () => nav.classList.toggle('open'));
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
