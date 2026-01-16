@@ -3,14 +3,941 @@ layout: null
 permalink: /faq/
 active: faq
 ---
-<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><title>FAQ – Predicai</title><link rel="icon" href="/logo.png"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet"><style>body{background:#0B1220;color:#F8FAFC;font-family:'Inter',sans-serif;margin:0;line-height:1.7;} .container{max-width:800px;margin:0 auto;padding:60px 24px;} .site-header{padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.1);background:rgba(11,18,32,0.95);position:sticky;top:0;backdrop-filter:blur(10px);} .header-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;} .brand{font-weight:900;color:#fff;text-decoration:none;display:flex;gap:10px;align-items:center;} .site-nav a{color:#94A3B8;text-decoration:none;font-weight:700;margin-left:20px;transition:color 0.2s;} .site-nav a:hover{color:#fff;} h1{font-size:2.5rem;font-weight:900;margin-bottom:30px;color:#fff;} h2{font-size:1.5rem;margin-top:40px;color:#fff;} p{color:#A9B7CC;margin-bottom:20px;} footer{text-align:center;padding:50px 0;border-top:1px solid rgba(255,255,255,0.1);margin-top:80px;color:#64748B;} a{color:#7DD3FC;text-decoration:none;} a:hover{text-decoration:underline;} details{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);margin-bottom:16px;border-radius:12px;} summary{padding:20px;font-weight:700;cursor:pointer;} .answer{padding:0 20px 24px;color:#A9B7CC;}</style></head>
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>FAQ – Predicai™</title>
+  <meta name="description" content="Answers to common questions about Predicai Academy, Accelerator, Shield, and Signal." />
+
+  <link rel="canonical" href="https://predicai.ai/faq.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Predicai" />
+  <meta property="og:url" content="https://predicai.ai/faq.html" />
+  <meta property="og:title" content="FAQ – Predicai™" />
+  <meta property="og:description" content="Answers to common questions about Predicai Academy, Accelerator, Shield, and Signal." />
+  <meta property="og:image" content="https://predicai.ai/social-share.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://predicai.ai/faq.html" />
+  <meta name="twitter:title" content="FAQ – Predicai™" />
+  <meta name="twitter:description" content="Answers to common questions about Predicai Academy, Accelerator, Shield, and Signal." />
+  <meta name="twitter:image" content="https://predicai.ai/social-share.png" />
+
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/logo.png" type="image/png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Predicai tokens (light default) */
+      --teal:#2A9195;
+      --teal-deep:#0F766E;
+      --teal-soft: rgba(42,145,149,0.14);
+
+      --bg-page:#F8FAFC;
+      --bg-card:#FFFFFF;
+      --bg-soft:#F1F5F9;
+
+      --text-main:#0B1220;
+      --text-muted:#475569;
+
+      --border:#E2E8F0;
+      --shadow: 0 10px 25px -5px rgba(2,6,23,0.10);
+      --shadow-strong: 0 16px 40px -12px rgba(2,6,23,0.18);
+
+      --radius:18px;
+      --radius2:14px;
+
+      --focus: rgba(42,145,149,0.35);
+
+      --container: 980px;
+      --padX: 24px;
+      --headerH: 72px;
+
+      --header-bg: rgba(248, 250, 252, 0.85);
+      --nav-hover: rgba(2,6,23,0.04);
+      --nav-link: rgba(11,18,32,0.70);
+      --nav-active-bg: rgba(42,145,149,0.14);
+      --nav-active-border: rgba(42,145,149,0.26);
+    }
+
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg-page:#050A10;
+        --bg-card: rgba(255,255,255,0.06);
+        --bg-soft: rgba(255,255,255,0.08);
+
+        --text-main:#FFFFFF;
+        --text-muted:#A7B4C8;
+
+        --border: rgba(148,163,184,0.18);
+        --shadow: 0 22px 70px rgba(0,0,0,0.40);
+        --shadow-strong: 0 28px 90px rgba(0,0,0,0.55);
+
+        --header-bg: rgba(5, 10, 16, 0.72);
+        --nav-hover: rgba(255,255,255,0.08);
+        --nav-link: rgba(255,255,255,0.72);
+        --nav-active-bg: rgba(42,145,149,0.16);
+        --nav-active-border: rgba(42,145,149,0.30);
+      }
+    }
+
+    html[data-theme="light"]{
+      --bg-page:#F8FAFC;
+      --bg-card:#FFFFFF;
+      --bg-soft:#F1F5F9;
+
+      --text-main:#0B1220;
+      --text-muted:#475569;
+
+      --border:#E2E8F0;
+      --shadow: 0 10px 25px -5px rgba(2,6,23,0.10);
+      --shadow-strong: 0 16px 40px -12px rgba(2,6,23,0.18);
+
+      --header-bg: rgba(248, 250, 252, 0.85);
+      --nav-hover: rgba(2,6,23,0.04);
+      --nav-link: rgba(11,18,32,0.70);
+      --nav-active-bg: rgba(42,145,149,0.14);
+      --nav-active-border: rgba(42,145,149,0.26);
+    }
+
+    html[data-theme="dark"]{
+      --bg-page:#050A10;
+      --bg-card: rgba(255,255,255,0.06);
+      --bg-soft: rgba(255,255,255,0.08);
+
+      --text-main:#FFFFFF;
+      --text-muted:#A7B4C8;
+
+      --border: rgba(148,163,184,0.18);
+      --shadow: 0 22px 70px rgba(0,0,0,0.40);
+      --shadow-strong: 0 28px 90px rgba(0,0,0,0.55);
+
+      --header-bg: rgba(5, 10, 16, 0.72);
+      --nav-hover: rgba(255,255,255,0.08);
+      --nav-link: rgba(255,255,255,0.72);
+      --nav-active-bg: rgba(42,145,149,0.16);
+      --nav-active-border: rgba(42,145,149,0.30);
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; scroll-padding-top: var(--headerH); }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto !important; }
+      *{ transition:none !important; }
+    }
+
+    body{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(900px 520px at 16% 6%, rgba(42,145,149,0.10), transparent 62%),
+        var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      min-height: 100svh;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      padding:
+        env(safe-area-inset-top)
+        env(safe-area-inset-right)
+        env(safe-area-inset-bottom)
+        env(safe-area-inset-left);
+    }
+
+    .container{
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--padX);
+    }
+
+    .skip-link{
+      position:absolute; left:-9999px; top:12px;
+      background: var(--text-main);
+      color: #fff;
+      padding:10px 14px;
+      border-radius:10px;
+      z-index:9999;
+      text-decoration:none;
+      font-weight:950;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
+    }
+    .skip-link:focus{ left:12px; outline: 3px solid var(--focus); outline-offset: 2px; }
+
+    :focus-visible{
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+      border-radius: 12px;
+    }
+
+    /* HEADER */
+    header{
+      position: sticky;
+      top:0;
+      z-index:50;
+      height: var(--headerH);
+      display:flex;
+      align-items:center;
+      background: var(--header-bg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner{
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 14px;
+      width: 100%;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      font-weight: 950;
+      font-size: 1.15rem;
+      color: var(--text-main);
+      white-space: nowrap;
+      letter-spacing: -0.02em;
+    }
+    .brand img{ width:26px; height:26px; border-radius: 6px; object-fit: contain; }
+
+    .nav-wrap{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav{
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items:center;
+    }
+
+    nav a{
+      color: var(--nav-link);
+      text-decoration:none;
+      font-size: 0.95rem;
+      font-weight: 850;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: background .15s ease, color .15s ease, border-color .15s ease, transform .15s ease;
+      white-space: nowrap;
+      -webkit-tap-highlight-color: transparent;
+    }
+    nav a:hover{
+      color: var(--text-main);
+      background: var(--nav-hover);
+      border-color: rgba(148,163,184,0.22);
+      transform: translateY(-1px);
+    }
+    nav a.active,
+    nav a[aria-current="page"]{
+      color: var(--text-main);
+      font-weight: 950;
+      background: var(--nav-active-bg);
+      border-color: var(--nav-active-border);
+      transform: none;
+    }
+
+    .theme-toggle{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.60);
+      color: rgba(11,18,32,0.88);
+      font-weight: 850;
+      font-size: 0.9rem;
+      cursor: pointer;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+      white-space: nowrap;
+      transition: background .15s ease, border-color .15s ease, transform .15s ease;
+    }
+
+    /* ✅ FIX: theme-toggle respects AUTO + system dark */
+    html[data-theme="dark"] .theme-toggle{
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.88);
+    }
+    @media (prefers-color-scheme: dark){
+      html[data-theme="auto"] .theme-toggle{
+        background: rgba(255,255,255,0.08);
+        color: rgba(255,255,255,0.88);
+      }
+    }
+
+    .theme-toggle:hover{
+      background: rgba(255,255,255,0.78);
+      border-color: rgba(148,163,184,0.30);
+      transform: translateY(-1px);
+    }
+    html[data-theme="dark"] .theme-toggle:hover{ background: rgba(255,255,255,0.12); }
+    @media (prefers-color-scheme: dark){
+      html[data-theme="auto"] .theme-toggle:hover{ background: rgba(255,255,255,0.12); }
+    }
+
+    main{ padding: 52px 0 80px; }
+
+    .hero{
+      text-align:center;
+      padding: 72px 0 36px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    h1{
+      font-size: clamp(2.05rem, 3.8vw, 2.85rem);
+      font-weight: 980;
+      letter-spacing: -0.04em;
+      text-align:center;
+      margin-bottom: 12px;
+      line-height: 1.08;
+    }
+
+    .intro{
+      font-size: 1.08rem;
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto 26px;
+      text-align:center;
+    }
+
+    /* Jump chips */
+    .jump{
+      margin: 20px auto 34px;
+      max-width: 860px;
+      background: rgba(255,255,255,0.70);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 14px;
+      display:flex;
+      gap:10px;
+      flex-wrap: wrap;
+      justify-content:center;
+    }
+    html[data-theme="dark"] .jump{
+      background: rgba(255,255,255,0.06);
+      box-shadow: none;
+    }
+
+    .jump a{
+      text-decoration:none;
+      font-weight: 950;
+      color: var(--text-main);
+      background: var(--bg-soft);
+      border: 1px solid rgba(2,6,23,0.06);
+      padding: 10px 12px;
+      border-radius: 999px;
+      transition: transform 0.15s ease, background 0.15s ease, border-color .15s ease;
+    }
+    html[data-theme="dark"] .jump a{
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.12);
+    }
+    .jump a:hover{
+      transform: translateY(-1px);
+      background: var(--teal-soft);
+      border-color: rgba(42,145,149,0.26);
+    }
+
+    .faq-group{ margin-top: 34px; }
+
+    .faq-label{
+      font-size: 0.78rem;
+      font-weight: 950;
+      text-transform: uppercase;
+      color: var(--teal);
+      letter-spacing: 0.09em;
+      margin-bottom: 14px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+    }
+    .faq-label::before{
+      content:"";
+      width:10px; height:10px;
+      border-radius:999px;
+      background: var(--teal);
+      box-shadow: 0 0 0 6px var(--teal-soft);
+    }
+
+    details.faq-card{
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 0;
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+    html[data-theme="dark"] details.faq-card{
+      background: rgba(255,255,255,0.06);
+      box-shadow: none;
+    }
+
+    details.faq-card summary{
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 20px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 14px;
+      font-weight: 950;
+      letter-spacing: -0.01em;
+      font-size: 1.05rem;
+      color: var(--text-main);
+      user-select: none;
+    }
+    details.faq-card summary::-webkit-details-marker{ display:none; }
+
+    .chev{
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      opacity: 0.8;
+      transform: rotate(0deg);
+      transition: transform 0.18s ease, opacity 0.18s ease;
+    }
+
+    details[open] .chev{
+      transform: rotate(180deg);
+      opacity: 1;
+    }
+
+    .answer{
+      padding: 0 20px 18px;
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+    .answer p{ margin-top: 10px; }
+    .answer strong{ color: var(--text-main); font-weight: 950; }
+
+    .contact-box{
+      margin-top: 54px;
+      padding: 30px 22px;
+      background: rgba(255,255,255,0.78);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      text-align:center;
+    }
+    html[data-theme="dark"] .contact-box{
+      background: rgba(255,255,255,0.06);
+      box-shadow: none;
+    }
+
+    .contact-box h2{
+      font-size: 1.25rem;
+      font-weight: 980;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .contact-box p{
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .btn-contact{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background: var(--text-main);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 950;
+      text-decoration:none;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      border: 1px solid rgba(11,18,32,0.55);
+    }
+    .btn-contact:hover{ transform: translateY(-1px); opacity: 0.98; }
+
+    .pledge-footer{
+      margin-top: 18px;
+      text-align:center;
+      padding: 16px 16px;
+      background: rgba(42,145,149,0.08);
+      border: 1px solid rgba(42,145,149,0.18);
+      border-radius: var(--radius2);
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+    html[data-theme="dark"] .pledge-footer{
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.12);
+    }
+
+    .pledge-footer a{
+      color: var(--teal);
+      font-weight: 950;
+      margin-left: 6px;
+      text-decoration:none;
+    }
+    .pledge-footer a:hover{
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    footer{
+      border-top: 1px solid var(--border);
+      padding: 38px 0;
+      text-align:center;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-top: 64px;
+    }
+    footer a{
+      color: var(--text-muted);
+      text-decoration:none;
+      font-weight: 900;
+      margin: 0 10px;
+      display:inline-block;
+      padding: 6px 8px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      transition: background .15s ease, color .15s ease, border-color .15s ease;
+    }
+    footer a:hover{
+      color: var(--text-main);
+      background: rgba(42,145,149,0.10);
+      border-color: rgba(148,163,184,0.22);
+    }
+
+    @media (max-width: 760px){
+      header{ height: auto; padding: 12px 0; }
+      .header-inner{ flex-direction: column; align-items: flex-start; }
+      .nav-wrap{ width:100%; justify-content:flex-start; }
+      nav{
+        width: 100%;
+        justify-content: flex-start;
+        gap: 8px;
+        overflow-x:auto;
+        padding-bottom: 4px;
+      }
+      .theme-toggle{ margin-top: 4px; }
+
+      .hero{ padding: 54px 0 34px; }
+      .jump-links{ width:100%; }
+      .jump-btn{ width:100%; justify-content:center; }
+
+      .resource-grid{ grid-template-columns: 1fr; }
+      .resource-card:hover{ transform:none; box-shadow: var(--shadow); }
+    }
+  </style>
+</head>
+
 <body>
-  {% include "nav.html" %}
-  <main class="container">
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <div data-include="nav"></div>
+
+  <main class="container" id="main" tabindex="-1">
     <h1>Frequently Asked Questions</h1>
-    <details><summary>Is the Academy for beginners?</summary><div class="answer">Yes. We start from the fundamentals of logic.</div></details>
-    <details><summary>What is included in the 49?</summary><div class="answer">Full Notion Vault, 7 Gates System, and Lifetime Updates.</div></details>
-    <details><summary>Is Shield really free?</summary><div class="answer">Yes. Shield tools and protocols are free for families.</div></details>
+    <p class="intro">
+      Quick answers. If you want help choosing a track, email us and we’ll point you the right way.
+    </p>
+
+    <div class="jump" aria-label="Jump to section">
+      <a href="#academy">Academy</a>
+      <a href="#accelerator">Accelerator</a>
+      <a href="#signal">Signal</a>
+      <a href="#shield">Shield</a>
+      <a href="#privacy">Privacy</a>
+    </div>
+
+    <section class="faq-group" id="academy" aria-label="Academy FAQs">
+      <div class="faq-label">Academy</div>
+
+      <details class="faq-card">
+        <summary>
+          What is Predicai Academy?
+          <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 15.5 5.5 9l1.4-1.4L12 12.7l5.1-5.1L18.5 9z"/>
+          </svg>
+        </summary>
+        <div class="answer">
+          Academy is a structured program for individuals who want to use AI with more clarity and control.
+          You’ll learn repeatable methods to turn AI output into assets you can trust and reuse.
+        </div>
+      </details>
+
+      <details class="faq-card">
+        <summary>
+          Do I need coding skills?
+          <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 15.5 5.5 9l1.4-1.4L12 12.7l5.1-5.1L18.5 9z"/>
+          </svg>
+        </summary>
+        <div class="answer">
+          No. Academy is built for domain experts who want better results without writing code.
+          You’ll use plain language, structured thinking, and simple templates.
+        </div>
+      </details>
+    </section>
+
+    <section class="faq-group" id="accelerator" aria-label="Accelerator FAQs">
+      <div class="faq-label">Academy vs Accelerator</div>
+
+      <details class="faq-card">
+        <summary>
+          What’s the difference between Academy and Accelerator?
+          <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 15.5 5.5 9l1.4-1.4L12 12.7l5.1-5.1L18.5 9z"/>
+          </svg>
+        </summary>
+        <div class="answer">
+          <p><strong>Academy</strong> is self-directed training and templates for individuals.</p>
+          <p><strong>Accelerator</strong> is hands-on work for leaders and teams: clearer workflows, stronger governance, and practical systems you can actually run. Think “done with you” or “done for you,” depending on the engagement.</p>
+        </div>
+      </details>
+
+      <details class="faq-card">
+        <summary>
+          Who is Accelerator for?
+          <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 15.5 5.5 9l1.4-1.4L12 12.7l5.1-5.1L18.5 9z"/>
+          </svg>
+        </summary>
+        <div class="answer">
+          Teams that need coordination and reliability: consistent outputs, clear review steps, and policies that prevent
+          random AI behavior from becoming operational risk.
+        </div>
+      </details>
+    </section>
+
+    <section class="faq-group" id="signal" aria-label="Signal FAQs">
+      <div class="faq-label">Signal</div>
+
+      <details class="faq-card">
+        <summary>
+          What is Predicai Signal?
+          <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 15.5 5.5 9l1.4-1.4L12 12.7l5.1-5.1L18.5 9z"/>
+          </svg>
+        </summary>
+        <div class="answer">
+          Signal is a calm AI note sent when there’s something worth acting on:
+          what changed, what held up in real use, and what to do next.
+          Plain language. One move per issue.
+        </div>
+      </details>
+
+      <details class="faq-card">
+        <summary>
+          How often do you send Signal?
+          <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 15.5 5.5 9l1.4-1.4L12 12.7l5.1-5.1L18.5 9z"/>
+          </svg>
+        </summary>
+        <div class="answer">
+          We send Signal <strong>sparingly</strong> — often on weekends — and only when there’s a real change worth your attention.
+          You won’t hear from us every day.
+          We’d rather send fewer issues that hold up than ship filler.
+        </div>
+      </details>
+
+      <details class="faq-card">
+        <summary>
+          Is the archive public?
+          <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 15.5 5.5 9l1.4-1.4L12 12.7l5.1-5.1L18.5 9z"/>
+          </svg>
+        </summary>
+        <div class="answer">
+          Yes. You can browse issues anytime in the archive.
+          If you prefer to skim before subscribing, that’s encouraged.
+          <p style="margin-top:10px;">
+            Browse the <a href="/signal-archive.html">Signal Archive</a>.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq-card">
+        <summary>
+          Is Signal free? Can I unsubscribe?
+          <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 15.5 5.5 9l1.4-1.4L12 12.7l5.1-5.1L18.5 9z"/>
+          </svg>
+        </summary>
+        <div class="answer">
+          Signal is free to subscribe. Unsubscribe anytime with one click from the email footer.
+        </div>
+      </details>
+
+      <details class="faq-card">
+        <summary>
+          Can I suggest a topic or submit something to test?
+          <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 15.5 5.5 9l1.4-1.4L12 12.7l5.1-5.1L18.5 9z"/>
+          </svg>
+        </summary>
+        <div class="answer">
+          Yes. Send a link, a workflow, or a “this failed in production” story to
+          <strong>signal@predicai.ai</strong>. Short notes are fine.
+        </div>
+      </details>
+    </section>
+
+    <section class="faq-group" id="shield" aria-label="Shield FAQs">
+      <div class="faq-label">Shield</div>
+
+      <details class="faq-card">
+        <summary>
+          Does Shield protect against voice cloning scams?
+          <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 15.5 5.5 9l1.4-1.4L12 12.7l5.1-5.1L18.5 9z"/>
+          </svg>
+        </summary>
+        <div class="answer">
+          Yes. Shield includes a family safe-word protocol and simple callback scripts designed to break urgency and verify identity.
+        </div>
+      </details>
+
+      <details class="faq-card">
+        <summary>
+          Why is Shield a subscription?
+          <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 15.5 5.5 9l1.4-1.4L12 12.7l5.1-5.1L18.5 9z"/>
+          </svg>
+        </summary>
+        <div class="answer">
+          Because threat patterns change. Your membership supports ongoing updates so the protocols stay current and usable.
+        </div>
+      </details>
+    </section>
+
+    <section class="faq-group" id="privacy" aria-label="Privacy FAQs">
+      <div class="faq-label">Privacy</div>
+
+      <details class="faq-card">
+        <summary>
+          Do you sell user data?
+          <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 15.5 5.5 9l1.4-1.4L12 12.7l5.1-5.1L18.5 9z"/>
+          </svg>
+        </summary>
+        <div class="answer">
+          No. We don’t sell personal data.
+        </div>
+      </details>
+
+      <details class="faq-card">
+        <summary>
+          Do you train public models on submissions?
+          <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 15.5 5.5 9l1.4-1.4L12 12.7l5.1-5.1L18.5 9z"/>
+          </svg>
+        </summary>
+        <div class="answer">
+          No. We don’t train public models on your submissions.
+        </div>
+      </details>
+    </section>
+
+    <div class="contact-box">
+      <h2>Still have questions?</h2>
+      <p>We’ll help you choose the right track.</p>
+      <a href="mailto:hello@predicai.ai" class="btn-contact">Email hello@predicai.ai</a>
+
+      <div class="pledge-footer">
+        🔒 <strong>Privacy Pledge™</strong> We don’t sell data. We don’t train public models on submissions.
+        <a href="/privacy.html">Read policy</a>
+      </div>
+    </div>
   </main>
-  <footer>© 2026 Predicai™</footer>
-</body></html>
+
+  <footer>
+    <div style="margin-bottom: 12px;">
+      <a href="https://www.linkedin.com/company/predicai-ai/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+
+    <div>© <span id="year">2026</span> Predicai™ — All rights reserved.</div>
+
+    <div style="margin-top: 12px; font-size: 0.88rem; opacity: 0.92;">
+      <a href="/academy.html">Academy</a>
+      <a href="/shield.html">Shield</a>
+      <a href="/about.html">About</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
+    </div>
+
+    <div style="margin-top: 10px; font-size: 0.88rem; opacity: 0.92;">
+      <a href="/pricing.html">Pricing</a>
+      <a href="/signal-archive.html">Signal Archive</a>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle: auto -> dark -> light -> auto
+    (function () {
+      const root = document.documentElement;
+      const btn = document.getElementById('themeToggle');
+      const key = 'predicai_theme';
+
+      function getSystemTheme() {
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      function getSavedTheme() {
+        try { return localStorage.getItem(key) || 'auto'; }
+        catch(e){ return 'auto'; }
+      }
+      function saveTheme(val){
+        try { localStorage.setItem(key, val); } catch(e){}
+      }
+      function applyTheme(val){
+        root.setAttribute('data-theme', val);
+        const label = val === 'auto' ? ('Theme: Auto (' + getSystemTheme() + ')') : ('Theme: ' + val);
+        btn.textContent = '◐ ' + label;
+      }
+
+      const saved = getSavedTheme();
+      applyTheme(saved);
+
+      btn.addEventListener('click', () => {
+        const cur = root.getAttribute('data-theme') || 'auto';
+        const next = cur === 'auto' ? 'dark' : (cur === 'dark' ? 'light' : 'auto');
+        saveTheme(next);
+        applyTheme(next);
+      });
+
+      if (window.matchMedia) {
+        const mq = window.matchMedia('(prefers-color-scheme: light)');
+        mq.addEventListener?.('change', () => {
+          if ((root.getAttribute('data-theme') || 'auto') === 'auto') applyTheme('auto');
+        });
+      }
+    })();
+
+    // Jump active state (IntersectionObserver)
+    (function () {
+      // Just basic functionality if JS disabled or simple jumps
+    })();
+
+    // ===== Shared Nav Include Loader =====
+    (function(){
+      const mount = document.querySelector('[data-include="nav"]');
+      if(!mount) return;
+
+      fetch('/partials/nav.html', { cache: 'no-cache' })
+        .then(r => r.text())
+        .then(html => {
+          mount.outerHTML = html;
+          initPredicaiNav();
+          // We need to re-run active link logic because nav HTML just arrived
+          initPredicaiActiveLink();
+        })
+        .catch(() => {});
+    })();
+
+    // ===== Nav behavior (dropdowns + mobile + close rules) =====
+    function initPredicaiNav(){
+      const nav = document.getElementById('siteNav');
+      const toggle = document.querySelector('.nav-toggle');
+      if(!nav) return;
+
+      function closeAllMenus(except=null){
+        document.querySelectorAll('.menu.open').forEach(m => {
+          if(m !== except){
+            m.classList.remove('open');
+            const btn = m.querySelector('.menu-btn');
+            if(btn) btn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      if(toggle){
+        toggle.addEventListener('click', () => {
+          const open = nav.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+          if(!open) closeAllMenus();
+        });
+      }
+
+      document.addEventListener('click', (e) => {
+        const clickedToggle = e.target.closest('.nav-toggle');
+        const clickedNav = e.target.closest('#siteNav');
+        if(clickedToggle || clickedNav) return;
+
+        closeAllMenus();
+
+        if(nav.classList.contains('open') && window.innerWidth <= 860){
+          nav.classList.remove('open');
+          if(toggle) toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // ===== Active link highlighting by URL =====
+    function initPredicaiActiveLink(){
+      const path = (location.pathname || '/').toLowerCase();
+
+      document.querySelectorAll('#siteNav a[href]').forEach(a => {
+        const href = (a.getAttribute('href') || '').toLowerCase();
+        const isHome = (href === '/' && (path === '/' || path.endsWith('/index.html')));
+        const isExactHtml = (href.endsWith('.html') && path.endsWith(href));
+
+        if(isHome || isExactHtml){
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+# 1. Go to source
+cd /workspaces/predicai-site/src
+
+# ---------------------------------------------------------
+# STEP 1: ENSURE NAV PARTIAL EXISTS (Safety Check)
+# ---------------------------------------------------------
+mkdir -p partials
+cat > partials/nav.html <<EOF
+<header class="site-header" id="siteNav">
+  <div class="header-inner container">
+    <a href="/" class="brand">
+      <img src="/logo.png" alt="Predicai Logo" width="26" height="26"> 
+      Predicai™
+    </a>
+    
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="nav-toggle-icon">☰</span>
+    </button>
+
+    <nav class="site-nav">
+      <a href="/academy.html">Academy</a>
+      <a href="/shield.html">Shield</a>
+      <a href="/shield-desk.html">Desk</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/resources.html">Resources</a>
+    </nav>
+  </div>
+</header>
