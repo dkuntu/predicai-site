@@ -25,6 +25,7 @@ active: home
     .site-nav{ display:flex; gap:20px; }
     .site-nav a{ color:#94A3B8; text-decoration:none; font-weight:700; transition:color 0.2s; }
     .site-nav a:hover{ color:#fff; }
+    .site-nav a.active{ color:#fff; border-bottom:2px solid var(--teal); }
 
     /* HERO */
     .hero{ text-align:center; padding:92px 0 44px; }
@@ -49,16 +50,7 @@ active: home
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner container">
-      <a href="/" class="brand"><img src="/logo.png" alt="Logo"> Predicai™</a>
-      <nav class="site-nav">
-        <a href="/academy/">Academy</a>
-        <a href="/shield/">Shield</a>
-        <a href="/shield-desk/">Shield Desk</a>
-      </nav>
-    </div>
-  </header>
+  {% include "nav.html" %}
 
   <main class="container">
     <section class="hero">

@@ -35,16 +35,7 @@ active: shield
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner container">
-      <a href="/" class="brand"><img src="/logo.png" alt="Logo"> Predicai™</a>
-      <nav class="site-nav">
-        <a href="/academy/">Academy</a>
-        <a href="/shield/" style="color:var(--gold);">Shield</a>
-        <a href="/shield-desk/">Desk</a>
-      </nav>
-    </div>
-  </header>
+  {% include "nav.html" %}
 
   <main class="container">
     <section class="hero">
@@ -54,18 +45,9 @@ active: shield
     </section>
 
     <div class="grid">
-      <div class="card">
-        <h3>Shield Check</h3>
-        <p style="color:#A9B7CC;">Get a second opinion on suspicious texts or emails before you click.</p>
-      </div>
-      <div class="card">
-        <h3>Safe Word Protocol</h3>
-        <p style="color:#A9B7CC;">The #1 defense against AI voice cloning. Simple and effective.</p>
-      </div>
-      <div class="card">
-        <h3>Incident Response</h3>
-        <p style="color:#A9B7CC;">What to do immediately if you think you've been targeted.</p>
-      </div>
+      <div class="card"><h3>Shield Check</h3><p style="color:#A9B7CC;">Get a second opinion on suspicious texts or emails before you click.</p></div>
+      <div class="card"><h3>Safe Word Protocol</h3><p style="color:#A9B7CC;">The #1 defense against AI voice cloning. Simple and effective.</p></div>
+      <div class="card"><h3>Incident Response</h3><p style="color:#A9B7CC;">What to do immediately if you think you've been targeted.</p></div>
     </div>
   </main>
 

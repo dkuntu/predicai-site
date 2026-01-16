@@ -1,102 +1,44 @@
 ---
 layout: null
 permalink: /shield-desk/
-active: shield
+active: shield-desk
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shield Desk – Predicai Shield™ Member Hub</title>
-  <meta name="description" content="Your Predicai Shield member hub. Run Shield Check, print the checklist, download protocols, and access voice defense." />
-  <link rel="canonical" href="https://predicai.ai/shield-desk/" />
+  <title>Shield Desk – Member Hub</title>
   <link rel="icon" href="/logo.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
   <style>
-    /* CORE VARIABLES */
-    :root{ --bg:#FFFBEB; --card:#FFFFFF; --text:#111827; --accent:#CA8A04; --muted:#4B5563; --border:rgba(0,0,0,0.10); --radius:16px; }
-    *{ box-sizing:border-box; margin:0; padding:0; }
-    body{ font-family: Inter, sans-serif; background:var(--bg); color:var(--text); line-height:1.5; padding-bottom:70px; }
-    
-    /* HARDCODED NAV STYLES (To ensure it works) */
-    .site-header{ position:sticky; top:0; z-index:50; background:rgba(255,251,235,0.92); backdrop-filter:blur(10px); border-bottom:1px solid rgba(0,0,0,0.06); padding:14px 0; }
-    .header-inner{ max-width:1100px; margin:0 auto; padding:0 20px; display:flex; justify-content:space-between; align-items:center; }
-    .brand{ font-weight:950; font-size:1.05rem; display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); }
-    .brand img{ width:30px; height:30px; }
-    .nav-link{ font-size:0.92rem; font-weight:800; color:var(--muted); text-decoration:none; margin-left:14px; }
-    .nav-link:hover{ color:var(--text); }
-    .nav-link.active{ color:#000; font-weight:900; }
-
-    /* LAYOUT */
+    :root{ --bg:#FFFBEB; --card:#FFFFFF; --text:#111827; --accent:#CA8A04; --border:rgba(0,0,0,0.10); }
+    body{ font-family: Inter, sans-serif; background:var(--bg); color:var(--text); line-height:1.5; padding-bottom:70px; margin:0; }
     .container{ max-width:1100px; margin:0 auto; padding:26px 20px; }
-    .hero{ text-align:center; margin:18px 0; }
-    h1{ font-size:2.35rem; font-weight:950; margin-bottom:10px; }
-    .sub{ font-size:1.12rem; color:var(--muted); max-width:760px; margin:0 auto; }
+    .site-header{ background:rgba(255,251,235,0.92); border-bottom:1px solid rgba(0,0,0,0.06); padding:14px 0; position:sticky; top:0; z-index:100; }
+    .header-inner{ max-width:1100px; margin:0 auto; padding:0 24px; display:flex; justify-content:space-between; align-items:center; }
+    .brand{ font-weight:900; color:#000; text-decoration:none; display:flex; gap:10px; align-items:center; }
+    .site-nav a{ color:#4B5563; text-decoration:none; font-weight:700; margin-left:20px; }
+    .site-nav a:hover{ color:#000; }
     
-    /* CARDS */
     .grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:14px; margin-top:28px; }
-    .card{ background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:20px; display:flex; flex-direction:column; gap:12px; box-shadow:0 4px 6px -1px rgba(0,0,0,0.05); }
-    .card-title{ font-weight:950; font-size:1.18rem; }
-    .tag{ font-size:0.75rem; font-weight:950; text-transform:uppercase; padding:4px 8px; border-radius:99px; background:rgba(202,138,4,0.12); color:var(--accent); float:right; }
-    .btn{ display:inline-block; text-decoration:none; font-weight:950; padding:10px 16px; border-radius:99px; text-align:center; transition:transform 0.1s; }
-    .btn-primary{ background:#111827; color:#fff; }
-    .btn-secondary{ background:transparent; border:1px solid rgba(0,0,0,0.15); color:var(--text); }
-    .btn:hover{ transform:translateY(-1px); }
-
-    .footer{ margin-top:40px; text-align:center; font-size:0.85rem; color:#9CA3AF; }
+    .card{ background:var(--card); border:1px solid var(--border); border-radius:16px; padding:20px; display:flex; flex-direction:column; gap:12px; }
+    .tag{ font-size:0.75rem; font-weight:950; text-transform:uppercase; padding:4px 8px; border-radius:99px; background:rgba(202,138,4,0.12); color:var(--accent); width:fit-content; }
+    .btn{ display:inline-block; text-decoration:none; font-weight:950; padding:10px 16px; border-radius:99px; text-align:center; background:#111827; color:#fff; }
   </style>
 </head>
 <body>
-
   <header class="site-header">
     <div class="header-inner">
-      <a href="/shield/" class="brand">
-        <img src="/logo.png" alt="Logo"> Predicai Shield™
-      </a>
-      <nav>
-        <a href="/" class="nav-link">Home</a>
-        <a href="/academy/" class="nav-link">Academy</a>
-        <a href="/shield/" class="nav-link">Shield</a>
-        <a href="/shield-desk/" class="nav-link active">Desk</a>
-      </nav>
+      <a href="/shield/" class="brand"><img src="/logo.png" style="height:28px;"> Shield Desk</a>
+      <nav class="site-nav"><a href="/">Home</a><a href="/shield/">Shield</a></nav>
     </div>
   </header>
-
   <main class="container">
-    <section class="hero">
-      <h1>Shield Desk</h1>
-      <p class="sub">Your member hub. Pause, verify, and protect.</p>
-    </section>
-
+    <h1 style="text-align:center; font-size:2.5rem; font-weight:900;">Shield Desk</h1>
     <div class="grid">
-      <div class="card">
-        <div><span class="tag">Analyze</span><div class="card-title">Shield Check</div></div>
-        <p style="color:#4B5563;">Submit a suspicious text, email, or screenshot for a second opinion.</p>
-        <div style="margin-top:auto; display:flex; gap:10px;">
-          <a href="/shield-check/" class="btn btn-primary" style="flex:1;">Run Check</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div><span class="tag">Pause</span><div class="card-title">The Checklist</div></div>
-        <p style="color:#4B5563;">The pause protocol. Print it and keep it near your phone.</p>
-        <div style="margin-top:auto; display:flex; gap:10px;">
-          <a href="/shield-checklist/" class="btn btn-primary" style="flex:1;">Open Checklist</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div><span class="tag">Protect</span><div class="card-title">Family Protocols</div></div>
-        <p style="color:#4B5563;">Safe words, callback rules, and defense systems.</p>
-        <div style="margin-top:auto; display:flex; gap:10px;">
-          <a href="/shield-download/" class="btn btn-secondary" style="flex:1;">Download PDF</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer">
-      © 2026 Predicai Shield™ • Member Hub
+      <div class="card"><span class="tag">Analyze</span><h2>Shield Check</h2><p>Verify suspicious messages.</p><a href="#" class="btn">Run Check</a></div>
+      <div class="card"><span class="tag">Pause</span><h2>The Checklist</h2><p>Printable safety protocol.</p><a href="#" class="btn">Download</a></div>
+      <div class="card"><span class="tag">Protect</span><h2>Protocols</h2><p>Family safe words.</p><a href="#" class="btn">View</a></div>
     </div>
   </main>
 </body>
