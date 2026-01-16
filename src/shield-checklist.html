@@ -11,14 +11,14 @@ active: shield
   <title>Is It Real? – Predicai™ Shield Checklist</title>
 
   <meta name="description" content="A calm, step-by-step guide to verifying suspicious calls, texts, or emails. Pause, verify, then act." />
-  <link rel="canonical" href="https://predicai.ai/shield-checklist.html" />
+  <link rel="canonical" href="https://predicai.ai/shield-checklist/" />
 
   <meta name="theme-color" content="#FFFFFF" />
   <meta name="robots" content="index, follow" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Predicai" />
-  <meta property="og:url" content="https://predicai.ai/shield-checklist.html" />
+  <meta property="og:url" content="https://predicai.ai/shield-checklist/" />
   <meta property="og:title" content="Is It Real? – Predicai™ Shield Checklist" />
   <meta property="og:description" content="A calm, step-by-step guide to verifying suspicious calls, texts, or emails. Pause, verify, then act." />
   <meta property="og:image" content="https://predicai.ai/social-share.png" />
@@ -68,10 +68,6 @@ active: shield
       --headerMax: 1200px;
       --headerPadY: 14px;
       --headerPadX: 24px;
-      
-      /* Issuebar Tokens */
-      --issuebar-bg: #fff;
-      --issuebar-border: #E2E8F0;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -166,33 +162,16 @@ active: shield
       border-color: rgba(29,78,216,0.16);
     }
 
-    /* ===== ISSUEBAR (Light Mode) ===== */
-    .issuebar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 24px;
-      border-bottom: 1px solid var(--issuebar-border);
-      background: var(--issuebar-bg);
-      font-size: 0.9rem;
-    }
-    .issuebar-left { display: flex; align-items: center; gap: 10px; }
-    .issuebar-mark { width: 10px; height: 10px; background: var(--gold); border-radius: 50%; display: inline-block; }
-    .issuebar-title { font-weight: 700; color: var(--text); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; }
-    .issuebar-links { display: flex; gap: 16px; }
-    .chip { text-decoration: none; color: var(--muted); font-weight: 600; font-size: 0.85rem; transition: color 0.2s; }
-    .chip:hover { color: var(--gold-dark); }
-
     /* Layout */
     .container{
       max-width: var(--containerMax);
       margin: 0 auto;
-      padding: 24px 20px;
+      padding: 0 20px;
     }
 
     /* Top controls */
     .topbar{
-      margin: 0 0 10px;
+      margin: 22px 0 10px;
       display:flex;
       align-items:center;
       justify-content: space-between;
@@ -506,7 +485,7 @@ active: shield
 
     /* Print */
     @media print {
-      header, nav, .topbar, .actions, .pledge-footer, footer, .issuebar { display: none !important; }
+      header, nav, .topbar, .actions, .pledge-footer, footer { display: none !important; }
       body { background: #fff; }
       .container{ max-width: 7.5in; }
       .hero, .section, .golden-rule { box-shadow: none !important; }
@@ -521,26 +500,19 @@ active: shield
   </style>
 </head>
 
-<body data-active="{{ page.active }}">
-  {% include "nav.html" %}
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
-  <div class="issuebar" aria-label="Shield checklist navigation">
-    <div class="issuebar-left">
-      <span class="issuebar-mark" aria-hidden="true"></span>
-      <div class="issuebar-title">Predicai Shield • Checklist</div>
-    </div>
-    <div class="issuebar-links">
-      <a class="chip" href="/shield/">← Back to Shield</a>
-      <a class="chip" href="/resources/">Resources</a>
-    </div>
-  </div>
+  <div data-include="nav"></div>
 
   <main id="main" class="container">
     <div class="topbar" aria-label="Page actions">
-      <div class="crumb" style="display:none;"></div>
-      <div style="display:flex; gap:10px; flex-wrap:wrap; width:100%; justify-content:flex-end;">
+      <div class="crumb">
+        <a href="/shield/">&larr; Back to Shield</a>
+      </div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
         <button type="button" id="printBtn" class="btn btn-outline" aria-label="Print this guide">🖨️ Print</button>
-        <a class="btn btn-gold" href="/shield-check/" aria-label="Run a Shield Check">Run a Shield Check</a>
+        <a class="btn btn-gold" href="/shield-check.html" aria-label="Run a Shield Check">Run a Shield Check</a>
       </div>
     </div>
 
@@ -650,8 +622,8 @@ active: shield
 
     <div class="actions" aria-label="Bottom actions">
       <button type="button" class="btn btn-outline" id="printBtn2">🖨️ Print this guide</button>
-      <a class="btn btn-gold" href="/shield-check/">Run a Shield Check</a>
-      <a class="btn btn-outline" href="/shield/">Back to Shield</a>
+      <a class="btn btn-gold" href="/shield-check.html">Run a Shield Check</a>
+      <a class="btn btn-outline" href="/shield.html">Back to Shield</a>
     </div>
 
     <div class="pledge-footer">
@@ -663,10 +635,10 @@ active: shield
 
   <footer>
     <div style="margin-bottom:12px;">© 2026 Predicai™</div>
-    <a href="/shield/">Shield</a>
-    <a href="/shield-check/">Shield Check</a>
-    <a href="/privacy/">Privacy</a>
-    <a href="/terms/">Terms</a>
+    <a href="/shield.html">Shield</a>
+    <a href="/shield-check.html">Shield Check</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
   </footer>
 
   <script>
@@ -681,6 +653,23 @@ active: shield
 
       if (btn1) btn1.addEventListener("click", safePrint);
       if (btn2) btn2.addEventListener("click", safePrint);
+
+      // Nav Inclusion Loader
+      const mount = document.querySelector('[data-include="nav"]');
+      if(mount) {
+        fetch('/partials/nav.html', { cache: 'no-cache' })
+          .then(r => r.text())
+          .then(html => {
+            mount.outerHTML = html;
+            // Highlight active links based on current path
+            const path = window.location.pathname;
+            document.querySelectorAll('nav a').forEach(a => {
+               if(a.getAttribute('href') === path || a.getAttribute('href') === path.slice(0, -1)) {
+                 a.classList.add('active');
+               }
+            });
+          });
+      }
     })();
   </script>
 </body>
