@@ -1,0 +1,225 @@
+---
+layout: null
+permalink: /activate-shield/
+active: shield
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Predicai Shield™ – Activate Access</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <style>
+    :root{
+      --text-dark:#111827;
+      --text-sub:#4B5563;
+      --accent-gold:#D4AF37;
+      --accent-teal:#0d9488;
+      --bg-page:#F3F4F6;
+      --paper-bg:#ffffff;
+      --border:#E5E7EB;
+      --focus:#2A9195;
+    }
+
+    body{
+      background: var(--bg-page);
+      margin:0; padding:40px 20px;
+      color:var(--text-dark);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.6;
+      text-align:center;
+    }
+
+    .container{
+      max-width:600px;
+      margin:0 auto;
+      background:var(--paper-bg);
+      border-radius:12px;
+      padding:40px;
+      box-shadow:0 4px 20px rgba(0,0,0,0.08);
+      border:1px solid var(--border);
+    }
+
+    .logo-img{
+      width:60px; height:60px;
+      object-fit:contain;
+      margin-bottom:10px;
+      border-radius:50%;
+    }
+
+    h1{
+      font-size:1.8rem;
+      font-weight:900;
+      margin:0 0 8px;
+      line-height:1.2;
+    }
+    .subtitle{
+      color:var(--text-sub);
+      font-size:1.05rem;
+      margin:0 0 26px;
+    }
+
+    .gift-notice{
+      display:none; 
+      background:#ECFDF5;
+      border:1px solid #10B981;
+      color:#065F46;
+      padding:16px;
+      border-radius:10px;
+      font-weight:700;
+      margin:0 auto 26px;
+      text-align:left;
+    }
+    .gift-notice small{
+      display:block;
+      font-size:0.9rem;
+      font-weight:600;
+      opacity:0.9;
+      margin-top:6px;
+    }
+
+    .step-box{
+      text-align:left;
+      border-top:1px solid var(--border);
+      padding:22px 0;
+    }
+
+    .step-title{
+      font-weight:900;
+      font-size:1.15rem;
+      margin-bottom:8px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .step-num{
+      background:var(--text-dark);
+      color:#fff;
+      width:26px; height:26px;
+      border-radius:50%;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:0.8rem;
+      flex-shrink:0;
+    }
+
+    .muted{
+      color:var(--text-sub);
+      font-size:0.98rem;
+      margin:0;
+    }
+
+    .btn{
+      display:block;
+      width:100%;
+      box-sizing: border-box;
+      text-decoration:none;
+      padding:16px;
+      border-radius:10px;
+      font-weight:800;
+      text-align:center;
+      margin-top:12px;
+      transition:opacity 0.2s, transform 0.2s;
+    }
+
+    .btn-primary{ background:var(--text-dark); color:#fff; }
+    .btn-secondary{ background:#fff; color:var(--text-dark); border:2px solid var(--text-dark); }
+    .btn-teal{ background:var(--accent-teal); color:#fff; }
+
+    @media (hover: hover) {
+      .btn:hover{ opacity:0.92; transform:translateY(-1px); }
+    }
+
+    .fineprint{
+      font-size:0.82rem;
+      color:#9CA3AF;
+      margin-top:18px;
+      text-align:center;
+    }
+
+    @media (max-width:500px){
+      .container{ padding:24px; }
+      h1{ font-size:1.5rem; }
+      .subtitle{ font-size:1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container" aria-label="Predicai Shield activation">
+
+    <img src="/predicai-shield-gold.JPG" alt="Predicai Shield logo" class="logo-img">
+
+    <h1>Welcome to the Shield.</h1>
+    <p class="subtitle">Your family protection access is active.</p>
+
+    <div class="gift-notice" id="giftNotice" role="status" aria-live="polite">
+      🎁 This membership was prepaid as a gift for you.
+      <small>No credit card required.</small>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title"><span class="step-num">1</span> Set Your Safe Word</div>
+      <p class="muted">
+        Choose a secret word or phrase with your family today.
+        It should be easy to remember but not guessable.
+        If you ever get a strange call asking for money, ask for the Safe Word.
+      </p>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title"><span class="step-num">2</span> Download Your Tools</div>
+      <p class="muted">
+        Print the checklist for your fridge, and update your voicemail greeting so it can't be copied by AI.
+      </p>
+
+      <a href="/shield-download/" class="btn btn-primary">📄 Download Family Protocols</a>
+      <a href="/voice-defense/" class="btn btn-secondary">🔊 Get the Voice Defense Guide</a>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title"><span class="step-num">3</span> Use Shield Check (Today)</div>
+      <p class="muted">
+        If you have a suspicious text, email, or screenshot, run a scan now.
+      </p>
+
+      <a href="https://tally.so/r/LZzErv" class="btn btn-teal" target="_blank" rel="noopener noreferrer">
+        🛡️ Run a Shield Check
+      </a>
+      <p class="muted" style="font-size:0.9rem; margin-top:8px;">
+        Opens in a new window. No login required.
+      </p>
+    </div>
+
+    <p class="muted" style="margin-top:30px; margin-bottom:10px;">
+      You don’t need to remember everything today. Shield is here when something feels off.
+    </p>
+
+    <p class="fineprint">We’ll send occasional safety updates. No spam. No selling your data.</p>
+    <p class="fineprint">© 2026 Predicai Shield™</p>
+
+  </main>
+
+  <script>
+    (function () {
+      const url = new URL(window.location.href);
+      const params = url.searchParams;
+      const hash = (url.hash || "").toLowerCase();
+
+      const isGift =
+        params.get("gift") === "1" ||
+        (params.get("gift") || "").toLowerCase() === "true" ||
+        (params.get("source") || "").toLowerCase() === "gift" ||
+        hash.includes("gift");
+
+      const el = document.getElementById("giftNotice");
+      if (isGift && el) el.style.display = "block";
+    })();
+  </script>
+
+</body>
+</html>
