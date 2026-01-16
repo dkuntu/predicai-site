@@ -13,12 +13,12 @@ active: shield
   <meta name="description" content="Get a calm second opinion on suspicious texts, emails, and screenshots. No login required." />
   <meta name="robots" content="index, follow" />
 
-  <link rel="canonical" href="https://predicai.ai/shield-check.html" />
+  <link rel="canonical" href="https://predicai.ai/shield-check/" />
   <meta name="theme-color" content="#0f1115" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Predicai" />
-  <meta property="og:url" content="https://predicai.ai/shield-check.html" />
+  <meta property="og:url" content="https://predicai.ai/shield-check/" />
   <meta property="og:title" content="Shield Check™ – Predicai Shield" />
   <meta property="og:description" content="Get a calm second opinion on suspicious texts, emails, and screenshots. No login required." />
   <meta property="og:image" content="https://predicai.ai/social-share.png" />
@@ -52,18 +52,7 @@ active: shield
       --radius: 16px;
 
       --shadow: 0 18px 40px rgba(0,0,0,0.35);
-      --shadow-2: 0 24px 60px rgba(0,0,0,0.50);
-
-      /* Shared Nav Tokens (Dark) */
-      --nav-bg: rgba(15,17,21,0.85);
-      --nav-hover: rgba(255,255,255,0.08);
-      --nav-panel-bg: #111318;
-      --nav-text: #fff;
-      --nav-text-muted: rgba(255,255,255,0.7);
-      
-      /* Issuebar Tokens */
-      --issuebar-bg: #0f1115;
-      --issuebar-border: rgba(255,255,255,0.1);
+      --shadow2: 0 24px 60px rgba(0,0,0,0.50);
     }
 
     *{ box-sizing:border-box; margin:0; padding:0; }
@@ -85,7 +74,6 @@ active: shield
     a{ color: inherit; }
     :focus-visible{ outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 10px; }
 
-    /* ===== SHARED NAV STYLES ===== */
     .skip-link{
       position:absolute; left:-9999px; top:10px; z-index:9999;
       background:#fff; color:#000; padding:10px 14px;
@@ -93,25 +81,22 @@ active: shield
     }
     .skip-link:focus{ left:12px; }
 
-    .site-header{
+    header{
       position: sticky; top: 0; z-index: 50;
       backdrop-filter: blur(10px);
-      background: var(--nav-bg);
-      border-bottom: 1px solid var(--border);
-      height: 72px;
-      display: flex;
-      align-items: center;
+      background: rgba(15,17,21,0.76);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .header-inner{
       max-width: 1080px;
-      width: 100%;
       margin: 0 auto;
-      padding: 0 18px;
+      padding: 14px 18px;
       display:flex;
       justify-content: space-between;
       align-items:center;
       gap: 14px;
+      flex-wrap: wrap;
     }
 
     .brand{
@@ -120,131 +105,43 @@ active: shield
       text-decoration:none;
       white-space: nowrap;
       letter-spacing: -0.01em;
-      color: var(--nav-text);
     }
     .brand img{
-      width: 30px; height: 30px;
-      border-radius: 8px;
+      width: 34px; height: 34px;
+      border-radius: 10px;
       object-fit: contain;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.16);
+      padding: 4px;
       display:block;
     }
 
-    .nav-toggle{
-      display:none;
-      align-items:center;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.04);
-      color: var(--nav-text);
-      font-weight: 950;
-      cursor:pointer;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .site-nav{
+    .nav{
       display:flex;
       gap: 12px;
       align-items:center;
+      flex-wrap: wrap;
       justify-content:flex-end;
     }
-
-    .site-nav a{
+    .nav a{
       text-decoration:none;
       font-weight: 800;
       font-size: 0.92rem;
-      color: var(--nav-text-muted);
+      color: rgba(255,255,255,0.82);
       padding: 8px 10px;
       border-radius: 12px;
       border: 1px solid transparent;
-      transition: all 0.15s ease;
     }
-    .site-nav a:hover{
-      background: var(--nav-hover);
-      color: var(--nav-text);
+    .nav a:hover{
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.08);
     }
-    .site-nav a.active{
+    .nav a[aria-current="page"]{
       background: rgba(255,210,74,0.14);
       border-color: rgba(255,210,74,0.24);
       color: #fff;
     }
 
-    /* Menus */
-    .menu{ position: relative; display:inline-flex; align-items:center; }
-    .menu-btn{
-      display:inline-flex; align-items:center; gap: 8px;
-      padding: 8px 10px;
-      border-radius: 12px;
-      border: 1px solid transparent;
-      background: transparent;
-      color: var(--nav-text-muted);
-      font-weight: 900;
-      font-size: 0.92rem;
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-    .menu-btn:hover{ color: var(--nav-text); background: var(--nav-hover); }
-    .menu.open .menu-btn{ color: var(--nav-text); }
-
-    .menu-panel{
-      position:absolute; top: calc(100% + 10px); right: 0;
-      min-width: 200px;
-      padding: 8px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: var(--nav-panel-bg);
-      box-shadow: var(--shadow);
-      display:none;
-      z-index: 100;
-    }
-    .menu-panel a{
-      display:flex; width:100%; padding: 10px;
-      border-radius: 8px; font-weight: 900; font-size: 0.9rem;
-      color: var(--nav-text);
-    }
-    .menu.open .menu-panel{ display:block; }
-
-    @media (max-width: 860px){
-      .nav-toggle{ display:inline-flex; }
-      .site-nav{
-        position: absolute; top: 80px; left: 18px; right: 18px;
-        background: var(--nav-panel-bg);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 16px;
-        flex-direction: column;
-        align-items: stretch;
-        display: none;
-        box-shadow: var(--shadow);
-      }
-      .site-nav.open{ display:flex; }
-      .menu{ width: 100%; }
-      .menu-btn{ width: 100%; justify-content: space-between; }
-      .menu-panel{ position: static; display:none; background: transparent; border:none; box-shadow:none; padding-left: 10px; }
-      .menu.open .menu-panel{ display:block; }
-    }
-
-    /* ===== ISSUEBAR (Dark Mode) ===== */
-    .issuebar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 24px;
-      border-bottom: 1px solid var(--issuebar-border);
-      background: var(--issuebar-bg);
-      font-size: 0.9rem;
-      max-width: 1080px;
-      margin: 0 auto;
-    }
-    .issuebar-left { display: flex; align-items: center; gap: 10px; }
-    .issuebar-mark { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; display: inline-block; box-shadow: 0 0 10px rgba(255,210,74,0.3); }
-    .issuebar-title { font-weight: 700; color: var(--text); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; }
-    .issuebar-links { display: flex; gap: 16px; }
-    .chip { text-decoration: none; color: var(--muted); font-weight: 600; font-size: 0.85rem; transition: color 0.2s; }
-    .chip:hover { color: var(--accent); }
-
-    /* ===== PAGE STYLES ===== */
     .wrap{
       max-width: 1080px;
       margin: 0 auto;
@@ -380,7 +277,7 @@ active: shield
       border: 1px solid rgba(255,255,255,0.10);
       border-radius: var(--radius);
       overflow: hidden;
-      box-shadow: var(--shadow-2);
+      box-shadow: var(--shadow2);
     }
 
     .card-top{
@@ -427,7 +324,6 @@ active: shield
       border-top: 1px solid rgba(255,255,255,0.06);
     }
 
-    /* ✅ Better reliability + no “short” iframe on first paint */
     iframe{
       width: 100%;
       height: 1200px;
@@ -469,7 +365,6 @@ active: shield
       margin-bottom: 6px;
     }
 
-    /* ✅ Tally native embed fallback (no JS / blocked JS) */
     .fallback{
       display:none;
       padding: 18px 16px;
@@ -487,32 +382,33 @@ active: shield
     }
 
     @media print{
-      .site-header, .issuebar, .callouts { display:none !important; }
+      header, .callouts { display:none !important; }
       body{ background:#fff; color:#000; }
       .card{ box-shadow:none; border: 1px solid #000; }
       .note, .trust-panel{ color:#000; }
     }
-
-    @media (prefers-reduced-motion: reduce){
-      html{ scroll-behavior:auto; }
-      *{ transition:none !important; animation:none !important; }
-    }
   </style>
 </head>
 
-<body data-active="{{ page.active }}">
-  {% include "nav.html" %}
-  
-  <div class="issuebar" aria-label="Shield Check navigation">
-    <div class="issuebar-left">
-      <span class="issuebar-mark" aria-hidden="true"></span>
-      <div class="issuebar-title">Predicai Shield Check</div>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="/shield.html" aria-label="Predicai Shield home">
+        <img src="/predicai-shield-gold.JPG" alt="Predicai Shield logo" />
+        Predicai Shield™
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/shield.html">Shield</a>
+        <a href="/shield-check.html" aria-current="page">Shield Check</a>
+        <a href="/resources.html">Resources</a>
+        <a href="/pricing.html">Pricing</a>
+      </nav>
     </div>
-    <div class="issuebar-links">
-      <a class="chip" href="/shield/">← Back to Shield</a>
-      <a class="chip" href="/resources/">Resources</a>
-    </div>
-  </div>
+  </header>
 
   <main id="main" class="wrap" role="main" tabindex="-1">
     <section class="hero" aria-label="Shield Check introduction">
@@ -579,7 +475,6 @@ active: shield
           title="Shield Check form"
           data-tally-src="https://tally.so/r/LZzErv?transparentBackground=1"
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
           allow="clipboard-read; clipboard-write"
         ></iframe>
       </div>
@@ -600,49 +495,28 @@ active: shield
         <div class="note-box">
           <div class="note-title">🧾 Data reminder</div>
           Keep it minimal. Redact names, emails, and phone numbers when possible.
-          (Read <a href="/privacy/">Privacy</a> and <a href="/terms/">Terms</a>.)
+          (Read <a href="/privacy.html">Privacy</a> and <a href="/terms.html">Terms</a>.)
         </div>
       </div>
     </section>
   </main>
 
+  <script src="https://tally.so/widgets/embed.js"></script>
   <script>
     (function () {
       var d = document;
-      var src = "https://tally.so/widgets/embed.js";
-      function loadScript(cb){
-        if (d.querySelector('script[src="' + src + '"]')) return cb && cb();
-        var s = d.createElement("script");
-        s.src = src;
-        s.async = true;
-        s.onload = function(){ cb && cb(); };
-        s.onerror = function(){ cb && cb(new Error("tally script failed")); };
-        d.body.appendChild(s);
-      }
-
       function showFallback(){
         var el = d.getElementById("fallback");
         if (el) el.style.display = "block";
       }
 
-      // If embed.js can’t load or the iframe stays blank, show fallback.
-      loadScript(function (err) {
-        if (err) showFallback();
-      });
-
-      // Lightweight “blank iframe” detector (some blockers allow iframe tag but block content).
       window.setTimeout(function(){
         var frame = d.getElementById("tallyFrame");
         if (!frame) return;
-        try {
-          // If cross-origin blocked, accessing contentWindow may throw; that’s fine.
-          // We only use a simple heuristic: iframe should have a non-empty src by now.
-          var hasSrc = frame.getAttribute("src") || frame.getAttribute("data-tally-src");
-          if (!hasSrc) showFallback();
-        } catch (e) { /* ignore */ }
+        var hasSrc = frame.getAttribute("src") || frame.getAttribute("data-tally-src");
+        if (!hasSrc) showFallback();
       }, 2200);
 
-      // If the iframe errors, show fallback.
       var frame = d.getElementById("tallyFrame");
       if (frame) frame.addEventListener("error", showFallback);
     })();
