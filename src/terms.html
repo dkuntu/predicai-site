@@ -16,13 +16,6 @@ active: terms
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://predicai.ai/terms/" />
 
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Predicai" />
-  <meta property="og:url" content="https://predicai.ai/terms/" />
-  <meta property="og:title" content="Terms of Service – Predicai™" />
-  <meta property="og:description" content="Terms of Service for Predicai Academy and Predicai Shield membership." />
-  <meta property="og:image" content="https://predicai.ai/social-share.png" />
-
   <link rel="icon" href="/favicon.ico?v=3" sizes="any">
   <link rel="icon" type="image/png" href="/favicon-32.png?v=3" sizes="32x32">
   <link rel="icon" type="image/png" href="/favicon-16.png?v=3" sizes="16x16">
@@ -42,7 +35,6 @@ active: terms
       --text-main:#0B1220;
       --text-muted:#475569;
       --border:#E2E8F0;
-      --shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
       --radius:18px;
       --contentw: 860px;
       --headerH: 72px;
@@ -62,7 +54,7 @@ active: terms
     html{ scroll-behavior:smooth; scroll-padding-top: 84px; }
 
     body{
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
       background: var(--bg-page);
       color: var(--text-main);
       line-height: 1.65;
@@ -71,22 +63,18 @@ active: terms
 
     .container{ max-width: var(--contentw); margin: 0 auto; padding: 52px 20px; }
     h1{ font-size: clamp(2.05rem, 3.8vw, 2.7rem); font-weight: 980; letter-spacing: -0.04em; margin-bottom: 10px; }
-
     .legal-meta{ margin-bottom: 34px; border-bottom: 1px solid var(--border); padding-bottom: 28px; }
-    .meta-line{ font-size: 0.92rem; color: var(--text-muted); margin-bottom: 10px; font-weight: 750; }
-
-    .toc-box{ background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; margin-bottom: 44px; box-shadow: var(--shadow); }
-    .toc-title{ font-size: 0.78rem; font-weight: 950; text-transform: uppercase; color: var(--teal); display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-    .toc-title::before{ content:""; width:10px; height:10px; border-radius:50%; background: var(--teal); }
+    
+    .toc-box{ background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; margin-bottom: 44px; }
     .toc-links{ display:flex; flex-wrap: wrap; gap: 10px; }
-    .toc-links a{ background: var(--bg-soft); border: 1px solid rgba(2,6,23,0.06); padding: 8px 12px; border-radius: 999px; font-weight: 900; font-size: 0.9rem; }
+    .toc-links a{ background: var(--bg-soft); border: 1px solid rgba(2,6,23,0.06); padding: 10px 12px; border-radius: 999px; font-weight: 900; font-size: 0.9rem; }
 
     h2{ margin-top: 54px; margin-bottom: 12px; font-size: 1.25rem; font-weight: 950; scroll-margin-top: 110px; }
-    p{ color: var(--text-muted); margin-bottom: 14px; }
-
-    #backToTop{ position: fixed; bottom: 20px; right: 20px; background: var(--text-main); color: white; border: none; width: 46px; height: 46px; border-radius: 50%; cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+    p, li{ color: var(--text-muted); margin-bottom: 14px; }
     
-    footer{ text-align:center; padding: 40px 0; border-top: 1px solid var(--border); font-size: 0.9rem; color: var(--text-muted); }
+    #backToTop{ position: fixed; bottom: 20px; right: 20px; background: var(--text-main); color: white; border: none; width: 46px; height: 46px; border-radius: 50%; cursor: pointer; display: none; }
+
+    footer{ text-align:center; padding: 40px 0; border-top: 1px solid var(--border); font-size: 0.92rem; }
   </style>
 </head>
 
@@ -95,35 +83,29 @@ active: terms
 
   <main class="container" id="main">
     <h1>Terms of Service</h1>
-
     <div class="legal-meta">
-      <div class="meta-line">Last Updated: December 23, 2025</div>
+      <p>Last Updated: December 23, 2025</p>
       <p>These Terms are between you and <strong>Predicai LLC</strong>.</p>
     </div>
 
     <div class="toc-box">
-      <div class="toc-title">Key Sections</div>
       <div class="toc-links">
-        <a href="#academy">Academy</a>
-        <a href="#ip">Property</a>
-        <a href="#refunds">Refunds</a>
-        <a href="#billing">Billing</a>
+        <a href="#academy">1. Academy</a>
+        <a href="#refunds">2. Refunds</a>
+        <a href="#ip">3. IP License</a>
       </div>
     </div>
 
     <h2 id="academy">1. The Academy & Certificate</h2>
-    <p>Predicai™ is an educational platform. The Predicai Certificate confirms curriculum completion and is not an academic degree or government license.</p>
+    <p>Predicai™ is an educational platform. The Predicai Certificate is a private skills credential and is not an academic degree or government-issued license.</p>
 
-    <h2 id="ip">2. Intellectual Property</h2>
-    <p>All artifacts—including The Time Ledger™ and The Intent Protocol™—are the property of Predicai. You are granted a revocable license for personal and internal business use.</p>
+    <h2 id="refunds">2. Refunds & Cancellations</h2>
+    <p><strong>Academy:</strong> We offer a 30-Day refund policy. <strong>Shield:</strong> Subscriptions can be cancelled via the billing portal at any time.</p>
 
-    <h2 id="refunds">3. Refunds & Cancellations</h2>
-    <p><strong>Academy:</strong> 30-Day "No Questions Asked" refund policy. <strong>Shield:</strong> Cancel anytime via your billing portal.</p>
+    <h2 id="ip">3. Intellectual Property</h2>
+    <p>Core artifacts (The Time Ledger™, The Intent Protocol™) are the intellectual property of Predicai. You are granted a revocable license for personal and internal business use.</p>
 
-    <h2 id="billing">4. Billing & Taxes</h2>
-    <p>Academy tuition is a one-time payment. Shield is a recurring subscription. You are responsible for any applicable local taxes.</p>
-
-    <button id="backToTop" hidden onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+    <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
   </main>
 
   <footer>
@@ -144,7 +126,7 @@ active: terms
       root.setAttribute('data-theme', localStorage.getItem('predicai_theme') || 'auto');
     }
     window.onscroll = function() {
-      document.getElementById("backToTop").hidden = (window.pageYOffset < 300);
+      document.getElementById("backToTop").style.display = (window.pageYOffset > 300) ? "block" : "none";
     };
   </script>
 </body>
