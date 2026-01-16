@@ -9,48 +9,56 @@ active: home
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Predicai™ – Better Judgment in the AI Age</title>
-  <meta name="description" content="Clear protocols for AI at work and protection at home. Build workflows you trust. Verify before money moves." />
-  <link rel="canonical" href="https://predicai.ai/" />
+  <meta name="description" content="Clear protocols for AI at work and protection at home." />
   <link rel="icon" href="/logo.png" type="image/png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
   <style>
-    :root{ --bg-page: #0B1220; --text-main: #F8FAFC; --text-muted: #A9B7CC; --teal: #0F766E; --gold: #FFD24A; --link: #7DD3FC; --container: 1200px; --headerH: 72px; }
-    *{ box-sizing:border-box; margin:0; padding:0; }
-    body{ font-family: Inter, sans-serif; background: var(--bg-page); color: var(--text-main); line-height: 1.6; }
-    a{ color: var(--link); text-decoration: none; }
-    .container{ max-width: var(--container); margin:0 auto; padding: 0 24px; }
-    .hero{ text-align:center; padding: 92px 0 44px; }
-    h1{ font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 900; line-height: 1.05; margin-bottom: 18px; }
-    .text-teal{ color: #38BDF8; } .text-gold{ color: var(--gold); }
-    .btn{ padding: 14px 22px; border-radius: 14px; font-weight: 900; display:inline-flex; border: 1px solid transparent; color: #fff; margin: 5px; }
-    .btn-academy{ background: rgba(15,118,110,0.2); border-color: rgba(15,118,110,0.4); }
-    .btn-shield{ background: rgba(255,210,74,0.1); border-color: rgba(255,210,74,0.4); color: var(--gold); }
-    .grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; max-width: 1050px; margin: 40px auto; }
-    .card{ background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 28px; }
-    footer{ text-align:center; padding: 50px 0; border-top: 1px solid rgba(255,255,255,0.1); color: var(--text-muted); margin-top: 60px; }
-    footer a{ margin: 0 10px; }
+    :root{ --bg: #0B1220; --text: #F8FAFC; --teal: #0F766E; --gold: #FFD24A; }
+    body{ background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin:0; }
+    .container{ max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    
+    /* Nav Styles directly here just in case */
+    .site-header { padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; color: #fff; text-decoration: none; font-size: 1.2rem; }
+    .brand img { height: 28px; width: auto; }
+    .site-nav { display: flex; gap: 20px; }
+    .site-nav a { color: #94A3B8; text-decoration: none; font-weight: 700; transition: color 0.2s; }
+    .site-nav a:hover, .site-nav a.active { color: #fff; }
+
+    .hero { text-align: center; padding: 100px 0; }
+    h1 { font-size: 3.5rem; font-weight: 900; margin-bottom: 20px; line-height: 1.1; }
+    .text-teal { color: #2DD4BF; }
+    .text-gold { color: #FACC15; }
+    p { color: #94A3B8; font-size: 1.2rem; max-width: 600px; margin: 0 auto 40px; line-height: 1.6; }
+    
+    .btn { display: inline-block; padding: 12px 24px; border-radius: 12px; font-weight: 800; text-decoration: none; transition: transform 0.2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-academy { background: rgba(45, 212, 191, 0.1); color: #2DD4BF; border: 1px solid rgba(45, 212, 191, 0.2); }
+    .btn-shield { background: rgba(250, 204, 21, 0.1); color: #FACC15; border: 1px solid rgba(250, 204, 21, 0.2); margin-left: 10px; }
   </style>
 </head>
-<body data-active="home">
+<body>
+
   {% include "nav.html" %}
-  <main>
-    <section class="hero container">
-      <h1><span class="text-teal">Work leverage</span><br><span class="text-gold">Family safety</span></h1>
-      <p style="max-width:600px; margin:0 auto 30px; color:var(--text-muted);">Predicai helps you build reliable AI workflows at work, and protect your family from scams at home.</p>
-      <div>
-        <a href="/academy/" class="btn btn-academy">Explore the Academy</a>
-        <a href="/shield/" class="btn btn-shield">Explore Shield</a>
-      </div>
-    </section>
-    <section class="grid container">
-      <div class="card"><h2>The Academy</h2><p>Build repeatable workflows you can trust.</p><br><a href="/academy/">View Academy →</a></div>
-      <div class="card"><h2>Shield</h2><p>Verification tools + family protocols.</p><br><a href="/shield/">View Shield →</a></div>
-    </section>
+
+  <main class="container hero">
+    <h1>
+      <span class="text-teal">Work leverage</span><br>
+      <span class="text-gold">Family safety</span>
+    </h1>
+    <p>
+      Predicai helps you build reliable AI workflows at work,
+      and protect your family from scams at home.
+    </p>
+    <div>
+      <a href="/academy/" class="btn btn-academy">Explore Academy</a>
+      <a href="/shield/" class="btn btn-shield">Explore Shield</a>
+    </div>
   </main>
-  <footer>
-    © 2026 Predicai™ • <a href="/terms/">Terms</a> • <a href="/privacy/">Privacy</a>
+
+  <footer style="text-align:center; padding: 40px; color: #475569; font-size: 0.9rem;">
+    © 2026 Predicai™
   </footer>
 </body>
 </html>
