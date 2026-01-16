@@ -12,8 +12,12 @@ active: academy
   <title>Predicai™ Academy – The Builder Program</title>
   <meta name="description" content="The 2026 Builder Program. Move from chatting to building. Application-only cohort with one-time tuition." />
 
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://predicai.ai/academy/" />
+
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://predicai.ai/academy.html" />
+  <meta property="og:site_name" content="Predicai" />
+  <meta property="og:url" content="https://predicai.ai/academy/" />
   <meta property="og:title" content="Predicai™ Academy – The Builder Program" />
   <meta property="og:description" content="Move from chatting to building. Application-only cohort with one-time tuition." />
   <meta property="og:image" content="https://predicai.ai/social-share.png" />
@@ -24,626 +28,83 @@ active: academy
   <meta name="twitter:image" content="https://predicai.ai/social-share.png" />
 
   <meta name="theme-color" content="#F8FAFC" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://predicai.ai/academy.html" />
 
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" href="/logo.png" type="image/png" />
+  <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+  <link rel="icon" type="image/png" href="/favicon-32.png?v=3" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/favicon-16.png?v=3" sizes="16x16" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" sizes="180x180" />
+  <link rel="manifest" href="/site.webmanifest?v=3" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet" />
 
   <style>
     :root{
-      /* Light system (match Standard / Resources) */
       --bg-page:#F8FAFC;
       --bg-white:#FFFFFF;
-      --bg-subtle:#F3F4F6;
-
       --text-main:#0F172A;
       --text-muted:#64748B;
-
-      /* Predicai core */
       --teal:#0F766E;
       --teal-soft: rgba(15,118,110,0.10);
       --teal-border: rgba(15,118,110,0.18);
-
-      --blue:#1D4ED8;
-
-      /* “Titanium” panel */
       --titanium: linear-gradient(135deg, #0F172A 0%, #111827 55%, #0B1220 100%);
-
       --border:#E2E8F0;
       --border-strong:#CBD5E1;
-
       --shadow:0 10px 25px -8px rgba(0,0,0,0.12);
       --shadow-strong:0 16px 44px -14px rgba(0,0,0,0.18);
-
-      --radius:18px;
-      --focus: rgba(29,78,216,0.45);
-
       --container: 1200px;
       --padX: 24px;
       --headerH: 72px;
-
-      --link: #1D4ED8;
-      --link-hover: #1E40AF;
-
-      /* Shared nav tokens (so nav adapts to light pages) */
       --nav-bg: rgba(255,255,255,0.92);
       --nav-hover: rgba(15,23,42,0.04);
-      --nav-panel-bg: rgba(255,255,255,0.96);
-      --nav-panel-item-hover: rgba(15,23,42,0.04);
     }
 
     *{ box-sizing:border-box; margin:0; padding:0; }
-    html{
-      scroll-behavior:smooth;
-      scroll-padding-top: var(--headerH);
-    }
+    html{ scroll-behavior:smooth; scroll-padding-top: var(--headerH); }
 
     body{
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-
       background: var(--bg-page);
       color: var(--text-main);
       line-height: 1.6;
-
       min-height: 100vh;
-      min-height: 100svh;
-
-      padding:
-        env(safe-area-inset-top)
-        env(safe-area-inset-right)
-        env(safe-area-inset-bottom)
-        env(safe-area-inset-left);
     }
 
-    a{ color: var(--link); }
-    a:hover{ color: var(--link-hover); }
+    .container{ max-width: var(--container); margin: 0 auto; padding: 0 var(--padX); }
+    .hero{ text-align:center; padding: 84px 0 44px; max-width: 860px; margin: 0 auto; }
+    .kicker{ display:inline-block; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--teal-border); color: var(--teal); background: var(--teal-soft); font-weight: 900; font-size: 0.82rem; text-transform: uppercase; margin-bottom: 18px; }
+    h1{ font-size: clamp(2.3rem, 4.8vw, 3.35rem); font-weight: 900; margin-bottom: 14px; line-height: 1.08; letter-spacing: -0.02em; }
+    .lead{ font-size: 1.12rem; color: var(--text-muted); margin-bottom: 22px; max-width: 680px; margin: 0 auto; }
 
-    .container{
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 0 var(--padX);
-    }
+    .cta-row{ display:flex; justify-content:center; gap: 14px; flex-wrap: wrap; }
+    .btn{ padding: 14px 18px; border-radius: 12px; font-weight: 900; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; transition: transform 0.15s ease; border: 1px solid transparent; min-width: 220px; }
+    .btn:hover{ transform: translateY(-2px); }
+    .btn-teal{ background: var(--teal); color: #fff; box-shadow: 0 10px 22px rgba(15,118,110,0.16); }
+    .btn-outline{ background: var(--bg-white); border-color: var(--border); color: var(--text-main); }
 
-    /* ===== Shared Nav Styles ===== */
-    .skip-link{
-      position:absolute; left:-9999px; top:12px; z-index:9999;
-      background: var(--bg-white);
-      color: var(--text-main);
-      padding:10px 14px;
-      border-radius:10px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      text-decoration:none;
-      font-weight: 900;
-    }
-    .skip-link:focus{ left:12px; outline: 3px solid var(--focus); outline-offset: 2px; }
+    .grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; max-width: 1050px; margin: 40px auto 20px; }
+    .card{ background: var(--bg-white); padding: 26px; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow); }
+    .card h3{ font-size: 1.15rem; margin-bottom: 6px; font-weight: 900; }
+    .emoji{ font-size: 1.9rem; margin-bottom: 12px; }
 
-    :focus-visible{
-      outline: 3px solid var(--focus);
-      outline-offset: 3px;
-      border-radius: 12px;
-    }
+    .offer-block{ max-width: 860px; margin: 50px auto 0; }
+    .offer-card{ background: var(--bg-white); border: 1px solid rgba(15,118,110,0.22); border-radius: 24px; padding: 34px; box-shadow: 0 18px 50px -25px rgba(15,118,110,0.35); }
+    .offer-title{ font-size: 1.35rem; font-weight: 900; margin-bottom: 6px; }
+    .offer-price{ font-size: 3rem; font-weight: 900; line-height: 1; margin: 18px 0 12px; color: var(--text-main); letter-spacing: -0.02em; }
+    
+    .how-box{ background: var(--teal-soft); border: 1px solid var(--teal-border); padding: 18px; border-radius: 14px; margin: 14px 0 18px; }
+    .how-box strong{ color: var(--teal); font-weight: 900; display:block; margin-bottom: 6px; }
+    
+    .titanium-block{ background: var(--titanium); border: 1px solid rgba(255,255,255,0.14); border-radius: 24px; padding: 56px 34px; margin: 80px auto 0; max-width: 960px; text-align:center; box-shadow: 0 25px 60px -20px rgba(0,0,0,0.55); }
+    .team-badge{ background: white; color: #0F172A; padding: 6px 14px; border-radius: 8px; font-weight: 900; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 18px; display:inline-block; }
+    .titanium-block h2{ color: #fff; font-size: clamp(1.9rem, 3.6vw, 2.5rem); margin-bottom: 12px; font-weight: 900; }
+    .btn-white{ background: white; color: #0F172A; font-weight: 900; padding: 14px 18px; border-radius: 12px; text-decoration:none; display:inline-block; transition: transform 0.15s ease; min-width: 240px; }
 
-    .site-header{
-      position: sticky;
-      top:0;
-      z-index:50;
-      height: var(--headerH);
-      display:flex;
-      align-items:center;
+    footer{ text-align:center; padding: 50px 0; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.92rem; margin-top: 70px; }
 
-      background: var(--nav-bg);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .header-inner{
-      width: 100%;
-      display:flex;
-      justify-content: space-between;
-      align-items:center;
-      gap: 16px;
-    }
-
-    .brand{
-      font-weight: 900;
-      font-size: 1.05rem;
-      text-decoration:none;
-      color: var(--text-main);
-      display:flex;
-      gap: 10px;
-      align-items:center;
-      white-space: nowrap;
-    }
-
-    .brand .logo{
-      width: 26px;
-      height: 26px;
-      border-radius: 6px;
-      object-fit: contain;
-      display:none;
-    }
-
-    /* Show the right logo based on page theme */
-    html[data-theme="light"] .brand .logo-light{ display:block; }
-    html[data-theme="dark"] .brand .logo-dark{ display:block; }
-
-    .nav-toggle{
-      display:none;
-      align-items:center;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--bg-white);
-      color: var(--text-main);
-      font-weight: 950;
-      cursor:pointer;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .site-nav{
-      display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      align-items:center;
-    }
-
-    .site-nav a{
-      text-decoration:none;
-      color: var(--text-muted);
-      font-weight: 800;
-      font-size: 0.95rem;
-      padding: 8px 10px;
-      border-radius: 12px;
-      transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
-      border: 1px solid transparent;
-      white-space: nowrap;
-    }
-    .site-nav a:hover{
-      color: var(--text-main);
-      background: var(--nav-hover);
-      transform: translateY(-1px);
-    }
-    .site-nav a.active{
-      color: var(--text-main);
-      font-weight: 900;
-      background: rgba(29,78,216,0.10);
-      border-color: rgba(29,78,216,0.18);
-    }
-
-    .menu{ position: relative; display:inline-flex; align-items:center; }
-    .menu-btn{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      padding: 8px 10px;
-      border-radius: 12px;
-      border: 1px solid transparent;
-      background: transparent;
-      color: var(--text-muted);
-      font-weight: 900;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: background .15s ease, color .15s ease, transform .15s ease;
-      -webkit-tap-highlight-color: transparent;
-      white-space: nowrap;
-    }
-    .menu-btn:hover{
-      color: var(--text-main);
-      background: var(--nav-hover);
-      transform: translateY(-1px);
-    }
-    .caret{ font-size: 0.85rem; opacity: 0.9; }
-
-    .menu-panel{
-      position:absolute;
-      top: calc(100% + 10px);
-      right: 0;
-      min-width: 240px;
-      padding: 10px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: var(--nav-panel-bg);
-      box-shadow: var(--shadow-strong);
-      display:none;
-      z-index: 100;
-      backdrop-filter: blur(10px);
-    }
-
-    .menu-panel a{
-      display:flex;
-      width:100%;
-      padding: 10px 10px;
-      border-radius: 12px;
-      font-weight: 900;
-      font-size: 0.94rem;
-      color: var(--text-main);
-      border: 1px solid transparent;
-      transform:none;
-    }
-
-    .menu-panel a:hover{
-      background: var(--nav-panel-item-hover);
-      border-color: var(--border-strong);
-    }
-
-    .menu.open .menu-panel{ display:block; }
-    .menu.open .menu-btn{ color: var(--text-main); }
-
-    @media (max-width: 768px){
-      .nav-toggle{ display:inline-flex; }
-
-      .site-header{ height: auto; padding: 14px 0; }
-      .header-inner{ flex-direction: column; align-items: flex-start; }
-
-      .site-nav{
-        width: 100%;
-        justify-content: flex-start;
-        gap: 10px;
-
-        /* mobile tray behavior */
-        display:none;
-        flex-direction: column;
-        align-items: stretch;
-        padding: 12px;
-        border: 1px solid var(--border);
-        border-radius: 18px;
-        background: var(--nav-panel-bg);
-        box-shadow: var(--shadow);
-      }
-      .site-nav.open{ display:flex; }
-
-      .menu{ width: 100%; }
-      .menu-btn{ width: 100%; justify-content: space-between; }
-
-      .menu-panel{
-        position: static;
-        display:none;
-        box-shadow:none;
-        margin-top: 6px;
-      }
-      .menu.open .menu-panel{ display:block; }
-    }
-
-    /* ===== Your existing Academy styles (unchanged) ===== */
-
-    /* Hero */
-    .hero{
-      text-align:center;
-      padding: 84px 0 44px;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-    .kicker{
-      display:inline-block;
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--teal-border);
-      color: var(--teal);
-      background: var(--teal-soft);
-      font-weight: 900;
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-      letter-spacing: 0.06em;
-    }
-    h1{
-      font-size: clamp(2.3rem, 4.8vw, 3.35rem);
-      font-weight: 900;
-      margin-bottom: 14px;
-      line-height: 1.08;
-      letter-spacing: -0.02em;
-    }
-    .lead{
-      font-size: 1.12rem;
-      color: var(--text-muted);
-      margin-bottom: 22px;
-      max-width: 680px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .cta-row{
-      display:flex;
-      justify-content:center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-    .btn{
-      padding: 14px 18px;
-      border-radius: 12px;
-      font-weight: 900;
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      transition: transform 0.15s ease, opacity 0.15s ease, border-color 0.15s ease, background 0.15s ease;
-      user-select:none;
-      -webkit-tap-highlight-color: transparent;
-      min-width: 220px;
-      border: 1px solid transparent;
-    }
-    .btn:hover{ transform: translateY(-2px); opacity: 0.98; }
-    .btn:active{ transform: translateY(1px); }
-
-    .btn-teal{
-      background: var(--teal);
-      color: #fff;
-      border-color: rgba(15,118,110,0.25);
-      box-shadow: 0 10px 22px rgba(15,118,110,0.16);
-    }
-    .btn-outline{
-      background: var(--bg-white);
-      border-color: var(--border);
-      color: var(--text-main);
-    }
-    .btn-outline:hover{ border-color: var(--border-strong); }
-
-    .fineprint{
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-top: 14px;
-    }
-
-    /* Artifact Grid */
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
-      max-width: 1050px;
-      margin: 40px auto 20px;
-      padding: 0 var(--padX);
-    }
-    .card{
-      background: var(--bg-white);
-      padding: 26px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
-    }
-    .card:hover{
-      transform: translateY(-3px);
-      border-color: var(--border-strong);
-      box-shadow: var(--shadow-strong);
-    }
-    .card h3{
-      font-size: 1.15rem;
-      margin-bottom: 6px;
-      font-weight: 900;
-      color: var(--text-main);
-    }
-    .card p{
-      font-size: 0.98rem;
-      color: var(--text-muted);
-      margin: 0;
-    }
-    .emoji{
-      font-size: 1.9rem;
-      margin-bottom: 12px;
-    }
-
-    /* Framework section */
-    .framework-section{
-      text-align:center;
-      max-width: 900px;
-      margin: 70px auto 10px;
-      padding: 0 var(--padX);
-    }
-    .framework-kicker{
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.10em;
-      font-weight: 900;
-      font-size: 0.8rem;
-      display:block;
-      margin-bottom: 10px;
-    }
-    .framework-section h2{
-      font-size: 1.95rem;
-      font-weight: 900;
-      color: var(--text-main);
-      margin-bottom: 12px;
-      letter-spacing: -0.01em;
-    }
-    .framework-section p{
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      margin-bottom: 18px;
-      max-width: 820px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* Offer block */
-    .offer-block{
-      max-width: 860px;
-      margin: 50px auto 0;
-      padding: 0 var(--padX);
-      text-align:left;
-    }
-    .offer-card{
-      background: var(--bg-white);
-      border: 1px solid rgba(15,118,110,0.22);
-      border-radius: 24px;
-      padding: 34px;
-      box-shadow: 0 18px 50px -25px rgba(15,118,110,0.35);
-    }
-    .offer-title{
-      font-size: 1.35rem;
-      font-weight: 900;
-      margin-bottom: 6px;
-      color: var(--text-main);
-    }
-    .offer-sub{
-      color: var(--text-muted);
-      margin-bottom: 16px;
-      font-weight: 800;
-    }
-    .offer-price{
-      font-size: 3rem;
-      font-weight: 900;
-      line-height: 1;
-      margin: 18px 0 12px;
-      color: var(--text-main);
-      letter-spacing: -0.02em;
-    }
-    .how-box{
-      background: var(--teal-soft);
-      border: 1px solid var(--teal-border);
-      padding: 18px;
-      border-radius: 14px;
-      margin: 14px 0 18px;
-    }
-    .how-box strong{
-      color: var(--teal);
-      font-weight: 900;
-      display:block;
-      margin-bottom: 6px;
-    }
-    .offer-list{
-      list-style:none;
-      padding:0;
-      margin: 16px 0 18px;
-    }
-    .offer-list li{
-      display:flex;
-      align-items:flex-start;
-      gap: 10px;
-      margin-bottom: 12px;
-      font-size: 0.98rem;
-      color: var(--text-muted);
-    }
-    .offer-list li strong{ color: var(--text-main); font-weight: 900; }
-    .check{
-      color: var(--teal);
-      font-weight: 900;
-      margin-top: 1px;
-    }
-
-    /* Titanium block */
-    .titanium-block{
-      background: var(--titanium);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 24px;
-      padding: 56px 34px;
-      margin: 80px auto 0;
-      max-width: 960px;
-      text-align:center;
-      box-shadow: 0 25px 60px -20px rgba(0,0,0,0.55);
-      position: relative;
-      overflow:hidden;
-    }
-    .titanium-block::before{
-      content:"";
-      position:absolute;
-      top:0; left:0; right:0; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
-    }
-    .team-badge{
-      background: white;
-      color: #0F172A;
-      padding: 6px 14px;
-      border-radius: 8px;
-      font-weight: 900;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 18px;
-      display:inline-block;
-    }
-    .titanium-block h2{
-      color: #fff;
-      font-size: clamp(1.9rem, 3.6vw, 2.5rem);
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
-      font-weight: 900;
-    }
-    .titanium-block p{
-      color: #CBD5E1;
-      max-width: 680px;
-      margin: 0 auto 22px;
-      font-size: 1.05rem;
-      line-height: 1.6;
-    }
-    .titanium-block p strong{ color: #fff; font-weight: 900; }
-
-    .btn-white{
-      background: white;
-      color: #0F172A;
-      font-weight: 900;
-      padding: 14px 18px;
-      border-radius: 12px;
-      text-decoration:none;
-      display:inline-block;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-      transition: transform 0.15s ease, background 0.15s ease;
-      border: 1px solid rgba(255,255,255,0.25);
-      min-width: 240px;
-    }
-    .btn-white:hover{
-      transform: translateY(-2px);
-      background: #F8FAFC;
-    }
-    .titanium-note{
-      font-size: 0.92rem;
-      margin-top: 16px;
-      opacity: 0.78;
-      color: #CBD5E1;
-    }
-
-    /* Cross-link */
-    .crosslink{
-      text-align:center;
-      margin: 38px 0 0;
-      padding: 0 var(--padX);
-    }
-    .crosslink a{
-      color: var(--text-muted);
-      font-size: 0.98rem;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      font-weight: 800;
-    }
-    .crosslink a:hover{ color: var(--text-main); }
-
-    /* Footer */
-    footer{
-      text-align:center;
-      padding: 50px 0;
-      border-top: 1px solid var(--border);
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      margin-top: 70px;
-      background: rgba(255,255,255,0.55);
-    }
-    footer a{
-      color: inherit;
-      margin: 0 10px;
-      font-weight: 900;
-      text-decoration:none;
-      padding: 6px 8px;
-      border-radius: 10px;
-    }
-    footer a:hover{
-      color: var(--text-main);
-      background: rgba(15,23,42,0.04);
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      html{ scroll-behavior: auto; }
-      *{ transition: none !important; animation: none !important; }
-      .btn:hover, .site-nav a:hover, .card:hover, .btn-white:hover, .menu-btn:hover{ transform: none !important; }
-    }
+    @media (max-width: 768px){ .site-header{ height: auto; padding: 14px 0; } }
   </style>
 </head>
 
@@ -651,242 +112,78 @@ active: academy
   <div data-include="nav"></div>
 
   <main id="main" class="container">
-    <section class="hero" aria-label="Academy hero">
+    <section class="hero">
       <span class="kicker">2026 Builder Program</span>
-
       <h1>Build your personal<br>operating system</h1>
+      <p class="lead">Stop chatting. Start building repeatable AI systems that hold up in real work.</p>
 
-      <p class="lead">
-        Stop chatting. Start building repeatable AI systems that hold up in real work.
-      </p>
-
-      <div class="cta-row" aria-label="Primary calls to action">
-        <a
-          href="https://buy.stripe.com/6oU9AVdC8eWUaHX9mk5ZC01"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-teal"
-        >Apply for Academy</a>
-
-        <a href="/capability.html" class="btn btn-outline">Capability Score</a>
+      <div class="cta-row">
+        <a href="https://buy.stripe.com/6oU9AVdC8eWUaHX9mk5ZC01" target="_blank" class="btn btn-teal">Apply for Academy</a>
+        <a href="/capability/" class="btn btn-outline">Capability Score</a>
       </div>
-
-      <p class="fineprint">Application-only • One-time tuition</p>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 14px;">Application-only • One-time tuition</p>
     </section>
 
-    <section class="grid" aria-label="Core components">
+    <section class="grid">
       <div class="card">
-        <div class="emoji" aria-hidden="true">🗂️</div>
+        <div class="emoji">🗂️</div>
         <h3>The Notion Vault</h3>
         <p>A complete, duplicatable workspace with protocol libraries, templates, and project trackers.</p>
       </div>
-
       <div class="card">
-        <div class="emoji" aria-hidden="true">⚖️</div>
+        <div class="emoji">⚖️</div>
         <h3>The Time Ledger™</h3>
         <p>Audit your week to find high-leverage automation targets using the Jagged Frontier method.</p>
       </div>
-
       <div class="card">
-        <div class="emoji" aria-hidden="true">🔍</div>
+        <div class="emoji">🔍</div>
         <h3>Cai™ QC Toolkit</h3>
         <p>Auditor protocols to verify AI output for hallucinations, gaps, and weak reasoning.</p>
       </div>
     </section>
 
-    <section class="framework-section" aria-label="Framework">
-      <span class="framework-kicker">The Foundation</span>
-      <h2>Built on The Predicai Standard™</h2>
-      <p>
-        Most people get stuck at <strong>Level 1 (Translator)</strong>.
-        The Academy is designed to move you to <strong>Level 3 (Builder)</strong> using the <strong>7 Gates of Quality</strong>.
-      </p>
-
-      <div class="cta-row" style="margin-top:14px;">
-        <a href="/standard.html" class="btn btn-outline" style="min-width:260px;">View the 5-Level Framework →</a>
-      </div>
-    </section>
-
-    <section class="offer-block" aria-label="Offer">
+    <section class="offer-block">
       <div class="offer-card">
         <div class="offer-title">Level 3 Certification</div>
-        <div class="offer-sub">Complete Builder Access</div>
+        <div class="offer-sub" style="color:var(--text-muted); font-weight:800;">Complete Builder Access</div>
 
         <div class="offer-price">49</div>
 
         <div class="how-box">
           <strong>How it works</strong>
-          <p style="margin:0; color:var(--text-main); font-size:0.98rem;">
-            This is an application-only cohort. Upon acceptance, you get the Notion system and a guided build to completion.
-          </p>
+          <p style="margin:0; font-size:0.98rem;">Acceptance into this application-only cohort includes the Notion system and guided build support to completion.</p>
         </div>
 
-        <ul class="offer-list">
-          <li><span class="check">✓</span> <strong>Stepwise Decomposition</strong> (logic training)</li>
-          <li><span class="check">✓</span> Capstone reviewed against the 7 Gates</li>
-          <li><span class="check">✓</span> Lifetime access to this program + all 2026 updates</li>
-          <li><span class="check">✓</span> Full template library (Vault, Ledger, QC Toolkit)</li>
+        <ul style="list-style:none; padding:0; margin: 16px 0 18px;">
+          <li style="margin-bottom:10px;">✓ <strong>Stepwise Decomposition</strong> logic training</li>
+          <li style="margin-bottom:10px;">✓ Capstone reviewed against the 7 Gates</li>
+          <li style="margin-bottom:10px;">✓ Lifetime access to program + 2026 updates</li>
         </ul>
 
-        <a
-          href="https://buy.stripe.com/6oU9AVdC8eWUaHX9mk5ZC01"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-teal"
-          style="width:100%;"
-        >Apply for Academy</a>
+        <a href="https://buy.stripe.com/6oU9AVdC8eWUaHX9mk5ZC01" target="_blank" class="btn btn-teal" style="width:100%;">Apply for Academy</a>
       </div>
     </section>
 
-    <section class="titanium-block" aria-label="Accelerator for teams">
+    <section class="titanium-block">
       <span class="team-badge">For Teams</span>
       <h2>The Accelerator</h2>
-
-      <p>
-        Need hands-on implementation?
-        We act as your <strong>Fractional AI Officer</strong> to build governance, custom tooling, and internal training.
-      </p>
-
-      <a
-        href="https://calendly.com/predicai-strategy"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-white"
-      >Contact for Strategy</a>
-
-      <div class="titanium-note">Includes 1:1 executive coaching and workflow audits</div>
+      <p>We act as your <strong>Fractional AI Officer</strong> to build governance, custom tooling, and internal training.</p>
+      <a href="https://calendly.com/predicai-strategy" target="_blank" class="btn-white">Contact for Strategy</a>
     </section>
-
-    <div class="crosslink">
-      <a href="/shield.html">Also protecting your family? View Shield →</a>
-    </div>
   </main>
 
   <footer>
     <div style="margin-bottom:12px;">© 2026 Predicai™</div>
-    <a href="/terms.html">Terms</a>
-    <a href="/privacy.html">Privacy</a>
-    <div style="margin-top:18px; opacity:0.85; font-size:0.88rem;">
-      🔒 <strong>Privacy Pledge™</strong> We don’t sell data. We don’t train public models on your submissions.
-    </div>
+    <div style="margin-bottom:18px;"><a href="/terms/" style="color:inherit; margin-right:15px;">Terms</a> <a href="/privacy/" style="color:inherit;">Privacy</a></div>
+    <p style="opacity:0.85;">🔒 <strong>Privacy Pledge™</strong> We don’t sell data. We don’t train public models on your submissions.</p>
   </footer>
 
   <script>
-    // ===== Shared Nav Include Loader =====
     (function(){
       const mount = document.querySelector('[data-include="nav"]');
       if(!mount) return;
-
-      fetch('/partials/nav.html', { cache: 'no-cache' })
-        .then(r => r.text())
-        .then(html => {
-          mount.outerHTML = html;
-          initPredicaiNav();
-          initPredicaiActiveLink();
-        })
-        .catch(() => {});
+      fetch('/partials/nav.html').then(r => r.text()).then(html => { mount.outerHTML = html; });
     })();
-
-    // ===== Nav behavior (dropdowns + mobile + close rules) =====
-    function initPredicaiNav(){
-      const nav = document.getElementById('siteNav');
-      const toggle = document.querySelector('.nav-toggle');
-      if(!nav) return;
-
-      function closeAllMenus(except=null){
-        document.querySelectorAll('.menu.open').forEach(m => {
-          if(m !== except){
-            m.classList.remove('open');
-            const btn = m.querySelector('.menu-btn');
-            if(btn) btn.setAttribute('aria-expanded', 'false');
-          }
-        });
-      }
-
-      // Mobile open/close
-      if(toggle){
-        toggle.addEventListener('click', () => {
-          const open = nav.classList.toggle('open');
-          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-          if(!open) closeAllMenus();
-        });
-      }
-
-      // Dropdown toggle
-      document.querySelectorAll('.menu').forEach(menu => {
-        const btn = menu.querySelector('.menu-btn');
-        if(!btn) return;
-
-        btn.addEventListener('click', (e) => {
-          e.preventDefault();
-          const isOpen = menu.classList.contains('open');
-          closeAllMenus(menu);
-          menu.classList.toggle('open', !isOpen);
-          btn.setAttribute('aria-expanded', (!isOpen).toString());
-        });
-
-        menu.addEventListener('keydown', (e) => {
-          if(e.key === 'Escape'){
-            menu.classList.remove('open');
-            btn.setAttribute('aria-expanded', 'false');
-            btn.focus();
-          }
-        });
-      });
-
-      // Click outside closes
-      document.addEventListener('click', (e) => {
-        const clickedInsideMenu = e.target.closest('.menu');
-        const clickedToggle = e.target.closest('.nav-toggle');
-        const clickedNav = e.target.closest('#siteNav');
-        if(clickedInsideMenu || clickedToggle || clickedNav) return;
-
-        closeAllMenus();
-
-        if(nav.classList.contains('open') && window.innerWidth <= 768){
-          nav.classList.remove('open');
-          if(toggle) toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      // Esc closes mobile tray too
-      document.addEventListener('keydown', (e) => {
-        if(e.key === 'Escape'){
-          closeAllMenus();
-          if(nav.classList.contains('open')){
-            nav.classList.remove('open');
-            if(toggle) toggle.setAttribute('aria-expanded', 'false');
-          }
-        }
-      });
-
-      // Selecting a link closes menus (and mobile tray)
-      nav.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => {
-          closeAllMenus();
-          if(nav.classList.contains('open')){
-            nav.classList.remove('open');
-            if(toggle) toggle.setAttribute('aria-expanded', 'false');
-          }
-        });
-      });
-    }
-
-    // ===== Active link highlighting by URL =====
-    function initPredicaiActiveLink(){
-      const path = (location.pathname || '/').toLowerCase();
-
-      document.querySelectorAll('#siteNav a[href]').forEach(a => {
-        const href = (a.getAttribute('href') || '').toLowerCase();
-        const isHome = (href === '/' && (path === '/' || path.endsWith('/index.html')));
-        const isExactHtml = (href.endsWith('.html') && path.endsWith(href));
-
-        if(isHome || isExactHtml){
-          a.classList.add('active');
-          a.setAttribute('aria-current','page');
-        }
-      });
-    }
   </script>
 </body>
 </html>
