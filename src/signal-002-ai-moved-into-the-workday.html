@@ -1,0 +1,1444 @@
+---
+layout: null
+permalink: /signal-002-ai-moved-into-the-workday.html
+active: signal
+---
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" href="/favicon.ico?v=3" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon-32.png?v=3" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16.png?v=3" sizes="16x16">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" sizes="180x180">
+  <link rel="manifest" href="/site.webmanifest?v=3">
+  <meta name="theme-color" content="#050A10">
+
+  <title>AI quietly moved into the workday — Predicai Signal™</title>
+  <meta name="description" content="Predicai Signal™ Issue 002 — AI didn’t get louder. It got closer: meetings, docs, notes, and safety. One move to build real fluency inside your day.">
+  <meta name="robots" content="index, follow">
+  <meta name="color-scheme" content="light dark">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI quietly moved into the workday">
+  <meta property="og:description" content="Not louder. Just closer. Meetings, documents, and safety. One small move you can try this week.">
+  <meta property="og:url" content="https://predicai.ai/signal-002-ai-moved-into-the-workday.html">
+  <meta property="og:image" content="https://predicai.ai/signal/assets/og/issue-002-ai-moved-into-the-workday.png">
+  <meta property="og:image:alt" content="Predicai Signal Issue 002: AI moved into the workday">
+
+  <style>
+    :root{
+      --bg: #050A10;
+      --panel: #050A10;
+      --text: #E2E8F0;
+      --textStrong: #F8FAFC;
+      --muted: #94A3B8;
+      --muted2:#64748B;
+
+      --teal:#2A9195;
+      --tealHover:#5EEAD4;
+
+      --border:#1E293B;
+      --statusBg:#0B121E;
+
+      --calloutBg:#0F172A;
+      --calloutBar:#2A9195;
+
+      --warnBg:#1C1502;
+      --warnBorder:#422006;
+      --warnBar:#CA8A04;
+      --warnTitle:#FACC15;
+      --warnText:#FEFCE8;
+
+      --terminalBg:#020408;
+      --terminalBorder:#334155;
+      --terminalTop:#1E293B;
+      --terminalText:#A5F3FC;
+
+      --shadow: 0 12px 22px rgba(0,0,0,.45);
+
+      --maxw: 720px;
+
+      /* Section scaffolding */
+      --sectionBg: color-mix(in srgb, var(--panel) 88%, var(--statusBg));
+      --sectionBorder: var(--border);
+      --sectionShadow: var(--shadow);
+      --sectionPad: 18px;
+
+      /* Image sizing */
+      --podcastDesktopMax: 320px;
+
+      /* Micro typography helpers */
+      --tight: 1.55;
+    }
+
+    @media (prefers-color-scheme: light){
+      html[data-theme="auto"]{
+        --bg:#F8FAFC;
+        --panel:#FFFFFF;
+        --text:#0F172A;
+        --textStrong:#0B1220;
+        --muted:#475569;
+        --muted2:#64748B;
+
+        --border:#E2E8F0;
+        --statusBg:#F1F5F9;
+
+        --teal:#0F766E;
+        --tealHover:#0F766E;
+
+        --calloutBg:#F1F5F9;
+        --calloutBar:#0F766E;
+
+        --warnBg:#FFF7ED;
+        --warnBorder:#FED7AA;
+        --warnBar:#CA8A04;
+        --warnTitle:#92400E;
+        --warnText:#0B1220;
+
+        --terminalBg:#0B1220;
+        --terminalBorder:#E2E8F0;
+        --terminalTop:#F1F5F9;
+        --terminalText:#E2E8F0;
+
+        --shadow: 0 12px 18px rgba(2,6,23,.10);
+
+        --sectionBg: color-mix(in srgb, var(--panel) 92%, var(--statusBg));
+      }
+    }
+
+    html[data-theme="light"]{
+      --bg:#F8FAFC;
+      --panel:#FFFFFF;
+      --text:#0F172A;
+      --textStrong:#0B1220;
+      --muted:#475569;
+      --muted2:#64748B;
+
+      --border:#E2E8F0;
+      --statusBg:#F1F5F9;
+
+      --teal:#0F766E;
+      --tealHover:#0F766E;
+
+      --calloutBg:#F1F5F9;
+      --calloutBar:#0F766E;
+
+      --warnBg:#FFF7ED;
+      --warnBorder:#FED7AA;
+      --warnBar:#CA8A04;
+      --warnTitle:#92400E;
+      --warnText:#0B1220;
+
+      --terminalBg:#0B1220;
+      --terminalBorder:#E2E8F0;
+      --terminalTop:#F1F5F9;
+      --terminalText:#E2E8F0;
+
+      --shadow: 0 12px 18px rgba(2,6,23,.10);
+
+      --sectionBg: color-mix(in srgb, var(--panel) 92%, var(--statusBg));
+    }
+
+    html[data-theme="dark"]{
+      --bg:#050A10;
+      --panel:#050A10;
+      --text:#E2E8F0;
+      --textStrong:#F8FAFC;
+      --muted:#94A3B8;
+      --muted2:#64748B;
+
+      --teal:#2A9195;
+      --tealHover:#5EEAD4;
+
+      --border:#1E293B;
+      --statusBg:#0B121E;
+
+      --calloutBg:#0F172A;
+      --calloutBar:#2A9195;
+
+      --warnBg:#1C1502;
+      --warnBorder:#422006;
+      --warnBar:#CA8A04;
+      --warnTitle:#FACC15;
+      --warnText:#FEFCE8;
+
+      --terminalBg:#020408;
+      --terminalBorder:#334155;
+      --terminalTop:#1E293B;
+      --terminalText:#A5F3FC;
+
+      --shadow: 0 12px 22px rgba(0,0,0,.45);
+
+      --sectionBg: color-mix(in srgb, var(--panel) 88%, var(--statusBg));
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior: smooth; }
+    body{
+      margin:0;
+      padding:0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a{ color: var(--teal); text-decoration:none; font-weight:650; }
+    a:hover{ text-decoration: underline; color: var(--tealHover); }
+    strong{ color: var(--textStrong); font-weight: 780; }
+
+    .container{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 26px 18px 70px;
+      background: var(--panel);
+      position: relative;
+    }
+
+    .preheader{
+      display:none;
+      font-size:1px;
+      color:transparent;
+      line-height:1px;
+      max-height:0;
+      max-width:0;
+      opacity:0;
+      overflow:hidden;
+    }
+
+    /* Top nav */
+    .sitebar{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap:12px;
+      padding: 10px 0 14px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 14px;
+    }
+    .sitebar-left{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width: 0;
+    }
+    .sitebar-mark{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--teal);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--teal) 20%, transparent);
+      flex: 0 0 auto;
+    }
+    .sitebar-title{
+      color: var(--textStrong);
+      font-weight: 950;
+      letter-spacing: -0.02em;
+      font-size: 12.5px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sitebar-links{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      font-weight: 900;
+      font-size: 12px;
+      text-decoration:none;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .chip:hover{
+      box-shadow: var(--shadow);
+      text-decoration:none;
+      transform: translateY(-1px);
+    }
+
+    .topbar{
+      display:flex;
+      justify-content: space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom: 12px;
+    }
+
+    /* Theme toggle */
+    .theme-toggle{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .toggle-btn{
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-weight: 900;
+      cursor: pointer;
+      font-size: 12px;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .toggle-btn:hover{
+      box-shadow: var(--shadow);
+      transform: translateY(-1px);
+    }
+
+    /* Hero */
+    .signal-hero{
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 16px;
+      background:
+        radial-gradient(520px 240px at 16% 12%, color-mix(in srgb, var(--teal) 20%, transparent), transparent 62%),
+        radial-gradient(520px 240px at 86% 18%, color-mix(in srgb, var(--teal) 14%, transparent), transparent 60%),
+        color-mix(in srgb, var(--panel) 88%, var(--statusBg));
+      box-shadow: var(--shadow);
+      margin-bottom: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+    .signal-hero:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--teal) 18%, transparent), transparent);
+      transform: translateX(-60%);
+      animation: scan 6s ease-in-out infinite;
+      pointer-events:none;
+      opacity: .55;
+    }
+    @keyframes scan{
+      0%{ transform: translateX(-60%); }
+      45%{ transform: translateX(0%); }
+      100%{ transform: translateX(60%); }
+    }
+    @media (prefers-reduced-motion: reduce){
+      .signal-hero:before{ animation:none; }
+    }
+    .signal-row{
+      display:flex;
+      align-items:flex-start;
+      justify-content: space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .brand{
+      font-size: 22px;
+      font-weight: 950;
+      letter-spacing: -0.03em;
+      color: var(--textStrong);
+      text-transform: uppercase;
+      margin: 0 0 6px;
+    }
+    .hero-sub{
+      color: var(--muted);
+      font-size: 14.7px;
+      margin: 0;
+      max-width: 64ch;
+      line-height: var(--tight);
+    }
+    .hero-badges{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      align-items:flex-start;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--panel) 85%, var(--statusBg));
+      font-weight: 950;
+      font-size: 12px;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .badge .dot{
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22C55E;
+      display:inline-block;
+      flex: 0 0 auto;
+    }
+
+    .hero-actions{
+      margin-top: 12px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      position: relative;
+      z-index: 1;
+    }
+    .btn{
+      display:inline-block;
+      background: var(--teal);
+      color: #fff !important;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 950;
+      text-decoration:none;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .btn:hover{
+      text-decoration:none;
+      box-shadow: var(--shadow);
+      transform: translateY(-1px);
+    }
+    .btn.secondary{
+      background: transparent;
+      color: var(--text) !important;
+      border: 1px solid var(--border);
+    }
+
+    /* Status bar + TOC */
+    .status-bar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      font-size: 11px;
+      color: var(--muted2);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      background: var(--statusBg);
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin: 14px 0 12px;
+    }
+    .status-item{ display:flex; align-items:center; gap:6px; }
+    .status-date{ color: var(--muted); }
+
+    .toc{
+      margin-top: 10px;
+      padding: 12px 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: color-mix(in srgb, var(--panel) 88%, var(--statusBg));
+    }
+    .toc-title{
+      margin:0 0 8px;
+      color: var(--textStrong);
+      font-weight: 950;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .toc-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      line-height: 1.2;
+    }
+    .toc a{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      font-weight: 950;
+      font-size: 12px;
+      text-decoration:none;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .toc a:hover{
+      box-shadow: var(--shadow);
+      text-decoration:none;
+      transform: translateY(-1px);
+    }
+    .toc a span{ color: var(--muted2); font-weight: 950; }
+
+    /* Section cards */
+    .section{
+      margin-top: 18px;
+      padding: var(--sectionPad);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--sectionBg);
+      box-shadow: var(--shadow);
+    }
+
+    /* Loud headings */
+    .section h2{
+      margin: 0 0 14px 0;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size: 13px;
+      color: var(--textStrong);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      scroll-margin-top: 90px;
+    }
+    .hbar{
+      width: 10px;
+      height: 18px;
+      border-radius: 999px;
+      background: var(--teal);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--teal) 16%, transparent);
+      flex:0 0 auto;
+    }
+    .hnum{
+      color: var(--muted2);
+      font-weight: 950;
+      letter-spacing: .08em;
+      font-size: 12px;
+    }
+
+    p{
+      margin: 0 0 16px 0;
+      font-size: 16px;
+      color: color-mix(in srgb, var(--text) 92%, transparent);
+      line-height: var(--tight);
+    }
+    ul{ margin: 0 0 18px 0; padding-left: 20px; }
+    li{ margin-bottom: 8px; color: color-mix(in srgb, var(--text) 92%, transparent); line-height: var(--tight); }
+
+    /* Callouts */
+    .callout{
+      background: var(--calloutBg);
+      border-left: 4px solid var(--calloutBar);
+      padding: 18px;
+      border-radius: 14px;
+      margin: 18px 0 16px;
+      border: 1px solid var(--border);
+    }
+    .callout-label{
+      font-size: 11px;
+      color: var(--teal);
+      text-transform: uppercase;
+      font-weight: 950;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      display:block;
+    }
+
+    .vignette{
+      margin: 16px 0 18px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: color-mix(in srgb, var(--panel) 86%, var(--calloutBg));
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .vignette strong{ color: var(--textStrong); }
+
+    .decision-rule{
+      background: var(--warnBg);
+      border: 1px solid var(--warnBorder);
+      padding: 16px;
+      border-left: 4px solid var(--warnBar);
+      border-radius: 14px;
+      margin: 18px 0 0;
+    }
+    .rule-title{
+      color: var(--warnTitle);
+      font-size: 12px;
+      font-weight: 950;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display:block;
+      letter-spacing: .08em;
+    }
+    .rule-text{
+      font-size: 16.2px;
+      font-weight: 800;
+      color: var(--warnText);
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    .translator{
+      margin: 14px 0 0;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: color-mix(in srgb, var(--panel) 86%, var(--statusBg));
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.55;
+    }
+    .translator b{
+      color: var(--textStrong);
+      font-weight: 950;
+    }
+
+    /* Terminal prompt */
+    .terminal-window{
+      background: var(--terminalBg);
+      border: 1px solid var(--terminalBorder);
+      border-radius: 14px;
+      overflow:hidden;
+      margin: 18px 0 18px;
+      box-shadow: var(--shadow);
+    }
+    .terminal-header{
+      background: var(--terminalTop);
+      padding: 8px 12px;
+      display:flex;
+      gap:6px;
+      border-bottom: 1px solid var(--terminalBorder);
+    }
+    .t-dot{ width: 10px; height: 10px; border-radius: 50%; background: #475569; }
+    .t-dot.red{ background:#EF4444; }
+    .t-dot.yellow{ background:#F59E0B; }
+    .t-dot.green{ background:#22C55E; }
+    .terminal-body{
+      padding: 16px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      font-size: 14px;
+      color: var(--terminalText);
+      line-height: 1.55;
+      white-space: pre-wrap;
+    }
+
+    /* Quick self-check */
+    .capability-cta{
+      margin: 14px 0 0;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: color-mix(in srgb, var(--panel) 86%, var(--calloutBg));
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      flex-wrap:wrap;
+    }
+    .capability-cta h3{
+      margin:0 0 6px;
+      color: var(--textStrong);
+      font-weight: 950;
+      letter-spacing: -0.02em;
+      font-size: 15px;
+      width: 100%;
+    }
+    .capability-cta p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.6;
+      max-width: 66ch;
+    }
+    .capability-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+      width: 100%;
+    }
+    .btn.small{
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    /* Cards */
+    .cards{
+      margin: 8px 0 0;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .mini-card{
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+      background: color-mix(in srgb, var(--panel) 90%, var(--statusBg));
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .mini-card:hover{
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+    }
+    .mini-title{
+      margin:0 0 8px;
+      color: var(--textStrong);
+      font-weight: 950;
+      letter-spacing: -0.02em;
+      font-size: 15px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .pilltag{
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: transparent;
+    }
+    .mini-card p{
+      margin: 0 0 10px;
+      font-size: 14.9px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .mini-card ul{
+      margin: 0;
+      padding-left: 18px;
+    }
+    .mini-card li{
+      margin: 6px 0;
+      color: color-mix(in srgb, var(--text) 88%, transparent);
+      font-size: 15px;
+    }
+
+    /* Field notes */
+    .field-notes{
+      margin-top: 8px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: color-mix(in srgb, var(--panel) 88%, var(--calloutBg));
+    }
+    .field-notes h3{
+      margin:0 0 8px;
+      color: var(--textStrong);
+      font-weight: 950;
+      letter-spacing: -0.02em;
+      font-size: 15px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .field-notes .sub{
+      margin:0 0 12px;
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.6;
+      max-width: 70ch;
+    }
+    .note{
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      background: color-mix(in srgb, var(--panel) 90%, var(--statusBg));
+      margin-top: 10px;
+    }
+    .note-top{
+      display:flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom: 6px;
+    }
+    .note-top b{
+      color: var(--textStrong);
+      font-weight: 950;
+    }
+    .note-top span{
+      color: var(--muted2);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .note p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14.8px;
+      line-height: 1.6;
+    }
+
+    /* Figures */
+    figure{
+      margin: 14px 0 18px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: color-mix(in srgb, var(--panel) 90%, var(--statusBg));
+      box-shadow: var(--shadow);
+    }
+    figure img{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--panel) 85%, var(--statusBg));
+    }
+    figcaption{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+
+    /* Smaller figure */
+    .podcast-figure{
+      max-width: var(--podcastDesktopMax);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .podcast-figure img{ width: 100%; }
+
+    @media (max-width: 560px){
+      .topbar{ flex-direction: column; align-items:flex-start; }
+      .theme-toggle{ justify-content:flex-start; }
+      .sitebar{ flex-direction: column; align-items:flex-start; }
+      .sitebar-links{ justify-content:flex-start; }
+      .hero-badges{ justify-content:flex-start; }
+      .podcast-figure{ max-width: 420px; }
+    }
+
+    /* Footer */
+    .footer{
+      margin-top: 26px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      font-size: 12.5px;
+      color: var(--muted2);
+      text-align:center;
+    }
+    .footer a{
+      color: var(--muted2);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    /* Back to top */
+    .backtotop{
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 50;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--panel) 80%, var(--statusBg));
+      color: var(--text);
+      font-weight: 950;
+      font-size: 12px;
+      text-decoration:none;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity .18s ease, transform .18s ease;
+      backdrop-filter: blur(8px);
+    }
+    .backtotop.show{
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .backtotop:hover{ text-decoration:none; }
+    .arrow{ font-size: 14px; line-height: 1; }
+  </style>
+</head>
+
+<body id="top">
+  <div class="preheader">Not louder. Just closer. AI moved into meetings, docs, and safety.</div>
+
+  <a class="backtotop" href="#top" aria-label="Back to top">
+    <span class="arrow">↑</span> Top
+  </a>
+
+  <div class="container">
+
+    <div class="sitebar" aria-label="Site navigation">
+      <div class="sitebar-left">
+        <span class="sitebar-mark" aria-hidden="true"></span>
+        <div class="sitebar-title">Predicai Signal™</div>
+      </div>
+      <div class="sitebar-links">
+        <a
+          class="chip"
+          href="https://predicai.ai/signal?utm_source=predicai_signal&utm_medium=editorial&utm_campaign=signal_002&utm_content=nav_back"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-outbound="predicai_signal"
+          data-section="nav"
+        >← Back to Signal</a>
+
+        <a
+          class="chip"
+          href="/signal-archive/"
+          data-outbound="predicai_archive"
+          data-section="nav"
+        >Archive</a>
+      </div>
+    </div>
+
+    <div class="topbar">
+      <div></div>
+      <div class="theme-toggle" aria-label="Theme controls">
+        <button class="toggle-btn" type="button" data-set-theme="auto" aria-pressed="false">Auto</button>
+        <button class="toggle-btn" type="button" data-set-theme="dark" aria-pressed="false">Dark</button>
+        <button class="toggle-btn" type="button" data-set-theme="light" aria-pressed="false">Light</button>
+      </div>
+    </div>
+
+    <section class="signal-hero" aria-label="Predicai Signal header">
+      <div class="signal-row">
+        <div>
+          <div class="brand">Predicai Signal™</div>
+
+          <p class="hero-sub">
+            Signal is a short note that drops when there’s something worth acting on.
+            No background required. No hype. Just one clear idea you can use.
+            <br><br>
+            You won’t hear from us every day.
+          </p>
+        </div>
+
+        <div class="hero-badges" aria-label="Issue badges">
+          <div class="badge"><span class="dot" aria-hidden="true"></span> SIGNAL LOCKED</div>
+          <div class="badge">Issue 002</div>
+          <div class="badge">Read: 4 min</div>
+        </div>
+      </div>
+
+      <div class="hero-actions" aria-label="Primary actions">
+        <a
+          class="btn"
+          href="https://predicai.ai/signal?utm_source=predicai_signal&utm_medium=editorial&utm_campaign=signal_002&utm_content=hero_subscribe"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-outbound="predicai_signal"
+          data-section="hero"
+        >Subscribe</a>
+
+        <a
+          class="btn secondary"
+          href="https://tally.so/r/gDqj8l?What+are+you+sending+us=General+Feedback"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-outbound="email_feedback"
+          data-section="hero"
+        >Send feedback</a>
+      </div>
+
+      <div class="status-bar" aria-label="Issue status">
+        <div class="status-item"><span>//</span><span class="status-date">Week Ending: JAN 16</span></div>
+        <div class="status-item"><span>//</span><span class="status-date">Drop: JAN 17, 2026</span></div>
+        <div class="status-item"><span>//</span><span class="status-date">Format: Archive Preview</span></div>
+      </div>
+
+      <div class="toc" aria-label="Table of contents">
+        <div class="toc-title">Jump to</div>
+        <div class="toc-links">
+          <a href="#mandate"><span>01</span> Mandate (TL;DR)</a>
+          <a href="#changed"><span>02</span> What changed</a>
+          <a href="#tested"><span>03</span> What I tested / reviewed</a>
+          <a href="#move"><span>04</span> One move to steal</a>
+          <a href="#outside"><span>05</span> AI outside the chat box</a>
+          <a href="#notes"><span>06</span> Predicai field notes</a>
+          <a href="#watch"><span>07</span> Worth watching or reading</a>
+          <a href="#send"><span>08</span> Closing</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="mandate" aria-label="Mandate">
+      <h2><span class="hbar" aria-hidden="true"></span><span class="hnum">01</span> Mandate</h2>
+
+      <div class="callout">
+        <span class="callout-label">If you only read one thing</span>
+
+        <p style="margin-top:0; font-size: 18px;">
+          <strong>Stop treating AI like something you’ll “learn later.”</strong>
+        </p>
+
+        <p>
+          This week, AI didn’t show up as a headline.
+          It showed up inside normal work: meetings, documents, notes, and follow-ups.
+        </p>
+
+        <p style="margin-bottom:0;">
+          <strong>Start here:</strong><br>
+          Use AI inside one real task you already do — and turn it into a small learning loop.
+        </p>
+      </div>
+
+      <div class="vignette">
+        Here’s what’s happening quietly:<br>
+        AI is becoming part of the routine.<br>
+        <strong>That’s when skill gaps show up.</strong><br><br>
+        Not because people are “behind.”<br>
+        Because the work moved.
+      </div>
+
+      <div class="decision-rule">
+        <span class="rule-title">Quick rule</span>
+        <p class="rule-text">
+          If you can’t explain what the tool did, don’t let it make the call.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="changed" aria-label="What changed">
+      <h2><span class="hbar" aria-hidden="true"></span><span class="hnum">02</span> What changed</h2>
+
+      <p>
+        <strong>The change wasn’t a smarter model.</strong>
+        It was where AI showed up.
+      </p>
+
+      <p>
+        Instead of “open a chatbot and ask,” more tools are quietly helping with:
+        meeting recap, action items, follow-up drafts, and document cleanup.
+      </p>
+
+      <ul>
+        <li><strong>Concrete detail:</strong> meeting notes becoming “raw material” you can search and reuse.</li>
+        <li><strong>What it replaces:</strong> re-reading threads and rebuilding context every time you come back.</li>
+        <li><strong>So what:</strong> learning AI becomes less about features — and more about habits.</li>
+        <li><strong>Skeptic line:</strong> if you don’t review what AI captured, you can repeat mistakes faster.</li>
+      </ul>
+
+      <div class="translator">
+        <b>Plain-English translation:</b><br>
+        AI is moving from “something you open” to “something that sits inside the work.”
+      </div>
+    </section>
+
+    <section class="section" id="tested" aria-label="What I tested / reviewed">
+      <h2><span class="hbar" aria-hidden="true"></span><span class="hnum">03</span> What I tested / reviewed</h2>
+
+      <p>
+        Across the week, one pattern stood out:
+        people aren’t asking <strong>“What can AI do?”</strong>
+        They’re asking <strong>“How do I keep up while doing my actual job?”</strong>
+      </p>
+
+      <p><strong>Where it showed up most clearly</strong></p>
+      <ul>
+        <li><strong>Meetings:</strong> summaries and action items becoming the default.</li>
+        <li><strong>Documents:</strong> AI editing for clarity before anyone “starts writing.”</li>
+        <li><strong>Follow-ups:</strong> drafts appearing instantly — even when the human isn’t ready.</li>
+        <li><strong>Safety:</strong> more questions about what you should never upload.</li>
+      </ul>
+
+      <figure aria-label="Meeting summary screenshot">
+        <img
+          src="/signal/assets/screens/issue-002-meeting-summary.jpg"
+          alt="Screenshot of an AI-generated meeting summary with action items"
+          loading="lazy">
+        <figcaption>
+          <strong>Screenshot idea:</strong> a meeting summary that looks “done” — and why you still need to review it.
+        </figcaption>
+      </figure>
+
+      <figure aria-label="Document review screenshot">
+        <img
+          src="/signal/assets/screens/issue-002-doc-review.jpg"
+          alt="Screenshot of AI helping review a document for clarity and missing steps"
+          loading="lazy">
+        <figcaption>
+          <strong>Screenshot idea:</strong> document review where AI points out what’s unclear (this is where it earns its keep).
+        </figcaption>
+      </figure>
+
+      <p><strong>What held up</strong></p>
+      <ul>
+        <li>AI is most useful as a <strong>review partner</strong>, not a replacement voice.</li>
+        <li>People get the best results when they ask for <strong>gaps</strong>, <strong>missing steps</strong>, and <strong>weak assumptions</strong>.</li>
+      </ul>
+
+      <p><strong>What broke (or easily could)</strong></p>
+      <ul>
+        <li>If you accept “clean” output without checking it, you can make the wrong move with confidence.</li>
+      </ul>
+
+      <p><strong>What surprised me</strong></p>
+      <ul>
+        <li>People trust meeting recaps faster than documents — even though meetings are usually messier.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="move" aria-label="One move to steal">
+      <h2><span class="hbar" aria-hidden="true"></span><span class="hnum">04</span> One move to steal</h2>
+
+      <p>
+        This week’s move is simple:
+        <strong>turn one real task into a learning loop.</strong>
+      </p>
+
+      <p>
+        Pick one thing you already do:
+        a follow-up email, a weekly plan, a report, a customer note, a meeting recap.
+      </p>
+
+      <div class="terminal-window" aria-label="Copy/paste prompt">
+        <div class="terminal-header">
+          <div class="t-dot red"></div>
+          <div class="t-dot yellow"></div>
+          <div class="t-dot green"></div>
+        </div>
+        <div class="terminal-body">Explain this task back to me in plain language.
+What are you assuming?
+What would make this go wrong?
+Now ask me 2 questions before you help.</div>
+      </div>
+
+      <ul>
+        <li><strong>Success condition:</strong> you can summarize the decision + next step in 2 sentences, and they match what the team actually agreed.</li>
+        <li><strong>Failure signal:</strong> you can’t tell what the AI assumed, or you can’t explain the output to someone else.</li>
+      </ul>
+
+      <div class="capability-cta" aria-label="Academy tie-in">
+        <h3>Why this matters (Academy logic)</h3>
+        <p>
+          This is the exact skill the Academy builds: using AI inside your job, without guessing,
+          and without letting “auto” become “wrong but official.”
+        </p>
+        <div class="capability-actions">
+          <a
+            class="btn small"
+            href="https://predicai.ai/academy.html?utm_source=predicai_signal&utm_medium=editorial&utm_campaign=signal_002&utm_content=move_academy"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-outbound="predicai_academy"
+            data-section="move"
+          >Explore Academy →</a>
+
+          <a
+            class="btn small secondary"
+            href="https://predicai.ai/capability?utm_source=predicai_signal&utm_medium=editorial&utm_campaign=signal_002&utm_content=move_capability"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-outbound="predicai_capability"
+            data-section="move"
+          >Get my score →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="outside" aria-label="AI outside the chat box">
+      <h2><span class="hbar" aria-hidden="true"></span><span class="hnum">05</span> AI outside the chat box</h2>
+
+      <p>
+        This is the bigger shift:
+        AI isn’t becoming “a place you go.”
+        It’s becoming the default helper inside tools you already use.
+      </p>
+
+      <div class="cards" aria-label="AI outside the chat box cards">
+        <div class="mini-card">
+          <div class="mini-title">
+            Meetings → searchable memory
+            <span class="pilltag">Workday</span>
+          </div>
+          <p>
+            Your meeting doesn’t end when the call ends anymore.
+            It turns into notes, tasks, and follow-ups — automatically.
+          </p>
+          <ul>
+            <li><strong>Behavior change:</strong> your next step is pre-drafted.</li>
+            <li><strong>Judgment:</strong> <span class="pilltag">Held up</span></li>
+            <li><strong>Skeptic line:</strong> review first. Don’t let “auto” become “wrong but official.”</li>
+          </ul>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-title">
+            Documents → living drafts
+            <span class="pilltag">Workday</span>
+          </div>
+          <p>
+            Instead of writing from scratch, more people are using AI to tighten clarity,
+            find missing steps, and clean structure before they add content.
+          </p>
+          <ul>
+            <li><strong>Behavior change:</strong> AI becomes an editor, not a ghostwriter.</li>
+            <li><strong>Judgment:</strong> <span class="pilltag">Keeper</span></li>
+            <li><strong>Skeptic line:</strong> if the source is weak, the edit will be weak.</li>
+          </ul>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-title">
+            Coding helpers → supervised speed
+            <span class="pilltag">Coding</span>
+          </div>
+          <p>
+            One example this week: people using <strong>Claude</strong> to read existing code,
+            explain logic, and suggest cleaner versions — with human review.
+          </p>
+          <ul>
+            <li><strong>Behavior change:</strong> faster understanding, not blind copy/paste.</li>
+            <li><strong>Judgment:</strong> <span class="pilltag">Held up</span></li>
+            <li><strong>Skeptic line:</strong> if you can’t explain the change, don’t ship it.</li>
+          </ul>
+
+          <figure aria-label="Claude coding screenshot">
+            <img
+              src="/signal/assets/screens/issue-002-claude-coding.jpg"
+              alt="Screenshot of an AI coding assistant explaining code changes"
+              loading="lazy">
+            <figcaption>
+              <strong>Screenshot idea:</strong> a code explanation with “why this changed” (that’s the part that matters).
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-title">
+            Safety questions → louder on real files
+            <span class="pilltag">Safety</span>
+          </div>
+          <p>
+            More people are asking the right question:
+            “Should I upload this file at all?”
+            Especially when it contains private or sensitive info.
+          </p>
+          <ul>
+            <li><strong>Behavior change:</strong> a “can I upload this?” pause becomes a habit.</li>
+            <li><strong>Judgment:</strong> <span class="pilltag">Still building</span></li>
+            <li><strong>Skeptic line:</strong> “it’s probably fine” is not a policy.</li>
+          </ul>
+
+          <div class="translator" style="margin-top:12px;">
+            <b>Simple rule:</b><br>
+            If you’d feel weird forwarding it to the wrong person, don’t upload it into a tool you don’t fully control.
+          </div>
+        </div>
+      </div>
+
+      <div class="translator">
+        <b>Plain-English translation:</b><br>
+        “AI outside the chat box” = tools that change habits without you learning a new app.
+      </div>
+    </section>
+
+    <section class="section" id="notes" aria-label="Predicai field notes">
+      <h2><span class="hbar" aria-hidden="true"></span><span class="hnum">06</span> Predicai field notes</h2>
+
+      <div class="field-notes" aria-label="Field notes and community feedback loop">
+        <h3>Predicai Field Notes <span class="pilltag">Community loop</span></h3>
+        <p class="sub">
+          This is the part that keeps Signal honest.
+          Send a tool, a workflow, or a “this failed hard” story. We’ll try to learn from it and report back.
+        </p>
+
+        <div class="note">
+          <div class="note-top">
+            <b>Pattern</b><span>Workday reality</span>
+          </div>
+          <p>
+            People adopt AI faster when it saves a step they already hate.
+            They don’t adopt it because it’s “smart.”
+          </p>
+        </div>
+
+        <div class="note">
+          <div class="note-top">
+            <b>Constraint</b><span>Trust</span>
+          </div>
+          <p>
+            “Looks right” is not “is right.”
+            The moment output starts sounding confident, checking drops.
+          </p>
+        </div>
+
+        <div class="note">
+          <div class="note-top">
+            <b>Failure</b><span>Safety</span>
+          </div>
+          <p>
+            If people don’t have a simple rule for sensitive files, they will guess.
+            Guessing is the risk.
+          </p>
+        </div>
+
+        <div class="hero-actions" style="margin-top:14px;">
+          <a
+            class="btn secondary"
+            href="https://tally.so/r/gDqj8l?What+are+you+sending+us=Field+Note"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-outbound="email_field_notes"
+            data-section="notes"
+          >Send a Field Note</a>
+
+          <a
+            class="btn"
+            href="https://predicai.ai/signal?utm_source=predicai_signal&utm_medium=editorial&utm_campaign=signal_002&utm_content=notes_subscribe"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-outbound="predicai_signal"
+            data-section="notes"
+          >Subscribe</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="watch" aria-label="Worth watching or reading">
+      <h2><span class="hbar" aria-hidden="true"></span><span class="hnum">07</span> Worth watching or reading</h2>
+
+      <p>
+        No pick this week.
+      </p>
+
+      <div class="translator" style="margin-top:14px;">
+        <b>Signal editorial rule:</b><br>
+        We don’t cover every release. We cover changes only when they hold up in real work —
+        and only when you can test or fix something immediately.
+      </div>
+    </section>
+
+    <section class="section" id="send" aria-label="Closing">
+      <h2><span class="hbar" aria-hidden="true"></span><span class="hnum">08</span> Closing</h2>
+
+      <p style="margin-bottom:10px;">
+        AI didn’t get louder this week. It got closer.
+        Treat outputs like drafts, not facts. Keep the review habit, and you’ll move faster without stepping on rakes.
+      </p>
+
+      <div class="hero-actions" style="margin-top:0;">
+        <a
+          class="btn"
+          href="https://tally.so/r/gDqj8l?What+are+you+sending+us=Signal+Tip"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-outbound="email_signal_submission"
+          data-section="send"
+        >Email a tip</a>
+
+        <a
+          class="btn secondary"
+          href="https://predicai.ai/signal?utm_source=predicai_signal&utm_medium=editorial&utm_campaign=signal_002&utm_content=send_subscribe"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-outbound="predicai_signal"
+          data-section="send"
+        >Subscribe</a>
+      </div>
+
+      <div class="footer" aria-label="Utility footer">
+        <p style="font-size:16px; color:var(--textStrong); font-weight:950; letter-spacing:-0.02em; margin:0;">PREDICAI</p>
+
+        <p style="margin:14px 0 12px;">
+          <a
+            href="https://predicai.ai/signal?utm_source=predicai_signal&utm_medium=editorial&utm_campaign=signal_002&utm_content=footer_signal"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-outbound="predicai_signal"
+            data-section="footer"
+          >Subscribe</a> &nbsp;|&nbsp;
+
+          <a
+            href="https://tally.so/r/gDqj8l?What+are+you+sending+us=General+Feedback"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-outbound="email_feedback"
+            data-section="footer"
+          >Send feedback</a> &nbsp;|&nbsp;
+
+          <a
+            href="/signal-archive/"
+            data-outbound="predicai_archive"
+            data-section="footer"
+          >Archive</a>
+        </p>
+
+        <p style="margin-top:16px;">
+          This is an archive page. Email delivery + preferences are managed via MailerLite.
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    (function(){
+      // Theme persistence
+      const root = document.documentElement;
+      const key = "predicai_theme";
+      const saved = localStorage.getItem(key);
+      if(saved){ root.setAttribute("data-theme", saved); }
+
+      // Initialize aria-pressed state
+      const current = root.getAttribute("data-theme") || "auto";
+      document.querySelectorAll("[data-set-theme]").forEach(b => {
+        b.setAttribute("aria-pressed", b.getAttribute("data-set-theme") === current ? "true" : "false");
+      });
+
+      document.querySelectorAll("[data-set-theme]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const val = btn.getAttribute("data-set-theme");
+          root.setAttribute("data-theme", val);
+          localStorage.setItem(key, val);
+
+          document.querySelectorAll("[data-set-theme]").forEach(b => {
+            b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+          });
+        });
+      });
+
+      // Back-to-top visibility
+      const back = document.querySelector(".backtotop");
+      const showAfter = 520;
+      const onScroll = () => {
+        if(window.scrollY > showAfter){ back.classList.add("show"); }
+        else { back.classList.remove("show"); }
+      };
+      window.addEventListener("scroll", onScroll, { passive:true });
+      onScroll();
+
+      // Outbound click logging (console now; easy to wire later)
+      document.addEventListener("click", function(e){
+        const link = e.target.closest("a[data-outbound]");
+        if(!link) return;
+
+        const payload = {
+          outbound: link.getAttribute("data-outbound"),
+          section: link.getAttribute("data-section") || "unknown",
+          href: link.href,
+          ts: new Date().toISOString()
+        };
+
+        console.log("Signal outbound click:", payload);
+      });
+    })();
+  </script>
+
+</body>
+</html>
