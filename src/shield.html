@@ -1,34 +1,32 @@
----
-layout: null
-permalink: /shield/
-active: shield
----
 <!DOCTYPE html>
 <html lang="en" data-theme="auto">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Predicai™ Shield – Family Safety Rules</title>
   <meta name="description" content="No apps to install. Simple steps to spot scam messages and fake screenshots before money moves." />
 
-  <link rel="canonical" href="https://predicai.ai/shield/" />
+  <link rel="canonical" href="https://predicai.ai/shield" />
   <meta name="theme-color" content="#FFFFFF" />
   <meta name="robots" content="index, follow" />
 
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Predicai" />
-  <meta property="og:url" content="https://predicai.ai/shield/" />
+  <meta property="og:url" content="https://predicai.ai/shield" />
   <meta property="og:title" content="Predicai™ Shield – Family Safety Rules" />
   <meta property="og:description" content="No apps to install. Simple steps to spot scam messages and fake screenshots before money moves." />
   <meta property="og:image" content="https://predicai.ai/social-share.png" />
 
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Predicai™ Shield – Family Safety Rules" />
+  <meta name="twitter:description" content="No apps to install. Simple steps to spot scam messages and fake screenshots before money moves." />
+  <meta name="twitter:image" content="https://predicai.ai/social-share.png" />
 
-  <link rel="icon" href="/favicon.ico?v=3" sizes="any">
-  <link rel="icon" type="image/png" href="/favicon-32.png?v=3" sizes="32x32">
-  <link rel="icon" type="image/png" href="/favicon-16.png?v=3" sizes="16x16">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" sizes="180x180">
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/logo.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,136 +34,835 @@ active: shield
 
   <style>
     :root{
+      /* Light base */
       --bg: #F8FAFC;
       --surface: #FFFFFF;
       --text: #0F172A;
       --muted: #475569;
       --border: #E2E8F0;
+
+      /* Predicai core */
       --teal: #0F766E;
+      --blue: #1D4ED8;
+
+      /* Shield gold */
       --gold: #CA8A04;
-      --gold-bg: #FFFBEB;
+      --gold-dim: rgba(202, 138, 4, 0.10);
       --gold-border: #FEF08A;
+      --gold-bg: #FFFBEB;
+
       --shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+      --shadow-soft: 0 6px 18px rgba(15, 23, 42, 0.06);
+
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+
+      --focus: rgba(29,78,216,0.45);
+
+      --containerMax: 1000px;
+
+      /* Shared nav tokens (match Home) */
       --headerH: 72px;
+      --nav-bg: rgba(255,255,255,0.92);
+      --nav-hover: rgba(15,23,42,0.04);
+      --link: #1D4ED8;
+      --link-hover: #1E40AF;
     }
 
-    html[data-theme="dark"]{
-      --bg: #050A10;
-      --surface: rgba(255,255,255,0.06);
-      --text: #FFFFFF;
-      --muted: #A7B4C8;
-      --border: rgba(148,163,184,0.18);
-      --gold: #FFD24A;
-      --gold-bg: rgba(255,210,74,0.12);
-      --gold-border: rgba(244,180,0,0.38);
+    /* Dark mode for auto theme (prevents "liquid nav" look) */
+    @media (prefers-color-scheme: dark){
+      html[data-theme="auto"]{
+        --bg: #050A10;
+        --surface: rgba(255,255,255,0.06);
+        --text: #F8FAFC;
+        --muted: rgba(148,163,184,0.92);
+        --border: rgba(148,163,184,0.18);
+
+        --shadow: 0 22px 70px rgba(0,0,0,0.40);
+        --shadow-soft: 0 18px 60px rgba(0,0,0,0.32);
+
+        --nav-bg: rgba(5,10,16,0.72);
+        --nav-hover: rgba(255,255,255,0.08);
+
+        --link: #7DD3FC;
+        --link-hover: #A5F3FC;
+      }
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--headerH);
+    }
 
     body {
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+
+      padding:
+        env(safe-area-inset-top)
+        env(safe-area-inset-right)
+        env(safe-area-inset-bottom)
+        env(safe-area-inset-left);
     }
 
-    .container{ max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-    .hero{ text-align: center; padding: 78px 0 34px; }
-    .tag{ background: var(--gold-bg); padding: 6px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 900; border: 1px solid var(--gold-border); text-transform: uppercase; color: var(--gold); display: inline-block; }
-    h1{ font-size: clamp(2.25rem, 5vw, 3rem); font-weight: 950; margin: 18px 0 14px; line-height: 1.06; }
+    a{ color: var(--link); }
+    a:hover{ color: var(--link-hover); }
 
-    .cta-row{ display:flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 18px; }
-    .btn{ background: var(--gold); color: #111827; padding: 14px 22px; border-radius: 12px; text-decoration: none; font-weight: 900; display: inline-flex; transition: transform 0.15s ease; border: none; cursor: pointer; min-width: 220px; }
-    .btn:hover{ transform: translateY(-2px); }
-    .btn-outline{ background: var(--surface); border: 1px solid var(--border); color: var(--text); }
+    /* Skip link */
+    .skip-link{
+      position:absolute; left:-9999px; top:12px; z-index: 9999;
+      padding:10px 14px; background: var(--surface); color: var(--text);
+      border-radius: 10px; border: 1px solid var(--border);
+      font-weight: 900; text-decoration: none;
+      box-shadow: var(--shadow-soft);
+    }
+    .skip-link:focus{ left:12px; outline: 3px solid var(--focus); outline-offset: 2px; }
 
-    .evidence-note{ background: var(--surface); border: 1px solid var(--border); padding: 24px; border-radius: 18px; box-shadow: var(--shadow); margin-top: 40px; text-align: left; }
-    .evidence-grid{ display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
-    .evidence-chip{ background: rgba(241,245,249,0.92); border: 1px solid var(--border); border-radius: 12px; padding: 12px; }
-    .evidence-chip .v{ font-size: 1.1rem; font-weight: 950; color: var(--text); }
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
 
-    .rules-card{ background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 26px; margin: 52px 0; box-shadow: var(--shadow); }
-    .rule{ border: 1px solid var(--border); border-radius: 14px; padding: 14px; margin-bottom: 12px; }
-    .rule b{ display:block; color: var(--text); font-weight: 950; }
+    /* ===== Header + nav (self-contained) ===== */
+    .site-header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: var(--headerH);
+      display:flex;
+      align-items:center;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 16px;
+    }
+    .brand{
+      font-weight: 900;
+      font-size: 1.15rem;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      text-decoration:none;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .brand img{
+      width:26px; height:26px;
+      border-radius:6px;
+      object-fit: contain;
+      display:block;
+    }
+    .site-nav{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+      align-items:center;
+    }
+    .site-nav a{
+      text-decoration:none;
+      color: var(--muted);
+      font-weight: 850;
+      font-size: 0.95rem;
+      padding: 8px 10px;
+      border-radius: 12px;
+      transition: background .15s ease, color .15s ease, transform .15s ease;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+    .site-nav a:hover{
+      color: var(--text);
+      background: var(--nav-hover);
+      transform: translateY(-1px);
+    }
+    .site-nav a.active{
+      color: var(--text);
+      background: rgba(29,78,216,0.12);
+      border-color: rgba(29,78,216,0.22);
+      font-weight: 900;
+    }
 
-    .pricing-box{ background: var(--surface); max-width: 560px; margin: 76px auto 0; padding: 40px; border-radius: 24px; text-align: center; border: 1px solid var(--border); box-shadow: var(--shadow); }
-    .price-main{ font-size: 3rem; font-weight: 950; margin: 16px 0; }
+    /* Layout */
+    .container{
+      max-width: var(--containerMax);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-    footer{ text-align: center; padding: 60px 0; border-top: 1px solid var(--border); margin-top: 70px; font-size: 0.9rem; color: var(--muted); }
-    footer a{ margin: 0 10px; text-decoration: none; font-weight: 900; }
+    /* Hero */
+    .hero{
+      text-align: center;
+      padding: 78px 0 34px;
+    }
+
+    .tag{
+      background: var(--gold-bg);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 900;
+      border: 1px solid var(--gold-border);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+      display: inline-block;
+    }
+
+    h1{
+      font-size: clamp(2.25rem, 5vw, 3rem);
+      font-weight: 950;
+      margin: 18px 0 14px;
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+    }
+
+    .lead{
+      font-size: 1.12rem;
+      max-width: 760px;
+      margin: 0 auto 18px;
+      color: var(--muted);
+    }
+
+    /* Buttons */
+    .cta-row{
+      display:flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .btn{
+      background: var(--gold);
+      color: white;
+      padding: 14px 22px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: transform 0.15s ease, opacity 0.15s ease, border-color 0.15s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+      min-width: 220px;
+      box-shadow: 0 14px 30px rgba(202,138,4,0.18);
+    }
+    .btn:hover{ transform: translateY(-2px); opacity: 0.96; }
+
+    .btn-outline{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      box-shadow: var(--shadow-soft);
+    }
+    .btn-outline:hover{ border-color: rgba(15,118,110,0.35); }
+
+    .subnote{
+      margin-top: 12px;
+      font-size: 0.92rem;
+      color: var(--muted);
+      max-width: 820px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .micro-pledge{
+      margin-top: 14px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .disclaimer{
+      font-size: 0.88rem;
+      background: var(--gold-dim);
+      padding: 12px 16px;
+      border-radius: 12px;
+      margin-top: 18px;
+      display: inline-block;
+      text-align: left;
+      max-width: 820px;
+      line-height: 1.5;
+      color: var(--text);
+      border: 1px solid rgba(202,138,4,0.18);
+    }
+
+    /* Evidence */
+    .evidence-wrap{
+      margin-top: 22px;
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+    }
+    .evidence-note{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 18px;
+      box-shadow: var(--shadow-soft);
+    }
+    .evidence-kicker{
+      display: inline-block;
+      font-weight: 900;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(15,118,110,0.10);
+      color: var(--teal);
+      margin-bottom: 12px;
+      border: 1px solid rgba(15,118,110,0.18);
+    }
+    .evidence-title{
+      font-size: 1.1rem;
+      font-weight: 950;
+      margin-bottom: 8px;
+    }
+    .evidence-desc{
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .evidence-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .evidence-chip{
+      background: rgba(241,245,249,0.9);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+    }
+    @media (prefers-color-scheme: dark){
+      html[data-theme="auto"] .evidence-chip{ background: rgba(255,255,255,0.06); }
+    }
+    .evidence-chip .k{
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      font-weight: 850;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .evidence-chip .v{
+      font-size: 1.1rem;
+      font-weight: 950;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .evidence-chip .s{
+      margin-top: 4px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+
+    .citation{
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .citation a{
+      color: var(--teal);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 900;
+    }
+
+    /* Benefits */
+    .benefits{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 22px auto 30px;
+      max-width: 1000px;
+      padding: 0 20px;
+    }
+    .benefit{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: var(--shadow-soft);
+    }
+    .benefit h4{
+      margin-bottom: 8px;
+      font-weight: 950;
+      color: var(--gold);
+      font-size: 1.05rem;
+    }
+    .benefit p{
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    /* Rules section */
+    .rules{
+      max-width: 1000px;
+      margin: 0 auto 52px;
+      padding: 0 20px;
+    }
+    .rules-card{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: var(--shadow-soft);
+    }
+    .rules-head{
+      display:flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .rules-title{
+      font-size: 1.25rem;
+      font-weight: 950;
+      letter-spacing: -0.01em;
+    }
+    .rules-pill{
+      display:inline-flex;
+      gap: 8px;
+      align-items:center;
+      font-weight: 900;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: var(--gold-bg);
+      border: 1px solid var(--gold-border);
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .rules-desc{
+      color: var(--muted);
+      margin-bottom: 14px;
+      max-width: 820px;
+    }
+    .rules-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .rule{
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 14px 12px;
+      background: rgba(251,253,255,0.9);
+    }
+    @media (prefers-color-scheme: dark){
+      html[data-theme="auto"] .rule{ background: rgba(255,255,255,0.04); }
+    }
+    .rule b{ display:block; margin-bottom: 6px; color: var(--text); font-weight: 950; }
+    .rule span{ color: var(--muted); font-size: 0.93rem; }
+
+    .rules-actions{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+      align-items: center;
+    }
+    .btn-small{
+      min-width: unset;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 900;
+      box-shadow: none;
+    }
+    .btn-ghost{
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      box-shadow: none;
+    }
+    .btn-ghost:hover{ border-color: rgba(15,118,110,0.35); }
+
+    /* How it works */
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .card{
+      background: var(--surface);
+      padding: 28px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+    }
+    .card h3{
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      font-weight: 950;
+    }
+    .card p{ color: var(--muted); }
+
+    .mini-callout{
+      max-width: 1000px;
+      margin: 18px auto 0;
+      padding: 0 20px;
+      text-align: center;
+      color: var(--text);
+      font-weight: 950;
+    }
+
+    /* Pricing */
+    .pricing-box{
+      background: var(--surface);
+      max-width: 560px;
+      margin: 76px auto 0;
+      padding: 40px;
+      border-radius: 24px;
+      text-align: center;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .pricing-box::before{
+      content:"";
+      position:absolute; inset: 0;
+      background: radial-gradient(circle at top, rgba(202,138,4,0.10), transparent 60%);
+      pointer-events:none;
+    }
+    .pricing-box > * { position: relative; }
+
+    .price-main{
+      font-size: 3rem;
+      font-weight: 950;
+      line-height: 1;
+      margin: 16px 0;
+    }
+    .price-main span{
+      font-size: 1rem;
+      font-weight: 850;
+      color: var(--muted);
+    }
+
+    .btn-secondary{
+      display: block;
+      margin-top: 16px;
+      color: var(--text);
+      font-weight: 900;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      background: transparent;
+    }
+
+    /* Footer pledge */
+    .pledge-footer{
+      margin-top: 40px;
+      font-size: 0.92rem;
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      line-height: 1.6;
+      padding: 0 20px;
+      color: var(--muted);
+    }
+    .pledge-footer a{
+      color: var(--teal);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 900;
+    }
+
+    footer{
+      text-align: center;
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+      margin-top: 70px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      background: rgba(255,255,255,0.6);
+    }
+    @media (prefers-color-scheme: dark){
+      html[data-theme="auto"] footer{ background: rgba(255,255,255,0.04); }
+    }
+    footer a{
+      color: inherit;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 900;
+      padding: 6px 8px;
+      border-radius: 10px;
+    }
+    footer a:hover{
+      color: var(--text);
+      background: var(--nav-hover);
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 56px 0 30px; }
+      .btn, .btn-outline { width: 100%; min-width: unset; }
+      .evidence-grid { grid-template-columns: 1fr; }
+      .disclaimer { text-align: left; }
+      .pricing-box { padding: 30px 20px; }
+      .rules-actions{ width:100%; }
+      .btn-small{ width: 100%; justify-content:center; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html { scroll-behavior: auto; }
+      * { transition: none !important; animation: none !important; }
+      .btn:hover { transform: none !important; opacity: 1 !important; }
+    }
   </style>
 </head>
 
 <body>
-  <div data-include="nav"></div>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="Predicai home">
+        <img src="/logo.png" alt="Predicai logo" />
+        <span>Predic<span style="color:#38BDF8;">ai</span>&trade;</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/" data-nav="/">Home</a>
+        <a href="/about" data-nav="/about">About</a>
+        <a href="/academy" data-nav="/academy">Academy</a>
+        <a href="/shield" data-nav="/shield">Shield</a>
+        <a href="/signal" data-nav="/signal">Signal</a>
+        <a href="/pricing" data-nav="/pricing">Pricing</a>
+        <a href="/resources" data-nav="/resources">Resources</a>
+        <a href="/faq" data-nav="/faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
 
   <main id="main" class="container">
-    <section class="hero">
+    <section class="hero" aria-label="Shield intro">
       <span class="tag">Family safety</span>
+
       <h1>Stop scams before<br>they spread</h1>
-      <p style="font-size: 1.12rem; color: var(--muted); max-width: 760px; margin: 0 auto 18px;">
+
+      <p class="lead">
         No apps to install. Simple steps that slow the moment down and make the person prove who they are.
+        Built for parents, grandparents, and anyone who doesn’t live online.
       </p>
 
-      <div class="cta-row">
-        <a href="/shield-check/" class="btn">Run a free Shield Check</a>
+      <div class="cta-row" aria-label="Primary actions">
+        <a href="/shield-check" class="btn">Run a free Shield Check</a>
         <a href="#pricing" class="btn btn-outline">See membership</a>
       </div>
-    </section>
 
-    <div class="evidence-note">
-      <div style="font-weight: 900; font-size: 0.75rem; text-transform: uppercase; color: var(--teal); margin-bottom: 8px;">Research-informed</div>
-      <div style="font-size: 1.1rem; font-weight: 950; margin-bottom: 8px;">Why a "second opinion" works</div>
-      <p style="font-size: 0.95rem; color: var(--muted); line-height: 1.5;">
-        Scams work when people feel rushed. A short explanation helps people notice details they usually miss. 
-        Detection accuracy among adults (65+) improves significantly when provided with an AI-generated explanation.
+      <p class="subnote">
+        A calm second opinion for suspicious texts, emails, and screenshots. Not an emergency service.
+        <span style="display:block; margin-top:6px;">
+          If you have trouble loading the form, use the backup link:
+          <a href="https://tally.so/r/LZzErv" target="_blank" rel="noopener noreferrer" style="color:var(--teal); font-weight:900; text-decoration:underline; text-underline-offset:3px;">
+            open Shield Check in a new tab
+          </a>.
+        </span>
       </p>
 
-      <div class="evidence-grid">
-        <div class="evidence-chip"><span style="font-size:0.75rem; display:block; font-weight:850; color:var(--muted);">DETECTION ACCURACY</span><div class="v">71% → 93%</div></div>
-        <div class="evidence-chip"><span style="font-size:0.75rem; display:block; font-weight:850; color:var(--muted);">OLDER ADULTS (65+)</span><div class="v">94.2% Accuracy</div></div>
-      </div>
-    </div>
+      <div class="evidence-wrap" role="region" aria-label="Research evidence">
+        <div class="evidence-note">
+          <span class="evidence-kicker">Research-informed</span>
+          <div class="evidence-title">Why a “second opinion” works</div>
+          <p class="evidence-desc">
+            Scams work when people feel rushed. A short explanation helps people notice details they usually miss.
+            The numbers below are reported from one peer-reviewed study on explainable SMS phishing detection.
+          </p>
 
-    <section class="rules-card">
-      <h2 style="font-size: 1.25rem; font-weight: 950; margin-bottom: 14px;">The Shield Rules</h2>
-      <div class="rule"><b>Rule 1: Never act from the text</b><span>Do not click links. Do not call the number in the message. Use official contact info only.</span></div>
-      <div class="rule"><b>Rule 2: Safe word beats "I'm in trouble"</b><span>If someone claims an emergency, ask for your family safe word. No word, no action.</span></div>
-      <div class="rule"><b>Rule 3: Payments = Hard Stop</b><span>Gift cards, wire transfers, and "urgent" Zelle requests are tell-tale signs of a scam.</span></div>
+          <div class="evidence-grid">
+            <div class="evidence-chip">
+              <span class="k">Detection accuracy</span>
+              <div class="v">71.2% → 92.8%</div>
+              <div class="s">Improvement after reading an explanation.</div>
+            </div>
+            <div class="evidence-chip">
+              <span class="k">Older adults (65+)</span>
+              <div class="v">94.2%</div>
+              <div class="s">Accuracy after reading an explanation.</div>
+            </div>
+            <div class="evidence-chip">
+              <span class="k">Usability score (SUS)</span>
+              <div class="v">82.6 / 100</div>
+              <div class="s">Rated “excellent” usability (85.3 for older adults).</div>
+            </div>
+            <div class="evidence-chip">
+              <span class="k">Disagreement</span>
+              <div class="v">7.2%</div>
+              <div class="s">Higher on legit texts (11.5%) than phishing (2.9%).</div>
+            </div>
+          </div>
+
+          <div class="citation">
+            Source: Wang et al., “Can You Walk Me Through It? Explainable SMS Phishing Detection using LLM-based Agents,”
+            <a href="https://www.usenix.org/system/files/soups2025-wang.pdf" target="_blank" rel="noopener noreferrer">SOUPS (USENIX) 2025 (PDF)</a>.
+          </div>
+        </div>
+      </div>
+
+      <p class="micro-pledge">🔒 We don’t sell data. We don’t train public models on your submissions.</p>
+
+      <div class="disclaimer">
+        ℹ️ <strong>Note:</strong> If money was sent (wire, crypto, gift cards), call your bank or card issuer immediately.
+        If you feel unsafe, call local authorities.
+      </div>
     </section>
 
-    <section id="pricing" class="pricing-box">
+    <section class="benefits" aria-label="Shield benefits">
+      <div class="benefit">
+        <h4>Unlimited checks (members)</h4>
+        <p>Run a check anytime you feel unsure. Plain-English signals and what to do next.</p>
+      </div>
+      <div class="benefit">
+        <h4>Family safe word</h4>
+        <p>Simple rules and scripts that break urgency and confirm identity.</p>
+      </div>
+      <div class="benefit">
+        <h4>Explanation beats “yes/no”</h4>
+        <p>People spot scams more reliably when they understand the “why.”</p>
+      </div>
+    </section>
+
+    <section class="rules" id="rules" aria-label="Family rules">
+      <div class="rules-card">
+        <div class="rules-head">
+          <div>
+            <div class="rules-title">The Shield rules (print these)</div>
+            <div class="rules-desc">
+              These rules are designed to break urgency. If a message is real, it will survive a 2-minute verification.
+            </div>
+          </div>
+          <div class="rules-pill">3-step protocol</div>
+        </div>
+
+        <div style="margin:0; text-align:left; font-weight:950; color:var(--gold); font-size:1.05rem;">
+          1. PAUSE <span style="color:#CBD5E1; margin: 0 10px;">→</span>
+          2. VERIFY <span style="color:#CBD5E1; margin: 0 10px;">→</span>
+          3. CALL BACK
+        </div>
+
+        <div class="rules-grid" role="list" aria-label="Shield rules list">
+          <div class="rule" role="listitem">
+            <b>Rule 1: Never act from the text</b>
+            <span>Do not click links. Do not call the number in the message. Use a known, saved contact or official website.</span>
+          </div>
+          <div class="rule" role="listitem">
+            <b>Rule 2: Safe word beats “I’m in trouble”</b>
+            <span>If the message claims an emergency, request the safe word before anything else. No safe word, no action.</span>
+          </div>
+          <div class="rule" role="listitem">
+            <b>Rule 3: Verify with a second channel</b>
+            <span>Text claims can be faked. Verify using a different channel: call back, video call, or ask a private question.</span>
+          </div>
+          <div class="rule" role="listitem">
+            <b>Rule 4: Payments = hard stop</b>
+            <span>Gift cards, crypto, wire transfers, and “urgent” Zelle requests are the classic pattern. Pause and verify.</span>
+          </div>
+          <div class="rule" role="listitem">
+            <b>Rule 5: Screenshots are not proof</b>
+            <span>Bank screenshots and “order confirmations” can be fake. Only trust what you see in your official account.</span>
+          </div>
+          <div class="rule" role="listitem">
+            <b>Rule 6: If they pressure you, you’re done</b>
+            <span>Real institutions can wait. Pressure is the tell. End the interaction and call back using official contact info.</span>
+          </div>
+        </div>
+
+        <div class="rules-actions" aria-label="Rule actions">
+          <button type="button" class="btn btn-small btn-ghost" onclick="window.print()">Print rules</button>
+          <a href="/shield-check" class="btn btn-small">Run a Shield Check</a>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="How Shield works">
+      <div class="grid">
+        <div class="card">
+          <h3>📞 The “bank” call</h3>
+          <p>Scammers can mimic voices. Shield gives you a short script that slows the moment down and forces proof.</p>
+        </div>
+        <div class="card">
+          <h3>📱 The fake video call</h3>
+          <p>Looped video and impersonation work because people react fast. Your rules make the scam fail.</p>
+        </div>
+      </div>
+
+      <div class="mini-callout">
+        The goal isn’t “trust AI.” The goal is “slow down, verify, and make the scam prove itself.”
+      </div>
+    </section>
+
+    <section id="pricing" class="pricing-box" aria-label="Shield pricing">
       <h3 style="font-weight: 950;">Get protected</h3>
-      <div class="price-main">$99<span style="font-size:1rem; color:var(--muted);">/yr</span></div>
+      <div class="price-main">$99<span>/yr</span></div>
       <p style="color:var(--gold); font-weight:900; margin-bottom:24px;">Best for families (member access)</p>
 
-      <a href="https://buy.stripe.com/eVq3cx7dKdSQeYd7ec5ZC02" target="_blank" class="btn" style="width:100%">Join Shield</a>
-      <p style="margin-top: 16px; font-size: 0.9rem; color: var(--muted);">Or $9/mo. Cancel anytime.</p>
+      <a href="https://buy.stripe.com/eVq3cx7dKdSQeYd7ec5ZC02" target="_blank" rel="noopener noreferrer" class="btn" style="width:100%">
+        Join Shield
+      </a>
+      <a href="https://buy.stripe.com/dRm00l9lScOM8zP4205ZC03" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+        Or $9/month (cancel anytime)
+      </a>
     </section>
+
+    <div class="pledge-footer">
+      🔒 <strong>Predicai Privacy Pledge™</strong><br>
+      We don’t sell your data. We don’t train public models on your submissions. We use what you share only to deliver the service you request.
+      <a href="/privacy#pledge">Read policy</a>
+    </div>
   </main>
 
   <footer>
     <div style="margin-bottom:12px;">© 2026 Predicai™</div>
-    <a href="/privacy/">Privacy</a>
-    <a href="/terms/">Terms</a>
+    <a href="/shield-check">Shield Check</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
   </footer>
 
   <script>
+    // Active nav highlighting (clean routes; supports trailing slashes)
     (function(){
-      const mount = document.querySelector('[data-include="nav"]');
-      if(!mount) return;
-      fetch('/partials/nav.html').then(r => r.text()).then(html => {
-        mount.outerHTML = html;
-        initPredicaiTheme();
+      const path = (location.pathname || '/').toLowerCase().replace(/\/+$/, '') || '/';
+      document.querySelectorAll('.site-nav a[data-nav]').forEach(a => {
+        const target = (a.getAttribute('data-nav') || '/').toLowerCase().replace(/\/+$/, '') || '/';
+        if(target === path){
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+        }
       });
     })();
-    function initPredicaiTheme(){
-      const root = document.documentElement;
-      const saved = localStorage.getItem('predicai_theme') || 'auto';
-      root.setAttribute('data-theme', saved);
-    }
   </script>
 </body>
 </html>
