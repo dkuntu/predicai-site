@@ -1,8 +1,3 @@
----
-layout: null
-permalink: /activate-shield/
-active: shield
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +5,9 @@ active: shield
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Predicai Shield™ – Activate Access</title>
   <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Canonical (clean route style) -->
+  <link rel="canonical" href="https://predicai.ai/activate-shield" />
 
   <style>
     :root{
@@ -22,6 +20,8 @@ active: shield
       --border:#E5E7EB;
       --focus:#2A9195;
     }
+
+    *{ box-sizing: border-box; }
 
     body{
       background: var(--bg-page);
@@ -62,7 +62,7 @@ active: shield
     }
 
     .gift-notice{
-      display:none; 
+      display:none;
       background:#ECFDF5;
       border:1px solid #10B981;
       color:#065F46;
@@ -116,7 +116,6 @@ active: shield
     .btn{
       display:block;
       width:100%;
-      box-sizing: border-box;
       text-decoration:none;
       padding:16px;
       border-radius:10px;
@@ -124,6 +123,7 @@ active: shield
       text-align:center;
       margin-top:12px;
       transition:opacity 0.2s, transform 0.2s;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .btn-primary{ background:var(--text-dark); color:#fff; }
@@ -141,6 +141,12 @@ active: shield
       text-align:center;
     }
 
+    :focus-visible{
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
     @media (max-width:500px){
       .container{ padding:24px; }
       h1{ font-size:1.5rem; }
@@ -152,6 +158,7 @@ active: shield
 
   <main class="container" aria-label="Predicai Shield activation">
 
+    <!-- ✅ Absolute path: works from /activate-shield (clean route) -->
     <img src="/predicai-shield-gold.JPG" alt="Predicai Shield logo" class="logo-img">
 
     <h1>Welcome to the Shield.</h1>
@@ -177,8 +184,9 @@ active: shield
         Print the checklist for your fridge, and update your voicemail greeting so it can't be copied by AI.
       </p>
 
-      <a href="/shield-download/" class="btn btn-primary">📄 Download Family Protocols</a>
-      <a href="/voice-defense/" class="btn btn-secondary">🔊 Get the Voice Defense Guide</a>
+      <!-- ✅ Clean routes (match /pricing style). Make sure these pages exist. -->
+      <a href="/shield-download" class="btn btn-primary">📄 Download Family Protocols</a>
+      <a href="/shield-voice-guide" class="btn btn-secondary">🔊 Get the Voice Defense Guide</a>
     </div>
 
     <div class="step-box">
@@ -200,7 +208,7 @@ active: shield
     </p>
 
     <p class="fineprint">We’ll send occasional safety updates. No spam. No selling your data.</p>
-    <p class="fineprint">© 2026 Predicai Shield™</p>
+    <p class="fineprint">© 2025 Predicai Shield™</p>
 
   </main>
 
@@ -208,12 +216,17 @@ active: shield
     (function () {
       const url = new URL(window.location.href);
       const params = url.searchParams;
+
+      // Normalize hash, accept #gift, #gift=1, #gift=true (case-insensitive)
       const hash = (url.hash || "").toLowerCase();
 
+      const giftParam = (params.get("gift") || "").toLowerCase();
+      const sourceParam = (params.get("source") || "").toLowerCase();
+
       const isGift =
-        params.get("gift") === "1" ||
-        (params.get("gift") || "").toLowerCase() === "true" ||
-        (params.get("source") || "").toLowerCase() === "gift" ||
+        giftParam === "1" ||
+        giftParam === "true" ||
+        sourceParam === "gift" ||
         hash.includes("gift");
 
       const el = document.getElementById("giftNotice");
