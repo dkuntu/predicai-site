@@ -1,8 +1,3 @@
----
-layout: null
-permalink: /about/
-active: about
----
 <!DOCTYPE html>
 <html lang="en" data-theme="auto">
 <head>
@@ -12,155 +7,465 @@ active: about
   <title>About Predicai – Better Judgment in the AI Age</title>
   <meta name="description" content="Predicai helps people think clearly in the AI age. Better judgment for work. Better protection for families." />
 
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://predicai.ai/about/" />
-
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Predicai" />
-  <meta property="og:url" content="https://predicai.ai/about/" />
+  <meta property="og:url" content="https://predicai.ai/about" />
   <meta property="og:title" content="About Predicai – Better Judgment in the AI Age" />
   <meta property="og:description" content="Predicai helps people think clearly in the AI age. Better judgment for work. Better protection for families." />
   <meta property="og:image" content="https://predicai.ai/social-share.png" />
 
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://predicai.ai/about" />
   <meta name="twitter:title" content="About Predicai – Better Judgment in the AI Age" />
   <meta name="twitter:description" content="Predicai helps people think clearly in the AI age. Better judgment for work. Better protection for families." />
   <meta name="twitter:image" content="https://predicai.ai/social-share.png" />
 
-  <meta name="theme-color" content="#FFFFFF" id="themeColorMeta" />
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://predicai.ai/about" />
 
-  <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
-  <link rel="icon" type="image/png" href="/favicon-32.png?v=3" sizes="32x32" />
-  <link rel="icon" type="image/png" href="/favicon-16.png?v=3" sizes="16x16" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" sizes="180x180" />
-  <link rel="manifest" href="/site.webmanifest?v=3" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/logo.png" type="image/png" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
 
   <style>
     :root {
+      /* Layout */
       --container: 1200px;
       --wrap: 920px;
       --padX: 24px;
       --headerH: 72px;
+
+      /* Light */
       --bg-page: #FFFFFF;
       --bg-subtle: #F9FAFB;
+
       --text-main: #111827;
       --text-muted: #4B5563;
+
+      /* Brand */
       --teal: #2A9195;
       --teal-deep: #0F766E;
       --teal-soft: rgba(42,145,149,0.14);
+
+      /* Gold */
       --gold: #CA8A04;
       --gold-soft: rgba(202,138,4,0.16);
+
       --border: #E5E7EB;
       --border-strong: rgba(17,24,39,0.14);
+
       --shadow-soft: 0 6px 18px rgba(17,24,39,0.06);
       --shadow-strong: 0 16px 40px -12px rgba(0,0,0,0.18);
+
       --focus: rgba(42,145,149,0.35);
+
+      /* Header */
       --header-bg: rgba(255,255,255,0.72);
       --nav-hover: rgba(17,24,39,0.05);
-      --surface-1: rgba(255,255,255,0.92);
       --surface-2: rgba(249,250,251,0.80);
-      --surface-3: rgba(249,250,251,0.70);
-      --panel-bg-strong: rgba(249,250,251,0.86);
     }
 
+    /* ✅ IMPORTANT: system-dark only affects AUTO theme */
     @media (prefers-color-scheme: dark){
-      :root{
+      html[data-theme="auto"]{
         --bg-page: #070B14;
         --bg-subtle: rgba(255,255,255,0.04);
+
         --text-main: #F8FAFC;
         --text-muted: rgba(248,250,252,0.72);
+
         --border: rgba(255,255,255,0.12);
         --border-strong: rgba(255,255,255,0.18);
+
         --shadow-soft: 0 22px 70px rgba(0,0,0,0.42);
         --shadow-strong: 0 28px 90px rgba(0,0,0,0.55);
+
         --gold-soft: rgba(202,138,4,0.12);
+
         --header-bg: rgba(7, 11, 20, 0.70);
         --nav-hover: rgba(255,255,255,0.08);
-        --surface-1: rgba(10, 14, 24, 0.92);
         --surface-2: rgba(255,255,255,0.06);
-        --surface-3: rgba(255,255,255,0.08);
-        --panel-bg-strong: rgba(255,255,255,0.10);
+
+        /* ensure brand accent is visible in dark */
+        --teal-deep: #38BDF8;
       }
     }
 
     html[data-theme="light"]{
       --bg-page: #FFFFFF;
+      --bg-subtle: #F9FAFB;
       --text-main: #111827;
       --text-muted: #4B5563;
       --border: #E5E7EB;
+      --border-strong: rgba(17,24,39,0.14);
+      --shadow-soft: 0 6px 18px rgba(17,24,39,0.06);
+      --shadow-strong: 0 16px 40px -12px rgba(0,0,0,0.18);
+      --gold-soft: rgba(202,138,4,0.16);
+
       --header-bg: rgba(255,255,255,0.72);
-      --surface-1: rgba(255,255,255,0.92);
+      --nav-hover: rgba(17,24,39,0.05);
+      --surface-2: rgba(249,250,251,0.80);
+
+      --teal-deep: #0F766E;
     }
 
     html[data-theme="dark"]{
       --bg-page: #070B14;
+      --bg-subtle: rgba(255,255,255,0.04);
       --text-main: #F8FAFC;
       --text-muted: rgba(248,250,252,0.72);
       --border: rgba(255,255,255,0.12);
+      --border-strong: rgba(255,255,255,0.18);
+      --shadow-soft: 0 22px 70px rgba(0,0,0,0.42);
+      --shadow-strong: 0 28px 90px rgba(0,0,0,0.55);
+      --gold-soft: rgba(202,138,4,0.12);
+
       --header-bg: rgba(7, 11, 20, 0.70);
-      --surface-1: rgba(10, 14, 24, 0.92);
+      --nav-hover: rgba(255,255,255,0.08);
+      --surface-2: rgba(255,255,255,0.06);
+
+      --teal-deep: #38BDF8;
     }
 
-    *{ box-sizing:border-box; margin:0; padding:0; }
-    html{ scroll-behavior:smooth; scroll-padding-top: var(--headerH); }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--headerH); }
 
     body {
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
-      background: radial-gradient(900px 520px at 18% 6%, rgba(42,145,149,0.12), transparent 62%),
-                  radial-gradient(900px 520px at 84% 10%, rgba(202,138,4,0.08), transparent 62%),
-                  var(--bg-page);
+      text-rendering: optimizeLegibility;
+
+      background:
+        radial-gradient(900px 520px at 18% 6%, rgba(42,145,149,0.12), transparent 62%),
+        radial-gradient(900px 520px at 84% 10%, rgba(202,138,4,0.08), transparent 62%),
+        var(--bg-page);
+
       color: var(--text-main);
       line-height: 1.65;
+
       min-height: 100vh;
+      min-height: 100svh;
+
+      padding:
+        env(safe-area-inset-top)
+        env(safe-area-inset-right)
+        env(safe-area-inset-bottom)
+        env(safe-area-inset-left);
+    }
+
+    a { color: inherit; }
+
+    .container {
+      max-width: var(--container);
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 var(--padX);
     }
 
     .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 20px; }
-    .hero { padding: 92px 0 44px; text-align: center; }
-    .kicker { text-transform: uppercase; letter-spacing: 0.15em; font-weight: 900; font-size: 0.85rem; color: var(--gold); margin-bottom: 16px; display: inline-flex; align-items: center; gap: 10px; }
-    .kdot{ width: 8px; height: 8px; border-radius: 999px; background: var(--gold); box-shadow: 0 0 0 4px rgba(202,138,4,0.15); }
-    h1 { font-size: clamp(2.2rem, 4vw, 3.1rem); font-weight: 900; line-height: 1.1; margin-bottom: 18px; letter-spacing: -0.03em; }
-    .lead { font-size: clamp(1.06rem, 1.6vw, 1.25rem); color: var(--text-muted); max-width: 760px; margin: 0 auto 16px; }
 
-    .pledge-pill { margin-top: 10px; font-size: 0.92rem; color: var(--text-muted); background: var(--surface-2); display: inline-block; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--border); }
-    .inline-link { color: var(--teal-deep); text-decoration: underline; text-underline-offset: 3px; font-weight: 900; margin-left: 6px; }
+    .skip-link{
+      position:absolute; left:-9999px; top:12px;
+      background: var(--text-main);
+      color: #fff;
+      padding:10px 14px;
+      border-radius:10px;
+      z-index:9999;
+      text-decoration:none;
+      font-weight:950;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow-soft);
+    }
+    .skip-link:focus{ left:12px; outline: 3px solid var(--focus); outline-offset: 2px; }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    /* Header */
+    .site-header{
+      position: sticky;
+      top:0;
+      z-index:50;
+      height: var(--headerH);
+      display:flex;
+      align-items:center;
+      background: var(--header-bg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner{
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 14px;
+      width: 100%;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      font-weight: 950;
+      font-size: 1.15rem;
+      color: var(--text-main);
+      white-space: nowrap;
+    }
+    .brand img{ width:26px; height:26px; border-radius: 6px; object-fit: contain; }
+    .brand-accent{ color: var(--teal-deep); }
+
+    .site-nav{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items:center;
+    }
+
+    .site-nav a{
+      color: var(--text-muted);
+      text-decoration:none;
+      font-size: 0.95rem;
+      font-weight: 850;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: background .15s ease, color .15s ease, border-color .15s ease, transform .15s ease;
+      white-space: nowrap;
+    }
+
+    .site-nav a:hover{
+      color: var(--text-main);
+      background: var(--nav-hover);
+      border-color: var(--border-strong);
+      transform: translateY(-1px);
+    }
+
+    .site-nav a.active,
+    .site-nav a[aria-current="page"]{
+      color: var(--text-main);
+      font-weight: 950;
+      background: var(--teal-soft);
+      border-color: rgba(42,145,149,0.26);
+    }
+
+    /* Hero */
+    .hero { padding: 92px 0 44px; text-align: center; }
+
+    .kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 900;
+      font-size: 0.85rem;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .kdot{
+      width: 8px; height: 8px; border-radius: 999px;
+      background: var(--gold);
+      box-shadow: 0 0 0 4px rgba(202,138,4,0.15);
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 3.1rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 18px;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+    }
+
+    .lead {
+      font-size: clamp(1.06rem, 1.6vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto 16px;
+    }
+
+    .principle {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 740px;
+      margin: 0 auto 26px;
+      opacity: 0.94;
+    }
+
+    .pledge-pill {
+      margin-top: 10px;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      background: var(--surface-2);
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+    }
+    .inline-link {
+      color: var(--teal-deep);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 900;
+      margin-left: 6px;
+    }
 
     .cta-row { display: flex; justify-content: center; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 20px; border-radius: 12px; font-weight: 900; text-decoration: none; transition: transform 0.15s ease; border: 1px solid transparent; }
-    .btn-primary { background: var(--text-main); color: var(--bg-page); }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 900;
+      text-decoration: none;
+      transition: transform 0.15s ease, opacity 0.15s ease, border-color 0.15s ease;
+      border: 1px solid transparent;
+      -webkit-tap-highlight-color: transparent;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--text-main);
+      color: white;
+      border-color: rgba(17,24,39,0.35);
+    }
     .btn-primary:hover { opacity: 0.92; transform: translateY(-2px); }
     .btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--text-main); }
-    .btn-secondary:hover { border-color: var(--teal); transform: translateY(-2px); }
+    .btn-secondary:hover { border-color: rgba(42,145,149,0.30); transform: translateY(-2px); }
 
     .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 56px 0; }
-    .split-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 18px; padding: 32px; transition: transform 0.15s ease; }
-    .split-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); background: var(--panel-bg-strong); }
+    .split-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+    .split-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-soft);
+      border-color: var(--border-strong);
+      background: rgba(255,255,255,0.04);
+    }
+
     .card-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
-    .card-title { font-size: 1.25rem; font-weight: 900; margin-bottom: 10px; }
+    .card-title { font-size: 1.25rem; font-weight: 900; margin-bottom: 10px; color: var(--text-main); }
+    .card-text { color: var(--text-muted); font-size: 1rem; margin-bottom: 16px; }
 
-    .ethics-box { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 60px 0; margin: 72px 0; text-align: center; }
-    .ethics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 34px; text-align: left; }
+    .link-teal { color: var(--teal-deep); font-weight: 900; text-decoration: none; }
+    .link-teal:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-    .founder { max-width: 760px; margin: 0 auto 100px; border-left: 4px solid var(--gold); padding-left: 28px; }
-    .founder h2 { font-size: 1.75rem; margin-bottom: 14px; font-weight: 900; }
+    .link-gold { color: var(--gold); font-weight: 900; text-decoration: none; }
+    .link-gold:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-    footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border); font-size: 0.9rem; color: var(--text-muted); }
-    footer a { margin: 0 10px; font-weight: 800; text-decoration: none; }
+    .ethics-box {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 60px 0;
+      margin: 72px 0;
+      text-align: center;
+    }
+    .ethics-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 34px;
+      display: block;
+      font-weight: 900;
+    }
+    .ethics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 34px;
+      text-align: left;
+    }
+    .ethics-item h3 { color: var(--text-main); font-size: 1.1rem; margin-bottom: 8px; font-weight: 900; }
+    .ethics-item p { color: var(--text-muted); font-size: 0.95rem; }
 
-    @media (max-width: 900px) { .split-grid { grid-template-columns: 1fr; } .hero { padding: 72px 0 38px; } }
+    .founder {
+      max-width: 760px;
+      margin: 0 auto 100px;
+      border-left: 4px solid var(--gold);
+      padding-left: 28px;
+    }
+    .founder h2 { font-size: 1.75rem; margin-bottom: 14px; color: var(--text-main); font-weight: 900; }
+    .founder p { color: var(--text-muted); margin-bottom: 18px; font-size: 1.05rem; }
+    .sig { font-weight: 900; color: var(--text-main); }
+    .role { display: block; font-size: 0.9rem; color: var(--text-muted); font-weight: 600; margin-top: 2px; }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    footer a {
+      color: inherit;
+      margin: 0 10px;
+      font-weight: 800;
+      text-decoration: none;
+      padding: 6px 8px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+    }
+    footer a:hover {
+      color: var(--text-main);
+      background: var(--nav-hover);
+      border-color: var(--border-strong);
+    }
+    .social-links { display: flex; justify-content: center; gap: 18px; margin-bottom: 18px; flex-wrap: wrap; }
+
+    @media (max-width: 900px) {
+      .split-grid { grid-template-columns: 1fr; }
+      .hero { padding: 72px 0 38px; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior: auto; }
+      *{ animation: none !important; transition: none !important; }
+      .site-nav a:hover, .btn-primary:hover, .btn-secondary:hover, .split-card:hover{ transform: none !important; }
+    }
   </style>
 </head>
 
 <body>
-  <div data-include="nav"></div>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Predicai home">
+        <img src="/logo.png" alt="Predicai logo" />
+        <span>Predic<span class="brand-accent">ai</span>&trade;</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/about" class="active" aria-current="page">About</a>
+        <a href="/academy">Academy</a>
+        <a href="/shield">Shield</a>
+        <a href="/signal">Signal</a>
+        <a href="/resources">Resources</a>
+        <a href="/faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
 
   <main id="main" class="wrap" tabindex="-1">
     <section class="hero">
       <span class="kicker"><span class="kdot" aria-hidden="true"></span> Predicai</span>
+
       <h1>Better Judgment in the AI Age</h1>
 
       <p class="lead">
@@ -168,83 +473,99 @@ active: about
         The question is whether any of them are true, useful, or safe to act on.
       </p>
 
+      <p class="principle">
+        Predicai exists for one reason: to help people think clearly, verify reality, and move with confidence.
+        No hype. No jargon. No dependency.
+      </p>
+
       <div class="pledge-pill">
-        🔒 <strong>Privacy Pledge</strong> We don’t sell data.
-        <a href="/privacy/" class="inline-link">Read policy</a>
+        🔒 <strong>Privacy Pledge</strong> We don’t sell data. We don’t train public models on your submissions.
+        <a href="/privacy#pledge" class="inline-link">Read policy</a>
       </div>
 
       <div class="cta-row">
-        <a class="btn btn-primary" href="/resources/">Start with Resources →</a>
-        <a class="btn btn-secondary" href="/capability/">Take the Capability Score →</a>
+        <a class="btn btn-primary" href="/resources">Start with Resources →</a>
+        <a class="btn btn-secondary" href="/capability">Take the Capability Score →</a>
       </div>
     </section>
 
-    <section class="split-grid">
+    <section class="split-grid" aria-label="Work and family paths">
       <div class="split-card">
-        <span class="card-icon">🏗️</span>
+        <span class="card-icon" aria-hidden="true">🏗️</span>
         <h3 class="card-title">For work</h3>
-        <p>We teach you how to direct AI, check the output, and turn one-off wins into repeatable systems.</p>
-        <a href="/academy/" style="color:var(--teal); font-weight:900; text-decoration:none;">Explore Academy →</a>
+        <p class="card-text">
+          We teach you how to direct AI, check the output, and turn one-off wins into repeatable systems.
+          The goal is simple: less chaos, better decisions, better results.
+        </p>
+        <a href="/academy" class="link-teal">Explore Academy →</a>
       </div>
 
       <div class="split-card">
-        <span class="card-icon">🛡️</span>
+        <span class="card-icon" aria-hidden="true">🛡️</span>
         <h3 class="card-title">For family</h3>
-        <p>Shield helps families slow down, verify, and protect each other before money moves.</p>
-        <a href="/shield/" style="color:var(--gold); font-weight:900; text-decoration:none;">Explore Shield →</a>
+        <p class="card-text">
+          Scams are getting smarter. Voices can be cloned. Screenshots can be faked.
+          Shield helps families slow down, verify, and protect each other before money moves.
+        </p>
+        <a href="/shield" class="link-gold">Explore Shield →</a>
       </div>
     </section>
 
-    <section class="ethics-box">
-      <span style="text-transform:uppercase; letter-spacing:0.1em; font-weight:900; font-size:0.9rem; margin-bottom:34px; display:block;">What we refuse to do</span>
+    <section class="ethics-box" aria-label="Ethics and refusals">
+      <span class="ethics-title">What we refuse to do</span>
+
       <div class="ethics-grid">
         <div class="ethics-item">
           <h3>No hype</h3>
           <p>We don’t sell “magic prompts.” We teach standards, clear thinking, and repeatable execution.</p>
         </div>
+
         <div class="ethics-item">
           <h3>No surveillance</h3>
-          <p>We don’t sell your data. We use what you share only to deliver what you asked for.</p>
+          <p>We don’t sell your data. We don’t train public models on your submissions. We use what you share to deliver what you asked for.</p>
+        </div>
+
+        <div class="ethics-item">
+          <h3>No dependency</h3>
+          <p>AI doesn’t replace the human. It elevates the human who can direct it and judge it.</p>
         </div>
       </div>
     </section>
 
     <section class="founder">
       <h2>Why I built Predicai</h2>
-      <p>Predicai is here to help you stay steady in a world that’s trying to speed you up.</p>
-      <div style="font-weight:900;">— DeQuan <span style="display:block; font-weight:600; font-size:0.9rem; opacity:0.8;">Founder</span></div>
+
+      <p>
+        I kept seeing the same two stories.
+        At work, smart people were moving fast with AI and quietly losing quality control.
+        At home, good people were getting pressured, tricked, and rushed into decisions they couldn’t undo.
+      </p>
+
+      <p>
+        We can’t slow the technology down.
+        But we can raise the standard for how we use it.
+        Predicai is here to help you stay steady in a world that’s trying to speed you up.
+      </p>
+
+      <div class="sig">
+        — DeQuan
+        <span class="role">Founder</span>
+      </div>
     </section>
   </main>
 
   <footer>
-    <div style="margin-bottom:18px;">
-      <a href="https://linkedin.com/company/predicai-ai/" target="_blank">LinkedIn</a>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/company/predicai-ai/" target="_blank" rel="noopener noreferrer" aria-label="Predicai on LinkedIn">LinkedIn</a>
     </div>
+
     <div>© 2026 Predicai — All rights reserved.</div>
+
+    <div style="margin-top:16px; font-size: 0.85rem; opacity: 0.92;">
+      <a href="/resources">Resources</a>
+      <a href="/terms">Terms</a>
+      <a href="/privacy">Privacy</a>
+    </div>
   </footer>
-
-  <script>
-    (function(){
-      const mount = document.querySelector('[data-include="nav"]');
-      if(!mount) return;
-      fetch('/partials/nav.html').then(r => r.text()).then(html => {
-        mount.outerHTML = html;
-        initPredicaiTheme();
-      });
-    })();
-
-    function initPredicaiTheme(){
-      const root = document.documentElement;
-      const metaTheme = document.getElementById('themeColorMeta');
-      
-      function getSavedTheme() { return localStorage.getItem('predicai_theme') || 'auto'; }
-      function applyTheme(val){
-        root.setAttribute('data-theme', val);
-        const resolved = (val === 'auto') ? (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark') : val;
-        if (metaTheme) metaTheme.setAttribute('content', resolved === 'light' ? '#FFFFFF' : '#070B14');
-      }
-      applyTheme(getSavedTheme());
-    }
-  </script>
 </body>
 </html>
