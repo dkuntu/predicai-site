@@ -1,8 +1,3 @@
----
-layout: null
-permalink: /shield-desk/
-active: shield
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,16 +6,19 @@ active: shield
   <title>Shield Desk – Predicai Shield™ Member Hub</title>
   <meta name="description" content="Your Predicai Shield member hub. Run Shield Check, print the checklist, download protocols, and access voice defense." />
 
-  <link rel="canonical" href="https://predicai.ai/shield-desk/" />
+  <!-- ✅ Clean route canonical -->
+  <link rel="canonical" href="https://predicai.ai/shield-desk" />
   <meta name="theme-color" content="#FFFBEB" />
 
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Predicai" />
-  <meta property="og:url" content="https://predicai.ai/shield-desk/" />
+  <meta property="og:url" content="https://predicai.ai/shield-desk" />
   <meta property="og:title" content="Shield Desk – Predicai Shield™ Member Hub" />
   <meta property="og:description" content="Everything in one place: Shield Check, Checklist, Protocols, and Voice Defense." />
   <meta property="og:image" content="https://predicai.ai/social-share.png" />
 
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Shield Desk – Predicai Shield™ Member Hub" />
   <meta name="twitter:description" content="Everything in one place: Shield Check, Checklist, Protocols, and Voice Defense." />
@@ -122,6 +120,7 @@ active: shield
       display:block;
     }
 
+    /* ✅ Stable nav (no “liquid” behavior) */
     nav{
       display:flex;
       align-items:center;
@@ -132,20 +131,29 @@ active: shield
 
     .nav-link{
       font-size:0.92rem;
-      font-weight:800;
+      font-weight:850;
       color:var(--muted);
       text-decoration:none;
       padding:6px 8px;
       border-radius:10px;
-      transition: background 0.15s ease, color 0.15s ease;
+      transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
       border:1px solid transparent;
+      -webkit-tap-highlight-color: transparent;
+      white-space:nowrap;
     }
-    .nav-link:hover{ color:var(--text); background: rgba(0,0,0,0.04); }
-    .nav-link.active{
+    .nav-link:hover{
       color:var(--text);
-      font-weight:900;
+      background: rgba(0,0,0,0.04);
+      border-color: rgba(0,0,0,0.06);
+      transform: translateY(-1px);
+    }
+    .nav-link.active,
+    .nav-link[aria-current="page"]{
+      color:var(--text);
+      font-weight:950;
       background: rgba(202,138,4,0.12);
       border-color: rgba(202,138,4,0.18);
+      transform:none;
     }
 
     .pill{
@@ -401,18 +409,20 @@ active: shield
 
   <header>
     <div class="header-inner">
-      <a href="/shield.html" class="brand" aria-label="Predicai Shield home">
+      <!-- ✅ Clean route -->
+      <a href="/shield" class="brand" aria-label="Predicai Shield home">
         <img src="/predicai-shield-gold.JPG" alt="Predicai Shield logo" />
         Predicai Shield™
       </a>
 
       <nav aria-label="Primary navigation">
+        <!-- ✅ Clean route nav -->
         <a href="/" class="nav-link">Home</a>
-        <a href="/about.html" class="nav-link">About</a>
-        <a href="/academy.html" class="nav-link">Academy</a>
-        <a href="/shield.html" class="nav-link active" aria-current="page">Shield</a>
-        <a href="/pricing.html" class="nav-link">Pricing</a>
-        <a href="/resources.html" class="nav-link">Resources</a>
+        <a href="/about" class="nav-link">About</a>
+        <a href="/academy" class="nav-link">Academy</a>
+        <a href="/shield" class="nav-link active" aria-current="page">Shield</a>
+        <a href="/pricing" class="nav-link">Pricing</a>
+        <a href="/resources" class="nav-link">Resources</a>
 
         <button type="button" id="printBtn" class="pill" aria-label="Print this page">🖨️ Print</button>
       </nav>
@@ -442,10 +452,10 @@ active: shield
         </div>
 
         <div class="quick-actions" aria-label="Quick actions">
-          <a class="pill" href="/shield-check.html">Run Shield Check →</a>
-          <a class="pill" href="/shield-checklist.html">Print Checklist →</a>
-          <a class="pill" href="/shield-download.html">Download Protocols →</a>
-          <a class="pill" href="/voice-defense.html">Voice Defense Guide →</a>
+          <a class="pill" href="/shield-check">Run Shield Check →</a>
+          <a class="pill" href="/shield-checklist">Print Checklist →</a>
+          <a class="pill" href="/shield-download">Download Protocols →</a>
+          <a class="pill" href="/voice-defense">Voice Defense Guide →</a>
         </div>
       </section>
 
@@ -463,7 +473,7 @@ active: shield
             <div class="tag">Analyze</div>
           </div>
           <div class="btn-row">
-            <a class="btn btn-primary" href="/shield-check.html">Run Shield Check →</a>
+            <a class="btn btn-primary" href="/shield-check">Run Shield Check →</a>
             <a class="btn" href="https://tally.so/r/LZzErv" target="_blank" rel="noopener noreferrer">Backup link ↗</a>
           </div>
         </div>
@@ -480,7 +490,7 @@ active: shield
             <div class="tag">Pause</div>
           </div>
           <div class="btn-row">
-            <a class="btn btn-primary" href="/shield-checklist.html">Open Checklist →</a>
+            <a class="btn btn-primary" href="/shield-checklist">Open Checklist →</a>
             <button type="button" class="btn" id="printChecklistBtn">Print Checklist</button>
           </div>
         </div>
@@ -496,8 +506,8 @@ active: shield
             <div class="tag">Protect</div>
           </div>
           <div class="btn-row">
-            <a class="btn btn-primary" href="/shield-download.html">Download Protocols →</a>
-            <a class="btn" href="/shield.html">Back to Shield Home →</a>
+            <a class="btn btn-primary" href="/shield-download">Download Protocols →</a>
+            <a class="btn" href="/shield">Back to Shield Home →</a>
           </div>
         </div>
 
@@ -512,8 +522,8 @@ active: shield
             <div class="tag">Harden</div>
           </div>
           <div class="btn-row">
-            <a class="btn btn-primary" href="/voice-defense.html">Open Voice Guide →</a>
-            <a class="btn" href="/shield-checklist.html">Print Checklist →</a>
+            <a class="btn btn-primary" href="/voice-defense">Open Voice Guide →</a>
+            <a class="btn" href="/shield-checklist">Print Checklist →</a>
           </div>
         </div>
 
@@ -558,11 +568,12 @@ active: shield
         });
       }
 
+      // Print Checklist: open checklist page then user can print (best effort)
       const printChecklistBtn = document.getElementById("printChecklistBtn");
       if (printChecklistBtn) {
         printChecklistBtn.addEventListener("click", () => {
-          const w = window.open("/shield-checklist.html#print", "_blank", "noopener,noreferrer");
-          if (!w) window.location.href = "/shield-checklist.html";
+          const w = window.open("/shield-checklist#print", "_blank", "noopener,noreferrer");
+          if (!w) window.location.href = "/shield-checklist";
         });
       }
     })();
