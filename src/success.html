@@ -1,169 +1,311 @@
----
-layout: null
-permalink: /success/
-active: academy
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   
+
   <title>Predicai™ – Welcome Founding Member</title>
+  <meta name="description" content="Payment confirmed. Your Student Portal invite has been sent. Here are your next steps." />
   <meta name="robots" content="noindex, nofollow" />
-   
+
+  <!-- Canonical + Social (fine with noindex; keeps internal shares clean) -->
+  <link rel="canonical" href="https://predicai.ai/welcome" />
+  <meta name="theme-color" content="#FFFFFF" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Predicai" />
+  <meta property="og:url" content="https://predicai.ai/welcome" />
+  <meta property="og:title" content="Welcome to the Academy – Predicai™" />
+  <meta property="og:description" content="Payment confirmed. Your Student Portal invite has been sent. Here are your next steps." />
+  <meta property="og:image" content="https://predicai.ai/social-share.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://predicai.ai/welcome" />
+  <meta name="twitter:title" content="Welcome to the Academy – Predicai™" />
+  <meta name="twitter:description" content="Payment confirmed. Your Student Portal invite has been sent. Here are your next steps." />
+  <meta name="twitter:image" content="https://predicai.ai/social-share.png" />
+
   <link rel="icon" href="https://predicai.ai/favicon.ico" sizes="any" />
   <link rel="icon" href="https://predicai.ai/logo.png" type="image/png" />
-   
+  <link rel="apple-touch-icon" href="https://predicai.ai/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
+
   <style>
-    /* CORE VARIABLES */
-    :root { 
-      --bg-page: #F9FAFB; --bg-card: #FFFFFF; --text-primary: #111827; 
-      --accent-teal-strong: #2A9195; --accent-gold: #D4AF37; --border-light: #E5E7EB; 
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    a { text-decoration: none; color: inherit; }
+    :root{
+      --bg-page:#F9FAFB;
+      --bg-card:#FFFFFF;
+      --text-primary:#111827;
+      --text-sub:#4B5563;
 
-    body { 
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-      background-color: var(--bg-page); color: var(--text-primary); 
-      text-align: center; padding: 40px 20px; line-height: 1.6; 
-    }
-    
-    /* ACCESSIBILITY */
-    .skip-link {
-        position: absolute;
-        left: -9999px;
-        z-index: 999;
-        padding: 12px 14px;
-        background: #fff;
-        border: 2px solid var(--accent-teal-strong);
-        font-weight: 800;
-        color: #000;
-    }
-    .skip-link:focus { left: 16px; top: 16px; }
-    
-    /* Global Focus Ring */
-    :focus-visible {
-        outline: 3px solid var(--accent-teal-strong);
-        outline-offset: 3px;
-        border-radius: 4px;
-    }
-    
-    .container { 
-      max-width: 600px; margin: 0 auto; background: white; 
-      padding: 60px 40px; border-radius: 24px; 
-      border: 1px solid var(--border-light); 
-      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05); 
-    }
-    
-    /* BRANDING */
-    .brand { display: flex; justify-content: center; align-items: center; gap: 12px; font-weight: 700; font-size: 1.5rem; margin-bottom: 40px; }
-    .brand-logo { width: 48px; height: 48px; object-fit: contain; border-radius: 50%; }
+      --accent-teal:#2A9195;
+      --accent-gold:#D4AF37;
 
-    h1 { font-size: 2.2rem; margin-bottom: 16px; font-weight: 800; line-height: 1.1; }
-    p { font-size: 1.1rem; color: #4B5563; margin-bottom: 16px; }
-    
-    .spam-notice { 
-        font-size: 0.95rem; 
-        color: #6B7280; 
-        margin-bottom: 32px; 
-        background: #F3F4F6; 
-        padding: 16px; 
-        border-radius: 8px; 
+      --border:#E5E7EB;
+      --shadow: 0 10px 30px -10px rgba(0,0,0,0.06);
+
+      --radius:24px;
+      --focus: rgba(42,145,149,0.35);
+      --maxw: 600px;
     }
 
-    .btn { 
-      display: inline-block; padding: 16px 32px; background: var(--text-primary); 
-      color: white; border-radius: 12px; font-weight: 600; transition: transform 0.2s; 
-      width: 100%; text-align: center; 
-    }
-    
-    /* Hover Guard for Mobile */
-    @media (hover: hover) {
-        .btn:hover { transform: translateY(-2px); background: #000; }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg-page:#050A10;
+        --bg-card: rgba(255,255,255,0.06);
+        --text-primary:#FFFFFF;
+        --text-sub:#A7B4C8;
+        --border: rgba(148,163,184,0.18);
+        --shadow: 0 16px 40px rgba(0,0,0,0.42);
+      }
     }
 
-    .standard-link {
-      display: inline-block;
-      margin-top: 32px;
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; }
+    body{
+      font-family: "Inter", -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background: var(--bg-page);
+      color: var(--text-primary);
+      text-align: center;
+      padding: 40px 20px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a{ text-decoration:none; color:inherit; }
+
+    /* Accessibility */
+    .skip-link{
+      position:absolute;
+      left:-9999px;
+      z-index:999;
+      padding:12px 14px;
+      background:#fff;
+      border:2px solid var(--accent-teal);
+      font-weight:900;
+      color:#000;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+    .skip-link:focus{ left:16px; top:16px; }
+
+    :focus-visible{
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto !important; }
+      *{ transition:none !important; }
+    }
+
+    .container{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      background: var(--bg-card);
+      padding: 58px 40px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .brand{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap: 12px;
+      font-weight: 950;
+      font-size: 1.35rem;
+      margin-bottom: 34px;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+    .brand-logo{
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.70);
+      border: 1px solid rgba(0,0,0,0.08);
+      flex-shrink: 0;
+    }
+    @media (prefers-color-scheme: dark){
+      .brand-logo{
+        background: rgba(255,255,255,0.10);
+        border-color: rgba(148,163,184,0.18);
+      }
+    }
+
+    h1{
+      font-size: clamp(1.85rem, 4.5vw, 2.2rem);
+      margin-bottom: 12px;
+      font-weight: 980;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    p{
+      font-size: 1.05rem;
+      color: var(--text-sub);
+      margin-bottom: 14px;
+    }
+
+    .hint{
+      font-size: 0.95rem;
+      color: color-mix(in srgb, var(--text-sub) 92%, transparent);
+      margin-bottom: 18px;
+    }
+
+    .notice{
+      font-size: 0.95rem;
+      color: color-mix(in srgb, var(--text-sub) 92%, transparent);
+      margin: 18px 0 26px;
+      background: color-mix(in srgb, var(--bg-page) 85%, transparent);
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+    .notice strong{
+      display:block;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      font-weight: 950;
+    }
+    .notice .mini{
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      width: 100%;
+      padding: 16px 18px;
+      background: var(--text-primary);
+      color: #fff;
+      border-radius: 12px;
+      font-weight: 900;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+    .btn.secondary{
+      margin-top: 10px;
+      background: transparent;
+      color: var(--text-primary);
+      border-color: var(--border);
+    }
+
+    @media (hover:hover){
+      .btn:hover{ transform: translateY(-2px); opacity: 0.95; }
+    }
+
+    .receipt{
+      margin-top: 18px;
+      font-size: 0.85rem;
+      color: #9CA3AF;
+    }
+    @media (prefers-color-scheme: dark){
+      .receipt{ color: rgba(167,180,200,0.78); }
+    }
+
+    .standard-link{
+      display:inline-block;
+      margin-top: 26px;
       font-size: 0.9rem;
       color: var(--accent-gold);
-      font-weight: 700;
+      font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
-    .simple-footer {
-      margin-top: 40px;
+    .simple-footer{
+      margin-top: 34px;
       font-size: 0.85rem;
       color: #9CA3AF;
-      max-width: 600px; 
-      margin-left: auto; 
+      max-width: var(--maxw);
+      margin-left: auto;
       margin-right: auto;
+      line-height: 1.6;
     }
-    .simple-footer a { margin: 0 10px; transition: color 0.2s; }
-    
-    /* Footer Hover Guard */
-    @media (hover: hover) {
-        .simple-footer a:hover { color: var(--accent-teal-strong); }
+    @media (prefers-color-scheme: dark){
+      .simple-footer{ color: rgba(167,180,200,0.72); }
     }
 
-    /* REDUCED MOTION */
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto !important; }
-      * { transition: none !important; }
+    .simple-footer a{
+      margin: 0 10px;
+      font-weight: 850;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    @media (hover:hover){
+      .simple-footer a:hover{ color: var(--accent-teal); }
     }
 
-    @media (max-width: 600px) {
-      .container { padding: 40px 24px; }
-      h1 { font-size: 1.8rem; }
+    @media (max-width: 600px){
+      .container{ padding: 40px 22px; }
     }
   </style>
 </head>
+
 <body>
-  
   <a href="#main" class="skip-link">Skip to content</a>
 
   <main id="main">
-      <div class="container">
-        <a href="/" class="brand" aria-label="Predicai home">
-            <img src="https://predicai.ai/logo.png" alt="Predicai Academy" class="brand-logo">
-            <span>Predic<span style="color: var(--accent-teal-strong)">ai</span>&trade;</span>
-        </a>
+    <div class="container">
+      <a href="/" class="brand" aria-label="Predicai home">
+        <img src="https://predicai.ai/logo.png" alt="Predicai logo" class="brand-logo" loading="eager">
+        <span>Predic<span style="color: var(--accent-teal)">ai</span>&trade;</span>
+      </a>
 
-        <h1>Welcome to the Academy.</h1>
-        <p>Your payment was successful. You are now a Founding Member.</p>
-        
-        <p style="font-size:0.95rem; color:#6B7280; margin-bottom:16px;">
-          Your portal email includes your first steps and the cohort start details.
-        </p>
-        
-        <div class="spam-notice">
-            <strong>Next Step: Check your email.</strong><br>
-            We have sent your Student Portal invite. <br>
-            (If you don’t see it in 5 minutes, check Spam or Promotions and search "Predicai").
+      <h1>Welcome to the Academy.</h1>
+      <p>Your payment was successful. You are now a Founding Member.</p>
+
+      <p class="hint">
+        Your portal email includes your first steps and cohort start details.
+      </p>
+
+      <div class="notice" role="note" aria-label="Email delivery notice">
+        <strong>Next step: check your email</strong>
+        <div class="mini">
+          We sent your Student Portal invite.
+          If you don’t see it within 5 minutes, check Spam or Promotions and search for <strong>Predicai</strong>.
         </div>
-        
-        <a href="https://predicai.notion.site/" class="btn" target="_blank" rel="noopener noreferrer">Open Notion Workspace</a>
-        
-        <p style="margin-top: 24px; font-size: 0.85rem; color: #9CA3AF;">
-            Your transaction receipt has been emailed to you.
-        </p>
-
-        <a href="/standard/" class="standard-link">Review the Certification Standard →</a>
       </div>
 
-      <div class="simple-footer">
-        © 2026 Predicai™
-        <br><br>
-        <a href="/standard/">The Standard</a>
-        <a href="https://predicai.notion.site/Trust-Ethics-Protocol-2cd73ab1bdd6800cac99c280cb264c52?source=copy_link" target="_blank" rel="noopener noreferrer">Trust & Ethics</a>
-        <a href="/terms/">Terms</a>
-      </div>
+      <a href="https://predicai.notion.site/" class="btn" target="_blank" rel="noopener noreferrer">
+        Open Student Portal
+      </a>
+
+      <a href="/" class="btn secondary" aria-label="Go to Predicai home">
+        Go to Predicai Home
+      </a>
+
+      <div class="receipt">Your transaction receipt has been emailed to you.</div>
+
+      <a href="/standard" class="standard-link">Review the Certification Standard →</a>
+    </div>
+
+    <div class="simple-footer" aria-label="Footer">
+      © <span id="year"></span> Predicai™
+      <br><br>
+      <a href="/standard">The Standard</a>
+      <a href="https://predicai.notion.site/Trust-Ethics-Protocol-2cd73ab1bdd6800cac99c280cb264c52?source=copy_link" target="_blank" rel="noopener noreferrer">Trust & Ethics</a>
+      <a href="/terms">Terms</a>
+    </div>
   </main>
 
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
