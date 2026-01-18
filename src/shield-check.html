@@ -1,31 +1,25 @@
----
-layout: null
-permalink: /shield-check/
-active: shield
----
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="auto">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-  <title>Shield Check™ – Predicai Shield</title>
-  <meta name="description" content="Get a calm second opinion on suspicious texts, emails, and screenshots. No login required." />
-  <meta name="robots" content="index, follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Predicai™ Shield Check – Suspicious Message Review</title>
+  <meta name="description" content="Paste a suspicious message or describe the situation. Submit a Shield Check before money moves." />
 
   <link rel="canonical" href="https://predicai.ai/shield-check/" />
-  <meta name="theme-color" content="#0f1115" />
+  <meta name="theme-color" content="#050A10" />
+  <meta name="robots" content="index, follow" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Predicai" />
   <meta property="og:url" content="https://predicai.ai/shield-check/" />
-  <meta property="og:title" content="Shield Check™ – Predicai Shield" />
-  <meta property="og:description" content="Get a calm second opinion on suspicious texts, emails, and screenshots. No login required." />
+  <meta property="og:title" content="Predicai™ Shield Check – Suspicious Message Review" />
+  <meta property="og:description" content="Paste a suspicious message or describe the situation. Submit a Shield Check before money moves." />
   <meta property="og:image" content="https://predicai.ai/social-share.png" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Shield Check™ – Predicai Shield" />
-  <meta name="twitter:description" content="Get a calm second opinion on suspicious texts, emails, and screenshots. No login required." />
+  <meta name="twitter:title" content="Predicai™ Shield Check – Suspicious Message Review" />
+  <meta name="twitter:description" content="Paste a suspicious message or describe the situation. Submit a Shield Check before money moves." />
   <meta name="twitter:image" content="https://predicai.ai/social-share.png" />
 
   <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -34,358 +28,396 @@ active: shield
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Prevent theme flash -->
+  <script>
+    (function () {
+      const stored = localStorage.getItem('predicai-theme');
+      if (stored) document.documentElement.setAttribute('data-theme', stored);
+    })();
+  </script>
 
   <style>
-    :root{
-      --bg:#0f1115;
-      --card:#111827;
-      --text:#ffffff;
-      --muted:rgba(255,255,255,0.78);
-      --muted2:rgba(255,255,255,0.68);
-      --border:rgba(255,255,255,0.12);
-      --border2:rgba(255,255,255,0.10);
+    :root{ --headerH:72px; --radius:18px; }
 
-      --accent:#FFD24A;   /* gold */
-      --accent2:#0d9488;  /* teal */
-      --focus: rgba(255,210,74,0.70);
-      --radius: 16px;
+    /* ============ DARK ============ */
+    :root[data-theme="dark"]{
+      --bg0:#050A10;
+      --bg1:#0B1220;
 
-      --shadow: 0 18px 40px rgba(0,0,0,0.35);
-      --shadow2: 0 24px 60px rgba(0,0,0,0.50);
+      --panel: rgba(255,255,255,0.06);
+      --panel2: rgba(255,255,255,0.04);
+      --border: rgba(148,163,184,0.18);
+
+      --text:#F8FAFC;
+      --muted: rgba(148,163,184,0.92);
+
+      --teal:#2A9195;
+      --blue:#38BDF8;
+
+      --gold:#D4AF37;
+      --gold2:#CA8A04;
+      --goldDim: rgba(212,175,55,0.12);
+      --goldBorder: rgba(212,175,55,0.24);
+
+      --header-bg: rgba(11,18,32,0.78);
+      --nav-hover: rgba(255,255,255,0.07);
+      --nav-link: rgba(148,163,184,0.92);
+
+      --focus: rgba(56,189,248,0.45);
+
+      --shadow: 0 22px 70px rgba(0,0,0,0.35);
+      --shadow-soft: 0 18px 60px rgba(0,0,0,0.28);
+
+      /* Form surface (always readable) */
+      --form-bg: #FFFFFF;
+      --form-border: rgba(15,23,42,0.10);
+      --form-shadow: 0 18px 44px rgba(0,0,0,0.22);
+    }
+
+    /* ============ LIGHT ============ */
+    :root[data-theme="light"]{
+      --bg0:#F8FAFC;
+      --bg1:#EEF2FF;
+
+      --panel:#FFFFFF;
+      --panel2: rgba(2,6,23,0.03);
+      --border: rgba(2,6,23,0.10);
+
+      --text:#0F172A;
+      --muted:#475569;
+
+      --teal:#2A9195;
+      --blue:#0EA5E9;
+
+      --gold:#B45309;
+      --gold2:#9A3412;
+      --goldDim: rgba(180,83,9,0.10);
+      --goldBorder: rgba(180,83,9,0.18);
+
+      --header-bg: rgba(255,255,255,0.90);
+      --nav-hover: rgba(15,23,42,0.05);
+      --nav-link: rgba(15,23,42,0.72);
+
+      --focus: rgba(14,165,233,0.35);
+
+      --shadow: 0 16px 45px rgba(2,6,23,0.10);
+      --shadow-soft: 0 10px 28px rgba(2,6,23,0.08);
+
+      --form-bg: #FFFFFF;
+      --form-border: rgba(15,23,42,0.10);
+      --form-shadow: 0 14px 34px rgba(15,23,42,0.10);
+    }
+
+    /* ============ AUTO matches system ============ */
+    @media (prefers-color-scheme: light){
+      :root[data-theme="auto"]{ all: unset; }
+      :root[data-theme="auto"]{
+        --headerH:72px; --radius:18px;
+        --bg0:#F8FAFC; --bg1:#EEF2FF;
+        --panel:#FFFFFF; --panel2: rgba(2,6,23,0.03); --border: rgba(2,6,23,0.10);
+        --text:#0F172A; --muted:#475569;
+        --teal:#2A9195; --blue:#0EA5E9;
+        --gold:#B45309; --gold2:#9A3412; --goldDim: rgba(180,83,9,0.10); --goldBorder: rgba(180,83,9,0.18);
+        --header-bg: rgba(255,255,255,0.90); --nav-hover: rgba(15,23,42,0.05); --nav-link: rgba(15,23,42,0.72);
+        --focus: rgba(14,165,233,0.35);
+        --shadow: 0 16px 45px rgba(2,6,23,0.10); --shadow-soft: 0 10px 28px rgba(2,6,23,0.08);
+        --form-bg:#FFFFFF; --form-border: rgba(15,23,42,0.10); --form-shadow: 0 14px 34px rgba(15,23,42,0.10);
+      }
+    }
+    @media (prefers-color-scheme: dark){
+      :root[data-theme="auto"]{ all: unset; }
+      :root[data-theme="auto"]{
+        --headerH:72px; --radius:18px;
+        --bg0:#050A10; --bg1:#0B1220;
+        --panel: rgba(255,255,255,0.06); --panel2: rgba(255,255,255,0.04); --border: rgba(148,163,184,0.18);
+        --text:#F8FAFC; --muted: rgba(148,163,184,0.92);
+        --teal:#2A9195; --blue:#38BDF8;
+        --gold:#D4AF37; --gold2:#CA8A04; --goldDim: rgba(212,175,55,0.12); --goldBorder: rgba(212,175,55,0.24);
+        --header-bg: rgba(11,18,32,0.78); --nav-hover: rgba(255,255,255,0.07); --nav-link: rgba(148,163,184,0.92);
+        --focus: rgba(56,189,248,0.45);
+        --shadow: 0 22px 70px rgba(0,0,0,0.35); --shadow-soft: 0 18px 60px rgba(0,0,0,0.28);
+        --form-bg:#FFFFFF; --form-border: rgba(15,23,42,0.10); --form-shadow: 0 18px 44px rgba(0,0,0,0.22);
+      }
     }
 
     *{ box-sizing:border-box; margin:0; padding:0; }
-    html{ scroll-behavior:smooth; }
-
+    html{ scroll-behavior:smooth; scroll-padding-top: var(--headerH); }
     body{
-      font-family: Inter, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      background:
-        radial-gradient(1200px 600px at 20% 0%, rgba(13,148,136,0.18), transparent 55%),
-        radial-gradient(900px 450px at 80% 10%, rgba(255,210,74,0.14), transparent 50%),
-        radial-gradient(900px 600px at 50% 110%, rgba(255,255,255,0.06), transparent 55%),
-        var(--bg);
-      color: var(--text);
-      min-height: 100vh;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+      color: var(--text);
+      line-height: 1.6;
+
+      background:
+        radial-gradient(1200px 800px at 50% -10%, rgba(56,189,248,0.14), transparent 60%),
+        radial-gradient(900px 700px at 10% 10%, rgba(42,145,149,0.10), transparent 55%),
+        radial-gradient(900px 700px at 90% 20%, rgba(212,175,55,0.10), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg0));
+
+      min-height: 100vh;
+      min-height: 100svh;
+
+      padding:
+        env(safe-area-inset-top)
+        env(safe-area-inset-right)
+        env(safe-area-inset-bottom)
+        env(safe-area-inset-left);
     }
 
-    a{ color: inherit; }
-    :focus-visible{ outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 10px; }
+    a{ color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover{ opacity: 0.9; }
 
     .skip-link{
-      position:absolute; left:-9999px; top:10px; z-index:9999;
-      background:#fff; color:#000; padding:10px 14px;
-      border-radius:10px; font-weight:900; text-decoration:none;
+      position:absolute; left:-9999px; top:12px; z-index:9999;
+      padding:10px 14px; border-radius:10px;
+      background:#fff; color:#000;
+      border: 2px solid var(--teal);
+      font-weight: 950; text-decoration:none;
     }
     .skip-link:focus{ left:12px; }
+    :focus-visible{ outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 12px; }
 
+    /* Header */
     header{
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(15,17,21,0.76);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--header-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
-
     .header-inner{
-      max-width: 1080px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 14px 18px;
       display:flex;
       justify-content: space-between;
-      align-items:center;
+      align-items: center;
       gap: 14px;
       flex-wrap: wrap;
     }
-
     .brand{
-      display:flex; align-items:center; gap: 10px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
       font-weight: 950;
+      letter-spacing:-0.02em;
       text-decoration:none;
-      white-space: nowrap;
-      letter-spacing: -0.01em;
+      color: var(--text);
+      white-space:nowrap;
     }
     .brand img{
-      width: 34px; height: 34px;
-      border-radius: 10px;
+      width:26px; height:26px;
+      border-radius: 6px;
       object-fit: contain;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.16);
-      padding: 4px;
-      display:block;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.08);
     }
-
-    .nav{
+    .nav-wrap{
       display:flex;
-      gap: 12px;
       align-items:center;
+      gap: 10px;
       flex-wrap: wrap;
       justify-content:flex-end;
     }
-    .nav a{
+    nav{
+      display:flex;
+      align-items:center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+    nav a{
       text-decoration:none;
-      font-weight: 800;
-      font-size: 0.92rem;
-      color: rgba(255,255,255,0.82);
+      color: var(--nav-link);
+      font-weight: 850;
+      font-size: 0.95rem;
       padding: 8px 10px;
       border-radius: 12px;
       border: 1px solid transparent;
-    }
-    .nav a:hover{
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(255,255,255,0.08);
-    }
-    .nav a[aria-current="page"]{
-      background: rgba(255,210,74,0.14);
-      border-color: rgba(255,210,74,0.24);
-      color: #fff;
-    }
-
-    .wrap{
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 26px 18px 56px;
-    }
-
-    /* Hero */
-    .hero{
-      display:grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 18px;
-      margin: 16px auto 18px;
-      align-items: start;
-    }
-    @media (max-width: 860px){ .hero{ grid-template-columns: 1fr; } }
-
-    h1{
-      font-size: clamp(1.8rem, 2.8vw, 2.5rem);
-      line-height: 1.12;
-      letter-spacing: -0.02em;
-      font-weight: 950;
-      margin-bottom: 10px;
-    }
-
-    .sub{
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.55;
-      max-width: 70ch;
-    }
-
-    .callouts{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-    }
-    .pill{
-      display:inline-flex;
-      gap: 8px;
-      align-items:center;
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
-      color: rgba(255,255,255,0.86);
-      font-weight: 850;
-      font-size: 0.9rem;
-    }
-
-    /* Trust panel */
-    .trust-panel{
-      background: rgba(17,24,39,0.55);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: var(--radius);
-      padding: 14px 14px 12px;
-      box-shadow: var(--shadow);
-    }
-    .trust-title{
-      display:flex; align-items:center; gap:10px;
-      font-weight: 950;
-      letter-spacing: -0.01em;
-      margin-bottom: 10px;
-    }
-    .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,210,74,0.20);
-      background: rgba(255,210,74,0.10);
-      color: rgba(255,255,255,0.92);
-      font-weight: 900;
-      font-size: 0.86rem;
+      transition: background .15s ease, color .15s ease, transform .15s ease, border-color .15s ease;
       white-space: nowrap;
     }
-    .trust-list{
-      list-style: none;
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
+    nav a:hover{
+      color: var(--text);
+      background: var(--nav-hover);
+      transform: translateY(-1px);
+      border-color: rgba(148,163,184,0.18);
     }
-    .trust-list li{
-      display:flex;
-      gap: 10px;
-      align-items:flex-start;
-      color: var(--muted2);
-      font-size: 0.95rem;
-      line-height: 1.45;
-    }
-    .dot{
-      width: 10px; height: 10px;
-      border-radius: 999px;
-      margin-top: 6px;
-      background: rgba(13,148,136,0.95);
-      box-shadow: 0 0 0 4px rgba(13,148,136,0.18);
-      flex-shrink: 0;
-    }
-    .trust-list strong{ color: rgba(255,255,255,0.92); font-weight: 950; }
-
-    /* Expectation panels */
-    .cols{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 8px;
-    }
-    @media (max-width: 860px){ .cols{ grid-template-columns: 1fr; } }
-
-    .mini{
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 14px;
-      padding: 12px;
-    }
-    .mini h3{
-      font-size: 0.95rem;
+    nav a.active, nav a[aria-current="page"]{
+      color: var(--text);
+      background: var(--goldDim);
+      border-color: var(--goldBorder);
       font-weight: 950;
-      margin-bottom: 6px;
-      color: rgba(255,255,255,0.92);
-    }
-    .mini p{
-      font-size: 0.92rem;
-      color: var(--muted2);
-      line-height: 1.5;
+      transform:none;
     }
 
-    /* Main card */
-    .card{
-      margin-top: 16px;
-      background: rgba(17,24,39,0.72);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow2);
-    }
-
-    .card-top{
-      padding: 14px 16px;
-      border-bottom: 1px solid rgba(255,255,255,0.10);
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .card-top-left{
-      display:flex; flex-direction: column; gap: 2px;
-    }
-    .card-top strong{
-      font-size: 0.98rem;
-      font-weight: 950;
-      letter-spacing: 0.01em;
-    }
-    .card-top small{
-      color: var(--muted2);
-      font-size: 0.9rem;
-    }
-
-    .open-btn{
+    .theme-toggle{
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--nav-link);
+      padding: 8px 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 900;
+      font-size: 0.95rem;
       display:inline-flex;
       align-items:center;
       gap: 8px;
-      background: rgba(255,255,255,0.08);
-      color: rgba(255,255,255,0.94);
+      transition: background .15s ease, color .15s ease, transform .15s ease, border-color .15s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .theme-toggle:hover{
+      background: var(--nav-hover);
+      color: var(--text);
+      transform: translateY(-1px);
+      border-color: rgba(148,163,184,0.18);
+    }
+    .theme-toggle .icon{ width: 1.1em; display:inline-block; text-align:center; }
+    .mode-pill{
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.95;
+    }
+
+    /* Page */
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 26px 20px 70px;
+    }
+
+    .hero{
+      text-align: center;
+      padding: 22px 0 14px;
+    }
+    .tag{
+      display:inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 950;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--goldDim);
+      border: 1px solid var(--goldBorder);
+    }
+    h1{
+      margin: 16px 0 10px;
+      font-weight: 950;
+      letter-spacing: -0.03em;
+      line-height: 1.06;
+      font-size: clamp(2.05rem, 5vw, 2.75rem);
+    }
+    .lead{
+      max-width: 820px;
+      margin: 0 auto;
+      font-size: 1.06rem;
+      color: var(--muted);
+    }
+
+    .subnote{
+      margin-top: 12px;
+      font-size: 0.92rem;
+      color: var(--muted);
+      max-width: 900px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    /* Form card (always white + readable) */
+    .form-card{
+      margin-top: 18px;
+      background: var(--form-bg);
+      border: 1px solid var(--form-border);
+      border-radius: 20px;
+      box-shadow: var(--form-shadow);
+      overflow: hidden;
+    }
+
+    .form-head{
+      padding: 18px 18px 12px;
+      border-bottom: 1px solid rgba(15,23,42,0.10);
+      background: linear-gradient(180deg, #FFFFFF, #F8FAFC);
+      color: #0F172A;
+    }
+    .form-head h2{
+      margin:0 0 6px;
+      font-size: 1.15rem;
+      font-weight: 950;
+      letter-spacing: -0.02em;
+    }
+    .form-head p{
+      margin:0;
+      color: #334155;
+      font-size: 0.95rem;
+    }
+
+    .form-body{
+      padding: 12px;
+      background: #FFFFFF;
+    }
+
+    /* KEY FIX:
+       Do NOT use transparentBackground=1 (it causes dark-mode readability issues).
+       Let Tally render its own default surface inside the iframe.
+    */
+    .tally-embed{
+      width: 100%;
+      min-height: 760px;
+      border: 0;
+      border-radius: 14px;
+      background: #FFFFFF;
+    }
+
+    .backup{
+      padding: 14px 18px 18px;
+      border-top: 1px solid rgba(15,23,42,0.10);
+      color: #334155;
+      background: #FFFFFF;
+      font-size: 0.92rem;
+    }
+    .backup a{ color: #0EA5E9; font-weight: 950; }
+
+    .disclaimer{
+      margin-top: 16px;
+      background: var(--goldDim);
+      border: 1px solid var(--goldBorder);
+      padding: 12px 14px;
+      border-radius: 14px;
+      color: var(--text);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    footer{
+      margin-top: 28px;
+      padding: 22px 0 10px;
+      text-align:center;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+    footer a{
+      color: inherit;
       text-decoration:none;
       font-weight: 900;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.14);
-      white-space: nowrap;
+      padding: 6px 8px;
+      border-radius: 10px;
+      display:inline-block;
+      margin: 0 6px;
     }
-    .open-btn:hover{ background: rgba(255,255,255,0.10); }
+    footer a:hover{ background: var(--nav-hover); color: var(--text); }
 
-    .frame-wrap{
-      width: 100%;
-      background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.20));
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-
-    iframe{
-      width: 100%;
-      height: 1200px;
-      border: 0;
-      display:block;
-      background: #0b0d12;
-    }
-    @media (max-width: 640px){ iframe{ height: 1450px; } }
-
-    /* Safety note */
-    .note{
-      padding: 14px 16px 16px;
-      color: var(--muted2);
-      font-size: 0.92rem;
-      line-height: 1.55;
-      border-top: 1px solid rgba(255,255,255,0.10);
-      display:grid;
-      gap: 10px;
-    }
-
-    .note-box{
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 14px;
-      padding: 12px 12px;
-    }
-
-    .note a{
-      color: rgba(255,255,255,0.92);
-      font-weight: 900;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .note-title{
-      display:flex; align-items:center; gap: 10px;
-      font-weight: 950;
-      color: rgba(255,255,255,0.92);
-      margin-bottom: 6px;
-    }
-
-    .fallback{
-      display:none;
-      padding: 18px 16px;
-      border-top: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.03);
-      color: var(--muted2);
-      font-size: 0.92rem;
-      line-height: 1.5;
-    }
-    .fallback a{
-      color: rgba(255,255,255,0.95);
-      font-weight: 950;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    @media print{
-      header, .callouts { display:none !important; }
-      body{ background:#fff; color:#000; }
-      .card{ box-shadow:none; border: 1px solid #000; }
-      .note, .trust-panel{ color:#000; }
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+      *{ transition:none !important; animation:none !important; }
     }
   </style>
 </head>
@@ -395,130 +427,137 @@ active: shield
 
   <header>
     <div class="header-inner">
-      <a class="brand" href="/shield.html" aria-label="Predicai Shield home">
-        <img src="/predicai-shield-gold.JPG" alt="Predicai Shield logo" />
-        Predicai Shield™
+      <a href="/" class="brand" aria-label="Predicai home">
+        <img src="/logo.png" alt="Predicai logo" />
+        <span>Predic<span style="color:var(--blue);">ai</span>&trade;</span>
       </a>
 
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="/">Home</a>
-        <a href="/shield.html">Shield</a>
-        <a href="/shield-check.html" aria-current="page">Shield Check</a>
-        <a href="/resources.html">Resources</a>
-        <a href="/pricing.html">Pricing</a>
-      </nav>
+      <div class="nav-wrap">
+        <nav aria-label="Primary navigation">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/academy">Academy</a>
+          <a href="/shield">Shield</a>
+          <a href="/signal">Signal</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/resources">Resources</a>
+          <a href="/faq">FAQ</a>
+          <a href="/shield-check" class="active" aria-current="page">Shield Check</a>
+        </nav>
+
+        <button class="theme-toggle" type="button" aria-label="Toggle theme">
+          <span class="icon" aria-hidden="true">◐</span>
+          <span class="mode-pill" id="modePill">AUTO</span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main id="main" class="wrap" role="main" tabindex="-1">
-    <section class="hero" aria-label="Shield Check introduction">
-      <div>
-        <h1>Shield Check™</h1>
-        <p class="sub">
-          Paste a suspicious text or email, describe a call, or upload a screenshot.
-          You’ll get a calm, plain-English explanation of risk signals and what to do next.
-        </p>
+  <main id="main" class="wrap">
+    <section class="hero" aria-label="Shield Check intro">
+      <span class="tag">Shield Check</span>
+      <h1>Check a suspicious message<br>before money moves</h1>
+      <p class="lead">
+        Paste what you received (or describe the situation). Submit the form below.
+      </p>
 
-        <div class="callouts" aria-label="Key benefits">
-          <span class="pill">🧠 Calm second opinion</span>
-          <span class="pill">🛡️ Risk signals explained</span>
-          <span class="pill">🔒 No login required</span>
-          <span class="pill">⏱️ Takes ~2 minutes</span>
-        </div>
-      </div>
-
-      <aside class="trust-panel" aria-label="Trust and safety information">
-        <div class="trust-title">
-          <span class="badge">🔐 Privacy-first intake</span>
-        </div>
-        <ul class="trust-list">
-          <li><span class="dot"></span><span><strong>Purpose:</strong> identify scam patterns and explain risk signals in plain English.</span></li>
-          <li><span class="dot"></span><span><strong>Use safely:</strong> share only what’s necessary. Redact personal details when possible.</span></li>
-          <li><span class="dot"></span><span><strong>No account:</strong> no login, no setup, no app to install.</span></li>
-          <li><span class="dot"></span><span><strong>Next steps:</strong> you’ll get recommended actions based on what you share.</span></li>
-        </ul>
-      </aside>
+      <p class="subnote">
+        If the form fails to load, use the backup link:
+        <a href="https://tally.so/r/LZzErv" target="_blank" rel="noopener noreferrer">open Shield Check in a new tab</a>.
+      </p>
     </section>
 
-    <section class="cols" aria-label="What you will get and what not to share">
-      <div class="mini">
-        <h3>What you’ll get</h3>
-        <p>
-          A clear breakdown of suspicious signals, a simple risk level, and practical next steps
-          (block, report, verify, or escalate).
-        </p>
-      </div>
-      <div class="mini">
-        <h3>What not to paste</h3>
-        <p>
-          Passwords, one-time codes, full account numbers, SSNs, or medical/patient data.
-          If needed, replace with placeholders like <strong>[BANK NAME]</strong> or <strong>[CODE]</strong>.
-        </p>
-      </div>
-    </section>
-
-    <section class="card" aria-label="Shield Check form">
-      <div class="card-top">
-        <div class="card-top-left">
-          <strong>Shield Check Console</strong>
-          <small>Secure intake • One submission at a time</small>
-        </div>
-
-        <a class="open-btn" href="https://tally.so/r/LZzErv" target="_blank" rel="noopener noreferrer">
-          Backup: open in new tab ↗
-        </a>
+    <section class="form-card" aria-label="Shield Check form">
+      <div class="form-head">
+        <h2>Shield Check intake</h2>
+        <p>Answer a few prompts so the review can be specific (and safer).</p>
       </div>
 
-      <div class="frame-wrap">
+      <div class="form-body">
+        <!-- IMPORTANT: remove transparentBackground=1 to avoid dark-mode readability failures -->
         <iframe
-          id="tallyFrame"
-          title="Shield Check form"
-          data-tally-src="https://tally.so/r/LZzErv?transparentBackground=1"
+          class="tally-embed"
+          src="https://tally.so/r/LZzErv"
+          title="Predicai Shield Check (Tally form)"
           loading="lazy"
-          allow="clipboard-read; clipboard-write"
+          allow="clipboard-write"
         ></iframe>
       </div>
 
-      <div class="fallback" id="fallback">
-        If the form doesn’t load, your browser may be blocking embedded forms.
-        Use the backup link:
+      <div class="backup">
+        If the embedded form doesn’t load on your device:
         <a href="https://tally.so/r/LZzErv" target="_blank" rel="noopener noreferrer">open Shield Check in a new tab</a>.
       </div>
-
-      <div class="note">
-        <div class="note-box">
-          <div class="note-title">🚨 If this is urgent</div>
-          If you believe you’re being actively scammed right now, stop responding and contact your bank/card issuer immediately.
-          If someone is in danger, contact local emergency services.
-        </div>
-
-        <div class="note-box">
-          <div class="note-title">🧾 Data reminder</div>
-          Keep it minimal. Redact names, emails, and phone numbers when possible.
-          (Read <a href="/privacy.html">Privacy</a> and <a href="/terms.html">Terms</a>.)
-        </div>
-      </div>
     </section>
+
+    <div class="disclaimer" role="note">
+      ℹ️ If money was sent (wire, crypto, gift cards), call your bank or card issuer immediately. If you feel unsafe, call local authorities.
+    </div>
+
+    <footer>
+      <div style="margin-bottom:10px;">© 2026 Predicai™</div>
+      <a href="/shield">Shield</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </footer>
   </main>
 
-  <script src="https://tally.so/widgets/embed.js"></script>
   <script>
     (function () {
-      var d = document;
-      function showFallback(){
-        var el = d.getElementById("fallback");
-        if (el) el.style.display = "block";
+      const root = document.documentElement;
+      const toggle = document.querySelector('.theme-toggle');
+      const pill = document.getElementById('modePill');
+      const themeMeta = document.querySelector('meta[name="theme-color"]');
+
+      function getTheme(){ return root.getAttribute('data-theme') || 'auto'; }
+
+      function applyTheme(t){
+        root.setAttribute('data-theme', t);
+        localStorage.setItem('predicai-theme', t);
+        if (pill) pill.textContent = t.toUpperCase();
+
+        if (themeMeta){
+          if (t === 'light') themeMeta.setAttribute('content', '#F8FAFC');
+          else if (t === 'dark') themeMeta.setAttribute('content', '#050A10');
+          else {
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            themeMeta.setAttribute('content', prefersDark ? '#050A10' : '#F8FAFC');
+          }
+        }
       }
 
-      window.setTimeout(function(){
-        var frame = d.getElementById("tallyFrame");
-        if (!frame) return;
-        var hasSrc = frame.getAttribute("src") || frame.getAttribute("data-tally-src");
-        if (!hasSrc) showFallback();
-      }, 2200);
+      // init theme
+      const stored = localStorage.getItem('predicai-theme');
+      applyTheme(stored || getTheme() || 'auto');
 
-      var frame = d.getElementById("tallyFrame");
-      if (frame) frame.addEventListener("error", showFallback);
+      // cycle: auto -> dark -> light -> auto
+      if (toggle){
+        toggle.addEventListener('click', () => {
+          const t = getTheme();
+          const next = (t === 'auto') ? 'dark' : (t === 'dark') ? 'light' : 'auto';
+          applyTheme(next);
+        });
+      }
+
+      // system change handling in auto
+      try{
+        const mq = window.matchMedia('(prefers-color-scheme: dark)');
+        mq.addEventListener('change', () => {
+          if (getTheme() === 'auto') applyTheme('auto');
+        });
+      } catch(e){}
+
+      // active nav highlight (clean routes)
+      (function(){
+        const path = (location.pathname || '/').toLowerCase().replace(/\/+$/, '') || '/';
+        document.querySelectorAll('nav a[href]').forEach(a => {
+          const href = (a.getAttribute('href') || '').toLowerCase().replace(/\/+$/, '') || '/';
+          if (href === path){
+            a.classList.add('active');
+            a.setAttribute('aria-current','page');
+          }
+        });
+      })();
     })();
   </script>
 </body>
