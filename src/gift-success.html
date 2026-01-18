@@ -1,100 +1,181 @@
----
-layout: null
-permalink: /gift-success/
-active: shield
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Gift Purchased – Predicai™</title>
+  <meta name="description" content="Gift confirmed. Your 1-Year Predicai Shield™ membership gift is secured. You’ll receive an activation code by email." />
   <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#FFFBEB" />
+
+  <!-- Clean-route canonical (matches your /pricing style) -->
+  <link rel="canonical" href="https://predicai.ai/gift-purchased" />
+
   <link rel="icon" href="https://predicai.ai/favicon.ico" sizes="any" />
   <link rel="icon" href="https://predicai.ai/logo.png" type="image/png" />
-  
+  <link rel="apple-touch-icon" href="https://predicai.ai/logo.png" />
+
   <style>
     /* CORE VARIABLES */
-    :root { 
-      --bg-page: #F9FAFB; --text-primary: #111827; --accent-shield: #D4AF37; --bg-card: #FFFFFF;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root{
+      --bg-page:#F9FAFB;
+      --bg-card:#FFFFFF;
+      --text-primary:#111827;
+      --text-sub:#4B5563;
 
-    body { 
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-      background: var(--bg-page); 
-      color: var(--text-primary); 
-      text-align: center; 
-      padding: 60px 24px; 
-      line-height: 1.6;
-    }
+      --accent-shield:#D4AF37;
+      --shield-wash:#FFFBEB;
+      --shield-border:#FCD34D;
 
-    .container { 
-      max-width: 600px; 
-      margin: 0 auto; 
-      background: var(--bg-card); 
-      padding: 40px; 
-      border-radius: 24px; 
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-      border: 1px solid #E5E7EB;
+      --border:#E5E7EB;
+      --focus: rgba(212,175,55,0.55);
     }
 
-    .icon-large { font-size: 3.5rem; margin-bottom: 16px; display: block; }
-    
-    h1 { font-size: 2rem; margin-bottom: 16px; font-weight: 800; letter-spacing: -0.02em; }
-    
-    .lead { font-size: 1.1rem; color: #4B5563; margin-bottom: 32px; }
-    
-    .instruction-box { 
-      background: #FFFBEB; 
-      border: 1px solid #FCD34D;
-      padding: 24px; 
-      border-radius: 12px; 
-      margin: 0 auto 32px; 
-      text-align: left; 
+    *{ box-sizing:border-box; margin:0; padding:0; }
+
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      background:var(--bg-page);
+      color:var(--text-primary);
+      text-align:center;
+      padding:60px 24px;
+      line-height:1.6;
     }
 
-    ol { margin-top: 10px; color: #4B5563; padding-left: 20px; line-height: 1.6; }
-    li { margin-bottom: 8px; }
+    a{ color: inherit; text-decoration: none; }
 
-    .btn { 
-      display: inline-block; 
-      background: var(--accent-shield); 
-      color: white; 
-      padding: 14px 28px; 
-      border-radius: 8px; 
-      text-decoration: none; 
-      font-weight: 700; 
-      transition: opacity 0.2s;
+    /* Skip link */
+    .skip-link{
+      position:absolute;
+      left:-9999px;
+      top:12px;
+      z-index:999;
+      background:#fff;
+      color:#000;
+      padding:12px 14px;
+      border-radius:10px;
+      border:2px solid var(--accent-shield);
+      font-weight:900;
     }
-    .btn:hover { opacity: 0.9; }
-    
-    footer { margin-top: 40px; font-size: 0.85rem; color: #9CA3AF; }
+    .skip-link:focus{ left:16px; }
+
+    :focus-visible{
+      outline:3px solid var(--focus);
+      outline-offset:3px;
+      border-radius:8px;
+    }
+
+    .container{
+      max-width:600px;
+      margin:0 auto;
+      background:var(--bg-card);
+      padding:40px;
+      border-radius:24px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.05);
+      border:1px solid var(--border);
+    }
+
+    .icon-large{
+      font-size:3.5rem;
+      margin-bottom:16px;
+      display:block;
+    }
+
+    h1{
+      font-size:2rem;
+      margin-bottom:16px;
+      font-weight:900;
+      letter-spacing:-0.02em;
+    }
+
+    .lead{
+      font-size:1.1rem;
+      color:var(--text-sub);
+      margin-bottom:32px;
+    }
+
+    .instruction-box{
+      background:var(--shield-wash);
+      border:1px solid var(--shield-border);
+      padding:24px;
+      border-radius:12px;
+      margin:0 auto 32px;
+      text-align:left;
+    }
+
+    ol{
+      margin-top:10px;
+      color:var(--text-sub);
+      padding-left:20px;
+      line-height:1.6;
+    }
+    li{ margin-bottom:8px; }
+
+    .btn{
+      display:inline-block;
+      background:var(--accent-shield);
+      color:#111827;
+      padding:14px 28px;
+      border-radius:12px;
+      font-weight:900;
+      transition: opacity 0.2s, transform 0.2s;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+
+    /* Hover guard */
+    @media (hover: hover){
+      .btn:hover{ opacity:0.92; transform: translateY(-1px); }
+    }
+
+    footer{
+      margin-top:40px;
+      font-size:0.85rem;
+      color:#9CA3AF;
+    }
+
+    @media (max-width: 520px){
+      .container{ padding:28px; }
+      h1{ font-size:1.75rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ transition:none !important; }
+    }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <span class="icon-large">🎁</span>
-    <h1>Gift Secured.</h1>
-    <p class="lead">
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <main id="main">
+    <div class="container">
+      <span class="icon-large" aria-hidden="true">🎁</span>
+      <h1>Gift Secured.</h1>
+      <p class="lead">
         You have successfully purchased a<br>
         <strong>1-Year Shield Membership</strong> gift.
-    </p>
-    
-    <div class="instruction-box">
+      </p>
+
+      <div class="instruction-box" role="note" aria-label="Next steps">
         <strong style="color:#92400E;">What happens next?</strong>
         <ol>
-            <li>Check your email for your receipt.</li>
-            <li>Within 12 hours, you will receive a separate email containing a <strong>Unique Activation Code</strong>.</li>
-            <li>Forward that email to your recipient. They will use the code to activate their account for free.</li>
+          <li>Check your email for your receipt.</li>
+          <li>Within 12 hours, you will receive a separate email containing a <strong>Unique Activation Code</strong>.</li>
+          <li>Forward that email to your recipient. They will use the code to activate their account for free.</li>
         </ol>
+      </div>
+
+      <a href="/" class="btn" aria-label="Return to Predicai home">Return to Website</a>
+
+      <footer>
+        © <span id="year">2026</span> Predicai™
+      </footer>
     </div>
+  </main>
 
-    <a href="/" class="btn">Return to Website</a>
-
-    <footer>
-        © 2026 Predicai™
-    </footer>
-  </div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
